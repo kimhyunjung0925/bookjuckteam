@@ -1,0 +1,23 @@
+* { margin: 0; padding: 0; list-style: none; box-sizing: border-box; }
+
+html, body { width: 100%; height: 100%;}
+
+body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: auto 1fr 50px; }
+
+
+/* ================  메인베스트부분 ================== */
+
+
+.best-list__body .best-list__item { margin: 30px auto 60px; padding: 0 20px; }
+.best-list__body .best-info { margin: 20px 0 10px; }
+.best-list__body .best-info__name { font-size: 18px; }
+.best-list__body .best-info__date { color: #333; margin-top: 6px; }
+
+.font_bold { font-size: large; font-weight: bold; }
+
+
+.menuDiv {
+    background-color: cornflowerblue; width: 100%; height: 50px; display: flex; align-items: center; justify-content: center;
+}
+
+.clicked { background-color: lavender; font-size:large; }

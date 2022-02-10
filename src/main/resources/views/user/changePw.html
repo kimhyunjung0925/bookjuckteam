@@ -1,0 +1,29 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="user/thymeleaf_userlayout">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/mypage.js}"></script>
+</head>
+
+<th:block layout:fragment="userContent">
+
+        <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
+        <div class="flex center back_color_purple h-100">
+            <div>
+                <h2><span>비밀번호 변경</span></h2>
+                <form action="/user/changePw" method="post" id="password-frm">
+                    <div><label>현재 비밀번호 : <input type="password" name="currentUpw"></label></div>
+                    <div><label>변경 비밀번호 : <input type="password" name="upw"></label></div>
+                    <div><label>확인 비밀번호 : <input type="password" id="confirmUpw"></label></div>
+
+                    <div class="flex justify_flex_end"><input type="submit" value="변경"></div>
+                </form>
+            </div>
+        </div>
+
+
+</th:block>

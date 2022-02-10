@@ -1,0 +1,18 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<th:block layout:fragment="content">
+    <div class="center h-100">
+        <div class="subtemplate_container">
+            <div>
+                <th:block th:replace="user/userMenu :: userMenu"></th:block>
+            </div>
+            <div>
+                <th:block layout:fragment="userContent"></th:block>
+            </div>
+        </div>
+    </div>
+
+</th:block>

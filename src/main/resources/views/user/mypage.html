@@ -1,0 +1,79 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="user/thymeleaf_userlayout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/mypage.js}"></script>
+</head>
+
+<th:block layout:fragment="userContent">
+    <div class="m-t-50 m-l-100">
+        <div class="flex w-100 justify_space_between back_color_grey2 p-20">
+            <div class="grid place_center">
+<!--                <div><span th:text="${@utils.getLoginUser().getNm()}"></span>님의</div>-->
+                <div>회원등급은 <strong>siver</strong> 입니다.</div>
+            </div>
+            <!--엔티티에 쿠폰이랑 적립금도 넣어야함-->
+            <div class="grid place_center">
+                <i class="fas fa-copyright"></i>
+                <h3>쿠폰</h3>
+                <div><strong>2</strong>장</div>
+            </div>
+
+            <div class="grid place_center">
+                <i class="fab fa-mastodon"></i>
+                <h3>적립금</h3>
+                <div><strong>16,300</strong>점</div>
+            </div>
+        </div>
+
+        <div class="m-t-40">
+            <article>
+                <table class="myinfo_table">
+                    <tbody>
+                    <tr>
+                        <th>아이디</th>
+<!--                        <td><span th:text="${@utils.getLoginUser().getUid()}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td>
+<!--                            <span th:text="${@utils.getLoginUser().getNm()}"></span>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>생년월일</th>
+<!--                        <td><span th:text="${@utils.getLoginUser().getBirth()}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <th>성별</th>
+<!--                        <td><span th:text="${@utils.getLoginUser().getGender()}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <th>휴대폰 번호</th>
+<!--                        <td><span th:text="${@utils.getLoginUser().getPh()}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td>
+<!--                            <p><span th:text="${@utils.getLoginUser().getEmail()}"></span></p>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td>
+<!--                            <span th:text="${@utils.getLoginUser().getAddr()}"></span>-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>
+
+
+</th:block>

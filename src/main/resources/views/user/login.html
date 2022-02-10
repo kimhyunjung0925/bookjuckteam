@@ -1,0 +1,48 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/css/user/login.css}">
+    <!--AT{}는 Standard URL이라고 한다. -->
+    <script defer th:src="@{/js/user/login.js}"></script>
+</head>
+
+<th:block layout:fragment="content">
+    <form th:action="@{/user/login}" method="post" th:object="${UserEntity}">
+    <div class="grid h-100 align_content_center m-t-40">
+
+        <div class="flex center ">
+            <div class="border_box back_color_purple ">
+                <div class="p-ud-30 p-lr-100">
+                    <strong>북적북적 로그인</strong>
+                    <div th:if="${param.error}" class="color_red" role="alert">
+                        아이디나 패스워드가 일치하지 않습니다.
+                    </div>
+                    <div th:if="${param.logout}" class="color_red" role="alert">
+                        로그아웃에 성공했습니다.
+                    </div>
+                    <br>
+                    <div>
+                        <input type="text" th:field="*{uid}" placeholder="아이디를 입력해 주세요." class="width100">
+                    </div>
+                    <div>
+                        <input type="password" th:field="*{upw}" placeholder="비밀번호를 입력해 주세요." class="width100">
+                    </div>
+                    <div>
+                        <input type="submit" value="로그인" class="btnlogin">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center">
+            <div>비밀번호찾기 | </div> &nbsp;&nbsp;
+            <div>회원찾기 | </div> &nbsp;&nbsp;
+            <div><a href="/user/join">회원가입</a> </div>
+        </div>
+    </div>
+    </form>
+</th:block>

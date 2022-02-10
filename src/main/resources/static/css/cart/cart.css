@@ -1,0 +1,9 @@
+.btn_pay { background-color: thistle; font-size: larger;}
+
+.cart_table table td:first-child{text-align: left;  vertical-align: middle;}
+.cart_table  table, td, th { border: 1px solid #262626; border-collapse: collapse;}
+.cart_table td { text-align: center;}
+.cart_table th { background-color: cornflowerblue;}
+
+.payment_table table, td, th { border: 1px solid #262626; border-collapse: collapse;  height: 50px;  }
+.payment_table th { background-color: lightskyblue;}

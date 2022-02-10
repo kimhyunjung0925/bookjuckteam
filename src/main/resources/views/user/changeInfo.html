@@ -1,0 +1,67 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="user/thymeleaf_userlayout">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/mypage.js}"></script>
+</head>
+
+<th:block layout:fragment="userContent">
+
+        <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
+        <div class="flex center back_color_purple h-100">
+            <div>
+                <h2><span>회원 정보 수정</span></h2>
+
+                <article class="edit_info">
+                    <table class="edit_table">
+                        <tbody>
+                            <tr>
+                                <th>아이디</th>
+<!--                                <td><span th:text="${@utils.getLoginUser().getUid()}"></span></td>-->
+                            </tr>
+                            <tr>
+                                <th>이름</th>
+<!--                                <td><span th:text="${@utils.getLoginUser().getNm()}"></span></td>-->
+                            </tr>
+                            <tr>
+                                <th>생년월일</th>
+<!--                                <td><span th:text="${@utils.getLoginUser().getBirth()}"></span></td>-->
+                            </tr>
+                            <tr>
+                                <th>성별</th>
+<!--                                <td><span th:text="${@utils.getLoginUser().getGender()}"></span></td>-->
+                            </tr>
+                            <tr>
+                                <th>휴대폰 번호</th>
+<!--                                <td><span th:text="${@utils.getLoginUser().getPh()}"></span></td>-->
+                            </tr>
+                            <tr>
+                                <th>이메일</th>
+                                <td>
+                                    <div>
+<!--                                        <p><span th:text="${@utils.getLoginUser().getEmail()}"></span></p>-->
+                                        <div>
+                                            <button type="button">이메일 변경</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td>
+<!--                                    <span class="user_id"><span th:text="${@utils.getLoginUser().getAddr()}"></span></span>-->
+                                    <div><button type="button">주소 변경</button></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+        </div>
+
+
+</th:block>

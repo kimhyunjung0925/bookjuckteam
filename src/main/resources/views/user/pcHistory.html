@@ -1,0 +1,58 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="user/thymeleaf_userlayout">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/mypage.js}"></script>
+</head>
+
+<th:block layout:fragment="userContent">
+
+    <div class="flex center back_color_purple h-100">
+            <div>
+                <h2>구매내역</h2>
+                <table>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="30%">
+                        <col width="15%">
+                        <col width="15%">
+                        <col width="10%">
+                        <col width="10%">
+                    </colgroup>
+
+                    <tr class="back_color_grey2">
+                        <th>주문일자</th>
+                        <th> 상품명 </th>
+                        <th> 주문금액 </th>
+                        <th> 수량 </th>
+                        <th> 장바구니 </th>
+                        <th> 바로구매 </th>
+                    </tr>
+
+                    <tr class="back_color_white">
+                        <td>2022년 01월 01일</td>
+                        <td><div class="flex justify_flex_start align_items_center"><img th:src="@{/upload/images/XL.jfif}"  class="ph_img_size">아몬드</div></td>
+                        <td>17,800원</td>
+                        <td>- 1개 +</td>
+                        <td> <input type="button" value="장바구니"> </td>
+                        <td> <input type="button" value="바로구매"> </td>
+                    </tr>
+
+                    <tr class="back_color_white">
+                        <td>2022년 11월 01일</td>
+                        <td><div class="flex justify_flex_start align_items_center">
+                            <img th:src="@{/upload/images/XL (1).jfif}"  class="ph_img_size">돌이킬 수 있는</div></td>
+                        <td>19,900원</td>
+                        <td>- 2개 +</td>
+                        <td> <input type="button" value="장바구니"> </td>
+                        <td> <input type="button" value="바로구매"> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+</th:block>

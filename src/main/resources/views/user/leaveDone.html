@@ -1,0 +1,28 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/mypage.js}"></script>
+</head>
+
+<th:block layout:fragment="content">
+    <div class="h-100">
+        <div class="grid place_center">
+            <div>
+                <h1>아쉽습니다ㅠ</h1>
+            </div>
+            <div class="flex">
+                <img th:src="@{/upload/images/logo.png}"  class="main_logo"><h1 class="color_red">회원 탈퇴가 완료</h1><h2>되었습니다.</h2>
+            </div>
+            <div>
+                <a href="/main"><input type="button" value="메인화면" class="p-20 font_size_larger back_color_blue"></a>
+                <a href="/user/login"><input type="button" value="로그인" class="p-20 font_size_larger back_color_blue2"></a>
+            </div>
+        </div>
+    </div>
+
+</th:block>

@@ -1,0 +1,80 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/user/join.css}">
+    <!--AT{}는 Standard URL이라고 한다. -->
+    <script defer th:src="@{/js/user/join.js}"></script>
+</head>
+
+<th:block layout:fragment="content">
+
+    <form th:action="@{/user/join}" method="post" th:object="${entity}">
+        <div class="flex center"><h1>회원가입</h1></div>
+
+        <div class="grid center">
+
+
+
+
+            <h2>이름</h2>
+            <div><input type="text" th:field="*{nm}" placeholder="15자 이내로 입력해주세요." class="text"></div>
+
+            <h2>생년월일/성별</h2>
+            <div class="flex">
+                <input type="text" th:field="*{birth}" placeholder="8자리 입력(예.1996.01.01)" class="m-r-10 birth">
+                <select th:field="*{gender}">
+                    <option th:value="1" th:text="여자"></option>
+                    <option th:value="2" th:text="남자"></option>
+                    <option th:value="3" th:text="선택안함"></option>
+                </select>
+            </div>
+
+            <h2>휴대폰 번호</h2>
+            <div><input type="text" th:field="*{ph}" placeholder="-없이 입력해 주세요." class="text"></div>
+
+            <h2>아이디</h2>
+            <div><input type="text"  th:field="*{uid}" placeholder="영소문자/숫자 5~10자리" class="text"></div>
+
+            <h2>비밀번호</h2>
+            <div><input type="password" th:field="*{upw}" placeholder="영소문자/숫자/특수문자 조합 8~15자리(대소문자 구분)" class="text"></div>
+            <div><input type="password" placeholder="비밀번호 확인" class="text"></div>
+
+            <h2>이메일</h2>
+            <div class="colorblue">※비밀번호 분실 시 임시 비밀번호가 이메일로 발송됩니다.</div>
+            <div class="flex">
+                <input type="text" th:field="*{email}" class="m-r-5 email">
+                <div class="larger">@</div>
+                <input type="text" class="m-r-5 m-l-5 email">
+
+                <!--            이메일 인풋 두개를 자바스크립트로 연결하여 처리하는 과정을 알아보아야 할것같슴다-->
+
+                <select name="이메일">
+                    <option value="select">선택</option>
+                    <option value="">naver.com</option>
+                    <option value="">nate.com</option>
+                    <option value="">daum.net</option>
+                    <option value="">google.com</option>
+                </select>
+            </div>
+            <div>
+                <h2>주소</h2>
+                <input type="text" th:field="*{addr}" class="text">
+            </div>
+
+            <div>
+                E-mail 수신에 동의하시겠습니까?
+                <input type="radio">예
+                <input type="radio">아니오
+            </div>
+
+            <div class="flex justify_flex_end align_items_center">
+                <input type="submit" value="회원가입 완료" class="p-10 join_btn_color"></a>
+            </div>
+
+        </div>
+    </form>
+</th:block>

@@ -1,0 +1,11 @@
+.join_section { display: flex; justify-content: center;  }
+
+.email { width: 168px; height: 50px; }
+
+.birth { width: 360px; height: 50px; }
+
+.text { width: 420px; height: 50px; }
+
+.join_btn_color { background-color:lightsteelblue;}
+
+.select { height: 50px; width: 50px; }

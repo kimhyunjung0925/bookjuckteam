@@ -1,0 +1,24 @@
+/*서브메뉴 부분*/
+.mypage_menu {margin-bottom: 30px; margin-left: 10px; font-weight: bold;}
+
+.mypage_submenu_item {margin-left: 10px; font-weight:normal;}
+
+
+/*내 정보 테이블*/
+.myinfo_table tbody tr td{font-weight:400;text-align:left; font-size:15px}
+
+.myinfo_table tbody tr{border-top:1px solid #e6e8eb}
+
+.myinfo_table tbody th {background:rgb(152, 138, 233);font-weight:700;color:white; font-size:12px;line-height:1.5em}
+
+/*정보 수정 테이블*/
+.edit_table tbody th { background-color: lightsteelblue;}
+.edit_table tbody td { background-color: white;}
+
+
+/*구매내역 테이블*/
+table, td, th { border: 1px solid #262626; border-collapse: collapse; width: 900px; }
+table td:not(:first-child) { text-align: center;}
+table td:first-child{text-align: left;  vertical-align: middle;}
+
+.ph_img_size { width: 80px; height: 100px; }

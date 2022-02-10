@@ -1,0 +1,15 @@
+/*detail*/
+.bookDetailInfoTable  table, td, th { border: 1px solid #262626; border-collapse: collapse; width: 800px; }
+.bookDetailInfoTable  tr {display: table-row;}
+.bookDetailInfoTable  td { text-align: center;}
+.bookDetailInfoTable  th {background-color: darkgrey; }
+
+.border_box { border: solid 2px black;}
+
+.btn_larger { padding: 10px; font-size: larger;}
+
+
+
+/*list*/
+.list {height: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px;}
+

@@ -1,0 +1,36 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns="http://www.w3.org/1999/html">
+
+<!-- ////////////마이페이지 서브메뉴 부분/////////// -->
+<th:block th:fragment="userMenu">
+
+        <div class="h-100">
+            <!--마이페이지 홈/정보변경/고객센터 등 왼쪽 서브 메뉴-->
+            <div class="flex justify_content_center back_color_grey h-100">
+                <div class="mypage_submenu">
+                    <h3 class="m-t-20">마이페이지</h3>
+                    <div class="mypage_submenu_item">
+                        <a href="/user/mypage" target="_blank">내 정보</a>
+                    </div>
+
+                    <h3 class="m-t-20"> 내 정보 관리 </h3>
+                    <div class="mypage_submenu_item">
+                        <a href="/user/changeInfo" target="_blank">회원정보 수정</a>
+                    </div>
+                    <div class="mypage_submenu_item">
+                        <a href="/user/changePw" target="_blank">비밀번호 변경</a>
+                    </div>
+                    <div class="mypage_submenu_item">
+                        <a href="/user/leave" target="_blank">회원탈퇴</a>
+                    </div>
+
+                    <h3 class="m-t-20">나의 주문 내역</h3>
+                    <div class="mypage_submenu_item">
+                        <a href="/user/pcHistory" target="_blank">구매내역</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</th:block>
