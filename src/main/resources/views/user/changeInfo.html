@@ -17,24 +17,24 @@
                 <div class="changeinfo_head m-b-30">회원 정보 수정</div>
 
                 <div class="m-t-10"><b>아이디</b></div>
-                <div><input type="text" readonly th:value="${@utils.getLoginUser().getUid()}" class="info_box back_color_grey4"></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getUid()}" class="text_box back_color_grey4"></div>
 
                 <div class="m-t-10"><b>이름</b></div>
-                <div><input type="text" readonly th:value="${@utils.getLoginUser().getNm()}" class="info_box back_color_grey4"></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getNm()}" class="text_box back_color_grey4"></div>
 
 
                 <div class="m-t-10"><b>생년월일</b></div>
-                <div><input type="text" readonly th:value="${@utils.getLoginUser().getBirth()}" class="info_box back_color_grey4"></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getBirth()}" class="text_box back_color_grey4"></div>
 
 
                 <div class="m-t-10"><b>휴대폰번호</b></div>
-                <div><input type="text" th:value="${@utils.getLoginUser().getPh()}" class="info_box"></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getPh()}" class="text_box"></div>
 
                 <div class="m-t-10"><b>이메일</b></div>
-                <div><input type="text" th:value="${@utils.getLoginUser().getEmail()}" class="info_box"></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getEmail()}" class="text_box"></div>
 
                 <div class="m-t-10"><b>주소</b></div>
-                <div><input type="text" th:value="${@utils.getLoginUser().getAddr()}" class="info_box"></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getAddr()}" class="text_box"></div>
 
                 <div class="flex justify_flex_end"><input type="button" value="변경하기" class="change_btn"></div>
             </div>

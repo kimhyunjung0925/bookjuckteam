@@ -15,7 +15,7 @@ table td:first-child{text-align: left;  vertical-align: middle;}
 
 /*회원 정보 변경*/
 
-.info_box{
+.text_box{
     display: block;
     position: relative;
     width: 100%;
@@ -56,4 +56,25 @@ table td:first-child{text-align: left;  vertical-align: middle;}
     line-height: 40px;
 }
 
+/*회원 탈퇴*/
+
+.leave_head{
+    text-align: center;
+    background: #b1bac4;
+    border: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    height: 41px;
+    line-height: 40px;
+}
+
+.leave_btn{
+    display: block;
+    width: 150px;
+    padding: 17px 0 15px;
+    border-radius: 6px;
+    border: solid 1px rgba(0,0,0,.15);
+    background-color:cornflowerblue;
+    margin-top: 20px;
+}
 

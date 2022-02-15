@@ -14,18 +14,16 @@
         <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
         <!--회원정보 수정-->
         <div class="flex center back_color_purple h-100">
-            <div>
-                <strong ><span>회원탈퇴</span></strong>
-                <br>
-                <div>
-                    <input type="text" placeholder="아이디를 입력해 주세요.">
+            <div class="width500p">
+                <div class="leave_head m-b-30">회원탈퇴</div>
+
+                <div><input type="text" placeholder="아이디를 입력해 주세요." class="text_box"></div>
+                <div><input type="password" placeholder="비밀번호를 입력해 주세요." class="text_box"></div>
+
+                <div class="flex justify_flex_end ">
+                    <a href="/user/leaveDone"><input type="submit" value="회원탈퇴" class="leave_btn"></a>
                 </div>
-                <div>
-                    <input type="password" placeholder="비밀번호를 입력해 주세요.">
-                </div>
-                <div class="flex justify_flex_end">
-                    <a href="/user/leaveDone"><input type="button" value="회원탈퇴"></a>
-                </div>
+<!--                회원 탈퇴 버튼 누르면 정말로 탈퇴 하겠습니까? 메세지 뜨게 하기!!!!  -->
             </div>
         </div>
 
