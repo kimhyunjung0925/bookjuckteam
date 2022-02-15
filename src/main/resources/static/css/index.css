@@ -5,8 +5,8 @@ html, body { width: 100%; height: 100%;}
 html { overflow-y:scroll; }
 
 .template_container { display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; }
-.subtemplate_container {display: grid; grid-template-columns: 200px 1fr; height: 100%; width: 90%; }
-
+.subtemplate_container {display: grid; grid-template-columns: 200px 1fr; min-height: 100vh;      width: 90%; }
+.loginjoin_container {width: 100%; height: 100%;}
 .center { display: flex; justify-content: center; }
 
 /* ================  헤더부분 ================== */
@@ -19,6 +19,7 @@ a:hover { text-decoration:none !important }
 
 /*-------------search--------------*/
 .main_logo { width: 100px; height: 55px; }
+.main_logo_large { width: 200px; height: 105px;}
 
 .search { float: left;width: 401px;height: 42px; background: no-repeat 0 0; }
 
@@ -67,6 +68,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .w-90 { width: 90%; }
 .w-100 { width: 100%; }
 .width200p {width: 200px;}
+.width500p {width: 500px;}
 
 .height50 { height: 50%; }
 .height80 { height: 80%; }
@@ -104,6 +106,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .m-t-50 { margin-top: 50px; }
 .m-t-70 { margin-top: 70px; }
 
+.m-r-5 {margin-right: 5px;}
 .m-r-10 { margin-right: 10px; }
 .m-r-20 { margin-right: 20px; }
 .m-r-30 { margin-right: 30px; }
@@ -149,6 +152,8 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .back_color_blue2 { background-color: lightsteelblue; }
 .back_color_grey { background-color: lightslategray; }
 .back_color_grey2 { background-color: darkgrey; }
+.back_color_grey3 {background-color: #f5f6f7;}
+.back_color_grey4 {background-color: #e8e8e8;}
 .back_color_white {background-color: white;}
 
 /* color */
@@ -156,6 +161,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .color_black { color: black; }
 .color_red { color: red; }
 .color_blue { color: blue; }
+.color_grey { color: slategray;}
 
 
 
@@ -176,3 +182,4 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 
 .relative { position: relative; }
 .relativeL40 {position: relative; left:-40px;}
+

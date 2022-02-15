@@ -13,53 +13,30 @@
 
         <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
         <div class="flex center back_color_purple h-100">
-            <div>
-                <h2><span>회원 정보 수정</span></h2>
+            <div class="width500p">
+                <div class="changeinfo_head m-b-30">회원 정보 수정</div>
 
-                <article class="edit_info">
-                    <table class="edit_table">
-                        <tbody>
-                            <tr>
-                                <th>아이디</th>
-                                <td><span th:text="${@utils.getLoginUser().getUid()}"></span></td>
-                            </tr>
-                            <tr>
-                                <th>이름</th>
-                                <td><span th:text="${@utils.getLoginUser().getNm()}"></span></td>
-                            </tr>
-                            <tr>
-                                <th>생년월일</th>
-                                <td><span th:text="${@utils.getLoginUser().getBirth()}"></span></td>
-                            </tr>
-                            <tr>
-                                <th>성별</th>
-                                <td><span th:text="${@utils.getLoginUser().getGender()}"></span></td>
-                            </tr>
-                            <tr>
-                                <th>휴대폰 번호</th>
-                                <td><span th:text="${@utils.getLoginUser().getPh()}"></span></td>
-                            </tr>
-                            <tr>
-                                <th>이메일</th>
-                                <td>
-                                    <div>
-                                        <p><span th:text="${@utils.getLoginUser().getEmail()}"></span></p>
-                                        <div>
-                                            <button type="button">이메일 변경</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>주소</th>
-                                <td>
-                                    <span class="user_id"><span th:text="${@utils.getLoginUser().getAddr()}"></span></span>
-                                    <div><button type="button">주소 변경</button></div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </article>
+                <div class="m-t-10"><b>아이디</b></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getUid()}" class="info_box back_color_grey4"></div>
+
+                <div class="m-t-10"><b>이름</b></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getNm()}" class="info_box back_color_grey4"></div>
+
+
+                <div class="m-t-10"><b>생년월일</b></div>
+                <div><input type="text" readonly th:value="${@utils.getLoginUser().getBirth()}" class="info_box back_color_grey4"></div>
+
+
+                <div class="m-t-10"><b>휴대폰번호</b></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getPh()}" class="info_box"></div>
+
+                <div class="m-t-10"><b>이메일</b></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getEmail()}" class="info_box"></div>
+
+                <div class="m-t-10"><b>주소</b></div>
+                <div><input type="text" th:value="${@utils.getLoginUser().getAddr()}" class="info_box"></div>
+
+                <div class="flex justify_flex_end"><input type="button" value="변경하기" class="change_btn"></div>
             </div>
         </div>
 

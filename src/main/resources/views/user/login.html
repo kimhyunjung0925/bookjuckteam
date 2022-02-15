@@ -1,7 +1,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="temp/thymeleaf_layout">
+      layout:decorate="temp/loginjoin_layout">
 
 <head>
     <title>로그인</title>
@@ -10,14 +10,17 @@
     <script defer th:src="@{/js/user/login.js}"></script>
 </head>
 
-<th:block layout:fragment="content">
-    <form th:action="@{/user/login}" method="post" th:object="${UserEntity}">
-    <div class="grid h-100 align_content_center m-t-40">
+<th:block layout:fragment="userContent" >
+    <div class="h-100 back_color_grey3">
+    <form th:action="@{/user/login}" method="post"  th:object="${UserEntity}">
+    <div class="grid h-100 align_content_center ">
+        <div class="flex center m-t-70 m-b-30">
+            <a href="/main"><img th:src="@{/upload/images/logo.png}" class="main_logo_large"></a>
+        </div>
 
         <div class="flex center ">
             <div class="border_box back_color_purple ">
                 <div class="p-ud-30 p-lr-100">
-                    <strong>북적북적 로그인</strong>
                     <div th:if="${param.error}" class="color_red" role="alert">
                         아이디나 패스워드가 일치하지 않습니다.
                     </div>
@@ -25,24 +28,94 @@
                         로그아웃에 성공했습니다.
                     </div>
                     <br>
-                    <div>
-                        <input type="text" th:field="*{uid}" placeholder="아이디를 입력해 주세요." class="width100">
-                    </div>
-                    <div>
-                        <input type="password" th:field="*{upw}" placeholder="비밀번호를 입력해 주세요." class="width100">
-                    </div>
-                    <div>
-                        <input type="submit" value="로그인" class="btnlogin">
-                    </div>
+
+                    <ul class="panel_wrap">
+                        <li class="panel_item" style="display: block;">
+                            <div class="panel_inner" role="tabpanel" aria-controls="loinid">
+                                <div class="id_pw_wrap">
+                                    <div class="input_row" id="id_line">
+                                        <div class="icon_cell" id="id_cell">
+                                            <span class="icon_id">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+</svg>
+                                                <span class="blind">아이디</span>
+                                            </span>
+                                        </div>
+                                        <input type="text"th:field="*{uid}" placeholder="아이디"class="input_text" maxlength="41" value="">
+                                        <span role="button" class="btn_delete" id="id_clear" style="display: block;">
+                                            <span class="icon_delete">
+												<span class="blind">삭제</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="input_row" id="pw_line">
+                                        <div class="icon_cell" id="pw_cell">
+                                            <span class="icon_pw">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+</svg>
+                                                <span class="blind">비밀번호</span>
+                                            </span>
+                                        </div>
+                                        <input type="password" th:field="*{upw}" placeholder="비밀번호" class="input_text" maxlength="16">
+                                        <span role="button" class="btn_delete" id="pw_clear" style="display: block;">
+                                            <span class="icon_delete">
+                                                <span class="blind">삭제</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="login_keep_wrap" id="login_keep_wrap">
+                                    <div class="keep_check">
+                                        <input type="checkbox" id="keep" name="nvlong" class="input_keep" value="off">
+                                        <label for="keep" class="keep_text">로그인 상태 유지</label>
+                                    </div>
+                                </div>
+
+                                <div class="login_error_wrap" id="err_capslock" style="display: none;">
+                                    <div class="error_message">
+                                        <strong>CapsLock</strong>이 켜져 있습니다.
+                                    </div>
+                                </div>
+
+                                <div class="login_error_wrap" id="err_empty_id" style="display: none;">
+                                    <div class="error_message">
+                                        <strong>아이디</strong>를 입력해 주세요.
+                                    </div>
+                                </div>
+
+                                <div class="login_error_wrap" id="err_empty_pw" style="display: none;">
+                                    <div class="error_message">
+                                        <strong>비밀번호</strong>를 입력해 주세요.
+                                    </div>
+                                </div>
+
+                                <div class="btn_login_wrap">
+
+                                    <button type="submit" class="btn_login" id="log.login">
+                                        <span class="btn_text">로그인</span>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </div>
 
         <div class="center">
-            <div>비밀번호찾기 | </div> &nbsp;&nbsp;
-            <div>회원찾기 | </div> &nbsp;&nbsp;
-            <div><a href="/user/join">회원가입</a> </div>
+            <div><a href="">비밀번호찾기 | </a></div> &nbsp;&nbsp;
+            <div><a href="">회원찾기 | </a></div> &nbsp;&nbsp;
+            <div><a href="/user/join">회원가입</a></div>
         </div>
     </div>
     </form>
+    </div>
 </th:block>
