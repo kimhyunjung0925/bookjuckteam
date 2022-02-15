@@ -27,6 +27,13 @@ public class UserService {
         }
     }
 
+    public int idChk(String uid) {
+        UserEntity entity = new UserEntity();
+        entity.setUid(uid);
+        UserEntity result = mapper.selUser(entity);
+
+        return result == null ? 1 : 0;
+    }
 
 
 }

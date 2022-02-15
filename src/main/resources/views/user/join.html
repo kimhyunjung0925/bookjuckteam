@@ -40,6 +40,7 @@
 
             <h4>아이디</h4>
             <div><input type="text"  th:field="*{uid}" maxlength="10" placeholder="영소문자/숫자 5~10자리" class="ps_box"></div>
+            <div><input type="button" value="아이디 중복 체크" id="id-btn-chk"><span id="id-chk-msg"></span></div>
 
             <h4>비밀번호</h4>
             <div><input type="password" th:field="*{upw}" maxlength="15" placeholder="영문자/숫자/특수문자 조합 8~15자리(대소문자 구분)" class="ps_box"></div>
