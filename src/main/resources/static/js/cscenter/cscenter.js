@@ -1,6 +1,6 @@
 (function (){
     'use strict';
-
+    //글자 수 제한하는 함
     function textLengthOverCut(ctnt, len, lastTxt) {
         if (len == "" || len == null) { // 기본값
             len = 90;
@@ -35,7 +35,7 @@
             faqListElem.appendChild(divElem);
             //글자 수 제한
             let cutctnt = textLengthOverCut(item.faq_ctnt);
-            divElem.className = "col  align-items-start";
+            divElem.className = "px-2 col  align-items-start";
             divElem.innerHTML = `
                 <h5 class="fw-bold">${item.faq_title}</h5>
                 <p>${cutctnt}</p>
