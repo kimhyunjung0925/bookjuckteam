@@ -10,66 +10,89 @@
 </head>
 
 <th:block layout:fragment="content">
-    <div class="flex w-100 justify_content_center">
-        <div class="w-80">
-            <div class="grid">
-                <div class="m-t-10">
-                    <h1 class="m-t-20">고객센터 안내사항</h1>
-                    <div class="grid m-t-10">
-                        <div>[공지] < 개인정보 처리방침 > 변경 안내 </div>
-                        <div>[안내] 문의 답변 문자 전송 방식 안내 </div>
-                        <div>[북적북적] 도서 구매 포인트 적립 변경 안내 </div>
+    <div class="cscenter">
+        <div class="notice container-lg px-4 py-4">
+            <h2 class="m-t-20 pb-2 border-bottom">고객센터 안내사항</h2>
+            <div class="flex-direc-column row g-2 py-3 row-cols-lg-3">
+                <div>[공지] < 개인정보 처리방침 > 변경 안내 </div>
+                <div>[안내] 문의 답변 문자 전송 방식 안내 </div>
+                <div>[북적북적] 도서 구매 포인트 적립 변경 안내 </div>
+            </div>
+        </div>
+        <div class="faq container-lg px-4 py-4" id="hanging-icons">
+            <h2 class="pb-2 border-bottom">자주 묻는 질문</h2>
+            <!--           faq리스트 만들어지는 부분 -->
+            <div class="faqboard row g-2 py-3 row-cols-1 row-cols-lg-3">
+                <div class="col  align-items-start">
+                    <h5 class="fw-bold">현금 영수증 신청 방법</h5>
+                    <p>현금 영수증은 각 결제 수단에 따라 결제 대행사의 사이트 또는 리디북스 홈페이지의 결제내역에서 신청하실 수 있습니다. 결제수단 별 현금영수증 발행 (일반 영수증, 신용카드 매...</p>
+                    <a href="#" class="btn btn-outline-secondary">
+                        자세히 보기
+                    </a>
+                </div>
+                <div class="col  align-items-start">
+                    <div>
+                        <b>결제 수단별 결제 오류 해결 방법</b>
+                        <p>우선 모바일 기기에서 결제가 정상 진행되지 않는 경우에는 아래 안내 페이지를 참고하셔서 인터넷 설정 확인 후 재시도를 부탁드립니다. 모바일 기기에서 결제가 안돼요.  안내 보...</p>
+                        <a href="#" class="btn btn-outline-secondary">
+                            자세히 보기
+                        </a>
                     </div>
                 </div>
-
-                <div class="m-t-30">
-                    <h1>자주 묻는 질문</h1>
-                    <div class="flex m-t-10">
-                        <div class="w-30 m-r-30">
-                            <strong>현금 영수증 신청 방법</strong>
-                            <div >현금 영수증은 각 결제 수단에 따라 결제 대행사의 사이트 또는 리디북스 홈페이지의 결제내역에서 신청하실 수 있습니다. 결제수단 별 현금영수증 발행 (일반 영수증, 신용카드 매...</div>
-                        </div>
-                        <div class="w-30 m-r-30">
-                            <strong>결제 수단별 결제 오류 해결 방법 </strong>
-                            <div >우선 모바일 기기에서 결제가 정상 진행되지 않는 경우에는 아래 안내 페이지를 참고하셔서 인터넷 설정 확인 후 재시도를 부탁드립니다. 모바일 기기에서 결제가 안돼요.  안내 보... FAQ 바로가기</div>
-                        </div>
-                        <div class="w-30">
-                            <strong>도서 환불 / 취소 방법</strong>
-                            <div >결제 취소 및 환불은 다운로드 또는 스트리밍으로 이용하지 않는 경우에만 가능합니다. 책을 다운로드  (다운로드 시작, 다운로드 시도 포함) 하지 않았거나 웹툰/웹소설 도서의...</div>
-                        </div>
+                <div class="col  align-items-start">
+                    <div>
+                        <b>도서 환불 / 취소 방법</b>
+                        <p>결제 취소 및 환불은 다운로드 또는 스트리밍으로 이용하지 않는 경우에만 가능합니다. 책을 다운로드  (다운로드 시작, 다운로드 시도 포함) 하지 않았거나 웹툰/웹소설 도서의...</p>
+                        <a href="#" class="btn btn-outline-secondary">
+                            자세히 보기
+                        </a>
                     </div>
                 </div>
-
-                <div class="m-t-30">
-                    <h1 >고객 문의</h1>
-                    <ul class="w-100">
-                        <li class="flex  justify_space_between">
-                            <a href="문의창">
-                                <div>
-                                    <img class="icon_size_0808" src="//theme.zdassets.com/theme_assets/1696093/3b864dc10546e00d06426adf9539e5fb863d3eaa.png">
-                                    <h4>1:1 문의</h4>
-                                </div>
-                            </a>
-                            <a href="bkk@naver.com">
-                                <div>
-                                    <img class="icon_size_0808" src="//theme.zdassets.com/theme_assets/1696093/1b8da1044f963cc5c4aa4e647cee8327e0e92e01.png">
-                                    <h4>이메일 문의</h4>
-                                </div>
-                            </a>
-                            <a href="상담창">
-                                <div>
-                                    <img class="icon_size_0808" src="//theme.zdassets.com/theme_assets/1696093/5765ed48513a06d495fd00fb1945c103a8e6b016.png">
-                                    <h4>채팅 상담</h4>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="col  align-items-start">
+                    <div>
+                        <b>도서 환불 / 취소 방법</b>
+                        <p>결제 취소 및 환불은 다운로드 또는 스트리밍으로 이용하지 않는 경우에만 가능합니다. 책을 다운로드  (다운로드 시작, 다운로드 시도 포함) 하지 않았거나 웹툰/웹소설 도서의...</p>
+                        <a href="#" class="btn btn-outline-secondary">
+                            자세히 보기
+                        </a>
+                    </div>
+                </div>
+                <div class="col  align-items-start">
+                    <div>
+                        <b>도서 환불 / 취소 방법</b>
+                        <p>결제 취소 및 환불은 다운로드 또는 스트리밍으로 이용하지 않는 경우에만 가능합니다. 책을 다운로드  (다운로드 시작, 다운로드 시도 포함) 하지 않았거나 웹툰/웹소설 도서의...</p>
+                        <a href="#" class="btn btn-outline-secondary">
+                            자세히 보기
+                        </a>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="m-t-20 pb-2 border-bottom container-lg">
+            <h2>고객 문의</h2>
+            <ul class="py-4 container-sm">
+                <li class="d-flex justify-content-start">
+                    <a href="문의창" class="m-r-40">
+                        <div class="flex flex-direc-column center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                            <h4>1:1 문의</h4>
+                        </div>
+                    </a>
+                    <a href="bkk@naver.com" class="m-r-40">
+                        <div class="flex flex-direc-column center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-envelope-paper" viewBox="0 0 16 16">
+                                <path d="M4 0a2 2 0 0 0-2 2v1.133l-.941.502A2 2 0 0 0 0 5.4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5.4a2 2 0 0 0-1.059-1.765L14 3.133V2a2 2 0 0 0-2-2H4Zm10 4.267.47.25A1 1 0 0 1 15 5.4v.817l-1 .6v-2.55Zm-1 3.15-3.75 2.25L8 8.917l-1.25.75L3 7.417V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v5.417Zm-11-.6-1-.6V5.4a1 1 0 0 1 .53-.882L2 4.267v2.55Zm13 .566v5.734l-4.778-2.867L15 7.383Zm-.035 6.88A1 1 0 0 1 14 15H2a1 1 0 0 1-.965-.738L8 10.083l6.965 4.18ZM1 13.116V7.383l4.778 2.867L1 13.117Z"/>
+                            </svg>
+                            <h4>이메일 문의</h4>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <script src="/js/cscenter/cscenter.js"></script>
 
 </th:block>
-
-
