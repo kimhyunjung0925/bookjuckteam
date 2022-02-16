@@ -1,7 +1,6 @@
 package com.project.bookjuck;
 
 
-import com.project.bookjuck.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
-import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity  //SpringSecurityFilterChain이 자동으로 포함
@@ -34,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers( "/css/**", "/js/**", "/upload/images/**"
-                            , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter","/ajax/cscenter",
+                            , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter","/ajax/cscenter/**",
                             "/user/join","/user/idChk/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
