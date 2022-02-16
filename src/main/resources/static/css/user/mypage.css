@@ -6,10 +6,21 @@
 
 /*구매내역 테이블*/
 table, td, th { border: 1px solid #262626; border-collapse: collapse; width: 900px; }
-table td:not(:first-child) { text-align: center;}
-table td:first-child{text-align: left;  vertical-align: middle;}
+th { text-align: center;}
+table td:not(:nth-child(2)){ text-align: center;}
+table td:nth-child(2) {text-align: left;  vertical-align: middle;}
 
 .ph_img_size { width: 80px; height: 100px; }
+
+.pcHistory_head{
+    text-align: center;
+    background: #b1bac4;
+    border: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    height: 41px;
+    line-height: 40px;
+}
 
 
 
