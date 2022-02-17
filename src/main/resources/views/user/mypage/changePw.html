@@ -18,12 +18,17 @@
                 <form th:action="@{/user/mypage/changePw}" method="post" id="password-frm">
                     <div class="m-t-10"><b>현재 비밀번호</b></div>
                     <div><input type="password" name="currentupw" class="text_box"></div>
+                    <span id="pw_msg1" class="color_red"></span>
 
                     <div class="m-t-10"><b>변경 비밀번호</b></div>
                     <div><input type="password" name="upw" class="text_box"></div>
+                    <span id="pw_msg2" class="color_red"></span>
+                    <span id="pw_msg4" class="color_red"></span>
 
                     <div class="m-t-10"><b>확인 비밀번호</b></div>
                     <div><input type="password" id="confirmupw" class="text_box"></div>
+                    <span id="pw_msg3" class="color_red"></span>
+
 
                     <div class="flex justify_flex_end"><input type="submit" value="변경하기" class="change_btn"></div>
                 </form>
