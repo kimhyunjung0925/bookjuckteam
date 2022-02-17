@@ -21,6 +21,6 @@ public class AuthenticationFacade {
         return mapper.selUser(entity);
     }
     public int getLoginUserPk() {
-        return getLoginUser().getIuser();
+        return getLoginUser() == null ? 0 : getLoginUser().getIuser();
     }
 }

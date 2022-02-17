@@ -19,4 +19,19 @@
             (#{uid}, #{upw}, #{nm}, #{addr}, #{email}, #{birth}, #{ph}, ${gender})
     </insert>
 
+    <update id="updPw">
+        UPDATE t_user
+        SET
+        <if test="upw != null and upw != '' ">
+            upw = #{upw}
+        </if>
+        WHERE iuser = ${iuser}
+    </update>
+
+    <select id="selPw" resultType="com.project.bookjuck.user.model.UserEntity">
+        SELECT upw FROM t_user
+        WHERE iuser = ${iuser}
+    </select>
+
+
 </mapper>

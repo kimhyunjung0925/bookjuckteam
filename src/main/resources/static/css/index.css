@@ -61,22 +61,27 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
     flex-direction: column;
 }
 
-.width10 { width: 10%; }
+.w-10 { width: 10%; }
 .w-30 { width: 30%; }
 .w-50 { width: 50%; }
 .w-80 { width: 80%; }
 .w-90 { width: 90%; }
 .w-100 { width: 100%; }
+.width30p {width: 30px;}
+.width50p {width: 50px;}
+.width100p {width: 100px;}
 .width200p {width: 200px;}
 .width500p {width: 500px;}
 
-.height50 { height: 50%; }
-.height80 { height: 80%; }
+.h-50 { height: 50%; }
+.h-80 { height: 80%; }
 .h-100 { height: 100%; }
+.height30p {height: 30px; }
+.height50p {height: 50px; }
+.height100p {height: 100px; }
+.height200p {height: 200px; }
+.height500p {height: 500px; }
 
-.width30p {width: 30px;}
-
-.height30p {height: 50px; }
 
 /*추후 계속 추가*/
 .justify_space_around{  justify-content: space-around; }
@@ -113,6 +118,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .m-r-40 { margin-right: 40px; }
 .m-r-50 { margin-right: 50px; }
 
+.m-b-5 { margin-bottom: 5px; }
 .m-b-10 { margin-bottom: 10px; }
 .m-b-20 { margin-bottom: 20px; }
 .m-b-30 { margin-bottom: 30px; }

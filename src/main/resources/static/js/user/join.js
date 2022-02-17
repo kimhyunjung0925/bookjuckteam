@@ -4,9 +4,9 @@
 
     let idChkState = 2; //0: 아이디 사용 불가능, 1:아이디 사용가능, 2: 체크 안함
 
-    const uidRegex = /^[a-z]+[a-z0-9]{4,9}$/g;
+    const uidRegex = /^[a-z]+[a-z0-9]{5,20}$/g;
     const upwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
-    const nmRegex = /^([가-힣]{2,15})$/;
+    const nmRegex = /^([가-힣]{2,10})$/;
     const birthRegex = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
     const phRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
     const emailRegex = /^.{1,20}$/;

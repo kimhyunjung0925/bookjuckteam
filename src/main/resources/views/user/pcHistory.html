@@ -11,17 +11,18 @@
 
 <th:block layout:fragment="userContent">
 
-    <div class="flex center back_color_purple h-100">
-            <div>
-                <div class="pcHistory_head m-b-30">구매 내역</div>
+    <div class="flex center back_color_purple h-100 ">
+            <div class="flex-direc-column center w-100">
+                <div class="pcHistory_head m-b-30 w-80">구매 내역</div>
                 <table>
                     <colgroup>
+                        <col width="15%">
                         <col width="20%">
-                        <col width="30%">
-                        <col width="15%">
+                        <col width="10%">
                         <col width="5%">
-                        <col width="15%">
-                        <col width="15%">
+                        <col width="11%">
+                        <col width="13%">
+                        <col width="13%">
                     </colgroup>
 
                     <tr class="back_color_grey2">
@@ -29,27 +30,42 @@
                         <th> 상품명 </th>
                         <th> 주문금액 </th>
                         <th> 수량 </th>
+                        <th> 주문상태 </th>
                         <th> 구매 </th>
                         <th> 신청 </th>
                     </tr>
 
                     <tr class="back_color_white">
-                        <td><div>2022년 01월 01일</div><div>1225554668</div></td>
+                        <td><div>2022년 01월 01일</div><div  class="color_blue">1225554668</div></td>
                         <td><div class="flex justify_flex_start align_items_center"><img th:src="@{/upload/images/XL.jfif}"  class="ph_img_size">아몬드</div></td>
                         <td>17,800원</td>
                         <td> 1개 </td>
-                        <td> <input type="button" value="장바구니"><input type="button" value="바로구매"> </td>
-                        <td> <input type="button" value="반품신청"> <input type="button" value="교환신청"></td>
+                        <td> 배송 완료 </td>
+                        <td class="flex-direc-column">
+                            <div><input type="button" value="장바구니" class="m-b-5"></div>
+                            <div><input type="button" value="바로구매"></div>
+                        </td>
+                        <td class="flex-direc-column">
+                            <div><input type="button" value="반품신청" class="m-b-5"></div>
+                            <div><input type="button" value="교환신청"></div>
+                        </td>
                     </tr>
 
                     <tr class="back_color_white">
-                        <td><div>2022년 11월 11일</div><div>122555488</div></td>
+                        <td><div>2022년 11월 11일</div><div class="color_blue">122555488</div></td>
                         <td><div class="flex justify_flex_start align_items_center">
                             <img th:src="@{/upload/images/XL (1).jfif}"  class="ph_img_size">돌이킬 수 있는</div></td>
                         <td>19,900원</td>
                         <td> 2개 </td>
-                        <td> <input type="button" value="장바구니"><input type="button" value="바로구매"> </td>
-                        <td> <input type="button" value="반품신청"> <input type="button" value="교환신청"></td>
+                        <td class="flex-direc-column"> <div class="m-b-5">배송 중</div><div><input type="button" value="배송조회"></div> </td>
+                        <td class="flex-direc-column">
+                            <div><input type="button" value="장바구니" class="m-b-5"></div>
+                            <div><input type="button" value="바로구매"></div>
+                        </td>
+                        <td class="flex-direc-column">
+                            <div><input type="button" value="반품신청" class="m-b-5"></div>
+                            <div><input type="button" value="교환신청"></div>
+                        </td>
                     </tr>
                 </table>
             </div>

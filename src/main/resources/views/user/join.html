@@ -22,7 +22,7 @@
         <div class="grid center">
             <div class="width500p">
             <h4>이름</h4>
-            <div><input type="text" th:field="*{nm}" maxlength="15" placeholder="15자 이내로 입력해주세요." class="ps_box"></div>
+            <div><input type="text" th:field="*{nm}" maxlength="10" placeholder="10자 이내로 입력해주세요." class="ps_box"></div>
 
             <h4>생년월일/성별</h4>
             <div class="flex">
@@ -39,7 +39,7 @@
             <div><input type="text" th:field="*{ph}" maxlength="12" placeholder="-없이 입력해 주세요." class="ps_box"></div>
 
             <h4>아이디</h4>
-            <div><input type="text"  th:field="*{uid}" maxlength="10" placeholder="영소문자/숫자 5~10자리" class="ps_box"></div>
+            <div><input type="text"  th:field="*{uid}" maxlength="20" placeholder="영소문자/숫자 5~20자리" class="ps_box"></div>
             <div><input type="button" value="아이디 중복 체크" id="id-btn-chk"><span id="id-chk-msg"></span></div>
 
             <h4>비밀번호</h4>

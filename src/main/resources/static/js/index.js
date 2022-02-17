@@ -33,3 +33,17 @@ const myFetch = {
         }), cb);
     }
 }
+
+const regex = {
+    uid: /^[a-z]+[a-z0-9]{5,20}$/g,
+    upw: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/,
+    nm: /^([가-힣]{2,10})$/,
+    msg: {
+        uid: '영소문자/숫자 5~20자리',
+        upw: '영문자/숫자/특수문자 조합 8~15자리(대소문자 구분)',
+        nm: '한글 2~10글자',
+    },
+    isWrongWith : function (target, val){
+        return (target && val) ? !this[target].test(val) : true;
+    }
+};
