@@ -1,6 +1,7 @@
 package com.project.bookjuck.cscenter;
 
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
+import com.project.bookjuck.cscenter.model.FaqEntity;
 import com.project.bookjuck.user.model.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,9 @@ public class CsCenterController {
     }
 
     @GetMapping("/faq")
-    public String FAQ() {
-        return "cscenter/faq";
+    public String FAQ(FaqEntity entity, Model model) {
+        model.addAttribute("Faqdata", service.selFaqDetail(entity));
+        return "cscenter/faqdetail";
     }
 
     @PostMapping("/complaint")

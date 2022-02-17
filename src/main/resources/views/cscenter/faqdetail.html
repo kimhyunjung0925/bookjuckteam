@@ -1,0 +1,19 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>cscenter</title>
+    <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
+</head>
+
+<th:block layout:fragment="content">
+    <div>자주 묻는 질문 세부내용</div>
+    <span th:text="${Faqdata.faq_title}"></span>
+
+    <script src="/js/cscenter/faqdetail.js"></script>
+</th:block>
+
+

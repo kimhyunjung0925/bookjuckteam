@@ -10,4 +10,5 @@ import java.util.List;
 public interface CsCenterMapper {
     List<FaqEntity> selFaqList();
     int inscomplaint(ComplaintEntity entity);
+    FaqEntity selFaqDetail(FaqEntity entity);
 }

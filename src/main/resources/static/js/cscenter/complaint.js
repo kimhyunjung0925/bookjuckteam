@@ -15,6 +15,6 @@
         else if(ctnt.length === 0){
             alert('문의 내용을 작성해주세요.');
             e.preventDefault();
-        } 
+        }
     })
 }

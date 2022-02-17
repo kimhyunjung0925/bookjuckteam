@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>1:1문의</title>
-    <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
+    <link rel="stylesheet" th:href="@{/css/cscenter/complaint.css}">
 </head>
 
 <th:block layout:fragment="content">
@@ -24,6 +24,7 @@
             <h6>이메일</h6>
             <div><input type="text" th:field="*{com_email}" maxlength="20" class="ps_box w-100"></div>
         </div>
+        <!--고객센터 분류 디비 카테고리테이블 하나만들어야함-->
         <div class="justify_flex_start pt-2">
             <h6>분류</h6>
             <select th:field="*{com_cate}" class="ps_box w-100">
