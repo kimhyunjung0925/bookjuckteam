@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,12 @@ public class UserController {
         System.out.println(vo);
         int result = service.join(vo);
         return "user/joinDone";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession hs){
+        hs.invalidate();
+        return "redirect:/main";
     }
 
     @GetMapping("/leave")
@@ -78,7 +85,6 @@ public class UserController {
     public String changePwProc(UserDto dto, RedirectAttributes rtta) {
         int result = service.changePw(dto);
         if(result != 1) {
-            System.out.println("비밀번호변경시ㄹ");
             System.out.println(result);
             switch(result) {
                 case 0:
