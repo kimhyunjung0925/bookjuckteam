@@ -5,5 +5,11 @@
     <select id="selFaqList" resultType="FaqEntity">
         SELECT * FROM t_faq
     </select>
-
+    <!-- 1대1문의글 저장하는 곳-->
+    <insert id="inscomplaint">
+        INSERT INTO t_complaint
+        (com_email, com_cate, com_ctnt, iuser)
+        VALUES
+        (#{com_email}, #{com_cate}, #{com_ctnt}, #{iuser})
+    </insert>
 </mapper>

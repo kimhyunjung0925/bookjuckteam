@@ -1,5 +1,6 @@
 package com.project.bookjuck.cscenter;
 
+import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,9 @@ public class CsCenterService {
 
     public List<FaqEntity> selFaqList(){
         return mapper.selFaqList();
+    }
+
+    public int inscomplaint(ComplaintEntity entity){
+        return mapper.inscomplaint(entity);
     }
 }
