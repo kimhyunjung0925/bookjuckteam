@@ -1,0 +1,47 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1:1문의</title>
+    <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
+</head>
+
+<th:block layout:fragment="content">
+    <div class="flex-direc-column center">
+        <h1 class="py-4">1:1 문의</h1>
+        <p>문의를 남겨주시면 고객님의 이메일로 답변을 보내드립니다.</p>
+        <p>이메일을 정확하게 입력해주시기 바랍니다.</p>
+    </div>
+    <div class="center">
+<!--문의글 보내는 폼-->
+    <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50">
+        <!--iuser값 보내야함 계속 0이 넘어감..이게 아닌가? 그냥 컨트롤에서 넘겨줄가-->
+        <div><input type="hidden" th:field="*{iuser}" th:value="${@utils.getLoginUserPk()}"></div>
+        <div class="justify_flex_start pt-2">
+            <h6>이메일</h6>
+            <div><input type="text" th:field="*{com_email}" maxlength="20" class="ps_box w-100"></div>
+        </div>
+        <div class="justify_flex_start pt-2">
+            <h6>분류</h6>
+            <select th:field="*{com_cate}" class="ps_box w-100">
+                <option th:value="1">분류1</option>
+                <option th:value="2">분류2</option>
+                <option th:value="3">분류3</option>
+            </select>
+        </div>
+        <div class="justify_flex_start pt-2">
+            <h6>문의내용</h6>
+            <div><textarea th:field="*{com_ctnt}" class="ps_box w-100 height200p"></textarea></div>
+        </div>
+        <div class="center">
+            <input type="submit" value="제출하기" class="submitbtn btn btn-outline-dark p-2 m-b-10"></a>
+        </div>
+    </form>
+    </div>
+    <script src="/js/cscenter/complaint.js"></script>
+</th:block>
+
+
