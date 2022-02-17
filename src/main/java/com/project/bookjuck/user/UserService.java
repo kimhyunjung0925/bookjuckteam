@@ -18,20 +18,18 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public int join(UserEntity entity) {
+    public int join(UserVO vo) {
         //유효성 검사
-
         //String hashedUpw = BCrypt.hashpw(entity.getUpw(), BCrypt.gensalt());
-
-
-        UserEntity userEntity = new UserEntity();
-        UserVO vo = new UserVO();
         //이메일합치기하는중
 
-        String hashedUpw = passwordEncoder.encode(entity.getUpw());
-        entity.setUpw(hashedUpw);
+        UserVO voresult = new UserVO();
+        vo.setEmail(voresult.totalEmail(vo.getEmail1(), vo.getEmail2()));
+
+        String hashedUpw = passwordEncoder.encode(vo.getUpw());
+        vo.setUpw(hashedUpw);
         try {
-            return mapper.insUser(entity);
+            return mapper.insUser(vo);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
