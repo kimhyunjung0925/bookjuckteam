@@ -1,5 +1,7 @@
 package com.project.bookjuck.user;
 
+import com.project.bookjuck.AuthenticationFacade;
+import com.project.bookjuck.user.model.UserDto;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    AuthenticationFacade authenticationFacade;
 
     public int join(UserVO vo) {
         //유효성 검사
@@ -50,6 +55,19 @@ public class UserService {
         }
 
         return result == null ? 1 : 0;
+    }
+
+    public int changePw(UserDto dto) {
+        dto.setIuser(authenticationFacade.getLoginUserPk());
+        UserEntity dbUser = mapper.selPw(dto);
+
+        if(!passwordEncoder.matches(dto.getCurrentupw(), dbUser.getUpw())) {
+            return 2; //현재비밀번호 다름
+        }
+
+        String hashedUpw = passwordEncoder.encode(dto.getUpw());
+        dto.setUpw(hashedUpw);
+        return mapper.updPw(dto);
     }
 
 

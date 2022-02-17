@@ -1,10 +1,14 @@
 package com.project.bookjuck.user;
 
+import com.project.bookjuck.Const;
+import com.project.bookjuck.user.model.UserDto;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,10 +59,6 @@ public class UserController {
         return "user/changeInfo";
     }
 
-    @GetMapping("changePw")
-    public String changePw() {
-        return "user/changePw";
-    }
 
 
     @ResponseBody
@@ -69,6 +69,30 @@ public class UserController {
         res.put("result", service.idChk(uid));
         return res;
     }
+
+    //--------------비밀번호 변경
+    @GetMapping("/mypage/changePw")
+    public void changePw(){}
+
+    @PostMapping("/mypage/changePw")
+    public String changePwProc(UserDto dto, RedirectAttributes rtta) {
+        int result = service.changePw(dto);
+        if(result != 1) {
+            System.out.println("비밀번호변경시ㄹ");
+            System.out.println(result);
+            switch(result) {
+                case 0:
+                    rtta.addFlashAttribute(Const.MSG, "비밀번호 변경에 실패하였습니다.");
+                    break;
+                case 2:
+                    rtta.addFlashAttribute(Const.MSG, "현재 비밀번호를 확인해 주세요.");
+                    break;
+            }
+            return "redirect:/user/mypage/changePw";
+        }
+        return "redirect:/user/logout";
+    }
+
 
 }
 
