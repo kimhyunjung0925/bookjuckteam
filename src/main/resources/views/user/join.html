@@ -52,19 +52,19 @@
             <h4>이메일</h4>
             <div class="colorblue">※비밀번호 분실 시 임시 비밀번호가 이메일로 발송됩니다.</div>
             <div class="flex">
-                <input type="text" th:field="*{email}" class="ps_box m-r-5">
+                <input type="text" th:field="*{email1}" class="ps_box m-r-5">
                 <div class="larger m-r-5">@</div>
                 <input type="text" class="ps_box m-r-5">
 
-                <!--            이메일 인풋 두개를 자바스크립트로 연결하여 처리하는 과정을 알아보아야 할것같슴다-->
 
-                <select name="이메일" class="ps_box">
+
+                <select name="이메일" class="ps_box" th:field="*{email2}">
                     <option value="select">선택</option>
-                    <option value="">naver.com</option>
-                    <option value="">daum.net</option>
-                    <option value="">google.com</option>
-                    <option value="">nate.com</option>
-                    <option value="">hanmail.net</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="google.com">google.com</option>
+                    <option value="nate.com">nate.com</option>
+                    <option value="hanmail.net">hanmail.net</option>
                 </select>
             </div>
 

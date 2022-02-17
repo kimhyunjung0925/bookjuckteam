@@ -1,6 +1,7 @@
 package com.project.bookjuck.user;
 
 import com.project.bookjuck.user.model.UserEntity;
+import com.project.bookjuck.user.model.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,12 @@ public class UserController {
     }
 
     @GetMapping("/join")
-    public void join(@ModelAttribute("entity") UserEntity entity){}
+    public void join(@ModelAttribute("entity") UserVO vo){}
 
     @PostMapping("/join")
-    public String joinProc(UserEntity entity){
-        System.out.println(entity);
-        int result = service.join(entity);
+    public String joinProc(UserVO vo){
+        System.out.println(vo);
+        int result = service.join(vo);
         return "user/joinDone";
     }
 
