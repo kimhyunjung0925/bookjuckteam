@@ -38,6 +38,7 @@ public class UserService {
         }
     }
 
+    //-------- 아이디 중복 체크
     public int idChk(String uid) {
         UserEntity entity = new UserEntity();
         entity.setUid(uid);
@@ -52,6 +53,7 @@ public class UserService {
 
         return result == null ? 1 : 0;
     }
+
 
 
 }

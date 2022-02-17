@@ -6,29 +6,29 @@
 <head>
     <title></title>
     <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
-    <script defer th:src="@{/js/user/mypage.js}"></script>
+    <script defer th:src="@{/js/user/changePw.js}"></script>
 </head>
 
 <th:block layout:fragment="userContent">
-
         <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
         <div class="flex center back_color_purple h-100">
             <div class="width500p">
                 <div class="changepw_head m-b-30">비밀번호 변경</div>
-                <form action="/user/changePw" method="post" id="password-frm">
+<!--                <div class="msg">${msg}</div>-->
+                <form th:action="@{/user/mypage/changePw}" method="post" id="password-frm">
                     <div class="m-t-10"><b>현재 비밀번호</b></div>
-                    <div><input type="password" name="currentUpw" class="text_box"></div>
+                    <div><input type="password" name="currentupw" class="text_box"></div>
 
                     <div class="m-t-10"><b>변경 비밀번호</b></div>
                     <div><input type="password" name="upw" class="text_box"></div>
 
                     <div class="m-t-10"><b>확인 비밀번호</b></div>
-                    <div><input type="password" id="confirmUpw" class="text_box"></div>
+                    <div><input type="password" id="confirmupw" class="text_box"></div>
 
-                    <div class="flex justify_flex_end"><input type="submit" value="변경" class="change_btn"></div>
+                    <div class="flex justify_flex_end"><input type="submit" value="변경하기" class="change_btn"></div>
                 </form>
             </div>
         </div>
-
-
 </th:block>
+
+
