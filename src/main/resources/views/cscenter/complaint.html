@@ -16,10 +16,11 @@
         <p>이메일을 정확하게 입력해주시기 바랍니다.</p>
     </div>
     <div class="center">
+        <span th:text="${msg}"></span>
 <!--문의글 보내는 폼-->
     <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50">
         <!--iuser값 보내야함 계속 0이 넘어감..이게 아닌가? 그냥 컨트롤에서 넘겨줄가-->
-        <div><input type="hidden" th:field="*{iuser}" th:value="${@utils.getLoginUserPk()}"></div>
+        <div><input type="hidden" th:field="*{iuser}"></div>
         <div class="justify_flex_start pt-2">
             <h6>이메일</h6>
             <div><input type="text" th:field="*{com_email}" maxlength="20" class="ps_box w-100"></div>
