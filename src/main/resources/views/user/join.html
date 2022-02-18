@@ -54,11 +54,13 @@
             <div class="flex">
                 <input type="text" th:field="*{email1}" class="ps_box m-r-5">
                 <div class="larger m-r-5">@</div>
-                <input type="text" class="ps_box m-r-5">
+
+
+                <input type="text" class="ps_box m-r-5" th:field="*{email2}">
 
 
 
-                <select name="이메일" class="ps_box" th:field="*{email2}">
+                <select name="이메일" class="ps_box" id="emailsecform">
                     <option value="select">선택</option>
                     <option value="naver.com">naver.com</option>
                     <option value="daum.net">daum.net</option>

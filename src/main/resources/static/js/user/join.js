@@ -107,5 +107,18 @@
 
     }
 
+    const email2Elem = document.querySelector('#email2');
+    const emailsecElem = document.querySelector('#emailsecform')
+    console.log(email2Elem)
+
+
+    emailsecElem.addEventListener('change', () =>{
+        if(emailsecElem.options[emailsecElem.selectedIndex]){
+            console.log(emailsecElem.options[emailsecElem.selectedIndex])
+
+            email2Elem.value = emailsecElem.options[emailsecElem.selectedIndex].value;
+        }
+
+    })
 
 }
