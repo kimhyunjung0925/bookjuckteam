@@ -61,9 +61,9 @@ public class UserController {
         return "user/pcHistory";
     }
 
-    @GetMapping("changeInfo")
+    @GetMapping("/mypage/changeInfo")
     public String changeInfo() {
-        return "user/changeInfo";
+        return "user/mypage/changeInfo";
     }
 
 
