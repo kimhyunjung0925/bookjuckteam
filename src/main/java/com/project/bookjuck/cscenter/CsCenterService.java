@@ -16,6 +16,10 @@ public class CsCenterService {
         return mapper.selFaqList();
     }
 
+    public FaqEntity selFaqDetail(FaqEntity entity){
+        return mapper.selFaqDetail(entity);
+    }
+
     public int inscomplaint(ComplaintEntity entity){
         return mapper.inscomplaint(entity);
     }

@@ -35,12 +35,16 @@
             faqListElem.appendChild(divElem);
             //글자 수 제한
             let cutctnt = textLengthOverCut(item.faq_ctnt);
-            divElem.className = "px-2 col  align-items-start";
+            divElem.className = "px-2 col  align-items-start hover";
             divElem.innerHTML = `
                 <h5 class="fw-bold">${item.faq_title}</h5>
                 <p>${cutctnt}</p>
-                <a href="#" class="btn btn-outline-secondary">자세히 보기</a>
+                <a href="/cscenter/faq?ifaq=${item.ifaq}" class="btn btn-outline-secondary">자세히 보기</a>
             `;
+
+            divElem.addEventListener('click', e => {
+                location.href = `/cscenter/faq?ifaq=${item.ifaq}`;
+            });
         })
     }
 
