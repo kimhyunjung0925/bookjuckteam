@@ -14,7 +14,7 @@
         <div class="flex center back_color_purple h-100">
             <div class="width500p">
                 <div class="changepw_head m-b-30">비밀번호 변경</div>
-                <div th:text="${msg}"></div>
+                <div th:text="${msg}" class="color_red"></div>
                 <form th:action="@{/user/mypage/changePw}" method="post" id="password-frm">
                     <div class="m-t-10"><b>현재 비밀번호</b></div>
                     <div><input type="password" name="currentupw" class="text_box"></div>

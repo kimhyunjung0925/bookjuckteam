@@ -57,6 +57,7 @@ public class UserService {
         return result == null ? 1 : 0;
     }
 
+    //-------비밀번호
     public int changePw(UserDto dto) {
         dto.setIuser(authenticationFacade.getLoginUserPk());
         UserEntity dbUser = mapper.selPw(dto);
