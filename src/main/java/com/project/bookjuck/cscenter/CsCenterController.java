@@ -1,5 +1,6 @@
 package com.project.bookjuck.cscenter;
 
+import com.project.bookjuck.Const;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
 import com.project.bookjuck.user.model.UserVO;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import static com.project.bookjuck.Const.ERR_5;
 
 @Controller
 @RequestMapping("/cscenter")
@@ -39,11 +43,11 @@ public class CsCenterController {
     }
 
     @PostMapping("/complaint")
-    public String comPlaintProc(ComplaintEntity complaintEntity, Model model){
+    public String comPlaintProc(ComplaintEntity complaintEntity, RedirectAttributes attr){
         int result = service.inscomplaint(complaintEntity);
         switch (result){
             case 0 :
-                model.addAttribute("err", complaintEntity);
+                attr.addFlashAttribute(Const.MSG, ERR_5);
                 return "redirect:/cscenter/complaint";
             default:
                 return "redirect:/cscenter";
