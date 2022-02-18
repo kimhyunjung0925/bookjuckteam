@@ -37,12 +37,13 @@
             let cutctnt = textLengthOverCut(item.faq_ctnt);
             divElem.className = "px-2 col  align-items-start";
             divElem.innerHTML = `
-                <h5 class="fw-bold pointer">${item.faq_title}</h5>
-                <p class="pointer">${cutctnt}</p>
+                <h5 id="faq_title" class="fw-bold pointer">${item.faq_title}</h5>
+                <p>${cutctnt}</p>
                 <a href="/cscenter/faq?ifaq=${item.ifaq}" class="btn btn-outline-secondary">자세히 보기</a>
             `;
 
-            divElem.addEventListener('click', e => {
+            const titleElem = divElem.querySelector('#faq_title');
+            titleElem.addEventListener('click', e => {
                 location.href = `/cscenter/faq?ifaq=${item.ifaq}`;
             });
         })
