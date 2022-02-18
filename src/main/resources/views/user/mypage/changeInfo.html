@@ -6,14 +6,16 @@
 <head>
     <title></title>
     <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
-    <script defer th:src="@{/js/user/mypage.js}"></script>
+    <script defer th:src="@{/js/user/changeInfo.js}"></script>
 </head>
 
 <th:block layout:fragment="userContent">
 
+
         <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
         <div class="flex center back_color_purple h-100">
             <div class="width500p">
+                <form th:action="@{/user/mypage/changeInfo}" method="post" id="info-frm">
                 <div class="changeinfo_head m-b-30">회원 정보 수정</div>
 
                 <div class="m-t-10"><b>아이디</b></div>
@@ -29,22 +31,24 @@
 <!-- 변경하기 누르면 text readonly에서 text로 바뀌면서 인증번호 발송 버튼 나오고 인증번호 치고 확인 누르면 바뀌는 걸루..-->
                 <div class="m-t-10"><b>휴대폰번호</b></div>
                 <div class="flex">
-                    <input type="text" readonly th:value="${@utils.getLoginUser().getPh()}" class="text_box m-r-10">
+                    <input type="text" readonly th:value="${@utils.getLoginUser().getPh()}" class="text_box m-r-10" >
                     <input type="button" value="변경하기" class="btn">
                 </div>
 
                 <div class="m-t-10"><b>이메일</b></div>
                 <div class="flex">
-                    <input type="text" readonly th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10">
-                    <input type="button" value="변경하기" class="btn">
+                    <input type="text" readonly th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10" id="email_text">
+                    <input type="button" value="변경하기" class="btn" id="email_btn">
                 </div>
 
                 <div class="m-t-10"><b>주소</b></div>
                 <div><input type="text" th:value="${@utils.getLoginUser().getAddr()}" class="text_box"></div>
 
                 <div class="flex justify_flex_end"><input type="button" value="수정완료" class="change_btn"></div>
+                </form>
             </div>
         </div>
+
 
 
 </th:block>
