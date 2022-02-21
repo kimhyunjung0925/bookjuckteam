@@ -2,6 +2,7 @@
 
     const joinFrmElem = document.querySelector('#join-frm');
 
+
     let idChkState = 2; //0: 아이디 사용 불가능, 1:아이디 사용가능, 2: 체크 안함
 
     const uidRegex = /^[a-z]+[a-z0-9]{5,20}$/g;
@@ -29,7 +30,7 @@
     };
 
 
-    if (joinFrmElem) {
+    if(joinFrmElem) {
 
         joinFrmElem.addEventListener('submit', (e) => {
             const uid = joinFrmElem.uid.value;
@@ -38,8 +39,9 @@
             const nm = joinFrmElem.nm.value;
             const ph = joinFrmElem.ph.value;
             const birth = joinFrmElem.birth.value;
-            const email = joinFrmElem.email.value;
-
+            const email1 = joinFrmElem.email1.value;
+            const email2 = joinFrmElem.email2.value;
+            const addr2 = joinFrmElem.addr2.value;
 
             console.log(uid);
             console.log(upw);
@@ -47,7 +49,7 @@
             console.log(nm);
             console.log(ph);
             console.log(birth);
-            console.log(email);
+
 
 
             if (!uidRegex.test(uid)) {
@@ -69,7 +71,7 @@
             } else if (!birthRegex.test(birth)) {
                 alert("생일은 - 없이 8자리 로 작성해주세요. ex)19990512");
                 e.preventDefault();
-            } else if (!emailRegex.test(email)) {
+            } else if (!emailRegex.test(email1)) {
                 alert("이메일 양식에 맞추어 입력하세요.");
                 e.preventDefault();
             } else if (idChkState !== 1) {
@@ -82,6 +84,13 @@
                         break;
                 }
                 e.preventDefault();
+            }else if(email2 === "" || email2 === null){
+                e.preventDefault();
+                alert("이메일 주소를 선택해주세요.");
+            }
+            else if(addr2 === "" || addr2 === null){
+                e.preventDefault();
+                alert("상세주소를 입력하세요.");
             }
         });
 
@@ -120,5 +129,20 @@
         }
 
     })
+
+
+    const ps_box = joinFrmElem.querySelector("#addr1");
+
+    ps_box.addEventListener('click', ()=>{
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분
+                console.log(data)
+                ps_box.value = data.address;
+            document.querySelector('#addr2').focus();
+            }
+        }).open();
+    })
+
 
 }

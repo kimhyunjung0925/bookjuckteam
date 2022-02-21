@@ -42,7 +42,8 @@
                 </form>
 
                 <div class="m-t-10"><b>주소</b></div>
-                <div><input type="text" th:value="${@utils.getLoginUser().getAddr()}" class="text_box"></div>
+                <div><input type="text" th:value="${@utils.getLoginUser2().getAddr1()}" class="text_box"></div>
+                    <div><input type="text" th:value="${@utils.getLoginUser2().getAddr2()}" class="text_box"></div>
 
                 <div class="flex justify_flex_end"><input type="button" value="수정완료" class="change_btn"></div>
                 </form>

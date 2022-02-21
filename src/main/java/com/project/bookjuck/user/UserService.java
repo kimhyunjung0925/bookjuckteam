@@ -30,7 +30,8 @@ public class UserService {
 
         UserVO voresult = new UserVO();
         vo.setEmail(voresult.totalEmail(vo.getEmail1(), vo.getEmail2()));
-
+        vo.setAddr(vo.totalAddr());
+        System.out.println(vo.getAddr());
         String hashedUpw = passwordEncoder.encode(vo.getUpw());
         vo.setUpw(hashedUpw);
         try {
