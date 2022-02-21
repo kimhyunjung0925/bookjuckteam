@@ -4,6 +4,7 @@ package com.project.bookjuck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,13 +26,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/sendMail")
+                .permitAll();
+
         http
                 .authorizeRequests()
                     .antMatchers( "/css/**", "/js/**", "/upload/images/**"
-                            , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter","/cscenter/faq", "/cscenter/notice","/ajax/cscenter/**",
-                            "/user/join","/user/idChk/**").permitAll()
+                            , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter",
+                            "/cscenter/faq", "/cscenter/notice","/ajax/cscenter/**",
+                            "/user/join", "/user/idChk/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
+
                 .formLogin()
                     .loginPage("/user/login")
                     .loginProcessingUrl("/user/login")

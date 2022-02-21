@@ -20,12 +20,30 @@
             if (emailbtn) {
                 emailBtnElem.addEventListener("click", checkMsg);
             }
+
+
         }
+
 
         // 인증하기 button 클릭시 event
         function checkMsg() {
+            const emailTextElem = document.querySelector("#email_text");
             if (confirm("인증번호를 발송 하시겠습니까?")) {
                 makeInputText();
+                fetch(`/sendMail`,{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email:emailTextElem.value
+                    }),
+
+                })
+                    .then(res => res.json())
+                    .then(data=>{
+                        console.log(data);
+                    })
             }
         }
 

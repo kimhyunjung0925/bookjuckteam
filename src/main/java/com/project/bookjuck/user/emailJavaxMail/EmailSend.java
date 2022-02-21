@@ -1,4 +1,4 @@
-package com.project.bookjuck.email;
+package com.project.bookjuck.user.emailJavaxMail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 
 @Service
-public class emailSend {
+public class EmailSend {
     @Autowired
     private JavaMailSender mailSender;
 
