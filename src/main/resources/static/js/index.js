@@ -47,3 +47,17 @@ const regex = {
         return (target && val) ? !this[target].test(val) : true;
     }
 };
+
+//글자수 제한 하는 함수
+function textLengthOverCut(ctnt, len, lastTxt) {
+    if (len == "" || len == null) { // 기본값
+        len = 90;
+    }
+    if (lastTxt == "" || lastTxt == null) { // 기본값
+        lastTxt = "...";
+    }
+    if (ctnt.length > len) {
+        ctnt = ctnt.substr(0, len) + lastTxt;
+    }
+    return ctnt;
+}

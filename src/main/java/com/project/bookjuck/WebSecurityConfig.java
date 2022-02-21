@@ -27,24 +27,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers( "/css/**", "/js/**", "/upload/images/**"
-                            , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter","/cscenter/faq", "/cscenter/notice","/ajax/cscenter/**",
-                            "/user/join","/user/idChk/**").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers( "/css/**", "/js/**", "/upload/images/**"
+                        , "/book/list", "/book/detail", "/book/detail_item","/cart","/main","/cscenter","/cscenter/faq/**", "/cscenter/notice/**","/ajax/cscenter/**",
+                        "/user/join","/user/idChk/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    .loginPage("/user/login")
-                    .loginProcessingUrl("/user/login")
-                    .usernameParameter("uid")
-                    .passwordParameter("upw")
-                    .defaultSuccessUrl("/main")
-                    .permitAll()
-                    .and()
+                .loginPage("/user/login")
+                .loginProcessingUrl("/user/login")
+                .usernameParameter("uid")
+                .passwordParameter("upw")
+                .defaultSuccessUrl("/main")
+                .permitAll()
+                .and()
                 .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                    .invalidateHttpSession(true)
-                    .logoutSuccessUrl("/main")
-                    .permitAll();
+                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                .invalidateHttpSession(true)
+                .logoutSuccessUrl("/main")
+                .permitAll();
     }
 
     @Autowired
