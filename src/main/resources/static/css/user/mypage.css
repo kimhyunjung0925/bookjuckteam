@@ -2,6 +2,7 @@
 .mypage_menu {margin-bottom: 30px; margin-left: 10px; font-weight: bold;}
 
 .mypage_submenu_item {margin-left: 10px; font-weight:normal;}
+.mypage_color { background-color: #a4b0be;}
 
 
 /*구매내역 테이블*/
@@ -24,7 +25,6 @@ table td:nth-child(2) {text-align: left;  vertical-align: middle;}
 }
 
 
-
 /*회원 정보 변경*/
 
 .text_box{
@@ -42,10 +42,16 @@ table td:nth-child(2) {text-align: left;  vertical-align: middle;}
     position: relative;
     width: 100px;
     height: 51px;
+    border-radius: 0;
     border: solid 1px #494949;
     box-sizing: border-box;
+    background-color: #2f3542;
+    color: white;
     padding-left: 10px;
 }
+.btn:hover { color: #8f8f8f;}
+
+
 
 .changeinfo_head{
     text-align: center;
@@ -63,7 +69,7 @@ table td:nth-child(2) {text-align: left;  vertical-align: middle;}
     padding: 17px 0 15px;
     border-radius: 6px;
     border: solid 1px rgba(0,0,0,.15);
-    background-color:cornflowerblue;
+    background-color:#747d8c;
     margin-top: 20px;
 }
 
@@ -96,7 +102,7 @@ table td:nth-child(2) {text-align: left;  vertical-align: middle;}
     padding: 17px 0 15px;
     border-radius: 6px;
     border: solid 1px rgba(0,0,0,.15);
-    background-color:cornflowerblue;
+    background-color:#747d8c;
     margin-top: 20px;
 }
 

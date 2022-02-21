@@ -12,7 +12,7 @@ html { overflow-y:scroll; }
 
 /* ================  헤더부분 ================== */
 
-a { text-decoration:none !important; color: #333333 !important;}
+a { text-decoration:none !important; color: black !important; }
 a:hover { text-decoration:none !important }
 
 /*----------first---------------*/
@@ -38,16 +38,20 @@ a:hover { text-decoration:none !important }
 /*-------------category--------------*/
 .main_category { width: 90%; display: flex; justify-content: center; align-content: center;  height: 100%; margin: 0 auto;  }
 
+
 /* 글자크기를 16px 맑은 고딕 굵게하고  글자색은 검정색, 라인높이50px menu박스 가운데정렬, 글자가운데 정렬, line-height 숫자 높을수록 사이 간격 넓어짐!!  */
-.header_menu { font:bold 18px "malgun gothic"; color:black; line-height: 50px; margin: 0 auto; text-align: center; }
+.header_menu { font:bold 18px "malgun gothic"; color:black; line-height: 50px; margin: 0 auto; text-align: center;
+                border-top: solid 1px; border-bottom: solid 1px;}
 
 /* ul li태그에 리스트 스타일을 없앰 */
 ul li{ list-style: none; }
 
 /* header_menu 태그 자식의 ul의 자식 li를 왼쪽정렬과 넓이 설정 */
-.header_menu > ul > li { float: left; width:200px; position:relative;}
-.header_menu > ul > li > ul {  margin:0; padding: 0; width:200px; display:none; position: absolute; font-size:15px; background-color:lightslategrey; }
+.header_menu > ul > li { float: left; width:200px; position:relative; }
+.header_menu > ul > li > ul {  margin:0; padding: 0; width:200px; display:none; position: absolute; font-size:15px; background-color: #ebebeb;
+border-left: solid 1px;border-bottom: solid 1px; border-right: solid 1px; border-top: solid 1px; z-index: 1; }
 .header_menu > ul > li:hover > ul { display:block; }
+
 
 
 /* ===================== 푸터부분 ========================= */
@@ -158,7 +162,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .back_color_blue { background-color: cornflowerblue; }
 .back_color_blue2 { background-color: lightsteelblue; }
 .back_color_grey { background-color: lightslategray; }
-.back_color_grey2 { background-color: darkgrey; }
+.back_color_grey2 { background-color: #ced6e0; }
 .back_color_grey3 {background-color: #f5f6f7;}
 .back_color_grey4 {background-color: #e8e8e8;}
 .back_color_white {background-color: white;}
