@@ -1,0 +1,30 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FaQ</title>
+    <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
+</head>
+
+<th:block layout:fragment="content">
+<!--아래에 faq는 js에서 쓰는 클래스 입니다. 절대 건들지 말기-->
+    <div class="faq container-lg px-4 py-4" id="hanging-icons">
+        <h3 class="pb-2">자주 묻는 질문</h3>
+        <div class="faqboard col g-2 py-3">
+            <!--faq리스트 만들어지는 부분 -->
+            <div class="p-3">배송문의</div>
+            <div class="faqcategory_1 row row-cols-1"></div>
+            <div class="p-3">상품문의</div>
+            <div class="faqcategory_2 row row-cols-1"></div>
+            <div class="p-3">교환/환불문의</div>
+            <div class="faqcategory_3 row row-cols-1"></div>
+            <div class="p-3">기타문의</div>
+            <div class="faqcategory_4 row row-cols-1"></div>
+        </div>
+    </div>
+    <script src="/js/cscenter/faq.js"></script>
+</th:block>
+

@@ -21,23 +21,33 @@ public class CsCenterController {
     @Autowired
     private CsCenterService service;
 
+    //cscenter기본창
     @GetMapping
     public String CsCenter() {
         return "cscenter/cscenter";
     }
 
+    //공지사항 리스트창
     @GetMapping("/notice")
     public String CsNotice() {
         return "cscenter/notice";
     }
 
+    //1대1문의창
     @GetMapping("/complaint")
     public String comPlaint(@ModelAttribute("complaintentity") ComplaintEntity complaintEntity) {
         return "cscenter/complaint";
     }
 
+    //faq 리스트창
     @GetMapping("/faq")
-    public String FAQ(FaqEntity entity, Model model) {
+    public String FaQ(){
+        return "cscenter/faq";
+    }
+
+    //faq 세부사항창
+    @GetMapping("/faq/faqdetail")
+    public String FaQDetail(FaqEntity entity, Model model) {
         model.addAttribute("Faqdata", service.selFaqDetail(entity));
         return "cscenter/faqdetail";
     }

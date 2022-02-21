@@ -12,5 +12,6 @@ public class FaqEntity {
     private int ifaq;
     private String faq_title;
     private String faq_ctnt;
+    private int faq_cate;
 
 }
