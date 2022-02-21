@@ -4,6 +4,7 @@
       layout:decorate="temp/loginjoin_layout">
 
 <head>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <title>회원가입</title>
     <link rel="stylesheet" th:href="@{/css/user/join.css}">
     <!--AT{}는 Standard URL이라고 한다. -->
@@ -47,7 +48,8 @@
             <div><input type="password" maxlength="15" placeholder="비밀번호 확인" id="upw-chk" class="ps_box"></div>
 
             <h4>주소</h4>
-            <div><input type="text" th:field="*{addr}" class="ps_box"></div>
+            <div><input type="text" th:field="*{addr1}" class="ps_box"></div>
+                <div><input type="text" th:field="*{addr2}" class="ps_box" placeholder="상세주소를 입력하여 주세여."></div>
 
             <h4>이메일</h4>
             <div class="colorblue">※비밀번호 분실 시 임시 비밀번호가 이메일로 발송됩니다.</div>

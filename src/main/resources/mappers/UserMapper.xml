@@ -12,6 +12,7 @@
         </if>
     </select>
 
+
     <insert id="insUser">
         INSERT INTO t_user
             (uid, upw, nm, addr, email, birth, ph, gender)
@@ -33,5 +34,16 @@
         WHERE iuser = ${iuser}
     </select>
 
+<!--고객 주소 나눠받으려고-->
+    <select id="selUser2" resultType="com.project.bookjuck.user.model.UserVO">
+        SELECT * FROM t_user
+        WHERE
+        <if test=" uid != null and uid != '' ">
+            uid = #{uid}
+        </if>
+        <if test=" iuser > 0 ">
+            AND iuser = ${iuser}
+        </if>
+    </select>
 
 </mapper>
