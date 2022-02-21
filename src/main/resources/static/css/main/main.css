@@ -16,14 +16,11 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .font_bold { font-size: large; font-weight: bold; }
 
 
-UL.menuDiv LI:last-child a {
-    border-right: 1px solid #d1d1d1;
-}
-
 .menuDiv {
     background-color:white; width: 100%; height: 50px; display: flex; align-items: center; justify-content: center;
     border-top: solid 1px #969696; border-bottom: solid 1px #969696;
 }
+
 
 .clicked { background-color: #daefe0; font-size:large; border-bottom: none;}
 .click_color { background-color: #daefe0;}
