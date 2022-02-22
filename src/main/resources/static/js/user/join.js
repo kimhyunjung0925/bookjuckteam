@@ -58,9 +58,6 @@
             } else if (!upwRegex.test(upw)) {
                 // alert("비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.");
                 join_msg_upw.innerHTML="비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.";
-                joinFrmElem.upw.addEventListener('keyup' , ()=>{
-                    join_msg_upw.innerText = '';
-                });
                 e.preventDefault();
             } else if (upw !== upwChk) {
                 // alert('비밀번호와 체크 비밀번호를 확인해 주세요.');
