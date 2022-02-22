@@ -9,7 +9,7 @@
     const upwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
     const nmRegex = /^([가-힣]{2,10})$/;
     const birthRegex = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
-    const phRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+    const phRegex = /^01([0|1|6|7|8|9])?([0-9]{3,4})?([0-9]{4})$/;
     const emailRegex = /^.{1,20}$/;
 
 
@@ -70,7 +70,7 @@
             } else if (!phRegex.test(ph)) {
                 // alert("번호는 - 없이 입력해주세요.");
                 join_msg_ph.innerHTML="번호는 - 없이 입력해주세요.";
-                return false;
+                e.preventDefault();
             } else if (!birthRegex.test(birth)) {
                 // alert("생일은 - 없이 8자리 로 작성해주세요. ex)19990512");
                 join_msg_birth.innerHTML="생일은 - 없이 8자리 로 작성해주세요. ex)19990512";
@@ -103,10 +103,48 @@
 
         joinFrmElem.uid.addEventListener('keyup', () => {
             const idChkMsgElem = joinFrmElem.querySelector('#id-chk-msg');
+            const join_msg_uid = joinFrmElem.querySelector('#join_msg_uid');
             idChkMsgElem.innerText = '';
+            join_msg_uid.innerHTML = '';
             idChkState = 2;
 
         });
+
+        joinFrmElem.upw.addEventListener('keyup',() => {
+            const join_msg_upw = joinFrmElem.querySelector('#join_msg_upw');
+            join_msg_upw.innerText = '';
+        });
+
+        joinFrmElem.nm.addEventListener('keyup',() => {
+            const join_msg_nm = joinFrmElem.querySelector('#join_msg_nm');
+            join_msg_nm.innerText = '';
+        });
+
+        joinFrmElem.ph.addEventListener('keyup',() => {
+            const join_msg_ph = joinFrmElem.querySelector('#join_msg_ph');
+            join_msg_ph.innerText = '';
+        });
+
+        joinFrmElem.birth.addEventListener('keyup',() => {
+            const join_msg_birth = joinFrmElem.querySelector('#join_msg_birth');
+            join_msg_birth.innerText = '';
+        });
+
+        joinFrmElem.addr2.addEventListener('keyup',() => {
+            const join_msg_addr = joinFrmElem.querySelector('#join_msg_addr');
+            join_msg_addr.innerText = '';
+        });
+
+        joinFrmElem.email1.addEventListener('keyup',() => {
+            const join_msg_email = joinFrmElem.querySelector('#join_msg_email');
+            join_msg_email.innerText = '';
+        });
+
+        joinFrmElem.email2.addEventListener('keyup',() => {
+            const join_msg_email = joinFrmElem.querySelector('#join_msg_email');
+            join_msg_email.innerText = '';
+        });
+
 
         //아이디 중복 체크 버튼
         const idBtnChkElem = joinFrmElem.querySelector('#id-btn-chk');
