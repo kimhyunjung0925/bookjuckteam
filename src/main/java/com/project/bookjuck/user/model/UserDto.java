@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class UserDto extends UserEntity{
     private String currentupw;
-    private String currnetEmail;
+    private String currentEmail;
 }
 ;

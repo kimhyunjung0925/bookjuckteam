@@ -15,11 +15,11 @@ public class EmailSendService {
 
     public static final String ePw = createKey();
 
-    public String sendSimpleEmail(String email) {
+    public String sendSimpleEmail(String currentEmail) {
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setFrom("bookjuck@gmail.com");            //메일 보내는 사람
-        message.setTo(email);                         //메일 받는 사람
+        message.setTo(currentEmail);                         //메일 받는 사람
         message.setText("인증코드는 " + ePw + " 입니다");  //메일 내용
         message.setSubject("북적북적 인증코드 메일 발송");  //메일 제목
 
