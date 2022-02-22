@@ -19,7 +19,7 @@ a:hover { text-decoration:none !important }
 .main_first { display: flex; justify-content: flex-end; }
 
 /*-------------search--------------*/
-.main_logo { width: 100px; height: 55px; }
+.main_logo { width: 100px; height: 30px; }
 .main_logo_large { width: 200px; height: 105px;}
 
 .search { float: left;width: 401px;height: 42px; background: no-repeat 0 0; }
