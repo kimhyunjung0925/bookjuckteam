@@ -11,17 +11,20 @@
 </head>
 
 <th:block layout:fragment="content">
-    <div class="flex center h-100">
+
+    <div class="flex center w-100 h-100">
         <div class="grid place_center">
-            <div>
+            <div class="m-b-20">
                 <h1>환영합니다!</h1>
             </div>
-            <div class="flex">
-                <img th:src="@{/upload/images/logo.png}" class="main_logo"><h1 class="color_red">회원가입이 완료</h1><h2>되었습니다.</h2>
+            <div class="flex align_items_center m-b-20">
+                <img th:src="@{/upload/images/black.png}" class="main_logo">
+                <h1 class="color_red">회원가입이 완료</h1>
+                <h2>되었습니다.</h2>
             </div>
             <div>
-                <a href="/main"><input type="button" value="메인화면" class="p-20 font_size_larger back_color_blue"></a>
-                <a href="/user/login"><input type="button" value="로그인" class="p-20 font_size_larger back_color_blue2"></a>
+                <a href="/main"><input type="button" value="메인화면" class="p-20 font_size_larger back_color_grey3"></a>
+                <a href="/user/login"><input type="button" value="로그인" class="p-20 font_size_larger back_color_grey"></a>
             </div>
         </div>
     </div>
