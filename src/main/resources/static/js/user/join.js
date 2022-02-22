@@ -43,36 +43,41 @@
             const email2 = joinFrmElem.email2.value;
             const addr2 = joinFrmElem.addr2.value;
 
-            console.log(uid);
-            console.log(upw);
-            console.log(upwChk);
-            console.log(nm);
-            console.log(ph);
-            console.log(birth);
-
-
+            const join_msg_nm = joinFrmElem.querySelector('#join_msg_nm');
+            const join_msg_birth = joinFrmElem.querySelector('#join_msg_birth');
+            const join_msg_ph = joinFrmElem.querySelector('#join_msg_ph');
+            const join_msg_uid = joinFrmElem.querySelector('#join_msg_uid');
+            const join_msg_upw = joinFrmElem.querySelector('#join_msg_upw');
+            const join_msg_addr = joinFrmElem.querySelector('#join_msg_addr');
+            const join_msg_email = joinFrmElem.querySelector('#join_msg_email');
 
             if (!uidRegex.test(uid)) {
-                e.stopPropagation();
-                alert("아이디는 영소문자조합의 5-10자로 작성해주세요.");
+                // alert("아이디는 영소문자조합의 5-10자로 작성해주세요.");
+                join_msg_uid.innerHTML="아이디는 영소문자조합의 5-10자로 작성해주세요.";
                 e.preventDefault();
             } else if (!upwRegex.test(upw)) {
-                alert("비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.");
+                // alert("비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.");
+                join_msg_upw.innerHTML="비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.";
                 e.preventDefault();
             } else if (upw !== upwChk) {
-                alert('비밀번호와 체크 비밀번호를 확인해 주세요.');
+                // alert('비밀번호와 체크 비밀번호를 확인해 주세요.');
+                join_msg_upw.innerHTML='비밀번호와 체크 비밀번호를 확인해 주세요.';
                 e.preventDefault();
             } else if (!nmRegex.test(nm)) {
-                alert("이름은 한글조합으로 2~5글자로 작성해주세요.");
+                // alert("이름은 한글조합으로 2~5글자로 작성해주세요.");
+                join_msg_nm.innerHTML="이름은 한글조합으로 2~5글자로 작성해주세요.";
                 e.preventDefault();
             } else if (!phRegex.test(ph)) {
-                alert("번호는 - 없이 입력해주세요.");
+                // alert("번호는 - 없이 입력해주세요.");
+                join_msg_ph.innerHTML="번호는 - 없이 입력해주세요.";
                 return false;
             } else if (!birthRegex.test(birth)) {
-                alert("생일은 - 없이 8자리 로 작성해주세요. ex)19990512");
+                // alert("생일은 - 없이 8자리 로 작성해주세요. ex)19990512");
+                join_msg_birth.innerHTML="생일은 - 없이 8자리 로 작성해주세요. ex)19990512";
                 e.preventDefault();
             } else if (!emailRegex.test(email1)) {
-                alert("이메일 양식에 맞추어 입력하세요.");
+                // alert("이메일 양식에 맞추어 입력하세요.");
+                join_msg_email.innerHTML = "이메일 양식에 맞추어 입력하세요.";
                 e.preventDefault();
             } else if (idChkState !== 1) {
                 switch (idChkState) {
@@ -85,12 +90,14 @@
                 }
                 e.preventDefault();
             }else if(email2 === "" || email2 === null){
+                // alert("이메일 주소를 선택해주세요.");
+                join_msg_email.innerHTML = "이메일 주소를 선택해주세요.";
                 e.preventDefault();
-                alert("이메일 주소를 선택해주세요.");
             }
             else if(addr2 === "" || addr2 === null){
+                // alert("상세주소를 입력하세요.");
+                join_msg_addr.innerHTML="상세주소를 입력하세요.";
                 e.preventDefault();
-                alert("상세주소를 입력하세요.");
             }
         });
 
