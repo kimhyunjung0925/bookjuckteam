@@ -1,6 +1,7 @@
 package com.project.bookjuck;
 
 import com.project.bookjuck.email.EmailSendService;
+import com.project.bookjuck.user.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +18,5 @@ public class BookjuckApplication {
         SpringApplication.run(BookjuckApplication.class, args);
     }
 
-
-    @EventListener(ApplicationReadyEvent.class)
-    public void triggerMail() {
-        service.sendSimpleEmail("khjung0925@naver.com"); //받는사람 입력
-    }
 
 }
