@@ -10,6 +10,10 @@
         const emailName = document.querySelector("#email_name");
 
 
+
+
+
+
         // email 변경하기 버튼 클릭시 이벤트
         emailBtnElem.addEventListener("click", () => {
             changeText(); // Text 변환 이벤트 함수
@@ -32,9 +36,9 @@
                     "currentEmail" : emailName.value
                 }
 
-                myFetch.post(`/sendEmail`, data => {
+                myFetch.post(`/send/email`, data => {
 
-                },param);
+                },param)
             });
         }
         // 인증하기 button 클릭시 이메일 인증번호 전송!!!!

@@ -15,7 +15,7 @@
     <form th:action="@{/user/login}" method="post"  th:object="${UserEntity}">
     <div class="grid h-100 align_content_center ">
         <div class="flex center m-t-70 m-b-30">
-            <a href="/main"><img th:src="@{/upload/images/logo.png}" class="main_logo_large"></a>
+            <a href="/main"><img th:src="@{/upload/images/black.png}" class="main_logo_large"></a>
         </div>
 
         <div class="flex center ">
@@ -70,12 +70,12 @@
 
 
 
-                                <div class="login_keep_wrap" id="login_keep_wrap">
-                                    <div class="keep_check">
-                                        <input type="checkbox" id="keep" name="nvlong" class="input_keep" value="off">
-                                        <label for="keep" class="keep_text">로그인 상태 유지</label>
-                                    </div>
-                                </div>
+<!--                                <div class="login_keep_wrap" id="login_keep_wrap">-->
+<!--                                    <div class="keep_check">-->
+<!--                                        <input type="checkbox" id="keep" name="nvlong" class="input_keep" value="off">-->
+<!--                                        <label for="keep" class="keep_text">로그인 상태 유지</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
                                 <div class="login_error_wrap" id="err_capslock" style="display: none;">
                                     <div class="error_message">
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
 
-                                <div class="btn_login_wrap">
+                                <div class="btn_login_wrap m-t-20">
 
                                     <button type="submit" class="btn_login" id="log.login">
                                         <span class="btn_text">로그인</span>
