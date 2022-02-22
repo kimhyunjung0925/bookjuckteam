@@ -21,7 +21,9 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
     border-top: solid 1px #969696; border-bottom: solid 1px #969696;
 }
 
+.border-left { border-left: solid 1px #969696; }
+.border-right { border-right: solid 1px #969696; }
 
-.clicked { background-color: #daefe0; font-size:large; border-bottom: none;}
+.clicked { background-color: #daefe0; font-size:large; border-bottom: none; border-left: none; border-right: none;}
 .click_color { background-color: #daefe0;}
     /*#dae8e8*/
