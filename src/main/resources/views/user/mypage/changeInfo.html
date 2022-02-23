@@ -6,6 +6,8 @@
 <head>
     <title></title>
     <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 </head>
 
 <th:block layout:fragment="userContent">
@@ -35,16 +37,16 @@
 
                 <div class="m-t-10"><b>이메일</b></div>
                 <div class="flex" id="email_div">
-                    <input type="text" readonly th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10 back_color_grey4" id="email_text">
+                    <input t1ype="text" readonly th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10 back_color_grey4" id="email_text">
                     <input type="button" value="변경하기" class="btn" id="email_btn">
                 </div>
-
+                <div><span id="sucKey" class="color_black"></span></div>
 
                 <div class="m-t-10"><b>주소</b></div>
-                <div><input type="text" th:value="${@utils.getLoginUser2().getAddr1()}" class="text_box"></div>
-                    <div><input type="text" th:value="${@utils.getLoginUser2().getAddr2()}" class="text_box"></div>
+                <div><input type="text" th:value="${@utils.getLoginUser2().getAddr1()}" id="addr1" class="text_box" readonly ></div>
+                    <div><input type="text" th:value="${@utils.getLoginUser2().getAddr2()}" id="addr2" class="text_box" readonly></div>
                     <input type="button" value="변경하기" class="btn" id="addr_btn">
-                <div class="flex justify_flex_end"><input type="button" value="수정완료" class="change_btn"></div>
+                <div class="flex justify_flex_end"><input type="button" value="수정완료" id="change_info" class="change_btn"></div>
                 </form>
             </div>
         </div>

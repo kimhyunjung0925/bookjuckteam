@@ -66,6 +66,11 @@ public class UserController {
         return "user/mypage/changeInfo";
     }
 
+    @PostMapping("/mypage/changeInfo")
+    public String changeInfoProc() {
+        return "user/mypage/changeInfo";
+    }
+
 
 
     @ResponseBody

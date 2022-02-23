@@ -15,11 +15,12 @@ public class EmailSendController {
 
     @PostMapping("/sendEmail")
     @ResponseBody
-    public Map<String, String> sendMail(@RequestBody UserDto dto){
-        service.sendSimpleEmail(dto.getCurrentEmail());
-        Map<String, String> result = new HashMap();
-        result.put("result", "1");
+    public Map<String, Integer> sendMail(@RequestBody UserDto dto){
+        int temp = service.sendSimpleEmail(dto.getCurrentEmail());
+
+        Map<String, Integer> result = new HashMap();
+        result.put("result",temp);
         return result;
     }
-
+//sendsimpe 함수가 int 라서 map 도 int 로 바꿨습니다.
 }

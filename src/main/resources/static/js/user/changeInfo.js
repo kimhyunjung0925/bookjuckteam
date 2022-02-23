@@ -33,22 +33,74 @@
                     }
 
                     myFetch.post(`/sendEmail`, data => {
-
+                        console.log(data);
+                        matchKey(data.result);
                     },param)
                 }
             });
         }
-        // 인증하기 button 클릭시 이메일 인증번호 전송!!!!
 
+        let keyElem;
+        let btnElem;
 
         // 변경하기 button 클릭 => 인증하기 Text로 변경
         const makeInputText = (emailName) => {
             emailDivElem.innerHTML = null;
             emailDivElem.innerHTML =
                 `<div class='flex-direc-column w-100'><input type='text' readonly class='text_box m-b-5 back_color_grey4' value=${emailName} >` +
-                `<div class='flex w-100 '><input type='text' class='text_box m-r-10'> ` +
+                `<div class='flex w-100 '><input type='text' id="keyElem" class='text_box m-r-10'> ` +
                 `<input type='button' value='재전송' class='btn m-r-5'> ` +
-                `<input type='button' value='인증완료' class='btn' ></div></div>`;
+                `<input type='button' value='인증완료' class='btn btnElem' ></div></div>`;
+
+
         };
+
+
+        function matchKey(data){
+            let suckey = document.querySelector('#sucKey'); //이메일 인증 실패,성공 알림 innertext
+            btnElem = document.querySelector('.btnElem');
+            btnElem.addEventListener('click', () => {
+
+                keyElem = document.querySelector('#keyElem');
+                console.log(btnElem)
+                console.log(keyElem)
+
+                if(Number(keyElem.value) === data){
+                    let changeSubmit = document.querySelector('#change_info');
+                    //이메일 인증에 성공하면 서브밋이 활성화가 되도록 하기위해 쓰는 변수.
+                    const ps_box = document.querySelector("#addr1");
+                    const ps_box2 = document.querySelector("#addr2");
+                    console.log(ps_box)
+                    console.log(ps_box2);
+                    ps_box.readOnly=false;
+                    ps_box2.readOnly=false;
+                    ps_box.addEventListener('click', ()=>{
+                        ps_box2.value = '';
+
+                        new daum.Postcode({
+                            oncomplete: function(data) {
+                                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분
+                                console.log(data)
+                                ps_box.value = data.address;
+                                document.querySelector('#addr2').focus();
+                            }
+                        }).open();
+                    })
+
+                    suckey.innerHTML="이메일 인증 성공하였어요.";
+
+                    //여기가 서브밋 변경부분
+                    changeSubmit.type = 'submit';
+                    changeSubmit.classList.remove("color_grey");
+                    changeSubmit.classList.add("color_blue");
+
+                } else {
+                    console.log(keyElem.value === data)
+                    suckey.innerHTML="이메일 인증 실패하였어요. 다시 입력해주세요.";
+                }
+            })
+
+
+        }
     }
 }
