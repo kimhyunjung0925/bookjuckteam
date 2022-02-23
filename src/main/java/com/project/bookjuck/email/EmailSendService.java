@@ -13,8 +13,14 @@ public class EmailSendService {
     @Autowired
     private JavaMailSender mailSender;
 
+    //인증번호를 임시로 저장한다.
+    int tempEpw;
+    //사용작자 입력한 번호를 임시로 저장한다.
+    int tempInsertedEpw;
+
     public int sendSimpleEmail(String currentEmail) {
         final int ePw = createKey();
+        tempEpw = ePw;
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setFrom("bookjuck96@gmail.com");            //메일 보내는 사람
@@ -31,5 +37,12 @@ public class EmailSendService {
     public static int createKey() {
         return (int)(Math.random()*1000000);
     }
+
+    //입력일치 함수
+    public void correctKey(){
+        //여기서 패치로 받아와야 할거같다.
+    }
+
+
 
 }
