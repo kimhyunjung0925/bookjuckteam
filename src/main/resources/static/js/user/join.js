@@ -5,7 +5,7 @@
 
     let idChkState = 2; //0: 아이디 사용 불가능, 1:아이디 사용가능, 2: 체크 안함
 
-    const uidRegex = /^[a-z]+[a-z0-9]{5,20}$/g;
+    const uidRegex = /^[a-z]+[a-z0-9]{5,20}$/i;
     const upwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
     const nmRegex = /^([가-힣]{2,10})$/;
     const birthRegex = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
@@ -55,31 +55,31 @@
                 // alert("아이디는 영소문자조합의 5-10자로 작성해주세요.");
                 join_msg_uid.innerHTML="아이디는 영소문자조합의 5-10자로 작성해주세요.";
                 e.preventDefault();
-            } else if (!upwRegex.test(upw)) {
+            } if (!upwRegex.test(upw)) {
                 // alert("비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.");
                 join_msg_upw.innerHTML="비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.";
                 e.preventDefault();
-            } else if (upw !== upwChk) {
+            } if (upw !== upwChk) {
                 // alert('비밀번호와 체크 비밀번호를 확인해 주세요.');
                 join_msg_upw.innerHTML='비밀번호와 체크 비밀번호를 확인해 주세요.';
                 e.preventDefault();
-            } else if (!nmRegex.test(nm)) {
+            }  if (!nmRegex.test(nm)) {
                 // alert("이름은 한글조합으로 2~5글자로 작성해주세요.");
                 join_msg_nm.innerHTML="이름은 한글조합으로 2~5글자로 작성해주세요.";
                 e.preventDefault();
-            } else if (!phRegex.test(ph)) {
+            } if (!phRegex.test(ph)) {
                 // alert("번호는 - 없이 입력해주세요.");
                 join_msg_ph.innerHTML="번호는 - 없이 입력해주세요.";
                 e.preventDefault();
-            } else if (!birthRegex.test(birth)) {
+            } if (!birthRegex.test(birth)) {
                 // alert("생일은 - 없이 8자리 로 작성해주세요. ex)19990512");
                 join_msg_birth.innerHTML="생일은 - 없이 8자리 로 작성해주세요. ex)19990512";
                 e.preventDefault();
-            } else if (!emailRegex.test(email1)) {
+            } if (!emailRegex.test(email1)) {
                 // alert("이메일 양식에 맞추어 입력하세요.");
                 join_msg_email.innerHTML = "이메일 양식에 맞추어 입력하세요.";
                 e.preventDefault();
-            } else if (idChkState !== 1) {
+            }  if (idChkState !== 1) {
                 switch (idChkState) {
                     case 0:
                         alert('다른 아이디를 사용해 주세요!');
@@ -89,12 +89,12 @@
                         break;
                 }
                 e.preventDefault();
-            }else if(email2 === "" || email2 === null){
+            }if(email2 === "" || email2 === null){
                 // alert("이메일 주소를 선택해주세요.");
                 join_msg_email.innerHTML = "이메일 주소를 선택해주세요.";
                 e.preventDefault();
             }
-            else if(addr2 === "" || addr2 === null){
+             if(addr2 === "" || addr2 === null){
                 // alert("상세주소를 입력하세요.");
                 join_msg_addr.innerHTML="상세주소를 입력하세요.";
                 e.preventDefault();
