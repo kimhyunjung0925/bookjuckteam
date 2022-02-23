@@ -33,7 +33,6 @@
                 location.href = `/cscenter/faq/faqdetail?ifaq=${list[i].ifaq}`;
             });
 
-
         }
     }
 

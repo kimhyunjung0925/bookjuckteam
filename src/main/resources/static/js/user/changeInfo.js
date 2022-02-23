@@ -29,7 +29,7 @@
                 if (confirm("인증번호를 발송 하시겠습니까?")) {
                     makeInputText(emailName.value);
                     const param = {
-                        "currentEmail" : emailName.value
+                        currentEmail : emailName.value
                     }
 
                     myFetch.post(`/sendEmail`, data => {
