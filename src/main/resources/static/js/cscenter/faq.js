@@ -54,8 +54,9 @@
         divElem.className = "px-2 col  align-items-start";
         divElem.innerHTML = `
                 <h5 id="faq_title" class="fw-bold pointer">${item.faq_title}</h5>
-                <p>${item.faq_ctnt}</p>
-                <a href="/cscenter/faq/faqdetail?ifaq=${item.ifaq}" class="btn btn-outline-secondary">자세히 보기</a>
+                <pre>${item.faq_ctnt}</pre>
+                <hr>
+               
             `;
     }
 
