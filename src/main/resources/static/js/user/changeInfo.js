@@ -9,15 +9,6 @@
         const emailDivElem = document.querySelector("#email_div");
         const emailName = document.querySelector("#email_name");
 
-        const param = {
-            "currentEmail" : emailName.value
-        }
-
-        myFetch.post(`/send/email`, data => {
-
-        },param)
-
-
 
 
         // email 변경하기 버튼 클릭시 이벤트
@@ -37,6 +28,13 @@
                 console.log(emailName.value);
                 if (confirm("인증번호를 발송 하시겠습니까?")) {
                     makeInputText(emailName.value);
+                    const param = {
+                        "currentEmail" : emailName.value
+                    }
+
+                    myFetch.post(`/sendEmail`, data => {
+
+                    },param)
                 }
             });
         }
