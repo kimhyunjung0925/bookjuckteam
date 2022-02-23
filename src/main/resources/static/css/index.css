@@ -181,6 +181,14 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
     font-size: larger;
 }
 
+.font_size_medium {
+    font-size: medium;
+}
+
+.font_size_small {
+    font-size: small;
+}
+
 /*------- img size --------*/
 .book_img_0810 { width: 80px; height: 100px; }
 .book_img_1013 { width: 100px; height: 130px; }
