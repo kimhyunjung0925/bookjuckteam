@@ -54,7 +54,6 @@ public class BookService {
                 .queryParam("SearchTarget", searchDto.getSearchTarget())
                 .queryParam("MaxResults", searchDto.getMaxResult())
                 .queryParam("start", searchDto.getStartIdx())
-                .queryParam("SearchTarget", "Book")
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
                 .build(false);
