@@ -16,7 +16,6 @@ public class GlobalExceptionHandler {
         ModelAndView mav = new ModelAndView();
         boolean isJson = request.getRequestURL().toString().contains(".json");
         if (isJson) {
-
             mav.addObject("result", "nok");
         }
         else mav.setViewName("error/uploadError");
