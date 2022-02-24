@@ -50,11 +50,10 @@
         const makeInputText = (emailName) => {
             emailDivElem.innerHTML = null;
             emailDivElem.innerHTML =
-                `<div class='flex-direc-column w-100'><input type='text' readonly id="putedMail" class='text_box m-b-5 back_color_grey4' value=${emailName} >` +
+                `<div class='flex-direc-column w-100'><input type='text' readonly id="putedMail" name='email' class='text_box m-b-5 back_color_grey4' value=${emailName} >` +
                 `<div class='flex w-100 '><input type='text' id="keyElem" class='text_box m-r-10'> ` +
                 `<input type='button' value='재전송' id="resendKey" class='btn m-r-5'> ` +
                 `<input type='button' value='인증완료' class='btn btnElem' ></div></div>`;
-
             resendKey = document.querySelector('#resendKey');
             emailNameTemp = document.querySelector('#putedMail');
 
@@ -76,6 +75,7 @@
                     //이메일 인증에 성공하면 서브밋이 활성화가 되도록 하기위해 쓰는 변수.
                     const ps_box = document.querySelector("#addr1");
                     const ps_box2 = document.querySelector("#addr2");
+
                     console.log(ps_box)
                     console.log(ps_box2);
                     ps_box.readOnly=false;
@@ -97,8 +97,9 @@
 
                     //여기가 서브밋 변경부분
                     changeSubmit.type = 'submit';
-                    changeSubmit.classList.remove("color_grey");
-                    changeSubmit.classList.add("color_blue");
+                    changeSubmit.classList.remove("btn_back_color");
+                    changeSubmit.classList.add("back_color_blue");
+
 
                 } else {
                     console.log(keyElem.value === data)

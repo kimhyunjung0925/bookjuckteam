@@ -48,12 +48,13 @@
     
     <update id="updUser">
         UPDATE t_user
-        SET uid = #{uid},
-            nm = #{nm},
-            birth = #{birth},
-            ph = #{ph},
-            email = #{email},
-            addr = #{addr}
+        SET
+
+
+            email = #{email}
+
+
+
         where iuser = ${iuser}
     </update>
 

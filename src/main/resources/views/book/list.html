@@ -14,18 +14,10 @@
         <div class="flex h-100 center">
             <div class="w-80">
                 <div class="grid m-t-20">
-                    <h1>국내도서</h1>
-                    <div class="m-t-10">
-                        <form action="">
-                            <select name="book">
-                                <option value="all">소설전체</option>
-                                <option value="korea">국내소설</option>
-                                <option value="foreign">외국소설</option>
-                            </select>
-                        </form>
-                    </div>
+                    <h1 th:text="${category}"></h1>
                     <div class="flex m-t-10">
-                        <h4 class=" m-r-5">소설전체</h4><div class=" m-r-5">국내소설</div><div>외국소설</div>
+                        <div class="pe-2"><a href="/book/best?startIdx=1&SearchTarget=Book">국내소설</a></div>
+                        <div><a href="/book/best?startIdx=1&SearchTarget=Foreign">외국소설</a></div>
                     </div>
                     <hr class="m-t-10">
                     <div class="m-t-10">
