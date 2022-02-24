@@ -11,4 +11,7 @@ public class ComplaintEntity {
     private int com_cate;
     private String com_ctnt;
     private int iuser;
+
+    private String filename;
+    private String filepath;
 }

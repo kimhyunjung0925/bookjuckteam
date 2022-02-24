@@ -61,6 +61,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 /* ===================== common 부분 ========================= */
 .flex {display: flex; }
 .grid {display: grid; }
+.block { display: block;}
 
 .flex-direc-column {
     flex-direction: column;
@@ -166,6 +167,7 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 .back_color_grey3 {background-color: #f5f6f7;}
 .back_color_grey4 {background-color: #e8e8e8;}
 .back_color_white {background-color: white;}
+.back_color_green {background-color: #daefe0;}
 
 /* color */
 .color_white { color: white; }
@@ -177,6 +179,9 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 
 
 /* -------- font --------*/
+.font_bold {
+    font-weight: bold;
+}
 .font_size_larger {
     font-size: larger;
 }
@@ -201,4 +206,15 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 
 .relative { position: relative; }
 .relativeL40 {position: relative; left:-40px;}
+
+.border_line_t {
+    border-top: 1px solid #a4b0be;
+}
+.border_line_b {
+    border-bottom: 1px solid #a4b0be;
+}
+
+
+
+
 

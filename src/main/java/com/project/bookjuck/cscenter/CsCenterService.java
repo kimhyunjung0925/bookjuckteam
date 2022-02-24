@@ -4,12 +4,19 @@ import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CsCenterService {
+    @Value("${spring.servlet.multipart.location}")
+    String uploadFilePath;
+
     @Autowired
     private CsCenterMapper mapper;
     @Autowired
@@ -24,7 +31,32 @@ public class CsCenterService {
 
     }
 
-    public int inscomplaint(ComplaintEntity entity){
+//    public int inscomplaint(ComplaintEntity entity){
+//        entity.setIuser(authenticationFacade.getLoginUserPk());
+//        return mapper.inscomplaint(entity);
+//    }
+
+    public int inscomplaint(ComplaintEntity entity, MultipartFile file) throws Exception{
+        //String projectPath= System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        String targetPath = uploadFilePath + "/cs";
+        UUID uuid = UUID.randomUUID();
+
+        String fileNm = file.getOriginalFilename();
+        String ext = fileNm.substring(fileNm.lastIndexOf("."));
+        String fileName = uuid + ext;
+        File targetFolder = new File(targetPath);
+        if(!targetFolder.exists()) {
+            targetFolder.mkdirs();
+        }
+
+        File saveFile = new File(targetPath, fileName);
+
+        file.transferTo(saveFile);
+
+        entity.setFilename(fileName);
+        entity.setFilepath("/files/" + fileName);
+
         entity.setIuser(authenticationFacade.getLoginUserPk());
         return mapper.inscomplaint(entity);
     }
