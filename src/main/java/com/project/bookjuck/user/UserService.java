@@ -4,6 +4,7 @@ import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.user.model.UserDto;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -71,6 +72,22 @@ public class UserService {
         dto.setUpw(hashedUpw);
         return mapper.updPw(dto);
     }
+
+    //-------유저 정보 수정
+    public int changeUserInfo(UserVO vo){
+        vo.setIuser(authenticationFacade.getLoginUserPk());
+
+        try{
+            int result = vo.getIuser();
+
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
 
 
 

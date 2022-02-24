@@ -13,4 +13,7 @@ public interface UserMapper {
 
     //주소를 나눠받기위한 개지랄
     UserVO selUser2(UserEntity entity);
+
+    //유저정보 업데이트
+    int updUser(UserEntity entity);
 }

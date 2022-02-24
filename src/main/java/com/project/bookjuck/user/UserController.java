@@ -67,7 +67,10 @@ public class UserController {
     }
 
     @PostMapping("/mypage/changeInfo")
-    public String changeInfoProc() {
+    public String changeInfoProc(UserVO vo) {
+        int result = service.changeUserInfo(vo);
+
+
         return "user/mypage/changeInfo";
     }
 

@@ -45,5 +45,16 @@
             AND iuser = ${iuser}
         </if>
     </select>
+    
+    <update id="updUser">
+        UPDATE t_user
+        SET uid = #{uid},
+            nm = #{nm},
+            birth = #{birth},
+            ph = #{ph},
+            email = #{email},
+            addr = #{addr}
+        where iuser = ${iuser}
+    </update>
 
 </mapper>
