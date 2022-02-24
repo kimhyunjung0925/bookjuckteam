@@ -1,6 +1,7 @@
 package com.project.bookjuck.book;
 
 import com.project.bookjuck.Const;
+import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.BookDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class BookController {
 
     @GetMapping("/detail")
     public String detail() {
+
         return "book/detail";
     }
 
@@ -28,8 +30,8 @@ public class BookController {
     }
 
     @GetMapping("/best")
-    public String bestList(Model model) {
-        List<BookDto> list = service.bestBookList();
+    public String bestList(Model model, ApiSearchDto searchDto) {
+        List<BookDto> list = service.bestBookList(searchDto);
         model.addAttribute(Const.Category, "베스트도서");
         model.addAttribute("bestlist",list);
         return "book/list";

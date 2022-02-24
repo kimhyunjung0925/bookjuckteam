@@ -1,11 +1,15 @@
-package com.project.bookjuck.book.model;
+package com.project.bookjuck.book.model.bookinfo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Setter
-public class BookDto {
+@ToString
+public class BookEntity {
     private String title;
     private String author;
     private String pubDate;
@@ -20,4 +24,7 @@ public class BookDto {
     private boolean adult;
     private int customerReviewRank;
     private int bestRank;
+    private String fullDescription;
+    private String fullDescription2;
+    private BookSubInfoEntity subInfo;
 }
