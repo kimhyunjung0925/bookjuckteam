@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import static com.project.bookjuck.Const.ERR_5;
@@ -52,9 +53,22 @@ public class CsCenterController {
         return "cscenter/faqdetail";
     }
 
+//    @PostMapping("/complaint")
+//    public String comPlaintProc(ComplaintEntity complaintEntity, RedirectAttributes attr){
+//        int result = service.inscomplaint(complaintEntity);
+//        switch (result){
+//            case 0 :
+//                attr.addFlashAttribute(Const.MSG, ERR_5);
+//                return "redirect:/cscenter/complaint";
+//            default:
+//                return "redirect:/cscenter";
+//        }
+//    }
+
+
     @PostMapping("/complaint")
-    public String comPlaintProc(ComplaintEntity complaintEntity, RedirectAttributes attr){
-        int result = service.inscomplaint(complaintEntity);
+    public String comPlaintProc(ComplaintEntity complaintEntity,RedirectAttributes attr, MultipartFile file) throws Exception{
+        int result = service.inscomplaint(complaintEntity, file);
         switch (result){
             case 0 :
                 attr.addFlashAttribute(Const.MSG, ERR_5);
@@ -62,5 +76,7 @@ public class CsCenterController {
             default:
                 return "redirect:/cscenter";
         }
+
+
     }
 }

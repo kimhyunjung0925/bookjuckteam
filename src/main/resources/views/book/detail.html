@@ -12,42 +12,57 @@
 <th:block layout:fragment="content">
     <div class="grid place_center">
         <div class="w-80">
-            <div class="grid m-t-10">
-                <hr>
-                <div class="flex m-t-10 justify_content_center">
+            <div class="grid m-t-10 border_box2">
+                <div class="flex padding_box justify_content_center back_color_green">
                     <div>
                         <img th:src="@{/upload/images/XL.jfif}"  class="book_img_1823">
                     </div>
-                    <div class="gird m-l-10">
-                        <h1>아몬드 </h1>
-                        <div> 권주영 지음 | 백은애 북스 | 2022년 01월 15일 출간</div>
+
+                    <div class="gird m-l-30">
+                        <h2 class="font_bold">아몬드 </h2>
+                        <div class="flex">
+                            <div>저자 :  </div>
+                            <div class="font_bold"> 권주영 &nbsp </div>
+                            <div>| 출판사 :  </div>
+                            <div class="font_bold"> 백은애 북스 &nbsp</div>
+                            <div> | 출간일 :  </div>
+                            <div class="font_bold"> 2022년 01월 15일</div>
+                        </div>
+                        <!--   TODO 리뷰쪽 수정해야함      -->
                         <div>★★★★☆ 8점(리뷰 20개)</div>
+
                         <hr>
+
                         <div>정가 : 16,900원</div>
                         <div class="flex align_items_center">
                             <div>판매가 :</div>
-                            <div><h1 class="color_red">15,150원</h1></div>
+                            <div><h2 class="color_red">15,150원</h2></div>
                             <div>[10%↓ 할인]</div>
                         </div>
                         <div>배송비 : 무료</div>
                         <hr>
-                        <div class="flex">
-                            <div class="m-r-10"> 주문수량 : </div>
-                            <div class="m-r-10"><input type="text"></div>
-                            <div><input type="button" value="+"><input type="button" value="-"></div>
-                        </div>
-                        <div class="flex m-t-10"><input type="button" value="장바구니 담기" class="btn_larger back_color_blue2"><input
-                                type="button" value="바로구매" class="btn_larger back_color_blue m-l-10"></div>
+                    </div>
+
+                    <div class="order_btn_box m-l-30">
+                            <div class="order_btn2 center">
+                                <div>주문수량</div>
+                                <div><input type="text" class="text_width"></div>
+                            </div>
+                            <div class="order_btn center">
+                                <div class="m-t-10"><input type="button" value="장바구니 담기" class="order_btn3 back_color_blue "></div>
+                                <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4 back_color_blue2 "></div>
+                            </div>
+
                     </div>
                 </div>
-                <hr class=" m-t-10">
             </div>
 
 <!--            TODO 클릭하면 해당하는 곳으로 스크롤 내려가게...???? -->
-            <div class="flex justify_content_center m-t-10">
-                <div class="back_color_blue p-20">상품정보</div>
-                <div class="back_color_blue p-20">회원리뷰()</div>
-                <div class="back_color_blue p-20">교환/반품/품절</div>
+            <div class="flex justify_content_center m-t-10 ">
+                    <div class="detail_menu"><a href="#">상품정보</a></div>
+                    <div class="detail_menu"><a href="#">회원리뷰()</a></div>
+                <div class="detail_menu"><a href="#">교환/반품/품절</a></div>
+
             </div>
 
             <div class="flex justify_content_center m-t-10 bookDetailInfoTable">
@@ -69,11 +84,12 @@
 
             <div>
                 <h1 class="m-t-10">책소개</h1>
-                <div>이 책이 속한 분야 인문 > 소설</div>
+                <div class="font_bold">이 책이 속한 분야 인문 > 소설</div>
                 <div> 공감 불능 사회, 차가움을 녹이는 아몬드
                     매혹적인 문체, 독특한 캐릭터, 속도감 넘치는 전개!
                     “고통과 공감의 능력을 깨우치게 할 강력한 소설”
                 </div>
+
                 <div>
                     영화보다 강렬하고 드라마처럼 팽팽한, 완전히 새로운 소설이 나타났다. ‘감정을 느끼지 못하는’ 소년의 특별한 성장 이야기로, 첫 장부터 강렬한 사건으로 시작해 다음 페이지가 궁금해지게 만드는
                     흡입력 강한 작품이다. 또한 타인의 감정에 무감각해진 ‘공감 불능’인 이 시대에 큰 울림을 주는 소설로, 작품 속 인물들이 타인과 관계 맺고 슬픔에 공감하며 성장해 나가는 과정을 탁월하게
@@ -86,14 +102,25 @@
                     상실을 애도할 시간, 감정을 보듬을 여유를 잃어버린 채 살고 있는 독자들은 윤재를 응원하면서 자신의 마음 또한 되돌아볼 기회를 얻을 것이다. 윤재의 덤덤한 어조는 역설적으로 읽는 이의 가슴을
                     더욱 슬프게 저미며, 독자는 이 작품을 통해 깊고 진실한 감정의 고양을 경험할 수 있을 것이다.
                 </div>
+
+                <hr>
+
                 <h2 class="m-t-10">저자 소개</h2>
-                <h4> 저 : 손원평 (孫元平) </h4>
-                <div>
-                    서울에서 태어났다. 서강대학교에서 사회학과 철학을 공부했고 한국영화아카데미 영화과에서 영화 연출을 전공했다. 2001년 제6회 [씨네21] 영화평론상을 받았고, 2006년 제3회 과학기술
-                    창작문예 공모에서 「순간을 믿어요」로 시나리오 시놉시스 부문을 수상했다. 「인간적으로 정이 안 가는 인간」, 「너의 의미」 등 다수의 단편영화 각본을 쓰고 연출했다. 첫 장편소설 『아몬드』로
-                    제10회 창비청소년문학상을 수상하여 등단했다. 두 번째 장편소설 『서른의 반격』으로 제5회 제주4·3평화문학상을 수상했다. 이외 장편소설 『프리즘』, 소설집 『타인의 집』 등이 있다.
-                </div>
-                <div class="grid border_box m-t-10">
+
+
+                <div class="grid border_box m-t-10 p-10">
+                    <div class="flex back_color_grey4">
+                        <h5> 저 :</h5>
+                        <h5>손원평 (孫元平)</h5>
+                    </div>
+                    <div>
+                        서울에서 태어났다. 서강대학교에서 사회학과 철학을 공부했고 한국영화아카데미 영화과에서 영화 연출을 전공했다. 2001년 제6회 [씨네21] 영화평론상을 받았고, 2006년 제3회 과학기술
+                        창작문예 공모에서 「순간을 믿어요」로 시나리오 시놉시스 부문을 수상했다. 「인간적으로 정이 안 가는 인간」, 「너의 의미」 등 다수의 단편영화 각본을 쓰고 연출했다. 첫 장편소설 『아몬드』로
+                        제10회 창비청소년문학상을 수상하여 등단했다. 두 번째 장편소설 『서른의 반격』으로 제5회 제주4·3평화문학상을 수상했다. 이외 장편소설 『프리즘』, 소설집 『타인의 집』 등이 있다.
+                    </div>
+
+                    <hr>
+
                     <div class="m-t-10 m-l-10">이 저자의 다른 작품 ></div>
                     <div class="flex justify_space_around m-t-10 m-b-10">
                         <div class="grid">
@@ -119,6 +146,9 @@
                         </div>
                     </div>
                 </div>
+
+                <hr>
+
                 <h2 class="m-t-10">줄거리</h2>
                 <div>
                     열여섯 살 소년 선윤재는 ‘감정 표현 불능증’을 앓고 있다. ‘아몬드’라 불리는 편도체가 작아 분노도 공포도 잘 느끼지 못한다. 타고난 침착성, 엄마와 할머니의 지극한 사랑 덕에 별 탈 없이
@@ -127,6 +157,9 @@
                     오히려 쩔쩔매고 만다. 윤재는 어쩐지 곤이가 밉지 않고, 오히려 궁금해진다. 두 소년은 남들이 이해할 수 없는 특별한 우정을 쌓아 간다. 윤재는 조금씩 내면의 변화를 겪는데……. 서로 다른
                     이유로 ‘괴물’이라 불리는 두 소년은 세상으로 한 발짝 나아갈 수 있을까?
                 </div>
+
+                <hr>
+
                 <h2 class="m-t-10">디테일 이미지</h2>
                 <div>
                     <img th:src="@{/upload/images/detail.jpg}">

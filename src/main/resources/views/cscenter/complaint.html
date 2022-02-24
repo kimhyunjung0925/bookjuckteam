@@ -17,7 +17,7 @@
     </div>
     <div class="center">
 <!--문의글 보내는 폼-->
-    <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50">
+    <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50" enctype="multipart/form-data">
         <div><input type="hidden" th:field="*{iuser}"></div>
         <div class="justify_flex_start pt-2">
             <h6>이메일</h6>
@@ -36,6 +36,9 @@
         <div class="justify_flex_start pt-2">
             <h6>문의내용</h6>
             <div><textarea th:field="*{com_ctnt}" class="ps_box w-100 height200p"></textarea></div>
+        </div>
+        <div>
+            <input type="file" name="file">
         </div>
         <div class="center flex-direc-column mt-2">
             <div th:text="${msg}" class="color_red mb-2"></div>
