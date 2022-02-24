@@ -67,9 +67,9 @@ public class UserController {
     }
 
     @PostMapping("/mypage/changeInfo")
-    public String changeInfoProc(UserVO vo) {
+    public String changeInfoProc(UserEntity vo) {
         int result = service.changeUserInfo(vo);
-
+        System.out.println("==========이메일 가져오기 : "+ vo);
 
         return "user/mypage/changeInfo";
     }
