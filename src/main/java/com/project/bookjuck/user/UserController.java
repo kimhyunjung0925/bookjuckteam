@@ -67,9 +67,10 @@ public class UserController {
     }
 
     @PostMapping("/mypage/changeInfo")
-    public String changeInfoProc(UserEntity vo) {
-        int result = service.changeUserInfo(vo);
-        System.out.println("==========이메일 가져오기 : "+ vo);
+    public String changeInfoProc(UserEntity entity) {
+        int result = service.changeUserInfo(entity);
+        //주소만을 위해서 새로운 서비스가 필요할 것 같다.
+        System.out.println("==========이메일 가져오기 : "+ entity);
 
         return "user/mypage/changeInfo";
     }

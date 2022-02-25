@@ -16,4 +16,5 @@ public interface UserMapper {
 
     //유저정보 업데이트
     int updUser(UserEntity entity);
+
 }
