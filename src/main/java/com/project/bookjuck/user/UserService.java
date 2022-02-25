@@ -74,11 +74,12 @@ public class UserService {
     }
 
     //-------유저 정보 수정
-    public int changeUserInfo(UserEntity vo){
-        vo.setIuser(authenticationFacade.getLoginUserPk());
+    public int changeUserInfo(UserEntity entity){
+        entity.setIuser(authenticationFacade.getLoginUserPk());
+
 
         try{
-            int result = mapper.updUser(vo);
+            int result = mapper.updUser(entity);
 
 
             return result;

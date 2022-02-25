@@ -43,13 +43,16 @@
                 <div><span id="sucKey" class="color_black"></span></div>
 
                 <div class="m-t-10"><b>주소</b></div>
+                    <input type="hidden" id="sumAddr" name="addr">
                 <div><input type="text" th:value="${@utils.getLoginUser2().getAddr1()}" id="addr1" class="text_box" readonly ></div>
                     <div><input type="text" th:value="${@utils.getLoginUser2().getAddr2()}" id="addr2" class="text_box" readonly></div>
                     <input type="button" value="변경하기" class="btn" id="addr_btn">
                 <div class="flex justify_flex_end"><input type="button" value="수정완료" id="change_info" class="change_btn btn_back_color"></div>
                 </form>
+
             </div>
         </div>
 
     <script th:src="@{/js/user/changeInfo.js}"></script>
 </th:block>
+
