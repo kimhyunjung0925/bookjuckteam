@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.awt.print.Book;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
@@ -35,15 +36,41 @@ public class BookService {
     private String searchurl = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx";
     private String detailurl = "http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx";
 
+    //베스트도서 불러오기
     public List<BookDto> bestBookList(ApiSearchDto searchDto){
         searchDto.setType("Bestseller");
         List<BookDto> list = getData(searchDto,listurl);
         return list;
     }
-
+    //신간도서 불러오기
     public List<BookDto> newBookList(ApiSearchDto searchDto){
         searchDto.setType("ItemNewAll");
         List<BookDto> list = getData(searchDto,listurl);
+        return list;
+    }
+    //검색도서 불러오기
+    public List<BookDto> searchBookList(ApiSearchDto searchDto){
+        UriComponents builder = UriComponentsBuilder.fromHttpUrl(searchurl)
+                .queryParam("ttbkey",serviceKey)
+                .queryParam("Query", searchDto.getSearchWord())
+                .queryParam("SearchTarget", searchDto.getSearchTarget())
+                .queryParam("MaxResults", searchDto.getMaxResult())
+                .queryParam("start", searchDto.getStartIdx())
+                .queryParam("output", "js")
+                .queryParam("Version", Ymd)
+                .build(false);
+        List<BookDto> list = null;
+        try {
+            //API 메소드
+            String result = restTemp(builder);
+
+            ObjectMapper om = new JsonMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            JsonNode jsonNode = om.readTree(result);
+            list = om.convertValue(jsonNode.path("item"), new TypeReference<List<BookDto>>() {});
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return list;
     }
 
@@ -96,6 +123,7 @@ public class BookService {
         }
         return bookList;
     }
+
 
 
     //API 레스트템플릿으로 불러오는 메소드
