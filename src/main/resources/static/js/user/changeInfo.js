@@ -77,13 +77,14 @@
                     const ps_box = document.querySelector("#addr1");
                     const ps_box2 = document.querySelector("#addr2");
 
+
                     console.log(ps_box)
                     console.log(ps_box2);
                     ps_box.readOnly=false;
                     ps_box2.readOnly=false;
                     ps_box.addEventListener('click', ()=>{
                         ps_box2.value = '';
-
+                        ps_box.value = '';
                         new daum.Postcode({
                             oncomplete: function(data) {
                                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분
@@ -124,7 +125,13 @@
             });
         }
 
-
+        const ps_box = document.querySelector("#addr1");
+        const ps_box2 = document.querySelector("#addr2");
+        ps_box2.addEventListener('keyup', ()=>{
+            const sumaddr = document.querySelector('#sumAddr');
+            const sumedAddrVal = ps_box.value + ', ' + ps_box2.value;
+            sumaddr.value = sumedAddrVal;
+        })
 
     }
 }

@@ -16,8 +16,7 @@
     <insert id="insUser">
         INSERT INTO t_user
             (uid, upw, nm, addr, email, birth, ph, gender)
-        VALUES
-            (#{uid}, #{upw}, #{nm}, #{addr}, #{email}, #{birth}, #{ph}, ${gender})
+        VALUES (#{uid}, #{upw}, #{nm}, #{addr}, #{email}, #{birth}, #{ph}, ${gender})
     </insert>
 
     <update id="updPw">
@@ -30,11 +29,12 @@
     </update>
 
     <select id="selPw" resultType="com.project.bookjuck.user.model.UserEntity">
-        SELECT upw FROM t_user
+        SELECT upw
+        FROM t_user
         WHERE iuser = ${iuser}
     </select>
 
-<!--고객 주소 나눠받으려고-->
+    <!--고객 주소 나눠받으려고-->
     <select id="selUser2" resultType="com.project.bookjuck.user.model.UserVO">
         SELECT * FROM t_user
         WHERE
@@ -45,15 +45,11 @@
             AND iuser = ${iuser}
         </if>
     </select>
-    
+
     <update id="updUser">
         UPDATE t_user
-        SET
-
-
-            email = #{email}
-
-
+        SET email = #{email},
+            addr  = #{addr}
 
         where iuser = ${iuser}
     </update>
