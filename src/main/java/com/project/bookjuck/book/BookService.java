@@ -42,8 +42,9 @@ public class BookService {
     }
 
     public List<BookDto> newBookList(ApiSearchDto searchDto){
-
-        return null;
+        searchDto.setType("ItemNewAll");
+        List<BookDto> list = getData(searchDto,listurl);
+        return list;
     }
 
     //베스트,신간목록용 API 메소드. 굳이 책 데이터베이스에 넣을 이유 없을 것 같아서 클래스 dto로 따로 뺌
