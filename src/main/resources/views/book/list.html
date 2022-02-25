@@ -50,6 +50,10 @@
 
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
+           <div th:each = "list : ${bestlist}">
+                <div th:text="${list.title}"></div>
+
+           </div>
 
 
                 </div>
@@ -57,7 +61,6 @@
         </div>
     </div>
     <script src="/js/book/book.js"></script>
-
 </th:block>
 
 
