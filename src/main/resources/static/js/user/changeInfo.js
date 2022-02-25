@@ -31,7 +31,6 @@
                     makeInputText(emailName.value);
                     const param = {
                         currentEmail : emailName.value
-
                     }
 
                     myFetch.post(`/sendEmail`, data => {

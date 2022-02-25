@@ -11,20 +11,52 @@
 
 <th:block layout:fragment="content">
 <!--아래에 faq는 js에서 쓰는 클래스 입니다. 절대 건들지 말기-->
-    <div class="faq container-lg px-4 py-4" id="hanging-icons">
-        <h3 class="pb-2">자주 묻는 질문</h3>
-        <div class="faqboard col g-2 py-3">
-            <!--faq리스트 만들어지는 부분 -->
-            <div class="p-3 back_color_grey2">배송문의</div>
-                <div class="faqcategory_1 row row-cols-1"></div>
-            <div class="p-3 back_color_grey2">상품문의</div>
-                <div class="faqcategory_2 row row-cols-1"></div>
-            <div class="p-3 back_color_grey2">교환/환불문의</div>
-                <div class="faqcategory_3 row row-cols-1"></div>
-            <div class="p-3 back_color_grey2">기타문의</div>
-                <div class="faqcategory_4 row row-cols-1"></div>
+    <div class="flex-direc-column center">
+        <h4 class="m-t-10 m-b-10">자주 묻는 질문</h4>
+
+        <div class="faq_menu" id="faq_menu">
+            <div class="faqcategory_1">배송문의</div>
+            <div class="faqcategory_2">상품문의</div>
+            <div class="faqcategory_3">교환/환불문의</div>
+            <div class="faqcategory_4">기타문의</div>
         </div>
+
+        <div class="m-t-20  " id="faqboardtable">
+            <!--faq리스트 만들어지는 부분 -->
+        </div>
+
+
+        <!--        <div class="" >-->
+        <!--            <div class="flex border-bottom align_items_center">-->
+        <!--                <span class="faq__arrow">-->
+        <!--                    <svg xmlns="http://www.w3.org/2000/svg" width="8.707" height="5.061" viewBox="0 0 8.707 5.061">-->
+        <!--                        <path fill="none" stroke="#000" d="M-1715.783 4188.551l4 4 4-4" transform="translate(1716.137 -4188.197)"></path>-->
+        <!--                    </svg>-->
+        <!--                </span>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+
+        <div class="m-t-20 pb-2 border-bottom container-lg">
+            <ul class="py-2">
+                <p>위 내용으로 부족하다면?</p>
+                <li class="d-flex justify-content-start">
+                    <a href="/cscenter/complaint" class="m-r-40">
+                        <div class="flex center">
+                            <h4>1:1 문의하러가기</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
+
     <script src="/js/cscenter/faq.js"></script>
 </th:block>
 

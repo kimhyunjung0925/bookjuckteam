@@ -1,0 +1,28 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>cscenter</title>
+    <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
+</head>
+
+<th:block layout:fragment="content">
+    <div class="cscenter">
+        <div class="notice container-lg px-4 py-4">
+            <h3 class="m-t-20 pb-2 border-bottom">고객센터 안내사항</h3>
+            <div class="flex-direc-column row g-2 py-3 row-cols-lg-3">
+                <div>[공지] < 개인정보 처리방침 > 변경 안내 </div>
+                <div>[안내] 문의 답변 문자 전송 방식 안내 </div>
+                <div>[북적북적] 도서 구매 포인트 적립 변경 안내 </div>
+            </div>
+        </div>
+        <!--아래에 faq는 js에서 쓰는 클래스 입니다. 절대 건들지 말기-->
+
+    <script src="/js/cscenter/cscenter.js"></script>
+
+</th:block>
+
+

@@ -214,6 +214,11 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
     border-bottom: 1px solid #a4b0be;
 }
 
+.border_box3 {
+    border: 1px solid black;
+    padding: 5px;
+}
+
 
 
 

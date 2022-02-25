@@ -25,7 +25,7 @@
         </div>
         <!--고객센터 분류 디비 카테고리테이블 하나만들어야함-->
         <div class="justify_flex_start pt-2">
-            <h6>분류</h6>
+            <h6 class="m-t-10">분류</h6>
             <select th:field="*{com_cate}" class="ps_box w-100">
                 <option th:value="1">배송문의</option>
                 <option th:value="2">상품문의</option>
@@ -34,11 +34,15 @@
             </select>
         </div>
         <div class="justify_flex_start pt-2">
-            <h6>문의내용</h6>
+            <h6 class="m-t-10">문의내용</h6>
             <div><textarea th:field="*{com_ctnt}" class="ps_box w-100 height200p"></textarea></div>
         </div>
         <div>
-            <input type="file" name="file">
+            <h6 class="m-t-10">첨부파일</h6>
+            <div class="border_box3">
+                <div><input type="file" name="file"></div>
+                <div class="color_grey"> *5MB 미만의 파일만 첨부가능합니다.</div>
+            </div>
         </div>
         <div class="center flex-direc-column mt-2">
             <div th:text="${msg}" class="color_red mb-2"></div>

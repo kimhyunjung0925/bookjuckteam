@@ -6,9 +6,10 @@
         const complaintCtntElem = complaintElem.querySelector('div.textarea[name="ctnt"]')
         const ctnt = complaintElem.com_ctnt.value;
         const email = complaintElem.com_email.value;
+
         console.log(ctnt);
 
-        if(email.length ===0 ){
+        if(email.length === 0 ){
             alert('메일을 입력해주세요.');
             e.preventDefault();
         }
@@ -16,5 +17,7 @@
             alert('문의 내용을 작성해주세요.');
             e.preventDefault();
         }
+
+
     })
 }

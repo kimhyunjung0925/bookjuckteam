@@ -3,7 +3,6 @@ package com.project.bookjuck.cscenter;
 import com.project.bookjuck.Const;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
-import com.project.bookjuck.user.model.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +24,7 @@ public class CsCenterController {
     //cscenter기본창
     @GetMapping
     public String CsCenter() {
-        return "cscenter/cscenter";
+        return "notice";
     }
 
     //공지사항 리스트창
