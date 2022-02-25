@@ -30,7 +30,7 @@ public class BookController {
     }
 
     @GetMapping("/best")
-    public String bestList(Model model, ApiSearchDto searchDto) {
+    public String bestList(ApiSearchDto searchDto, Model model) {
         List<BookDto> list = service.bestBookList(searchDto);
         model.addAttribute(Const.Category, "베스트도서");
         model.addAttribute("bestlist",list);
@@ -38,7 +38,10 @@ public class BookController {
     }
 
     @GetMapping("/new")
-    public String newList() {
+    public String newList(ApiSearchDto searchDto, Model model) {
+        List<BookDto> list = service.newBookList(searchDto);
+        model.addAttribute(Const.Category, "신간도서");
+        model.addAttribute("newlist",list);
         return "book/list";
     }
 }
