@@ -54,7 +54,7 @@ public class BookController {
     public String searchresut(@ModelAttribute("searchDto") ApiSearchDto searchDto, Model model) {
         searchDto.setCategory("search"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.searchBookList(searchDto);
-        model.addAttribute(Const.Category, searchDto.getSearchWord()+"의 검색결과");
+        model.addAttribute(Const.Category, searchDto.getSearchWord());
         model.addAttribute("searchlist", list);
         return "book/list";
     }
