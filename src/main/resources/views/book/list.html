@@ -4,6 +4,7 @@
       layout:decorate="temp/thymeleaf_layout">
 
 <head>
+
     <meta charset="UTF-8">
     <title>bookdlist</title>
     <link rel="stylesheet" th:href="@{/css/book/book.css}">
@@ -39,8 +40,8 @@
                     <hr class="m-t-10">
                     <div class="m-t-10">
                         <form action="">
-                            <select name="정렬">
-                                <option value="new">최신순</option>
+                            <select name="정렬" id="a1">
+                                <option value="new" id="a1_1">최신순</option>
                                 <option value="popular">인기순</option>
                                 <option value="price">가격순</option>
                             </select>
@@ -48,19 +49,10 @@
                     </div>
                 </div>
 
+
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
-           <div th:each = "list : ${bestlist}">
-                <div th:text="${list.title}"></div>
-               <img th:src="${list.cover}">
-               <div th:text="${list.priceStandard}"></div>
-               <div th:text="${list.publisher}"></div>
-               <div th:text="${list.author}"></div>
-               <div th:text="${list.pubDate}"></div>
-               <div th:text="${list.description}"></div>
-           </div>
-
-                    <div th:each = "list : ${newlist}">
+                    <div th:each="list : ${bestlist}">
                         <div th:text="${list.title}"></div>
                         <img th:src="${list.cover}">
                         <div th:text="${list.priceStandard}"></div>
@@ -70,7 +62,17 @@
                         <div th:text="${list.description}"></div>
                     </div>
 
-                    <div th:each = "list : ${searchlist}">
+                    <div th:each="list : ${newlist}">
+                        <div th:text="${list.title}"></div>
+                        <img th:src="${list.cover}">
+                        <div th:text="${list.priceStandard}"></div>
+                        <div th:text="${list.publisher}"></div>
+                        <div th:text="${list.author}"></div>
+                        <div th:text="${list.pubDate}"></div>
+                        <div th:text="${list.description}"></div>
+                    </div>
+
+                    <div th:each="list : ${searchlist}">
                         <div th:text="${list.title}"></div>
                         <img th:src="${list.cover}">
                         <div th:text="${list.priceStandard}"></div>
@@ -83,6 +85,7 @@
             </div>
         </div>
     </div>
+
     <script src="/js/book/book.js"></script>
 </th:block>
 

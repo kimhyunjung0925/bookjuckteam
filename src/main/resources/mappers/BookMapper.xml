@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.bookjuck.book.BookMapper">
+
+    <insert id="insBookApi">
+        insert into t_book_api
+        ( title, author, pubDate, description, isbn, isbn13, itemId, priceStandard
+        , cover, categoryId, publisher, adult, customerReviewRank, bestRank)
+        values (#{title}, #{author}, #{pubDate}, #{description}, #{isbn},
+                #{isbn13}, #{itemId}, #{priceStandard}, #{cover},
+                #{categoryId}, #{publisher}, #{adult}, #{customerReviewRank}, #{bestRank})
+
+    </insert>
+
+    <select id="sel" resultType="BookDto">
+        SELECT * FROM t_book_api
+        ORDER BY
+        <if test="selectVal.equals('new')">
+            pubDate desc;
+        </if>
+
+
+    </select>
+
+</mapper>
