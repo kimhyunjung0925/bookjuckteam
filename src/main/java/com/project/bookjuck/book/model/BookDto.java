@@ -2,9 +2,11 @@ package com.project.bookjuck.book.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class BookDto {
     private String title;
     private String author;
@@ -20,4 +22,6 @@ public class BookDto {
     private boolean adult;
     private int customerReviewRank;
     private int bestRank;
+
+    private String selectVal;
 }

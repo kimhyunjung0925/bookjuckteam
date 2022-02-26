@@ -25,6 +25,8 @@ import java.util.List;
 public class BookService {
     @Autowired
     private BookMapper mapper;
+
+
     //원래는 날짜도 넣어서 해야하는데 알라딘에서 받아올 수 있는 최신 날짜가 Version=20131101 밖에 안됨.
     //SimpleDateFormat day = new SimpleDateFormat("yyyyMMdd");
     //Calendar calendar = Calendar.getInstance();
@@ -139,4 +141,17 @@ public class BookService {
         ResponseEntity<String> responseEntity = rest.exchange(builder.toString(), HttpMethod.GET, entity, String.class);
         return responseEntity.getBody();
     }
+
+    //bookApi를 DB에 넣는 메서드입니다.
+   public int insBookApi(BookDto dto){
+        int result = mapper.insBookApi(dto);
+
+        return result;
+   }
+
+    public List<BookDto> sel(BookDto dto){
+        List<BookDto> bookDtoList = mapper.sel(dto);
+        return  bookDtoList;
+    }
+
 }
