@@ -1,6 +1,9 @@
 (function (){
     'use strict';
 
+    const faqMenuElem = document.querySelector('#faq_menu');
+    const faqTableElem = document.querySelector('#faqboardtable');
+
     //faq리스트 정보 가져오기
     const getFaqList = () => {
         myFetch.get(`/ajax/cscenter/faq`, list=>{
@@ -10,29 +13,51 @@
 
     //faq레코드
     const makeFaqRecordList = list => {
-        const faqMenuElem = document.querySelector('#faq_menu');
-        const faqtableElem = document.querySelector('#faqboardtable');
         //각 분류마다 엘레먼트 만들어줌
         const cate1 = faqMenuElem.querySelector('.faqcategory_1');
         const cate2 = faqMenuElem.querySelector('.faqcategory_2');
         const cate3 = faqMenuElem.querySelector('.faqcategory_3');
         const cate4 = faqMenuElem.querySelector('.faqcategory_4');
 
+        //기본으로 카테고리1 애들이 뜨도록 설정
+        categoryrecord(list,faqTableElem,1);
+
+        //카테고리별로 클릭 했을 때 마다 레코드 지우고 다시 생성
         cate1.addEventListener("click", (e) => {
+            faqTableElem.innerHTML= null;
+            categoryrecord(list, faqTableElem,1);
+        });
 
-        })
+        cate2.addEventListener("click", (e) => {
+            faqTableElem.innerHTML= null;
+            categoryrecord(list, faqTableElem,2);
+        });
 
+        cate3.addEventListener("click", (e) => {
+            faqTableElem.innerHTML= null;
+            categoryrecord(list, faqTableElem,3);
+        });
 
+        cate4.addEventListener("click", (e) => {
+            faqTableElem.innerHTML= null;
+            categoryrecord(list, faqTableElem,4);
+        });
     }
 
-    //카테고리안에 아이템마다 레코드 만들어주는 함수
-    const categoryrecord = (item, faqtableElem) => {
-        faqtableElem.innerHTML = `
-                <h5 id="faq_title" class="fw-bold pointer">${item.faq_title}</h5>
-                <pre>${item.faq_ctnt}</pre>
-                <hr>
-        `;
 
+    //faqboardtable에 맞는 카테고리별로 레코드 만들어주는 메소드
+    const categoryrecord = (list, faqTableElem, catenum) => {
+        list.forEach(item => {
+            if (item.faq_cate === catenum) {
+                const divElem = document.createElement('div');
+                faqTableElem.appendChild(divElem);
+                divElem.innerHTML = `
+                    <h5 id="faq_title" class="fw-bold pointer">${item.faq_title}</h5>
+                    <!--<pre>${item.faq_ctnt}</pre>-->
+                    <hr>
+            `;
+            }
+        });
     }
 
     getFaqList();
