@@ -48,16 +48,35 @@
     //faqboardtable에 맞는 카테고리별로 레코드 만들어주는 메소드
     const categoryrecord = (list, faqTableElem, catenum) => {
         list.forEach(item => {
-            if (item.faq_cate === catenum) {
+            if (item.faq_cate === catenum) { //카테고리 분기를 만들어준다
+                //faqboardtable 안에 div하나 만들어줌
                 const divElem = document.createElement('div');
                 faqTableElem.appendChild(divElem);
                 divElem.innerHTML = `
-                    <h5 id="faq_title" class="fw-bold pointer">${item.faq_title}</h5>
-                    <!--<pre>${item.faq_ctnt}</pre>-->
-                    <hr>
+                    <hr> <!--맨마지막이나 맨 앞에 hr 없애고 싶음. 그리고 안에 스크롤 생기는거 없애는 방법-->
+                    <h6 id="faq_title" class="head fw-bold pointer">${item.faq_title}</h6>
+                    <div class="body m-t-10" style="display: none">
+                        <pre>${item.faq_ctnt}</pre>
+                        <div class="color_grey font_size_small">원하는 답변을 얻지 못하셨나요 ? [1:1상담]을 이용해주세요.</div>
+                    </div>
             `;
             }
         });
+
+        const head = document.getElementsByClassName("head");
+
+        for (var j = 0; j < head.length; j++) {
+             head[j].addEventListener("click", function() {//클릭이벤트를 추가한다.
+                 this.classList.toggle("active");// 클래스를 추가하거나 삭제함.
+                 var body = this.nextElementSibling; //현재 아코디언의 다음노트를 가져온다.
+
+                 if (body.style.display === "none") { //출력모드가 블럭인지 none인지 체크한다.
+                     body.style.display = "block"; }
+                 else {
+                     body.style.display = "none";
+                 }
+             });
+         }
     }
 
     getFaqList();
