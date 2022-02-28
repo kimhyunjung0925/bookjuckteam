@@ -33,10 +33,10 @@ public class BookController {
     public String bestList(@ModelAttribute("searchDto") ApiSearchDto searchDto, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.bestBookList(searchDto);
-//        for (BookDto dto: list)
-//        {
-//            service.insBookApi(dto);
-//        }
+        for (BookDto dto: list)
+        {
+            service.insBookApi(dto);
+        }
         model.addAttribute(Const.Category, "베스트도서");
         model.addAttribute("bestlist", list);
         return "book/list";

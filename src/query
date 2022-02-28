@@ -73,4 +73,21 @@ INSERT INTO `t_notice` (`inotice`, `notice_type`, `notice_title`, `notice_ctnt`)
 INSERT INTO `t_notice` (`inotice`, `notice_type`, `notice_title`, `notice_ctnt`) VALUES (2, '공지', '<개인정보 처리방침> 변경 안내', '안녕하세요. 리디입니다.');
 INSERT INTO `t_notice` (`inotice`, `notice_type`, `notice_title`, `notice_ctnt`) VALUES (3, '안내', '2021년 2월 24일(수) 시스템 점검 안내', '시스템 점검 및 안정화를 위하여 2021년 2월 24일(수) 시스템 점검이 진행될 예정입니다. ');
 
+//====== book api
 
+CREATE TABLE t_book_api (
+title VARCHAR(100) ,
+author VARCHAR(100) ,
+pubDate VARCHAR(30) ,
+description VARCHAR(1000) ,
+isbn VARCHAR(30) ,
+isbn13 bigint,
+itemId INT,
+priceStandard INT,
+cover VARCHAR(200) ,
+categoryId int ,
+publisher VARCHAR(20),
+adult BOOL,
+customerReviewRank INT,
+bestRank INT
+);

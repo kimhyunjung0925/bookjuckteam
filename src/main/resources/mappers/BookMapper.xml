@@ -9,7 +9,6 @@
         values (#{title}, #{author}, #{pubDate}, #{description}, #{isbn},
                 #{isbn13}, #{itemId}, #{priceStandard}, #{cover},
                 #{categoryId}, #{publisher}, #{adult}, #{customerReviewRank}, #{bestRank})
-
     </insert>
 
     <select id="sel" resultType="BookDto">
