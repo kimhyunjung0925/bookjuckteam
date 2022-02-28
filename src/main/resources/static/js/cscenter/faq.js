@@ -91,9 +91,11 @@
 
         const head = document.getElementsByClassName("head");
 
+
         for (var j = 0; j < head.length; j++) {
              head[j].addEventListener("click", function() {//클릭이벤트를 추가한다.
                  this.classList.toggle("active");// 클래스를 추가하거나 삭제함.
+
                  var body = this.nextElementSibling; //현재 아코디언의 다음노트를 가져온다.
 
                  if (body.style.maxHeight) { // 스무스 효과 주기위해 display에서 maxheight로 변경
@@ -102,6 +104,7 @@
                  else {
                      body.style.maxHeight = body.scrollHeight + "px";
                  }
+
              });
          }
     }

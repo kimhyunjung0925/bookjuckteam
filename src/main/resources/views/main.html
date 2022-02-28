@@ -10,10 +10,49 @@
 </head>
 
 <th:block layout:fragment="content">
-    <div class="w-100 flex justify_content_center">
-        <div class="grid w-80 m-t-50">
-<!--            <div class="m-t-20 m-b-20"><a href="/book/list">BEST ></a></div>-->
+<!--    맨위 이벤트 베너부분  -->
+    <div class="banner_container">
+        <div class="banner_inner back_color_1 w-100">
+            <div class="w-90 flex justify_content_center p-t-50 ">
+                <div class="flex  align_items_center justify_flex_end">
+                    <h2 class="m-r-50">어써오쎄욥 <br> 휴우우우우남도옹 써점입니당</h2>
+                    <img th:src="@{/upload/images/book.jpg}">
+                </div>
+            </div>
+        </div>
 
+        <div class="banner_inner flex back_color_2 w-100 ">
+            <div class="w-90 flex justify_content_center p-t-50 ">
+                <div class="flex align_items_center justify_flex_start">
+                    <img th:src="@{/upload/images/jin.jpg}">
+                    <h2 class="m-l-50">코로나 <br> 다 걸려서 뒤져야 <br> 끝나냐 <br> 빠큐머겅ㅗ  ㅗ두번머겅ㅗ</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner_inner back_color_3 w-100 ">
+            <div class="w-90 flex justify_content_center p-t-50 ">
+                <div class="flex align_items_center justify_flex_end">
+                    <h2 class="m-r-50">존리 돈많아서 존리? <br> 나도 좀 나눠줘라 </h2>
+                    <img th:src="@{/upload/images/lee.jpg}">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="banner_inner flex back_color_4 w-100">
+            <div class="w-90 flex justify_content_center  p-t-50 ">
+                <div class="flex align_items_center justify_flex_start">
+                    <img th:src="@{/upload/images/thanks.jpg}">
+                    <h2 class="m-l-50">고오오오오오오옹맙다 <br> 아주 뒈지도록 고마아아ㅏ아압다</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     베스트 메인 부분   -->
+    <div class="w-100 flex justify_content_center">
+        <div class="grid w-80 m-t-50 m-b-30">
             <div class="flex">
                 <div class="menuDiv border-left">국내도서</div>
                 <div class="menuDiv">외국도서</div>
@@ -25,10 +64,11 @@
                 <div class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1 </div>
+                            <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div_>
-                                    <a href="/book/detail"><img th:src="@{/upload/images/XL.jfif}" class="book_img_1013"></a>
+                                    <a href="/book/detail"><img th:src="@{/upload/images/XL.jfif}"
+                                                                class="book_img_1013"></a>
 
                                 </div_>
                                 <div class="best-info">
@@ -44,25 +84,7 @@
                 <div class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1 </div>
-                            <div class="grid">
-                                <div_>
-                                    <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
-                                </div_>
-                                <div class="best-info">
-                                    <strong class="best-info__name">아몬드</strong>
-                                    <p class="best-info__date">작가/ 출판사</p>
-                                    <p class="font_color_red">18,900원</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="best-list__item">
-                    <ul>
-                        <li class="flex">
-                            <div class="font_bold p_10"> 1 </div>
+                            <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div_>
                                     <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
@@ -80,7 +102,25 @@
                 <div class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1 </div>
+                            <div class="font_bold p_10"> 1</div>
+                            <div class="grid">
+                                <div_>
+                                    <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
+                                </div_>
+                                <div class="best-info">
+                                    <strong class="best-info__name">아몬드</strong>
+                                    <p class="best-info__date">작가/ 출판사</p>
+                                    <p class="font_color_red">18,900원</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="best-list__item">
+                    <ul>
+                        <li class="flex">
+                            <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div_>
                                     <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
@@ -95,14 +135,9 @@
                     </ul>
                 </div>
             </div>
-
-
-
-
-
-
         </div>
     </div>
+
     <script src="/js/main/main.js"></script>
 
 </th:block>
