@@ -52,27 +52,7 @@
 
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
-                    <div th:each="list : ${bestlist}">
-                        <div th:text="${list.title}"></div>
-                        <img th:src="${list.cover}">
-                        <div th:text="${list.priceStandard}"></div>
-                        <div th:text="${list.publisher}"></div>
-                        <div th:text="${list.author}"></div>
-                        <div th:text="${list.pubDate}"></div>
-                        <div th:text="${list.description}"></div>
-                    </div>
-
-                    <div th:each="list : ${newlist}">
-                        <div th:text="${list.title}"></div>
-                        <img th:src="${list.cover}">
-                        <div th:text="${list.priceStandard}"></div>
-                        <div th:text="${list.publisher}"></div>
-                        <div th:text="${list.author}"></div>
-                        <div th:text="${list.pubDate}"></div>
-                        <div th:text="${list.description}"></div>
-                    </div>
-
-                    <div th:each="list : ${searchlist}">
+                    <div th:each="list : ${list}">
                         <div th:text="${list.title}"></div>
                         <img th:src="${list.cover}">
                         <div th:text="${list.priceStandard}"></div>
@@ -82,6 +62,23 @@
                         <div th:text="${list.description}"></div>
                     </div>
                 </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

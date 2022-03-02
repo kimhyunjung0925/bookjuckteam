@@ -17,8 +17,17 @@
         <if test="selectVal.equals('new')">
             pubDate desc;
         </if>
+        <if test="selectVal.equals('popular')">
+            customerReviewRank desc;
+        </if>
+        <if test="selectVal.equals('price')">
+            priceStandard desc;
+        </if>
+    </select>
 
-
+    <select id="configSel" resultType="ResultVo">
+        select COUNT(*) AS result FROM t_book_api
+        WHERE isbn = #{isbn}
     </select>
 
 </mapper>
