@@ -13,5 +13,6 @@ public class ApiSearchDto {
     private String isbn;
     private String SearchTarget = "Book"; //도서인지 외국도서인지 구분하기 위한 변수
     private String category; //html에 링크주기 위한 변수
+    private String selectVal; //최신순,인기순,가격순 결정한 값
 
 }

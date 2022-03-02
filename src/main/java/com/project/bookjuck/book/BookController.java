@@ -33,12 +33,8 @@ public class BookController {
     public String bestList(@ModelAttribute("searchDto") ApiSearchDto searchDto, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.bestBookList(searchDto);
-        for (BookDto dto: list)
-        {
-            service.insBookApi(dto);
-        }
-        model.addAttribute(Const.Category, "베스트도서");
-        model.addAttribute("bestlist", list);
+        model.addAttribute(Const.Category, "베스트도서");//html에 상단에 쓸 내용 쓰는 곳
+        model.addAttribute("list", list);
         return "book/list";
     }
 
@@ -57,7 +53,7 @@ public class BookController {
         searchDto.setCategory("new"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.newBookList(searchDto);
         model.addAttribute(Const.Category, "신간도서");
-        model.addAttribute("newlist", list);
+        model.addAttribute("list", list);
         return "book/list";
     }
 
@@ -66,7 +62,7 @@ public class BookController {
         searchDto.setCategory("search"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.searchBookList(searchDto);
         model.addAttribute(Const.Category, searchDto.getSearchWord());
-        model.addAttribute("searchlist", list);
+        model.addAttribute("list", list);
         return "book/list";
     }
 

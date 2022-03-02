@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.project.bookjuck.ResultVo;
 import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.bookinfo.BookEntity;
 import com.project.bookjuck.book.model.BookDto;
@@ -19,13 +20,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.awt.print.Book;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
 public class BookService {
     @Autowired
     private BookMapper mapper;
-
 
     //원래는 날짜도 넣어서 해야하는데 알라딘에서 받아올 수 있는 최신 날짜가 Version=20131101 밖에 안됨.
     //SimpleDateFormat day = new SimpleDateFormat("yyyyMMdd");
@@ -42,6 +44,22 @@ public class BookService {
     public List<BookDto> bestBookList(ApiSearchDto searchDto){
         searchDto.setType("Bestseller");
         List<BookDto> list = getData(searchDto,listurl);
+        switch (searchDto.getSelectVal()){
+            case "new" :
+                Collections.sort(list);
+                break;
+            case "price" :
+                Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
+                    @Override
+                    public int compare(BookDto o1, BookDto o2) {
+                        return o1.getPriceStandard() - o2.getPriceStandard();
+                    }
+                };
+                break;
+                //일부러 인기순은 안넣었음. 기본이 베스트도서라
+            default:
+                break;
+        }
         return list;
     }
     //신간도서 불러오기
@@ -61,19 +79,30 @@ public class BookService {
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
                 .build(false);
-        List<BookDto> list = null;
+        List<BookDto> bookList = null;
         try {
             //API 메소드
             String result = restTemp(builder);
 
             ObjectMapper om = new JsonMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             JsonNode jsonNode = om.readTree(result);
-            list = om.convertValue(jsonNode.path("item"), new TypeReference<List<BookDto>>() {});
+            bookList = om.convertValue(jsonNode.path("item"), new TypeReference<List<BookDto>>() {});
+            //리스트 만들고 중복으로 인설트 안되도록 데이터베이스에서 검색한 후 없으면 넣는다.
+            for (BookDto list:bookList) {
+                ResultVo resultVo =mapper.configSel(list); //데이터베이스 확인 메소드
+                switch (resultVo.getResult()){
+                    case 0: //0이면 없다는 뜻. 인설트 해준다.
+                        insBookApi(list);
+                        break;
+                    default: //나머지는 건너뛰기.
+                        break;
+                }
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        return list;
+        return bookList;
     }
 
     //베스트,신간목록용 API 메소드. 굳이 책 데이터베이스에 넣을 이유 없을 것 같아서 클래스 dto로 따로 뺌
@@ -95,6 +124,17 @@ public class BookService {
             ObjectMapper om = new JsonMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             JsonNode jsonNode = om.readTree(result);
             bookList = om.convertValue(jsonNode.path("item"), new TypeReference<List<BookDto>>() {});
+            //리스트 만들고 중복으로 인설트 안되도록 데이터베이스에서 검색한 후 없으면 넣는다.
+            for (BookDto list:bookList) {
+                ResultVo resultVo =mapper.configSel(list); //데이터베이스 확인 메소드
+                switch (resultVo.getResult()){
+                    case 0: //0이면 없다는 뜻. 인설트 해준다.
+                        insBookApi(list);
+                        break;
+                    default: //나머지는 건너뛰기.
+                        break;
+                }
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -127,7 +167,6 @@ public class BookService {
     }
 
 
-
     //API 레스트템플릿으로 불러오는 메소드
     public String restTemp(UriComponents builder){
         RestTemplate rest = new RestTemplate();
@@ -144,9 +183,7 @@ public class BookService {
 
     //bookApi를 DB에 넣는 메서드입니다.
    public int insBookApi(BookDto dto){
-        int result = mapper.insBookApi(dto);
-
-        return result;
+        return mapper.insBookApi(dto);
    }
 
     public List<BookDto> sel(BookDto dto){
