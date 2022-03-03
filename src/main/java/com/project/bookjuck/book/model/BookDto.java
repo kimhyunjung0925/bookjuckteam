@@ -22,6 +22,7 @@ public class BookDto implements Comparable<BookDto> {
     private boolean adult;
     private int customerReviewRank;
     private int bestRank;
+    private String categoryName;
 
 
     private String selectVal;

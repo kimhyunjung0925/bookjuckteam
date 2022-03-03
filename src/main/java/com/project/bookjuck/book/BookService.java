@@ -52,9 +52,10 @@ public class BookService {
                 Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
                     @Override
                     public int compare(BookDto o1, BookDto o2) {
-                        return o1.getPriceStandard() - o2.getPriceStandard();
+                        return o2.getPriceStandard() - o1.getPriceStandard();
                     }
                 };
+                Collections.sort(list,priceComparator);
                 break;
                 //일부러 인기순은 안넣었음. 기본이 베스트도서라
             default:
