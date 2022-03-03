@@ -26,11 +26,14 @@
                 <div class="m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
                         <div class="flex m-b-40 center">
+                            <div>
+                                <!--   숫자 찍어야함 -->
+                            </div>
                             <div class="w-10">
-                                <img th:src="${list.cover}">
+                                 <img th:src="${list.cover}">
                             </div>
                             <div class="w-70 m-r-30">
-                                <h5 th:text="${list.title}"></h5>
+                                <h5 th:text="${list.title}" class="font_bold"></h5>
                                 <div class="flex color_grey" style="flex-wrap: wrap;">
                                     <div th:text="${list.author}"></div>
                                     <div>&nbsp;|&nbsp;</div>

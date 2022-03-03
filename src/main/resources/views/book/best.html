@@ -16,14 +16,13 @@
             <div class="w-80">
                 <div class="grid m-t-20 m-l-50">
                     <h3>베스트 셀러</h3>
-                    <div class="m-t-10">
-                        <form th:action="@{/book/best}" method="post" class="sortType">
-                            <select th:field="*{selectVal}" name="selectVal" id="a1" onchange="bookSort()">
-                                <option th:value="new" id="a1_1">최신순</option>
-                                <option th:value="popular">인기순</option>
-                                <option th:value="price">가격순</option>
-                            </select>
-                        </form>
+                    <div class="flex m-t-10">
+                        <div class="pe-2">
+                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}">국내</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}">외국</a>
+                        </div>
                     </div>
                 </div>
 
@@ -36,7 +35,7 @@
                                 <img th:src="${list.cover}">
                             </div>
                             <div class="w-70 m-r-30">
-                                <h5 th:text="${list.title}"></h5>
+                                <h5 th:text="${list.title}" class="font_bold"></h5>
                                 <div class="flex color_grey" style="flex-wrap: wrap;">
                                     <div th:text="${list.author}"></div>
                                     <div>&nbsp;|&nbsp;</div>
