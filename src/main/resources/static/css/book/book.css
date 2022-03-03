@@ -78,6 +78,21 @@
 .list {height: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px;}
 
 /*new*/
+.new_menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5px;
+    font-size: medium;
+    color: #555555;
+    background: #dfe4ea;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.clicked { font-weight: bold; font-size:large; color: black;}
+
+
 
 
 /*best*/
