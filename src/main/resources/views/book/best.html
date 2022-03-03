@@ -17,8 +17,8 @@
                 <div class="grid m-t-20">
                     <h3>베스트 셀러</h3>
                     <div class="m-t-10">
-                        <form th:action="@{/book/best}" method="post" th:object="${searchDto}" >
-                            <select th:field="*{selectVal}" id="a1" onchange="bookSort(this.value)">
+                        <form th:action="@{/book/best}" method="post" class="sortType">
+                            <select th:field="*{selectVal}" name="selectVal" id="a1" onchange="bookSort()">
                                 <option th:value="new" id="a1_1">최신순</option>
                                 <option th:value="popular">인기순</option>
                                 <option th:value="price">가격순</option>
