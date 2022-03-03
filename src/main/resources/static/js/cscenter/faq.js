@@ -79,9 +79,9 @@
                 divElem.innerHTML = `
                      <!--맨마지막이나 맨 앞에 hr 없애고 싶음. 그리고 안에 스크롤 생기는거 없애는 방법-->
                     <h6 id="faq_title" class="head fw-bold pointer">${item.faq_title}</h6>
-                    <div class="body m-t-10">
+                    <div class="body m-t-10 m-l-20">
                         <pre class="faqctnt">${item.faq_ctnt}</pre>
-                        <div class="color_grey font_size_small">원하는 답변을 얻지 못하셨나요 ? [1:1상담]을 이용해주세요.</div>
+                        <div class="color_grey font_size_small m-b-10">원하는 답변을 얻지 못하셨나요 ? [1:1상담]을 이용해주세요.</div>
                     </div>
                     <hr class="m-0 p-0">
                 `;

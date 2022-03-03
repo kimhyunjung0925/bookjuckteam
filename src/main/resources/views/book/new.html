@@ -23,33 +23,33 @@
                 todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!
                 이달의 신간 누르면 이달, 금주의 신간 누르면 금주가 뜨도록 하기!
                 -->
-                <div class="m-t-20 "> <!-- 리스트 부분 -->
+                <div class="m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
                         <div class="flex m-b-40 center">
                             <div class="w-10">
                                 <img th:src="${list.cover}">
                             </div>
-                            <div class="w-70 m-r-20">
+                            <div class="w-70 m-r-30">
                                 <h5 th:text="${list.title}"></h5>
-                                <div class="flex color_grey">
+                                <div class="flex color_grey" style="flex-wrap: wrap;">
                                     <div th:text="${list.author}"></div>
                                     <div>&nbsp;|&nbsp;</div>
                                     <div th:text="${list.publisher}"></div>
                                     <div>&nbsp;|&nbsp;</div>
-                                    <div th:text="${list.pubDate}"></div>
+                                    <div th:text="${list.pubDate}"> </div>
                                 </div>
 
                                 <div th:text="${list.description}"></div>
 
                             </div>
-                            <div class="w-10">
+                            <div class="w-10 flex-direc-column center">
                                 <div class="flex">
-                                    <div>판매가:</div>
+                                    <div >판매가:</div>
                                     <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
                                 </div>
                                 <div class="grid">
-                                    <input type="button" value="장바구니 담기">
-                                    <input type="button" value="바로구매">
+                                    <input type="button" value="장바구니 담기" class="cart_btn">
+                                    <input type="button" value="바로구매" class="purchase_btn">
                                 </div>
                             </div>
                         </div>
