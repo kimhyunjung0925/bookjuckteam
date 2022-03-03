@@ -27,4 +27,5 @@ public class BookEntity {
     private String fullDescription;
     private String fullDescription2;
     private BookSubInfoEntity subInfo;
+    private String categoryName;
 }
