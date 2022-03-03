@@ -1,0 +1,87 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="temp/thymeleaf_layout">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>bestlist</title>
+    <link rel="stylesheet" th:href="@{/css/book/book.css}">
+</head>
+
+<th:block layout:fragment="content">
+    <div class="m-b-20">
+        <div class="flex h-100 center">
+            <div class="w-80">
+                <div class="grid m-t-20">
+                    <!--  도서 분류마다 분기 만들어둔 부분. 절대 건드지 말것.   -->
+                    <h1 th:if="${!searchDto.getCategory().toString().equals('search')}" th:text="${category}"></h1>
+                    <h1 th:if="${searchDto.getCategory().toString().equals('search')}"
+                        th:text="${category+'의 검색결과'}"></h1>
+                    <div class="flex m-t-10" th:if="${!searchDto.getCategory().toString().equals('search')}">
+                        <!-- 페이지마다 링크 다르게 설정하기 위해서 주소값에도 변수 주고 뒤에 파라미터에도 변수 줌.-->
+                        <div class="pe-2"><a
+                                th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Book')}">국내소설</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Foreign')}">외국소설</a>
+                        </div>
+                    </div>
+                    <div class="flex m-t-10" th:if="${searchDto.getCategory().toString().equals('search')}">
+                        <div class="pe-2"><a
+                                th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Book',searchWord=${category})}">국내소설</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Foreign',searchWord=${category})}">외국소설</a>
+                        </div>
+                    </div>
+                    <!--  도서 분류마다 분기 만들어둔 부분. 절대 건드지 말것.   -->
+                    <hr class="m-t-10">
+                    <div class="m-t-10">
+                        <form action="">
+                            <select name="정렬" id="a1">
+                                <option value="new" id="a1_1">최신순</option>
+                                <option value="popular">인기순</option>
+                                <option value="price">가격순</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
+                <div class="list m-t-20"> <!-- 리스트 부분 -->
+                    <div th:each="list : ${list}">
+                        <div th:text="${list.title}"></div>
+                        <img th:src="${list.cover}">
+                        <div th:text="${list.priceStandard}"></div>
+                        <div th:text="${list.publisher}"></div>
+                        <div th:text="${list.author}"></div>
+                        <div th:text="${list.pubDate}"></div>
+                        <div th:text="${list.description}"></div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/book/search.js"></script>
+</th:block>
