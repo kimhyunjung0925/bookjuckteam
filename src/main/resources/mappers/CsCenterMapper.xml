@@ -5,11 +5,6 @@
     <select id="selFaqList" resultType="FaqEntity">
         SELECT * FROM t_faq
     </select>
-    <!--FaQ디테일 가져오는 셀렉트-->
-    <select id="selFaqDetail" resultType="FaqEntity">
-        SELECT * FROM t_faq
-        WHERE ifaq = #{ifaq}
-    </select>
     <!-- 1대1문의글 저장하는 곳-->
     <insert id="inscomplaint">
         INSERT INTO t_complaint
@@ -17,4 +12,8 @@
         VALUES
         (#{com_email}, #{com_cate}, #{com_ctnt}, #{iuser}, #{filename}, #{filepath})
     </insert>
+    <!-- 공지사항 가져오는 셀렉트-->
+    <select id="selNotice" resultType="">
+        SELECT * FROM t_notice
+    </select>
 </mapper>

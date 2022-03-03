@@ -3,6 +3,7 @@ package com.project.bookjuck.cscenter;
 import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
+import com.project.bookjuck.cscenter.model.NoticeEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,15 +27,10 @@ public class CsCenterService {
         return mapper.selFaqList();
     }
 
-    public FaqEntity selFaqDetail(FaqEntity entity){
-        return mapper.selFaqDetail(entity);
-
+    public List<NoticeEntity> selNotice(){
+        return mapper.selNotice();
     }
 
-//    public int inscomplaint(ComplaintEntity entity){
-//        entity.setIuser(authenticationFacade.getLoginUserPk());
-//        return mapper.inscomplaint(entity);
-//    }
 
     public int inscomplaint(ComplaintEntity entity, MultipartFile file) throws Exception{
         //String projectPath= System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";

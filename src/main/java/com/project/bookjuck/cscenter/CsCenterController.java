@@ -45,12 +45,6 @@ public class CsCenterController {
         return "cscenter/faq";
     }
 
-    //faq 세부사항창
-    @GetMapping("/faq/faqdetail")
-    public String FaQDetail(FaqEntity entity, Model model) {
-        model.addAttribute("Faqdata", service.selFaqDetail(entity));
-        return "cscenter/faqdetail";
-    }
 
 //    @PostMapping("/complaint")
 //    public String comPlaintProc(ComplaintEntity complaintEntity, RedirectAttributes attr){
