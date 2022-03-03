@@ -14,7 +14,7 @@
     <div class="m-b-20">
         <div class="flex h-100 center">
             <div class="w-80">
-                <div class="grid m-t-20">
+                <div class="grid m-t-20 m-l-50">
                     <h3>베스트 셀러</h3>
                     <div class="m-t-10">
                         <form th:action="@{/book/best}" method="post" class="sortType">
@@ -25,55 +25,65 @@
                             </select>
                         </form>
                     </div>
-                </div>
 
 
-                <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
-                <div class="list"> <!-- 리스트 부분 -->
-                    <div th:each="list : ${list}" class="border_box3">
-                        <div class="flex justify_content_center">
-                            <img th:src="${list.cover}"></div>
-
-                            <div th:text="${list.title}"></div>
-                            <div th:text="${list.author}" class="color_grey"></div>
-                            <div th:text="${list.publisher}" class="color_grey"></div>
-                            <div th:text="${list.pubDate}" class="color_grey"></div>
-
-                            <div th:text="${list.description}"></div>
-
-
-                            <div class="flex">
-                                <div>판매가:</div>
-                                <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
+                    <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
+                <div class="m-t-20"> <!-- 리스트 부분 -->
+                    <div th:each="list : ${list}">
+                        <div class="flex m-b-40 center">
+                            <div class="w-10">
+                                <img th:src="${list.cover}">
                             </div>
-                            <div class="grid">
-                                <input type="button" value="장바구니 담기">
-                                <input type="button" value="바로구매">
+                            <div class="w-70 m-r-30">
+                                <h5 th:text="${list.title}"></h5>
+                                <div class="flex color_grey" style="flex-wrap: wrap;">
+                                    <div th:text="${list.author}"></div>
+                                    <div>&nbsp;|&nbsp;</div>
+                                    <div th:text="${list.publisher}"></div>
+                                    <div>&nbsp;|&nbsp;</div>
+                                    <div th:text="${list.pubDate}"> </div>
+                                </div>
+
+                                <div th:text="${list.description}"></div>
+
+                            </div>
+                            <div class="w-10 flex-direc-column center">
+                                <div class="flex">
+                                    <div >판매가:</div>
+                                    <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
+                                </div>
+                                <div class="grid">
+                                    <input type="button" value="장바구니 담기" class="cart_btn">
+                                    <input type="button" value="바로구매" class="purchase_btn">
+                                </div>
                             </div>
                         </div>
-
+                        <div>
+                            <hr>
+                        </div>
                     </div>
 
                 </div>
 
+                <nav aria-label="Page navigation example flex ">
+                    <ul class="pagination center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
             </div>
-        <nav aria-label="Page navigation example flex">
-            <ul class="pagination center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
         </div>
     </div>
 
