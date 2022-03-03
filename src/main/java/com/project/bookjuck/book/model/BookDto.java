@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BookDto implements Comparable<BookDto> {
+public class BookDto {
     private String title;
     private String author;
     private String pubDate;
@@ -27,9 +27,9 @@ public class BookDto implements Comparable<BookDto> {
 
     private String selectVal;
 
-    @Override
-    public int compareTo(BookDto dto) {
-        return this.pubDate.compareTo(dto.pubDate);
-    }
+//    @Override
+//    public int compareTo(BookDto dto) {
+//        return this.pubDate.compareTo(dto.pubDate);
+//    }
 
 }

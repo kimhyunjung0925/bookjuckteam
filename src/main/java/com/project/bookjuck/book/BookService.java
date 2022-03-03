@@ -43,32 +43,42 @@ public class BookService {
     //베스트도서 불러오기
     public List<BookDto> bestBookList(ApiSearchDto searchDto){
         searchDto.setType("Bestseller");
+        searchDto.setMaxResult(30);
         List<BookDto> list = getData(searchDto,listurl);
-        switch (searchDto.getSelectVal()){
+        switch (searchDto.getSelectVal()){ //최신순, 가격순 눌렀을 때 생기는 분기
             case "new" :
-                Collections.sort(list);
+                Comparator<BookDto> newComparator = new Comparator<BookDto>() {
+                    @Override
+                    public int compare(BookDto o1, BookDto o2) {
+                        int o1_PubData = Integer.parseInt(o1.getPubDate().replace("-", ""));
+                        int o2_PubData = Integer.parseInt(o2.getPubDate().replace("-", ""));
+                        return o2_PubData - o1_PubData;
+                    }
+                };
+                Collections.sort(list, newComparator);
                 break;
             case "price" :
                 Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
                     @Override
                     public int compare(BookDto o1, BookDto o2) {
-                        return o2.getPriceStandard() - o1.getPriceStandard();
+                        return o1.getPriceStandard() - o2.getPriceStandard();
                     }
                 };
                 Collections.sort(list,priceComparator);
                 break;
-                //일부러 인기순은 안넣었음. 기본이 베스트도서라
             default:
                 break;
         }
         return list;
     }
+
     //신간도서 불러오기
     public List<BookDto> newBookList(ApiSearchDto searchDto){
         searchDto.setType("ItemNewAll");
         List<BookDto> list = getData(searchDto,listurl);
         return list;
     }
+
     //검색도서 불러오기
     public List<BookDto> searchBookList(ApiSearchDto searchDto){
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(searchurl)
