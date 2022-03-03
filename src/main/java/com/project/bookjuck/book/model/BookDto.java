@@ -25,7 +25,7 @@ public class BookDto {
     private String categoryName;
 
 
-    private String selectVal;
+    private String selectVal = "";
 
 //    @Override
 //    public int compareTo(BookDto dto) {

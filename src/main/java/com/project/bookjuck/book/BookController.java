@@ -31,9 +31,9 @@ public class BookController {
 
 
     @GetMapping("/best")
-    public String bestList(@ModelAttribute("searchDto") String selectVal, ApiSearchDto searchDto, Model model) {
+    public String bestList(@ModelAttribute("searchDto") ApiSearchDto searchDto, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
-
+        System.out.println(searchDto.getSelectVal());
         List<BookDto> list = service.bestBookList(searchDto);
         model.addAttribute(Const.Category, "베스트도서");//html에 상단에 쓸 내용 쓰는 곳
         model.addAttribute("list", list);
