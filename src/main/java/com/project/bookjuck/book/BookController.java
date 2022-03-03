@@ -29,7 +29,7 @@ public class BookController {
         return "book/list";
     }
 
-    
+
     @GetMapping("/best")
     public String bestList(@ModelAttribute("searchDto") String selectVal, ApiSearchDto searchDto, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
@@ -56,7 +56,7 @@ public class BookController {
         List<BookDto> list = service.newBookList(searchDto);
         model.addAttribute(Const.Category, "신간도서");
         model.addAttribute("list", list);
-        return "book/list";
+        return "book/new";
     }
 
     @GetMapping("/search")
@@ -65,7 +65,7 @@ public class BookController {
         List<BookDto> list = service.searchBookList(searchDto);
         model.addAttribute(Const.Category, searchDto.getSearchWord());
         model.addAttribute("list", list);
-        return "book/list";
+        return "book/search";
     }
 
 
