@@ -45,7 +45,8 @@ public class BookService {
         searchDto.setType("Bestseller");
         searchDto.setMaxResult(30);
         List<BookDto> list = getData(searchDto,listurl);
-        switch (searchDto.getSelectVal()){ //최신순, 가격순 눌렀을 때 생기는 분기
+        String select = searchDto.getSelectVal()==null? "" : searchDto.getSelectVal();
+        switch (select){ //최신순, 가격순 눌렀을 때 생기는 분기
             case "new" :
                 Comparator<BookDto> newComparator = new Comparator<BookDto>() {
                     @Override
