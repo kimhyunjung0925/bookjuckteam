@@ -2,6 +2,7 @@ package com.project.bookjuck.ajax;
 
 import com.project.bookjuck.cscenter.CsCenterService;
 import com.project.bookjuck.cscenter.model.FaqEntity;
+import com.project.bookjuck.cscenter.model.NoticeEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +21,11 @@ public class CsCenterRestController {
     @GetMapping("/faq")
     public List<FaqEntity> selFaqList(){
         return service.selFaqList();
+    }
+
+    //notice리스트 가져오기
+    @GetMapping("/notice")
+    public List<NoticeEntity> selNotice(){
+        return service.selNotice();
     }
 }

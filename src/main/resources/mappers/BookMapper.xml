@@ -5,10 +5,10 @@
     <insert id="insBookApi">
         insert into t_book_api
         ( title, author, pubDate, description, isbn, isbn13, itemId, priceStandard
-        , cover, categoryId, publisher, adult, customerReviewRank, bestRank)
+        , cover, categoryId, publisher, adult, customerReviewRank, bestRank, categoryName)
         values (#{title}, #{author}, #{pubDate}, #{description}, #{isbn},
                 #{isbn13}, #{itemId}, #{priceStandard}, #{cover},
-                #{categoryId}, #{publisher}, #{adult}, #{customerReviewRank}, #{bestRank})
+                #{categoryId}, #{publisher}, #{adult}, #{customerReviewRank}, #{bestRank}, #{categoryName})
     </insert>
 
     <select id="sel" resultType="BookDto">
