@@ -61,3 +61,9 @@ function textLengthOverCut(ctnt, len, lastTxt) {
     }
     return ctnt;
 }
+
+
+//클릭 글자 클래스 주는 함수
+
+
+

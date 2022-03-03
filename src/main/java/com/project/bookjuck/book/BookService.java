@@ -75,7 +75,7 @@ public class BookService {
 
     //신간도서 불러오기
     public List<BookDto> newBookList(ApiSearchDto searchDto){
-        searchDto.setType("ItemNewAll");
+        searchDto.setType("ItemNewSpecial");
         List<BookDto> list = getData(searchDto,listurl);
         return list;
     }
