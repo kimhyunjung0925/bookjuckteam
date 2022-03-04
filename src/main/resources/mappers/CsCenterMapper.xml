@@ -13,7 +13,7 @@
         (#{com_email}, #{com_cate}, #{com_ctnt}, #{iuser}, #{filename}, #{filepath})
     </insert>
     <!-- 공지사항 가져오는 셀렉트-->
-    <select id="selNotice" resultType="">
+    <select id="selNotice" resultType="NoticeEntity">
         SELECT * FROM t_notice
     </select>
 </mapper>
