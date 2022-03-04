@@ -145,6 +145,14 @@ public class BookService {
         return list;
     }
 
+    //디테일 불러오기
+    public BookDto bookDetail(ApiSearchDto searchDto){
+//        searchDto.setType("mainBest");
+//        BookDto dto = new BookDto();
+//        dto.
+        return null;
+    }
+
 
 //=====================================리스트(국내도서, 해외도서)========================================//
     //국내도서, 해외도서 list 용 메소드
