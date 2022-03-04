@@ -27,7 +27,6 @@ public class BookController {
     @GetMapping("/list")
     public String list(BookDto dto, Model model) {
         List<BookDto> list = service.sel(dto);
-        System.out.println(dto.getCategoryBookjuck());
         model.addAttribute("list", list);
         return "book/list";
     }

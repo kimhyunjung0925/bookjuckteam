@@ -8,7 +8,7 @@ import lombok.Setter;
 public class ApiSearchDto {
     private String type;//베스트인지 신간인지 구분하려고 넣은 변수
     private int startIdx = 1; //시작 페이지
-    private int maxResult = 10; //한 페이지에 불러오는 갯수
+    private int maxResult = 20; //한 페이지에 불러오는 갯수
     private String searchWord; //검색어
     private String isbn;
     private String SearchTarget = "Book"; //도서인지 외국도서인지 구분하기 위한 변수
