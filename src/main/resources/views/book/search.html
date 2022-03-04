@@ -20,6 +20,9 @@
                     <h1 th:if="${searchDto.getCategory().toString().equals('search')}"
                         th:text="${category+'의 검색결과'}"></h1>
                     <div class="flex m-t-10" th:if="${searchDto.getCategory().toString().equals('search')}">
+                        <div>
+                            ALL
+                        </div>
                         <div class="pe-2"><a
                                 th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Book',searchWord=${category})}">국내도서</a>
                         </div>
@@ -75,9 +78,9 @@
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/search(startIdx=1,searchWord=${category})}">1</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/search(startIdx=2,searchWord=${category})}">2</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/search(startIdx=3,searchWord=${category})}">3</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
