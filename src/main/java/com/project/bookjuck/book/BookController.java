@@ -25,9 +25,10 @@ public class BookController {
     }
 
     @GetMapping("/list")
-    public String list(BookDto dto, Model model) {
+    public String list(BookDto dto, Model model, ApiSearchDto apidto) {
         List<BookDto> list = service.sel(dto);
         model.addAttribute("list", list);
+        model.addAttribute("category", apidto.getCategory());
         return "book/list";
     }
 
