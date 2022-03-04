@@ -19,10 +19,9 @@ public class BookController {
     @Autowired
     private BookService service;
 
-    @GetMapping("/detail/{searchDto}")
-    public String detail(@PathVariable String searchDto ,ApiSearchDto searchDto2,Model model) {
-        searchDto2.setIsbn(searchDto);
-        List<BookEntity> list = service.bookDetail(searchDto2);
+    @GetMapping("/detail")
+    public String detail(ApiSearchDto searchDto,Model model) {
+        BookEntity list = service.bookDetail(searchDto);
         model.addAttribute("list",list);
         System.out.println("디테일로 넘어가지는지 화긴"+ list);
         return "book/detail";
