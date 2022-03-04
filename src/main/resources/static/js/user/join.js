@@ -53,7 +53,7 @@
 
             if (!uidRegex.test(uid)) {
                 // alert("아이디는 영소문자조합의 5-10자로 작성해주세요.");
-                join_msg_uid.innerHTML="아이디는 영소문자조합의 5-10자로 작성해주세요.";
+                join_msg_uid.innerHTML="아이디는 영소문자조합의 6-10자로 작성해주세요.";
                 e.preventDefault();
             } if (!upwRegex.test(upw)) {
                 // alert("비밀번호는 영소문자 숫자 조합 8~15자리로 작성해주세요.");

@@ -37,13 +37,13 @@
 
                 <div class="m-t-10"><b>이메일</b></div>
                 <div class="flex" id="email_div">
-                    <input type="text" readonly  th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10 back_color_grey4" id="email_text">
+                    <input type="text" readonly  th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10 back_color_grey4" id="email_text" name='email'>
                     <input type="button" value="변경하기" class="btn" id="email_btn">
                 </div>
                 <div><span id="sucKey" class="color_black"></span></div>
 
                 <div class="m-t-10"><b>주소</b></div>
-                    <input type="hidden" id="sumAddr" name="addr">
+                    <input type="hidden" id="sumAddr" name="addr" th:value="${@utils.getLoginUser().getAddr()}">
                 <div><input type="text" th:value="${@utils.getLoginUser2().getAddr1()}" id="addr1" class="text_box" readonly ></div>
                     <div><input type="text" th:value="${@utils.getLoginUser2().getAddr2()}" id="addr2" class="text_box" readonly></div>
                     <input type="button" value="변경하기" class="btn" id="addr_btn">

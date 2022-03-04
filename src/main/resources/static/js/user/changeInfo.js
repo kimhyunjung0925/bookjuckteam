@@ -133,4 +133,53 @@
         })
 
     }
+
+    const ps_box = document.querySelector("#addr1");
+    const ps_box2 = document.querySelector("#addr2");
+
+    let addr_btn = document.querySelector('#addr_btn');
+
+
+
+    function chagneAddr(){
+        ps_box.readOnly=false;
+        ps_box2.readOnly=false;
+        ps_box.addEventListener('click', ()=>{
+            ps_box2.value = '';
+            ps_box.value = '';
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분
+                    console.log(data)
+                    ps_box.value = data.address;
+                    document.querySelector('#addr2').focus();
+                }
+            }).open();
+        })
+    }
+
+    addr_btn.addEventListener('click', () =>{
+
+        let changeSubmit = document.querySelector('#change_info');
+        if(confirm("주소를 변경 하시겠습니까?")){
+            chagneAddr();
+            addr_btn.type = 'hidden';
+
+            ps_box.addEventListener('click', ()=>{
+
+                const ps_box = document.querySelector("#addr1");
+                const ps_box2 = document.querySelector("#addr2");
+                ps_box2.addEventListener('keyup', ()=>{
+                    const sumaddr = document.querySelector('#sumAddr');
+                    const sumedAddrVal = ps_box.value + ', ' + ps_box2.value;
+                    sumaddr.value = sumedAddrVal;
+                })
+                changeSubmit.type = 'submit';
+                changeSubmit.classList.remove("btn_back_color");
+                changeSubmit.classList.add("back_color_blue");
+            })
+        }
+
+    })
+
 }
