@@ -31,19 +31,13 @@ public class EmailSendService {
         mailSender.send(message);
         hs.setAttribute("tempEmailKey",ePw); //세션에서 이메일 인증을 할 수도 있어서 남겼습니다.
         //세션에 이메일 인증 코드를 담는 부분입니다.
-        return ePw; // 굳이 필요없지만 지우지 않는 부분.
+        return ePw;
     }
 
     //인증키 번호 만들기
     public static int createKey() {
         return (int)(Math.random()*1000000);
     }
-
-    //입력일치 함수
-    public void correctKey(){
-        //여기서 패치로 받아와야 할거같다.
-    }
-
 
 
 }
