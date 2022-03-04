@@ -40,46 +40,20 @@ public class BookService {
     private String searchurl = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx";
     private String detailurl = "http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx";
 
-    //베스트도서 불러오기
-    public List<BookDto> bestBookList(ApiSearchDto searchDto){
-        searchDto.setType("Bestseller");
-        searchDto.setMaxResult(30);
-        List<BookDto> list = getData(searchDto,listurl);
-//        String select = searchDto.getSelectVal()==null? "" : searchDto.getSelectVal();
-//        switch (select){ //최신순, 가격순 눌렀을 때 생기는 분기
-//            case "new" :
-//                Comparator<BookDto> newComparator = new Comparator<BookDto>() {
-//                    @Override
-//                    public int compare(BookDto o1, BookDto o2) {
-//                        int o1_PubData = Integer.parseInt(o1.getPubDate().replace("-", ""));
-//                        int o2_PubData = Integer.parseInt(o2.getPubDate().replace("-", ""));
-//                        return o2_PubData - o1_PubData;
-//                    }
-//                };
-//                Collections.sort(list, newComparator);
-//                break;
-//            case "price" :
-//                Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
-//                    @Override
-//                    public int compare(BookDto o1, BookDto o2) {
-//                        return o1.getPriceStandard() - o2.getPriceStandard();
-//                    }
-//                };
-//                Collections.sort(list,priceComparator);
-////                break;
-//            default:
-//                break;
-//        }
-        return list;
-    }
+    //API 레스트템플릿으로 불러오는 메소드
+    public String restTemp(UriComponents builder){
+        RestTemplate rest = new RestTemplate();
+        rest.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 
-    //신간도서 불러오기
-    public List<BookDto> newBookList(ApiSearchDto searchDto){
-        searchDto.setType("ItemNewSpecial");
-        List<BookDto> list = getData(searchDto,listurl);
-        return list;
-    }
+        HttpHeaders header = new HttpHeaders();
+        header.setAccept(Arrays.asList());
 
+        HttpEntity<String> entity = new HttpEntity<>(header);
+
+        ResponseEntity<String> responseEntity = rest.exchange(builder.toString(), HttpMethod.GET, entity, String.class);
+        return responseEntity.getBody();
+    }
+//=====================================써치용========================================//
     //검색도서 불러오기
     public List<BookDto> searchBookList(ApiSearchDto searchDto){
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(searchurl)
@@ -117,6 +91,8 @@ public class BookService {
         return bookList;
     }
 
+
+//=====================================베스트, 신간========================================//
     //베스트,신간목록용 API 메소드. 굳이 책 데이터베이스에 넣을 이유 없을 것 같아서 클래스 dto로 따로 뺌
     public List<BookDto> getData(ApiSearchDto searchDto, String url) {
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(url)
@@ -154,6 +130,31 @@ public class BookService {
         return bookList;
     }
 
+    //베스트도서 불러오기
+    public List<BookDto> bestBookList(ApiSearchDto searchDto){
+        searchDto.setType("Bestseller");
+        searchDto.setMaxResult(30);
+        List<BookDto> list = getData(searchDto,listurl);
+        return list;
+    }
+
+    //신간도서 불러오기
+    public List<BookDto> newBookList(ApiSearchDto searchDto){
+        searchDto.setType("ItemNewSpecial");
+        List<BookDto> list = getData(searchDto,listurl);
+        return list;
+    }
+
+
+//=====================================리스트(국내도서, 해외도서)========================================//
+    //국내도서, 해외도서 list 용 메소드
+    /*
+    국내도서, 해외도서 따로 데리고 오는 api가 없어서
+    베스트, 신간목록들 db에 들어가있는거랑
+    카테고리별로 검색해 db에 데이터 수기로 몇개씩 넣어서 쓰기로 했음
+    */
+
+//=====================================책디테일========================================//
     //디테일용 API 메소드
     public List<BookEntity> getDetailData(ApiSearchDto searchDto){
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(detailurl)
@@ -178,20 +179,6 @@ public class BookService {
         return bookList;
     }
 
-
-    //API 레스트템플릿으로 불러오는 메소드
-    public String restTemp(UriComponents builder){
-        RestTemplate rest = new RestTemplate();
-        rest.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
-
-        HttpHeaders header = new HttpHeaders();
-        header.setAccept(Arrays.asList());
-
-        HttpEntity<String> entity = new HttpEntity<>(header);
-
-        ResponseEntity<String> responseEntity = rest.exchange(builder.toString(), HttpMethod.GET, entity, String.class);
-        return responseEntity.getBody();
-    }
 
     //bookApi를 DB에 넣는 메서드입니다.
    public int insBookApi(BookDto dto){
