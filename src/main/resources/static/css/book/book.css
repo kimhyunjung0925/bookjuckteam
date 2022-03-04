@@ -75,7 +75,7 @@
 
 
 /*list*/
-.list {height: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.list {height: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
 
 /*new*/
 .new_menu {

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.ResultVo;
 import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.bookinfo.Authors;
@@ -31,6 +32,9 @@ import java.util.List;
 public class BookService {
     @Autowired
     private BookMapper mapper;
+
+    @Autowired
+    private AuthenticationFacade auth;
 
     //원래는 날짜도 넣어서 해야하는데 알라딘에서 받아올 수 있는 최신 날짜가 Version=20131101 밖에 안됨.
     //SimpleDateFormat day = new SimpleDateFormat("yyyyMMdd");
@@ -209,6 +213,13 @@ public class BookService {
 
     public List<BookDto> sel(BookDto dto){
         List<BookDto> bookDtoList = mapper.sel(dto);
+        for (BookDto list:bookDtoList) {
+            String title = auth.textOverCut(list.getTitle(),15);
+
+            String author = list.getAuthor().replaceAll("\\(.+", "");
+            list.setTitle(title);
+            list.setAuthor(author);
+        }
         return  bookDtoList;
     }
 
