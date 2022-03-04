@@ -146,6 +146,12 @@ public class BookService {
         return list;
     }
 
+    //디테일 불러오기
+    public List<BookEntity> bookDetail(ApiSearchDto searchDto){
+        List<BookEntity> list = getDetailData(searchDto);
+        return list;
+    }
+
 
 //=====================================리스트(국내도서, 해외도서)========================================//
     //국내도서, 해외도서 list 용 메소드

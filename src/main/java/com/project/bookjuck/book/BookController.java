@@ -3,6 +3,7 @@ package com.project.bookjuck.book;
 import com.project.bookjuck.Const;
 import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.BookDto;
+import com.project.bookjuck.book.model.bookinfo.BookEntity;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,14 @@ public class BookController {
     @Autowired
     private BookService service;
 
-    @GetMapping("/detail")
-    public String detail() {
-
+    @GetMapping("/detail/{searchDto}")
+    public String detail(@PathVariable String searchDto ,ApiSearchDto searchDto2,Model model) {
+        searchDto2.setIsbn(searchDto);
+        List<BookEntity> list = service.bookDetail(searchDto2);
+        model.addAttribute("list",list);
+        System.out.println("디테일로 넘어가지는지 화긴"+ list);
         return "book/detail";
     }
-
     @GetMapping("/list")
     public String list(BookDto dto, Model model, ApiSearchDto apidto) {
         List<BookDto> list = service.sel(dto);
