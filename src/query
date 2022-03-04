@@ -76,12 +76,12 @@ INSERT INTO `t_notice` (`inotice`, `notice_type`, `notice_title`, `notice_ctnt`)
 //====== book api
 
 CREATE TABLE t_book_api (
-    title VARCHAR(100) NOT NULL ,
+    title VARCHAR(300) NOT NULL ,
     author VARCHAR(100) NOT NULL ,
     pubDate VARCHAR(30) ,
     description VARCHAR(1000) ,
     isbn VARCHAR(30) NOT NULL ,
-    isbn13 BIGINT NOT NULL,
+    isbn13 VARCHAR(20) NOT NULL,
     itemId INT,
     priceStandard INT,
     cover VARCHAR(200) ,
