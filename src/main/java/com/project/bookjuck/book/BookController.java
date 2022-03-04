@@ -25,7 +25,10 @@ public class BookController {
     }
 
     @GetMapping("/list")
-    public String list() {
+    public String list(BookDto dto, Model model) {
+        List<BookDto> list = service.sel(dto);
+        System.out.println(dto.getCategoryBookjuck());
+        model.addAttribute("list", list);
         return "book/list";
     }
 
@@ -33,21 +36,11 @@ public class BookController {
     @GetMapping("/best")
     public String bestList(ApiSearchDto searchDto,@ModelAttribute(value="selectVal") String selectVal, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
-        System.out.println("-----------분류-------"+searchDto.getSelectVal());
         List<BookDto> list = service.bestBookList(searchDto);
         model.addAttribute("list", list);
         return "book/best";
     }
 
-    @ResponseBody
-    @GetMapping("/bestapi")
-    public List<BookDto> bestListApi(@RequestParam("selectVal") String selectVal, Model model) {
-        BookDto dto = new BookDto();
-        dto.setSelectVal(selectVal);
-        List<BookDto> list = service.sel(dto);
-
-        return list;
-    }
 
     @GetMapping("/new")
     public String newList(@ModelAttribute("searchDto") ApiSearchDto searchDto, Model model) {
