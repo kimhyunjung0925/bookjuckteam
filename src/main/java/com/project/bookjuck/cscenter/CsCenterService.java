@@ -31,6 +31,10 @@ public class CsCenterService {
         return mapper.selNotice();
     }
 
+    public NoticeEntity selItemNotice(NoticeEntity entity){
+        return mapper.selItemNotice(entity);
+    }
+
 
     public int inscomplaint(ComplaintEntity entity, MultipartFile file) throws Exception{
         //String projectPath= System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";

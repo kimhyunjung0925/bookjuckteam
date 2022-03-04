@@ -3,6 +3,7 @@ package com.project.bookjuck.cscenter;
 import com.project.bookjuck.Const;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.cscenter.model.FaqEntity;
+import com.project.bookjuck.cscenter.model.NoticeEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,16 +22,18 @@ public class CsCenterController {
     @Autowired
     private CsCenterService service;
 
-    //cscenter기본창
-    @GetMapping
-    public String CsCenter() {
-        return "notice";
-    }
 
     //공지사항 리스트창
     @GetMapping("/notice")
     public String CsNotice() {
         return "cscenter/notice";
+    }
+
+    //공지사항 세부창
+    @GetMapping("/notice/item")
+    public String CsNoticeItem(Model model, NoticeEntity noticeEntity){
+        model.addAttribute("item", service.selItemNotice(noticeEntity));
+        return "cscenter/noticeitem";
     }
 
     //1대1문의창
