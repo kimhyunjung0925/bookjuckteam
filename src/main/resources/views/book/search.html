@@ -20,21 +20,30 @@
                     <h1 th:if="${searchDto.getCategory().toString().equals('search')}"
                         th:text="${category+'의 검색결과'}"></h1>
                     <div class="flex m-t-10" th:if="${searchDto.getCategory().toString().equals('search')}">
-                        <div>
-                            ALL
+                        <div class="pe-2"><a
+                                th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='All',searchWord=${category})}">All</a>
                         </div>
                         <div class="pe-2"><a
-                                th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Book',searchWord=${category})}">국내도서</a>
+                                th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Book',searchWord=${category})}">국내도서</a>
                         </div>
                         <div>
-                            <a th:href="@{/book/{category}(category=${searchDto.getCategory},startIdx=1,SearchTarget='Foreign',searchWord=${category})}">외국도서</a>
+                            <a th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Foreign',searchWord=${category})}">외국도서</a>
                         </div>
+                    </div>
+
+                    <div class="m-t-10">
+                        <form action="">
+                            <select name="정렬" id="a1">
+                                <option value="new" id="a1_1">최신순</option>
+                                <option value="popular">인기순</option>
+                                <option value="price">가격순</option>
+                            </select>
+                        </form>
                     </div>
 
                 </div>
 
 
-                <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
                         <div class="flex m-b-40 center">

@@ -70,7 +70,7 @@
                             <li><a href="#">이달의 신간</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">국내도서</a>
+                    <li><a th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}">국내도서</a>
                         <ul>
                             <li><a th:href="@{/book/list(categoryBookjuck='국내도서>소설%')}">소설/시</a></li>
                             <li><a th:href="@{/book/list(categoryBookjuck='국내도서>에세이%')}">에세이</a></li>
@@ -83,12 +83,11 @@
                             <li><a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%')}">컴퓨터/IT</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">해외도서</a>
+                    <li><a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}">해외도서</a>
                         <ul>
                             <li><a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%')}">소설/시/희곡</a></li>
                             <li><a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%')}">예술/대중문화</a></li>
                             <li><a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%')}">인문/사회</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>여행%')}">여행</a></li>
                             <li><a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%')}">컴퓨터</a></li>
                             <li><a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%')}">어린이</a></li>
 

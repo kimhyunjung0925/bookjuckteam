@@ -57,11 +57,10 @@ public class BookService {
     //검색도서 불러오기
     public List<BookDto> searchBookList(ApiSearchDto searchDto){
         searchDto.setMaxResult(30);
-        searchDto.setSearchTarget("All");
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(searchurl)
                 .queryParam("ttbkey",serviceKey)
                 .queryParam("Query", searchDto.getSearchWord())
-                .queryParam("SearchTarget", searchDto.getSearchTarget())
+                .queryParam("SearchTarget", searchDto.getSearchTarget2())
                 .queryParam("MaxResults", searchDto.getMaxResult())
                 .queryParam("start", searchDto.getStartIdx())
                 .queryParam("output", "js")
