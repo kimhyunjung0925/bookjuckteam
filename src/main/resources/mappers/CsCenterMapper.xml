@@ -15,5 +15,11 @@
     <!-- 공지사항 가져오는 셀렉트-->
     <select id="selNotice" resultType="NoticeEntity">
         SELECT * FROM t_notice
+        ORDER BY inotice DESC
+    </select>
+    <!-- 공지사항 세부내용 들고 오는 셀렉트-->
+    <select id="selItemNotice" resultType="NoticeEntity">
+        SELECT * FROM t_notice
+        WHERE inotice = #{inotice}
     </select>
 </mapper>

@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers( "/css/**", "/js/**", "/upload/images/**"
-                        , "/cart","/main","/cscenter","/cscenter/faq/**",  "/book/**"
+                        , "/cart","/main","/cscenter/faq/**",  "/book/**"
                         , "/cscenter/notice/**","/ajax/cscenter/**", "/user/join","/user/idChk/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

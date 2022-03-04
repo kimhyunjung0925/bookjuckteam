@@ -10,4 +10,5 @@ public class NoticeEntity {
     private String notice_type;
     private String notice_title;
     private String notice_ctnt;
+    private String notice_rdt;
 }
