@@ -51,7 +51,7 @@ const regex = {
 //글자수 제한 하는 함수
 function textLengthOverCut(ctnt, len, lastTxt) {
     if (len == "" || len == null) { // 기본값
-        len = 90;
+        len = 10;
     }
     if (lastTxt == "" || lastTxt == null) { // 기본값
         lastTxt = "...";
