@@ -45,31 +45,31 @@ public class BookService {
         searchDto.setType("Bestseller");
         searchDto.setMaxResult(30);
         List<BookDto> list = getData(searchDto,listurl);
-        String select = searchDto.getSelectVal()==null? "" : searchDto.getSelectVal();
-        switch (select){ //최신순, 가격순 눌렀을 때 생기는 분기
-            case "new" :
-                Comparator<BookDto> newComparator = new Comparator<BookDto>() {
-                    @Override
-                    public int compare(BookDto o1, BookDto o2) {
-                        int o1_PubData = Integer.parseInt(o1.getPubDate().replace("-", ""));
-                        int o2_PubData = Integer.parseInt(o2.getPubDate().replace("-", ""));
-                        return o2_PubData - o1_PubData;
-                    }
-                };
-                Collections.sort(list, newComparator);
-                break;
-            case "price" :
-                Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
-                    @Override
-                    public int compare(BookDto o1, BookDto o2) {
-                        return o1.getPriceStandard() - o2.getPriceStandard();
-                    }
-                };
-                Collections.sort(list,priceComparator);
-                break;
-            default:
-                break;
-        }
+//        String select = searchDto.getSelectVal()==null? "" : searchDto.getSelectVal();
+//        switch (select){ //최신순, 가격순 눌렀을 때 생기는 분기
+//            case "new" :
+//                Comparator<BookDto> newComparator = new Comparator<BookDto>() {
+//                    @Override
+//                    public int compare(BookDto o1, BookDto o2) {
+//                        int o1_PubData = Integer.parseInt(o1.getPubDate().replace("-", ""));
+//                        int o2_PubData = Integer.parseInt(o2.getPubDate().replace("-", ""));
+//                        return o2_PubData - o1_PubData;
+//                    }
+//                };
+//                Collections.sort(list, newComparator);
+//                break;
+//            case "price" :
+//                Comparator<BookDto> priceComparator = new Comparator<BookDto>() {
+//                    @Override
+//                    public int compare(BookDto o1, BookDto o2) {
+//                        return o1.getPriceStandard() - o2.getPriceStandard();
+//                    }
+//                };
+//                Collections.sort(list,priceComparator);
+////                break;
+//            default:
+//                break;
+//        }
         return list;
     }
 
