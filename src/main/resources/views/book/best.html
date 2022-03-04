@@ -31,22 +31,25 @@
                 <div class="m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
                         <div class="flex m-b-40 center">
-                            <div class="w-10">
-                                <img th:src="${list.cover}">
-                            </div>
-                            <div class="w-70 m-r-30">
-                                <h5 th:text="${list.title}" class="font_bold"></h5>
-                                <div class="flex color_grey" style="flex-wrap: wrap;">
-                                    <div th:text="${list.author}"></div>
-                                    <div>&nbsp;|&nbsp;</div>
-                                    <div th:text="${list.publisher}"></div>
-                                    <div>&nbsp;|&nbsp;</div>
-                                    <div th:text="${list.pubDate}"> </div>
+                            <a th:href="@{/book/detail/{searchDto}(searchDto=${list.isbn})}">
+                                <div th:text="${list.isbn}"></div>
+                                <div class="w-10">
+                                    <img th:src="${list.cover}">
                                 </div>
+                                <div class="w-70 m-r-30">
+                                    <h5 th:text="${list.title}" class="font_bold"></h5>
+                                    <div class="flex color_grey" style="flex-wrap: wrap;">
+                                        <div th:text="${list.author}"></div>
+                                        <div>&nbsp;|&nbsp;</div>
+                                        <div th:text="${list.publisher}"></div>
+                                        <div>&nbsp;|&nbsp;</div>
+                                        <div th:text="${list.pubDate}"> </div>
+                                    </div>
 
-                                <div th:text="${list.description}"></div>
+                                    <div th:text="${list.description}"></div>
+                                </div>
+                            </a>
 
-                            </div>
                             <div class="w-10 flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>

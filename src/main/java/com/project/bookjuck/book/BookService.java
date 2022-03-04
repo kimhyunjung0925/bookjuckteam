@@ -148,11 +148,9 @@ public class BookService {
     }
 
     //디테일 불러오기
-    public BookDto bookDetail(ApiSearchDto searchDto){
-//        searchDto.setType("mainBest");
-//        BookDto dto = new BookDto();
-//        dto.
-        return null;
+    public List<BookEntity> bookDetail(ApiSearchDto searchDto){
+        List<BookEntity> list = getDetailData(searchDto);
+        return list;
     }
 
 
