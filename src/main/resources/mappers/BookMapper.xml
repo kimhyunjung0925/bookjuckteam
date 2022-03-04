@@ -12,17 +12,9 @@
     </insert>
 
     <select id="sel" resultType="BookDto">
-        SELECT * FROM t_book_api
-        ORDER BY
-        <if test="selectVal.equals('new')">
-            pubDate desc;
-        </if>
-        <if test="selectVal.equals('popular')">
-            customerReviewRank desc;
-        </if>
-        <if test="selectVal.equals('price')">
-            priceStandard desc;
-        </if>
+        select *
+        FROM t_book_api
+        where categoryName LIKE `#{categoryBookjuck}%`
     </select>
 
     <select id="configSel" resultType="ResultVo">

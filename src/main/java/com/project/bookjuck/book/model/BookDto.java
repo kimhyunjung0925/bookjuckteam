@@ -27,6 +27,8 @@ public class BookDto {
 
     private String selectVal = "";
 
+    private String categoryBookjuck;
+
 //    @Override
 //    public int compareTo(BookDto dto) {
 //        return this.pubDate.compareTo(dto.pubDate);
