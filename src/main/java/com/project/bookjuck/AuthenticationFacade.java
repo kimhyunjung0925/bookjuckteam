@@ -36,5 +36,16 @@ public class AuthenticationFacade {
         return vo;
     }
 
+    public String textOverCut(String title, int len){
+        if (len ==0 ) { // 기본값
+            len = 10;
+        }
+        String lastTxt = "...";
+        if (title.length() > len) {
+            title = title.substring(0, len) + lastTxt;
+        }
+        return title;
+    }
+
 
 }
