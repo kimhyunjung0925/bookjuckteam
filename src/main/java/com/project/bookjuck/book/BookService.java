@@ -7,8 +7,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.project.bookjuck.ResultVo;
 import com.project.bookjuck.book.model.ApiSearchDto;
+import com.project.bookjuck.book.model.bookinfo.Authors;
 import com.project.bookjuck.book.model.bookinfo.BookEntity;
 import com.project.bookjuck.book.model.BookDto;
+import com.project.bookjuck.book.model.bookinfo.BookSubInfoEntity;
+import com.project.bookjuck.book.model.bookinfo.PhraseList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -147,8 +150,8 @@ public class BookService {
     }
 
     //디테일 불러오기
-    public List<BookEntity> bookDetail(ApiSearchDto searchDto){
-        List<BookEntity> list = getDetailData(searchDto);
+    public BookEntity bookDetail(ApiSearchDto searchDto){
+        BookEntity list = getDetailData(searchDto);
         return list;
     }
 
@@ -162,28 +165,40 @@ public class BookService {
     */
 
 //=====================================책디테일========================================//
+
+
+
     //디테일용 API 메소드
-    public List<BookEntity> getDetailData(ApiSearchDto searchDto){
+    public BookEntity getDetailData(ApiSearchDto searchDto){
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(detailurl)
                 .queryParam("ttbkey",serviceKey)
-                .queryParam("itemIdType", searchDto.getIsbn())
+                .queryParam("itemIdType",  "ISBN")
+                .queryParam("itemId",  searchDto.getIsbn())
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
                 .queryParam("OptResult", "fulldescription,authors,fulldescription2,Toc,Story,phraseList")
                 .build(false);
-        List<BookEntity> bookList = null;
+        BookEntity bookEntity = null;
         try {
             //API메소드
             String result = restTemp(builder);
 
             ObjectMapper om = new JsonMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             JsonNode jsonNode = om.readTree(result);
-            bookList = om.convertValue(jsonNode.path("item"), new TypeReference<List<BookEntity>>() {});
+            bookEntity = om.convertValue(jsonNode.path("item"), new TypeReference<BookEntity>() {});
+            BookSubInfoEntity subInfo = om.convertValue(jsonNode.path("item").path("subinfo"), new TypeReference<BookSubInfoEntity>() {});
+            List<PhraseList> phraseList = om.convertValue(jsonNode.path("item").path("subinfo").path("phraseList"), new TypeReference<List<PhraseList>>() {});
+            List<Authors> authors = om.convertValue(jsonNode.path("item").path("subinfo").path("authors"), new TypeReference<List<Authors>>() {});
+
+            subInfo.setPhraseList(phraseList);
+            subInfo.setAuthors(authors);
+            bookEntity.setSubInfo(subInfo);
+
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        return bookList;
+        return bookEntity;
     }
 
 
