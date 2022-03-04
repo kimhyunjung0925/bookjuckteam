@@ -15,7 +15,32 @@
         <div class="flex h-100 center">
             <div class="w-80">
                 <div class="grid m-t-20">
-                    <!--  도서 분류마다 분기 만들어둔 부분. 절대 건드지 말것.   -->
+<!--                    국내도서 클릭 했을 때 메뉴 -->
+                    <div th:if="${category.equals('Book')}">
+                        <ul class="flex justify_space_around">
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>소설%')}">소설/시</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>에세이%')}">에세이</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%')}">자기 계발</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%')}">경제/경영</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>인문학%')}">인문</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>역사%')}">역사</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%')}">예술/문화</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>과학%')}">과학/기술공학</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%')}">컴퓨터/IT</a></li>
+                        </ul>
+                    </div>
+<!--                    해외도서 클릭했을 때 메뉴 -->
+                    <div th:if="${category.equals('Foreign')}">
+                        <ul class="flex justify_space_around">
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%')}">소설/시/희곡</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%')}">예술/대중문화</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%')}">인문/사회</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%')}">컴퓨터</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%')}">어린이</a></li>
+                        </ul>
+                    </div>
+
+
                     <hr class="m-t-10">
                     <div class="m-t-10">
                         <form action="">

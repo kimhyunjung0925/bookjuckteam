@@ -86,10 +86,11 @@ CREATE TABLE t_book_api (
     priceStandard INT,
     cover VARCHAR(200) ,
     categoryId int ,
-    publisher VARCHAR(20),
+    publisher VARCHAR(200),
     adult BOOL,
     customerReviewRank INT,
     bestRank INT,
     categoryName VARCHAR(150)
 );
+
 

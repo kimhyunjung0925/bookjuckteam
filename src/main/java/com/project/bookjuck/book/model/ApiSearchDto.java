@@ -11,7 +11,8 @@ public class ApiSearchDto {
     private int maxResult = 20; //한 페이지에 불러오는 갯수
     private String searchWord; //검색어
     private String isbn;
-    private String SearchTarget = "Book"; //도서인지 외국도서인지 구분하기 위한 변수
+    private String SearchTarget = "Book"; //도서인지 외국도서인지 구분하기 위한 변수 (베스트, 신간, 리스트에 사용)
+    private String SearchTarget2 = "All"; //우선 전체 검색(써치때 사용)
     private String category; //html에 링크주기 위한 변수
     private String selectVal; //최신순,인기순,가격순 결정한 값
 
