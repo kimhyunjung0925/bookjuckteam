@@ -21,11 +21,11 @@ public class BookController {
 
     @GetMapping("/detail")
     public String detail(ApiSearchDto searchDto,Model model) {
-        BookEntity list = service.bookDetail(searchDto);
-        model.addAttribute("list",list);
-        System.out.println("디테일로 넘어가지는지 화긴"+ list);
+        BookEntity book = service.bookDetail(searchDto);
+        model.addAttribute("list",book);
         return "book/detail";
     }
+
     @GetMapping("/list")
     public String list(BookDto dto, Model model, ApiSearchDto apidto) {
         List<BookDto> list = service.sel(dto);

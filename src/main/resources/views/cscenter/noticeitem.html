@@ -9,9 +9,12 @@
 </head>
 <th:block layout:fragment="content">
     <div>
-        <div>제목</div>
-        <strong th:text="${item.notice_title}"></strong>
-        <div>등록일 <span th:text="${item.notice_rdt}"></span></div>
+        <div>[<span th:text="${item.notice_type}"></span>]</div>
+        <div class="flex justify_space_between">
+            <strong th:text="${item.notice_title}"></strong>
+            <span th:text="${item.notice_rdt}"></span>
+        </div>
+        <hr>
         <pre th:text="${item.notice_ctnt}"></pre>
     </div>
 
