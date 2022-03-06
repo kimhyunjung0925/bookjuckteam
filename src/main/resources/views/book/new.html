@@ -25,14 +25,12 @@
                 -->
                 <div class="m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
-                        <div class="flex m-b-40 center">
+                        <div class="flex m-b-40 center book_box">
                             <div>
                                 <!--   숫자 찍어야함 -->
                             </div>
-                            <div class="w-10">
-                                 <img th:src="${list.cover}">
-                            </div>
-                            <div class="w-70 m-r-30">
+                            <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_cover"></a>
+                            <div class="m-r-30 flex-direc-column container-md">
                                 <h5 th:text="${list.title}" class="font_bold"></h5>
                                 <div class="flex color_grey" style="flex-wrap: wrap;">
                                     <div th:text="${list.author}"></div>
@@ -43,14 +41,14 @@
                                 </div>
 
                                 <div th:text="${list.description}"></div>
-
                             </div>
-                            <div class="w-10 flex-direc-column center">
+
+                            <div class="width200p flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>
                                     <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
                                 </div>
-                                <div class="grid">
+                                <div class="flex-direc-column m-2">
                                     <input type="button" value="장바구니 담기" class="cart_btn">
                                     <input type="button" value="바로구매" class="purchase_btn">
                                 </div>

@@ -109,6 +109,7 @@ public class BookService {
                 .queryParam("SearchTarget", searchDto.getSearchTarget())
                 .queryParam("MaxResults", searchDto.getMaxResult())
                 .queryParam("start", searchDto.getStartIdx())
+                .queryParam("Cover", "MidBig")
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
                 .build(false);
@@ -155,8 +156,8 @@ public class BookService {
 
     //디테일 불러오기
     public BookEntity bookDetail(ApiSearchDto searchDto){
-        BookEntity list = getDetailData(searchDto);
-        return list;
+        BookEntity book = getDetailData(searchDto);
+        return book;
     }
 
 
@@ -178,25 +179,21 @@ public class BookService {
                 .queryParam("ttbkey",serviceKey)
                 .queryParam("itemIdType",  "ISBN")
                 .queryParam("itemId",  searchDto.getIsbn())
+                .queryParam("Cover", "Big")
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
                 .queryParam("OptResult", "fulldescription,authors,fulldescription2,Toc,Story,phraseList")
                 .build(false);
         BookEntity bookEntity = null;
+        List<Authors> authors = null;
         try {
             //API메소드
             String result = restTemp(builder);
 
             ObjectMapper om = new JsonMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             JsonNode jsonNode = om.readTree(result);
-            bookEntity = om.convertValue(jsonNode.path("item"), new TypeReference<BookEntity>() {});
-            BookSubInfoEntity subInfo = om.convertValue(jsonNode.path("item").path("subinfo"), new TypeReference<BookSubInfoEntity>() {});
-            List<PhraseList> phraseList = om.convertValue(jsonNode.path("item").path("subinfo").path("phraseList"), new TypeReference<List<PhraseList>>() {});
-            List<Authors> authors = om.convertValue(jsonNode.path("item").path("subinfo").path("authors"), new TypeReference<List<Authors>>() {});
+            bookEntity = om.convertValue(jsonNode.path("item").path(0), new TypeReference<BookEntity>() {});
 
-            subInfo.setPhraseList(phraseList);
-            subInfo.setAuthors(authors);
-            bookEntity.setSubInfo(subInfo);
 
         }
         catch (Exception e) {

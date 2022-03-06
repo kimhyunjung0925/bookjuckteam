@@ -76,6 +76,7 @@
                 //faqboardtable 안에 div하나 만들어줌
                 const divElem = document.createElement('div');
                 faqTableElem.appendChild(divElem);
+                divElem.className = "width960"
                 divElem.innerHTML = `
                      <!--맨마지막이나 맨 앞에 hr 없애고 싶음. 그리고 안에 스크롤 생기는거 없애는 방법-->
                     <h6 id="faq_title" class="head fw-bold pointer">${item.faq_title}</h6>

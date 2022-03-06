@@ -15,29 +15,27 @@
             <div class="grid m-t-10 border_box2">
                 <div class="flex padding_box justify_content_center back_color_green">
                     <div>
-                        <img th:src="@{/upload/images/XL.jfif}"  class="book_img_1823">
+                        <img th:src="${list.getCover()}"  class="book_img_1823">
                     </div>
 
                     <div class="gird m-l-30">
-                        <h2 class="font_bold">아몬드 </h2>
+                        <h2 class="font_bold" th:text="${list.getTitle()}"></h2>
                         <div class="flex">
-                            <div>저자 :  </div>
-                            <div class="font_bold"> 권주영 &nbsp </div>
+                            <div>저자 : </div>
+                            <div class="font_bold" th:text="${list.getAuthor()}">&nbsp </div>
                             <div>| 출판사 :  </div>
-                            <div class="font_bold"> 백은애 북스 &nbsp</div>
+                            <div class="font_bold" th:text="${list.getPublisher()}"> &nbsp</div>
                             <div> | 출간일 :  </div>
-                            <div class="font_bold"> 2022년 01월 15일</div>
+                            <div class="font_bold" th:text="${list.getPubDate()}"></div>
                         </div>
-                        <!--   TODO 리뷰쪽 수정해야함      -->
+                        <!--   TODO 이걸 어케 만들어야할까..리뷰.....리뷰리뷰뷰뷰뷰뷰...      -->
                         <div>★★★★☆ 8점(리뷰 20개)</div>
 
                         <hr>
 
-                        <div>정가 : 16,900원</div>
                         <div class="flex align_items_center">
-                            <div>판매가 :</div>
-                            <div><h2 class="color_red">15,150원</h2></div>
-                            <div>[10%↓ 할인]</div>
+                            <div>정가 :</div>
+                            <div><h2 class="color_red" th:text="${list.getPriceStandard()}"></h2></div>
                         </div>
                         <div>배송비 : 무료</div>
                         <hr>
