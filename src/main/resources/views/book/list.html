@@ -47,8 +47,8 @@
                     <hr class="m-t-10">
                     <div class="m-t-10">
                         <form action="">
-                            <select name="정렬" id="a1">
-                                <option value="new" id="a1_1">최신순</option>
+                            <select name="정렬">
+                                <option value="new">최신순</option>
                                 <option value="popular">인기순</option>
                                 <option value="price">가격순</option>
                             </select>
@@ -69,6 +69,7 @@
                         <div th:text="${list.priceStandard}" class="color_red"></div>
                     </div>
                 </div>
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item">
