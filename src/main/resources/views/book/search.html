@@ -46,7 +46,7 @@
                         <div class="flex m-b-40 center book_box">
                             <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_cover"></a>
                             <div class="m-r-30 flex-direc-column container-md">
-                                <h5 th:text="${list.title}" class="font_bold"></h5>
+                                <a th:href="@{/book/detail(isbn=${list.isbn})}">  <h5 th:text="${list.title}" class="font_bold"></h5></a>
                                 <div class="flex color_grey" style="flex-wrap: wrap;">
                                     <div th:text="${list.author}"></div>
                                     <div>&nbsp;|&nbsp;</div>
