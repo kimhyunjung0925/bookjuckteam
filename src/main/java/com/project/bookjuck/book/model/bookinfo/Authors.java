@@ -10,5 +10,4 @@ public class Authors {
     private String authorName;
     private String authorTypeDesc;
     private String authorInfo;
-
 }
