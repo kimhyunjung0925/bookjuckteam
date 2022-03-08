@@ -69,7 +69,7 @@
                     <div th:each="list : ${list}">
                         <div th:unless="${list.bestRank==1||list.bestRank==2||list.bestRank==3}" >
                             <div class="flex m-b-40 center book_box">
-                            <div th:text="${list.bestRank}"></div>
+                            <div th:text="${list.bestRank}" class="number"></div>
                             <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_cover"></a>
                             <div class="m-r-30 flex-direc-column container-md">
                                 <a th:href="@{/book/detail(isbn=${list.isbn})}"><h5 th:text="${list.title}" class="font_bold"></h5></a>

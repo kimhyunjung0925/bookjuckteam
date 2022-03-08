@@ -69,5 +69,9 @@
 .ranknumber {
     font-size: xx-large;
     margin-right: 5px;
+}
 
+.number {
+    font-size: large;
+    margin-right: 5px;
 }
