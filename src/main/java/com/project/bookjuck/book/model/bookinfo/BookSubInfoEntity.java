@@ -16,5 +16,6 @@ public class BookSubInfoEntity {
     private String story;
     private List<PhraseList> phraseList;
     private List<Authors> authors;
+    private Packing packing;
     private int itemPage;
 }
