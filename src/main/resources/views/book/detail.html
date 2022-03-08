@@ -82,15 +82,15 @@
                 <table>
                     <tr>
                         <th>ISBN</th>
-                        <td th:text="${list.getIsbn13()}"></td>
+                        <td th:text="${list.getIsbn()}"></td>
                     </tr>
                     <tr>
                         <th>쪽수</th>
-                        <td> 287쪽</td>
+                        <td th:text="${list.getSubInfo().getItemPage()}"></td>
                     </tr>
                     <tr>
                         <th>크기</th>
-                        <td>156*215*512mm / 567g</td>
+                        <td th:text="${list.getSubInfo().getSizeHeight()} /* ${list.getSubInfo().getSizeWidth()}mm"></td>
                     </tr>
                 </table>
             </div>
@@ -112,10 +112,10 @@
                 <div class="grid border_box m-t-10 p-10">
                     <div class="flex back_color_grey4">
                         <h5> 저 :</h5>
-                        <h5 th:text="${list.getSubInfo().getAuthors[0]()}"></h5>
+                        <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}"></h5>
                     </div>
                     <div>
-                        <h5 th:text="${list.getSubInfo().getAuthors()}"></h5>
+                        <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorInfo()}"></h5>
                     </div>
 
                     <hr>
@@ -157,11 +157,14 @@
 <!--                    이유로 ‘괴물’이라 불리는 두 소년은 세상으로 한 발짝 나아갈 수 있을까?-->
 <!--                </div>-->
 
-                <hr>
 
-                <h2 class="m-t-10">디테일 이미지</h2>
-                <div>
-                    <img th:src="@{/upload/images/detail.jpg}">
+                <h2 class="m-t-10">디테일</h2>
+                <div>목차</div>
+                <div th:text="${list.getSubInfo().getToc()}"></div>
+                <div>책속으로</div>
+                <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
+                    <div th:text="pageNo.${phrase.getPageNo()}"></div>
+                    <div th:text="phrase. ${phrase.getPhrase()}"></div>
                 </div>
             </div>
         </div>
