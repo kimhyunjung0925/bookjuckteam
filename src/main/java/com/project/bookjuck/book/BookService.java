@@ -171,8 +171,6 @@ public class BookService {
 
 //=====================================책디테일========================================//
 
-
-
     //디테일용 API 메소드
     public BookEntity getDetailData(ApiSearchDto searchDto){
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(detailurl)
