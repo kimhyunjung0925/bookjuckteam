@@ -4,6 +4,7 @@ import com.project.bookjuck.Const;
 import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.BookDto;
 import com.project.bookjuck.book.model.bookinfo.BookEntity;
+import com.project.bookjuck.book.model.bookinfo.BookSubInfoEntity;
 import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class BookController {
     private BookService service;
 
     @GetMapping("/detail")
-    public String detail(ApiSearchDto searchDto,Model model) {
+    public String detail(ApiSearchDto searchDto, Model model) {
         BookEntity book = service.bookDetail(searchDto);
         model.addAttribute("list",book);
         return "book/detail";
