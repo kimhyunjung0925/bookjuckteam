@@ -13,66 +13,62 @@
     <div class="grid place_center">
         <div class="w-80">
             <div class="grid m-t-10 border_box2">
-                <div class="flex padding_box justify_content_center back_color_green">
-                    <div>
-                        <img th:src="${list.getCover()}"  class="book_img_1823">
+                <div class="flex padding_box justify_content_center back_color_green w-100">
+                    <div class="h-20">
+                        <img th:src="${list.getCover()}" class="book_img_1823">
                     </div>
 
-                    <div class="gird m-l-30">
+                    <div class="gird m-l-30 w-60">
                         <h2 class="font_bold" th:text="${list.getTitle()}"></h2>
                         <div class="flex">
-                            <div>저자 : </div>
-                            <div class="font_bold" th:text="${list.getAuthor()}">&nbsp </div>
-                            <div>| 출판사 :  </div>
+                            <div>저자 : &nbsp;</div>
+                            <div class="font_bold" th:text="${list.getAuthor()}">&nbsp</div>
+                        </div>
+                        <div class="flex">
+                            <div> 출판사 : &nbsp; </div>
                             <div class="font_bold" th:text="${list.getPublisher()}"> &nbsp</div>
-                            <div> | 출간일 :  </div>
+                            <div> &nbsp; | 출간일 : &nbsp;</div>
                             <div class="font_bold" th:text="${list.getPubDate()}"></div>
                         </div>
                         <!--   TODO 이걸 어케 만들어야할까..리뷰.....리뷰리뷰뷰뷰뷰뷰...      -->
-                        <div id="star" th:text="${list.getCustomerReviewRank()}"></div>
-                        <div id="starin"></div>
-
-                        <script>
-                            let reviewStar = document.querySelector('#star');
-                            console.log(reviewStar)
-                            let starin = document.querySelector('#starin');
-                            let i;
-                                for( i = 0; i < Number(reviewStar.innerText) ; i++){
-                                    starin.append(`★`);
-                                    console.log("쿠쿠루삥뽕")
-                                }
-                        </script>
-
 
                         <hr>
 
-                        <div class="flex align_items_center">
-                            <div>정가 :</div>
+                        <div class="flex align_items_center w-20">
+                            <div>정가 : &nbsp;</div>
                             <div><h2 class="color_red" th:text="${list.getPriceStandard()}"></h2></div>
                         </div>
-                        <div>배송비 : 무료</div>
+                        <div class="flex align_items_center">
+                            <div>배송비 : &nbsp;</div>
+                            <div>
+                                <h4 th:if="${list.getPriceStandard()>30000}">무료배송</h4>
+                                <h4 th:if="${list.getPriceStandard()<30000}">4,000원</h4>
+                            </div>
+                        </div>
                         <hr>
                     </div>
 
                     <div class="order_btn_box m-l-30">
-                            <div class="order_btn2 center">
-                                <div>주문수량</div>
-                                <div><input type="text" class="text_width"></div>
+                        <div class="order_btn2 center">
+                            <div>주문수량</div>
+                            <div><input type="text" class="text_width"></div>
+                        </div>
+                        <div class="order_btn center">
+                            <div class="m-t-10"><input type="button" value="장바구니 담기"
+                                                       class="order_btn3 back_color_blue "></div>
+                            <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4 back_color_blue2 ">
                             </div>
-                            <div class="order_btn center">
-                                <div class="m-t-10"><input type="button" value="장바구니 담기" class="order_btn3 back_color_blue "></div>
-                                <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4 back_color_blue2 "></div>
-                            </div>
+                        </div>
 
                     </div>
                 </div>
             </div>
 
-<!--            TODO 클릭하면 해당하는 곳으로 스크롤 내려가게...???? -->
+            <!--            TODO 클릭하면 해당하는 곳으로 스크롤 내려가게...???? -->
             <div class="flex justify_content_center m-t-10 ">
-                    <div class="detail_menu"><a href="#">상품정보</a></div>
-                    <div class="detail_menu"><a href="#">회원리뷰()</a></div>
-                <div class="detail_menu"><a href="#">교환/반품/품절</a></div>
+                <div class="detail_menu"><a href="#">저자소개</a></div>
+                <div class="detail_menu"><a href="#">책소개</a></div>
+                <div class="detail_menu"><a href="#">출판사소개</a></div>
 
             </div>
 
@@ -97,43 +93,50 @@
                 </table>
             </div>
 
-            <div>
-                <h1 class="m-t-10">책소개</h1>
-                <div class="font_bold">이 책이 속한 분야 <span th:text="${list.getCategoryName}"></span></div>
+            <div class="w-100 flex justify_content_center">
+                <div class="w-80 ">
+                    <h1 class="m-t-10 color_blue">저자 소개</h1>
+                    <div class="grid border_box m-t-10 p-10">
+                        <div class="flex back_color_grey4">
+                            <h5> 저 :</h5>
+                            <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}"></h5>
+                        </div>
+                        <div>
+                            <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorInfo()}"></h5>
+                        </div>
+                    </div>
 
+                    <hr>
+
+                    <h1 class="m-t-10 color_blue">책소개</h1>
+                    <div class="font_bold">이 책이 속한 분야 :  <span th:text="${list.getCategoryName}"></span></div>
                     <div th:text="${list.getDescription()}"></div>
+                    <br>
+                    <br>
 
-                <div><h3>줄거리</h3></div>
-                <div th:text="${list.getFullDescription()}"></div>
+                    <h3>줄거리</h3>
+                    <div th:utext="${list.getFullDescription()}"></div>
+                    <br>
+                    <br>
 
-                <hr>
+                    <h3>목차</h3>
+                    <div th:utext="${list.getSubInfo().getToc()}"></div>
+                    <br>
+                    <br>
 
-                <h2 class="m-t-10">저자 소개</h2>
-
-
-                <div class="grid border_box m-t-10 p-10">
-                    <div class="flex back_color_grey4">
-                        <h5> 저 :</h5>
-                        <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}"></h5>
+                    <h3>책속으로</h3>
+                    <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
+                        <div th:text="${phrase.getPageNo()}"></div>
+                        <div th:utext="${phrase.getPhrase()}"></div>
                     </div>
-                    <div>
-                        <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorInfo()}"></h5>
-                    </div>
+                    <br>
+                    <hr>
+                    <br>
+
+                    <h1 class="color_blue">출판사 소개</h1>
+                    <div th:utext="${list.getFullDescription2()}"></div>
+                    <br>
                 </div>
-
-                <hr>
-
-
-                <h2 class="m-t-10">디테일</h2>
-                <div>목차</div>
-                <div th:utext="${list.getSubInfo().getToc()}"></div><br>
-                <div>책속으로</div>
-                <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
-                    <div th:text="${phrase.getPageNo()}"></div>
-                    <div th:utext="${phrase.getPhrase()}"></div>
-                </div><br>
-                <div>출판사 소개</div>
-                <div th:utext="${list.getFullDescription2()}"></div><br>
             </div>
         </div>
     </div>
