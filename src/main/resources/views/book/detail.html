@@ -90,14 +90,18 @@
                     </tr>
                     <tr>
                         <th>크기</th>
-                        <td th:text="${list.getSubInfo().getSizeHeight()} /* ${list.getSubInfo().getSizeWidth()}mm"></td>
+                        <td>
+                            <span th:text="${list.getSubInfo().getPacking().getSizeHeight()}"></span> *
+                            <span th:text="${list.getSubInfo().getPacking().getSizeWidth()}"></span>&nbsp;&nbsp;
+                            <span th:text="${list.getSubInfo().getPacking().getWeight()}"></span>
+                        </td>
                     </tr>
                 </table>
             </div>
 
             <div>
                 <h1 class="m-t-10">책소개</h1>
-                <div class="font_bold">이 책이 속한 분야 인문 > 소설</div>
+                <div class="font_bold">이 책이 속한 분야 <span th:text="${list.getCategoryName}"></span></div>
 
                     <div th:text="${list.getDescription()}"></div>
 
@@ -117,55 +121,21 @@
                     <div>
                         <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorInfo()}"></h5>
                     </div>
-
-                    <hr>
-
-                    <div class="m-t-10 m-l-10">이 저자의 다른 작품 ></div>
-                    <div class="flex justify_space_around m-t-10 m-b-10">
-                        <div class="grid">
-                            <img th:src="@{/upload/images/XL.jfif}"  class="book_img_1318">
-                            <div>아몬드</div>
-                            <div class="color_red">18,900원</div>
-                        </div>
-                        <div class="grid">
-                            <img th:src="@{/upload/images/XL (1).jfif}"  class="book_img_1318">
-                            <div>돌이킬 수 없는</div>
-                            <div class="color_red">17,500원</div>
-                        </div>
-                        <div class="grid">
-                            <img th:src="@{/upload/images/akf.jpg}"  class="book_img_1318">
-
-                            <div>말센스</div>
-                            <div class="color_red">19,800원</div>
-                        </div>
-                        <div class="grid">
-                            <img th:src="@{/upload/images/98313676.jpg}"  class="book_img_1318">
-                            <div>피프티 피플</div>
-                            <div class="color_red">15,500원</div>
-                        </div>
-                    </div>
                 </div>
 
                 <hr>
 
-<!--                <h2 class="m-t-10">줄거리</h2>-->
-<!--                <div>-->
-<!--                    열여섯 살 소년 선윤재는 ‘감정 표현 불능증’을 앓고 있다. ‘아몬드’라 불리는 편도체가 작아 분노도 공포도 잘 느끼지 못한다. 타고난 침착성, 엄마와 할머니의 지극한 사랑 덕에 별 탈 없이-->
-<!--                    지냈지만, 크리스마스이브이던 열여섯 번째 생일날 비극적인 사고가 일어나 가족을 잃는다.-->
-<!--                    세상에 홀로 남겨진 윤재 앞에 ‘곤이’가 나타난다. 13년 만에 가족의 품으로 돌아오게 된 곤이는 분노로 가득 찬 아이다. 곤이는 윤재에게 화를 쏟아 내지만, 감정의 동요가 없는 윤재 앞에서-->
-<!--                    오히려 쩔쩔매고 만다. 윤재는 어쩐지 곤이가 밉지 않고, 오히려 궁금해진다. 두 소년은 남들이 이해할 수 없는 특별한 우정을 쌓아 간다. 윤재는 조금씩 내면의 변화를 겪는데……. 서로 다른-->
-<!--                    이유로 ‘괴물’이라 불리는 두 소년은 세상으로 한 발짝 나아갈 수 있을까?-->
-<!--                </div>-->
-
 
                 <h2 class="m-t-10">디테일</h2>
                 <div>목차</div>
-                <div th:text="${list.getSubInfo().getToc()}"></div>
+                <div th:utext="${list.getSubInfo().getToc()}"></div><br>
                 <div>책속으로</div>
                 <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
-                    <div th:text="pageNo.${phrase.getPageNo()}"></div>
-                    <div th:text="phrase. ${phrase.getPhrase()}"></div>
-                </div>
+                    <div th:text="${phrase.getPageNo()}"></div>
+                    <div th:utext="${phrase.getPhrase()}"></div>
+                </div><br>
+                <div>출판사 소개</div>
+                <div th:utext="${list.getFullDescription2()}"></div><br>
             </div>
         </div>
     </div>
