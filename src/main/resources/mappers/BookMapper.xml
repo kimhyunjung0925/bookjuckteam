@@ -14,6 +14,9 @@
     <select id="sel" resultType="BookDto">
         select *
         FROM t_book_api
+        <if test="selectVal.equals('new')">
+            pubDate desc;
+        </if>
         where categoryName LIKE #{categoryBookjuck}
             LIMIT 50
     </select>
@@ -21,6 +24,17 @@
     <select id="configSel" resultType="ResultVo">
         select COUNT(*) AS result FROM t_book_api
         WHERE isbn = #{isbn}
+    </select>
+
+
+    <select id="sel2" resultType="BookDto">
+        SELECT * FROM t_book_api
+        ORDER BY
+        <if test="selectVal.equals('new')">
+            pubDate desc;
+        </if>
+
+
     </select>
 
 </mapper>

@@ -123,3 +123,8 @@ margin-top: 4px;
     margin-top: 4px;
 }
 
+.faq_clicked{
+    font-weight: bold;
+    color: red;
+}
+

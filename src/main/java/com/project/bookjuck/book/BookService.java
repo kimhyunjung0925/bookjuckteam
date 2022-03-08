@@ -182,7 +182,7 @@ public class BookService {
                 .queryParam("Cover", "Big")
                 .queryParam("output", "js")
                 .queryParam("Version", Ymd)
-                .queryParam("OptResult", "fulldescription,authors,fulldescription2,Toc,Story,phraseList")
+                .queryParam("OptResult", "fulldescription,authors,fulldescription2,Toc,Story,phraseList,packing")
                 .build(false);
         BookEntity bookEntity = null;
         List<Authors> authors = null;
@@ -217,6 +217,11 @@ public class BookService {
             list.setTitle(title);
             list.setAuthor(author);
         }
+        return  bookDtoList;
+    }
+
+    public List<BookDto> sel2(BookDto dto){
+        List<BookDto> bookDtoList = mapper.sel2(dto);
         return  bookDtoList;
     }
 
