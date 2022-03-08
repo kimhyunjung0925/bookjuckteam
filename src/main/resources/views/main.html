@@ -10,7 +10,7 @@
 </head>
 
 <th:block layout:fragment="content">
-<!--    맨위 이벤트 베너부분  -->
+    <!--    맨위 이벤트 베너부분  -->
     <div class="banner_container">
         <div class="banner_inner back_color_1 w-100">
             <div class="w-90 flex justify_content_center p-t-50 ">
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-<!--     베스트 메인 부분   -->
+    <!--     베스트 메인 부분   -->
     <div class="w-100 flex justify_content_center">
         <div class="grid w-80 m-t-50 m-b-30">
             <div class="flex">
@@ -87,7 +87,7 @@
                 <div th:each="list : ${foreignlist}" class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1</div>
+                            <div class="font_bold p_10"> 2</div>
                             <div class="grid">
                                 <div>
                                     <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
@@ -109,7 +109,7 @@
                 <div th:each="list : ${newlist}" class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1</div>
+                            <div class="font_bold p_10"> 3</div>
                             <div class="grid">
                                 <div>
                                     <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
@@ -127,11 +127,11 @@
             </div>
 
             <!--스테디셀러 부분-->
-            <div class="best-list__body flex click_color ">
+            <div class="best-list__body flex click_color">
                 <div th:each="list : ${stedylist}" class="best-list__item">
                     <ul>
                         <li class="flex">
-                            <div class="font_bold p_10"> 1</div>
+                            <div class="font_bold p_10"> 4</div>
                             <div class="grid">
                                 <div>
                                     <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
@@ -153,5 +153,3 @@
     <script src="/js/main/main.js"></script>
 
 </th:block>
-
-

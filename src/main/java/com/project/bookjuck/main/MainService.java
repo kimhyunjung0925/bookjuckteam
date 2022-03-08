@@ -32,7 +32,7 @@ public class MainService {
     public List<BookDto> steadybook (){ //스테디가 아니지만 스테디인척 할 예정
         ApiSearchDto searchDto = new ApiSearchDto();
         searchDto.setType("BlogBest");
-        searchDto.setSearchTarget("Foreign");
+        searchDto.setSearchTarget("Book");
         searchDto.setMaxResult(4);
         return bookService.getData(searchDto,"https://www.aladin.co.kr/ttb/api/ItemList.aspx");
     }
