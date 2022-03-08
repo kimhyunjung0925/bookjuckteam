@@ -112,10 +112,10 @@
                 <div class="grid border_box m-t-10 p-10">
                     <div class="flex back_color_grey4">
                         <h5> 저 :</h5>
-                        <h5 th:text="${list.getAuthor()}"></h5>
+                        <h5 th:text="${list.getSubInfo().getAuthors[0]()}"></h5>
                     </div>
                     <div>
-                        <h5 th:text="${list.getSubInfo()}"></h5>
+                        <h5 th:text="${list.getSubInfo().getAuthors()}"></h5>
                     </div>
 
                     <hr>
