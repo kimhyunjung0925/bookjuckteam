@@ -29,8 +29,47 @@
 
                     <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="m-t-20"> <!-- 리스트 부분 -->
+                    <!--1,2,3 순위를 위한 곳-->
+                    <ul class="best_box px-5 py-4">
+                        <li class="flex-direc-column center">
+                            <div class="flex justify_content_center">
+                                <div th:text="${list.get(0).getBestRank()}" class="font_bold ranknumber"></div>
+                                <div><a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><img th:src="${list.get(0).getCover()}" class="book_img_1013"></a></div>
+                            </div>
+                            <div class="best_box_info">
+                                <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="best_multiline"></strong></a>
+                                <p th:text="${list.get(0).getAuthor()}" class="best_oneline"></p>
+                                <p th:text="${list.get(0).getPriceStandard()+'원'}" class="font_color_red"></p>
+                            </div>
+                        </li>
+                        <li class="flex-direc-column center">
+                            <div class="flex justify_content_center">
+                                <div th:text="${list.get(1).getBestRank()}" class="font_bold ranknumber"></div>
+                                <div><a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><img th:src="${list.get(1).getCover()}" class="book_img_1013"></a></div>
+                            </div>
+                            <div class="best_box_info">
+                                <a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><strong th:text="${list.get(1).getTitle()}" class="best_multiline"></strong></a>
+                                <p th:text="${list.get(1).getAuthor()}" class="best_oneline"></p>
+                                <p th:text="${list.get(1).getPriceStandard()+'원'}" class="font_color_red"></p>
+                            </div>
+                        </li>
+                        <li class="flex-direc-column center">
+                            <div class="flex justify_content_center">
+                                <div th:text="${list.get(2).getBestRank()}" class="font_bold ranknumber"></div>
+                                <div><a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><img th:src="${list.get(2).getCover()}" class="book_img_1013"></a></div>
+                            </div>
+                            <div class="best_box_info">
+                                <a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><strong th:text="${list.get(2).getTitle()}" class="best_multiline"></strong></a>
+                                <p th:text="${list.get(2).getAuthor()}" class="best_oneline"></p>
+                                <p th:text="${list.get(2).getPriceStandard()+'원'}" class="font_color_red"></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--나머지 넣는 곳-->
                     <div th:each="list : ${list}">
-                        <div class="flex m-b-40 center book_box">
+                        <div th:unless="${list.bestRank==1||list.bestRank==2||list.bestRank==3}" >
+                            <div class="flex m-b-40 center book_box">
+                            <div th:text="${list.bestRank}"></div>
                             <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_cover"></a>
                             <div class="m-r-30 flex-direc-column container-md">
                                 <a th:href="@{/book/detail(isbn=${list.isbn})}"><h5 th:text="${list.title}" class="font_bold"></h5></a>
@@ -56,8 +95,7 @@
                                     <input type="button" value="바로구매" class="purchase_btn">
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                            </div>
                             <hr>
                         </div>
                     </div>
