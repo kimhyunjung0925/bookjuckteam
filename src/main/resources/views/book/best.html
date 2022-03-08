@@ -37,8 +37,8 @@
                                 <div><a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><img th:src="${list.get(0).getCover()}" class="book_img_1013"></a></div>
                             </div>
                             <div class="best_box_info">
-                                <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="best_multiline"></strong></a>
-                                <p th:text="${list.get(0).getAuthor()}" class="best_oneline"></p>
+                                <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="text_multiline"></strong></a>
+                                <p th:text="${list.get(0).getAuthor()}" class="text_oneline"></p>
                                 <p th:text="${list.get(0).getPriceStandard()+'원'}" class="font_color_red"></p>
                             </div>
                         </li>
@@ -48,8 +48,8 @@
                                 <div><a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><img th:src="${list.get(1).getCover()}" class="book_img_1013"></a></div>
                             </div>
                             <div class="best_box_info">
-                                <a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><strong th:text="${list.get(1).getTitle()}" class="best_multiline"></strong></a>
-                                <p th:text="${list.get(1).getAuthor()}" class="best_oneline"></p>
+                                <a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><strong th:text="${list.get(1).getTitle()}" class="text_multiline"></strong></a>
+                                <p th:text="${list.get(1).getAuthor()}" class="text_oneline"></p>
                                 <p th:text="${list.get(1).getPriceStandard()+'원'}" class="font_color_red"></p>
                             </div>
                         </li>
@@ -59,8 +59,8 @@
                                 <div><a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><img th:src="${list.get(2).getCover()}" class="book_img_1013"></a></div>
                             </div>
                             <div class="best_box_info">
-                                <a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><strong th:text="${list.get(2).getTitle()}" class="best_multiline"></strong></a>
-                                <p th:text="${list.get(2).getAuthor()}" class="best_oneline"></p>
+                                <a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><strong th:text="${list.get(2).getTitle()}" class="text_multiline"></strong></a>
+                                <p th:text="${list.get(2).getAuthor()}" class="text_oneline"></p>
                                 <p th:text="${list.get(2).getPriceStandard()+'원'}" class="font_color_red"></p>
                             </div>
                         </li>
@@ -88,7 +88,7 @@
                             <div class="width200p flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>
-                                    <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
+                                    <h5 th:text="${list.priceStandard+'원'}" class="color_red font_bold"></h5>
                                 </div>
                                 <div class="flex-direc-column m-2">
                                     <input type="button" value="장바구니 담기" class="cart_btn">
@@ -100,24 +100,6 @@
                         </div>
                     </div>
                 </div>
-
-                <nav aria-label="Page navigation example flex ">
-                    <ul class="pagination center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>

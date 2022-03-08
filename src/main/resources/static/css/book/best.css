@@ -28,7 +28,7 @@
     margin-top: 4px;
 }
 
-.best_oneline{
+.text_oneline{
     width        : auto;     /* 너비는 변경될수 있습니다. */
     text-overflow: ellipsis;  /* 위에 설정보다 길면 말줄임표처럼 표시합니다. */
     white-space  : nowrap;    /* 줄바꿈을 하지 않습니다. */
@@ -36,7 +36,7 @@
     display      : block;     /* ie6이상 현재요소를 블럭처리합니다. */
 }
 
-.best_multiline{
+.text_multiline{
     text-overflow: ellipsis;
     overflow     : hidden;
     display      : -webkit-box;
