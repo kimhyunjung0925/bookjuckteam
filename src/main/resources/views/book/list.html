@@ -59,8 +59,8 @@
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}" class="flex-direc-column center">
-                        <img th:src="${list.cover}">
-                        <div th:text="${list.title}" ></div>
+                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <img th:src="${list.cover}"></a>
+                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <div th:text="${list.title}" ></div></a>
                         <div class="flex color_grey" style="flex-wrap: wrap;">
                             <div th:text="${list.author}"></div>
                             <div>&nbsp;|&nbsp;</div>

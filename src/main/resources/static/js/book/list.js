@@ -18,7 +18,7 @@ sort.addEventListener('click', (e) => {
             list.append(div);
             div.innerHTML = `
                  <div class="flex-direc-column center">
-                        <img src="${item.cover}">
+                       <a href="/book/detail?isbn=${item.isbn}"> <img src="${item.cover}"></a>
                         <div>${item.title}</div>
                         <div class="flex color_grey" style="flex-wrap: wrap;">
                             <div>${item.author}</div>
