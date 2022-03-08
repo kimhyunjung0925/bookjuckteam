@@ -13,4 +13,6 @@ public interface BookMapper {
     List<BookDto> sel(BookDto dto);
     ResultVo configSel(BookDto dto);
 
+    List<BookDto> sel2(BookDto dto);
+
 }
