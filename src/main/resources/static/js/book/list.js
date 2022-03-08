@@ -2,10 +2,12 @@ let sort = document.querySelector('#sort');
 let uri = encodeURIComponent('국내도서%');
 
 
-
 sort.addEventListener('click', (e) => {
     let sortidx = document.querySelector('#sort').options.selectedIndex;
-    console.log(sort.options[sortidx].value)
+    let uriVal = new URL(window.location.href).searchParams;
+
+    console.log(uriVal.get('categoryBookjuck'))
+
 
     myFetch.get("/book/kor", a => {
         console.log(a)
@@ -15,20 +17,24 @@ sort.addEventListener('click', (e) => {
             let div = document.createElement('div');
             list.append(div);
             div.innerHTML = `
-                <div>${item.title}</div>
-               <div><img src=${item.cover}></div>
-               <div> ${item.priceStandard}</div>
-               <div> ${item.publisher}</div>
-               <div>${item.author}</div>
-               <div >${item.pubDate}</div>
-               <div> ${item.description}</div>
+                 <div class="flex-direc-column center">
+                        <img src="${item.cover}">
+                        <div>${item.title}</div>
+                        <div class="flex color_grey" style="flex-wrap: wrap;">
+                            <div>${item.author}</div>
+                            <div>&nbsp;|&nbsp;</div>
+                            <div>${item.publisher}</div>
+                        </div>
+                        <div class="color_red">${item.priceStandard}</div>
+                    </div>
+                  
                 `;
         })
 
 
     }, {
         selectVal: sort.options[sortidx].value,
-        categoryBookjuck: uri
+        categoryBookjuck: encodeURIComponent(uriVal.get('categoryBookjuck'))
     })
 
 
