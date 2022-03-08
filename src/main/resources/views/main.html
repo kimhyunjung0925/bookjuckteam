@@ -60,79 +60,90 @@
                 <div class="menuDiv border-right">스테디셀러</div>
             </div>
 
+            <!--국내도서베스트 부분-->
             <div class="best-list__body flex click_color ">
-                <div class="best-list__item">
+                <div th:each="list : ${domesticlist}" class="best-list__item">
                     <ul>
                         <li class="flex">
                             <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div>
-                                    <a href="/book/detail"><img th:src="@{/upload/images/XL.jfif}"
-                                                                class="book_img_1013"></a>
+                                    <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
 
                                 </div>
                                 <div class="best-info">
-                                    <strong class="best-info__name">아몬드</strong>
-                                    <p class="best-info__date">작가/ 출판사</p>
-                                    <p class="font_color_red">18,900원</p>
+                                    <strong th:text="${list.title}" class="best-info__name"></strong>
+                                    <p th:text="${list.author}" class="best-info__date"></p>
+                                    <p th:text="${list.priceStandard}" class="font_color_red"></p>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="best-list__item">
-                    <ul>
-                        <li class="flex">
-                            <div class="font_bold p_10"> 2</div>
-                            <div class="grid">
-                                <div>
-                                    <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
-                                </div>
-                                <div class="best-info">
-                                    <strong class="best-info__name">아몬드</strong>
-                                    <p class="best-info__date">작가/ 출판사</p>
-                                    <p class="font_color_red">18,900원</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="best-list__item">
+            <!--해외도서베스트 부분-->
+            <div class="best-list__body flex click_color ">
+                <div th:each="list : ${foreignlist}" class="best-list__item">
                     <ul>
                         <li class="flex">
                             <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div>
-                                    <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
+                                    <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+
                                 </div>
                                 <div class="best-info">
-                                    <strong class="best-info__name">아몬드</strong>
-                                    <p class="best-info__date">작가/ 출판사</p>
-                                    <p class="font_color_red">18,900원</p>
+                                    <strong th:text="${list.title}" class="best-info__name"></strong>
+                                    <p th:text="${list.author}"  class="main_box_author best-info__date"></p>
+                                    <p th:text="${list.priceStandard}" class="font_color_red"></p>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="best-list__item">
+            <!--신간베스트 부분-->
+            <div class="best-list__body flex click_color ">
+                <div th:each="list : ${newlist}" class="best-list__item">
                     <ul>
                         <li class="flex">
                             <div class="font_bold p_10"> 1</div>
                             <div class="grid">
                                 <div>
-                                    <img th:src="@{/upload/images/XL.jfif}" class="book_img_1013">
+                                    <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+
                                 </div>
                                 <div class="best-info">
-                                    <strong class="best-info__name">아몬드</strong>
-                                    <p class="best-info__date">작가/ 출판사</p>
-                                    <p class="font_color_red">18,900원</p>
+                                    <strong th:text="${list.title}" class="best-info__name"></strong>
+                                    <p th:text="${list.author}" class="best-info__date"></p>
+                                    <p th:text="${list.priceStandard}" class="font_color_red"></p>
                                 </div>
                             </div>
                         </li>
+                    </ul>
+                </div>
+            </div>
 
+            <!--스테디셀러 부분-->
+            <div class="best-list__body flex click_color ">
+                <div th:each="list : ${stedylist}" class="best-list__item">
+                    <ul>
+                        <li class="flex">
+                            <div class="font_bold p_10"> 1</div>
+                            <div class="grid">
+                                <div>
+                                    <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+
+                                </div>
+                                <div class="best-info">
+                                    <strong th:text="${list.title}" class="best-info__name"></strong>
+                                    <p th:text="${list.author}" class="best-info__date"></p>
+                                    <p th:text="${list.priceStandard}" class="font_color_red"></p>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
