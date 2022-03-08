@@ -51,7 +51,7 @@
                     <div class="order_btn_box m-l-30">
                         <div class="order_btn2 center">
                             <div>주문수량</div>
-                            <div><input type="text" class="text_width"></div>
+                            <div><input type="text" class="text_width" th:value="1" style="text-align: center"></div>
                         </div>
                         <div class="order_btn center">
                             <div class="m-t-10"><input type="button" value="장바구니 담기"
@@ -114,28 +114,37 @@
                     <br>
                     <br>
 
-                    <h3>줄거리</h3>
-                    <div th:utext="${list.getFullDescription()}"></div>
-                    <br>
-                    <br>
 
-                    <h3>목차</h3>
-                    <div th:utext="${list.getSubInfo().getToc()}"></div>
-                    <br>
-                    <br>
-
-                    <h3>책속으로</h3>
-                    <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
-                        <div th:text="${phrase.getPageNo()}"></div>
-                        <div th:utext="${phrase.getPhrase()}"></div>
+                    <div th:if="${list.getFullDescription() != null and list.getFullDescription() != ''}">
+                        <h3 >줄거리</h3>
+                        <div th:utext="${list.getFullDescription()}"></div>
+                        <br>
+                        <br>
                     </div>
-                    <br>
-                    <hr>
-                    <br>
 
-                    <h1 class="color_blue">출판사 소개</h1>
+                    <div th:if="${list.getSubInfo().getToc() != null and list.getSubInfo().getToc() != ''}">
+                        <h3>목차</h3>
+                        <div th:utext="${list.getSubInfo().getToc()}"></div>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div>
+                        <h3>책속으로</h3>
+                        <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
+                            <div th:text="${phrase.getPageNo()}"></div>
+                            <div th:utext="${phrase.getPhrase()}"></div>
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                    </div>
+
+                    <div th:if="${list.getFullDescription2() != null and list.getFullDescription2() != ''}">
+                    <h1 class="color_blue" >출판사 소개</h1>
                     <div th:utext="${list.getFullDescription2()}"></div>
                     <br>
+                    </div>
                 </div>
             </div>
         </div>
