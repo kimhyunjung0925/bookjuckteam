@@ -15,7 +15,7 @@
         <div class="flex h-100 center">
             <div class="w-80">
                 <div class="grid m-t-20">
-<!--                    국내도서 클릭 했을 때 메뉴 -->
+                    <!--                    국내도서 클릭 했을 때 메뉴 -->
                     <div th:if="${category.equals('Book')}">
                         <ul class="flex justify_space_around">
                             <li><a th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}" class="list_menu_click">All</a></li>
@@ -30,15 +30,15 @@
                             <li><a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}" class="list_menu_click">컴퓨터/IT</a></li>
                         </ul>
                     </div>
-<!--                    해외도서 클릭했을 때 메뉴 -->
+                    <!--                    해외도서 클릭했을 때 메뉴 -->
                     <div th:if="${category.equals('Foreign')}">
                         <ul class="flex justify_space_around">
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}">All</a></li>
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%',category='Foreign')}">소설/시/희곡</a></li>
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%',category='Foreign')}">예술/대중문화</a></li>
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%',category='Foreign')}">인문/사회</a></li>
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%',category='Foreign')}">컴퓨터</a></li>
-                                <li><a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%',category='Foreign')}">어린이</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}">All</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%',category='Foreign')}">소설/시/희곡</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%',category='Foreign')}">예술/대중문화</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%',category='Foreign')}">인문/사회</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%',category='Foreign')}">컴퓨터</a></li>
+                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%',category='Foreign')}">어린이</a></li>
 
                         </ul>
                     </div>
@@ -93,5 +93,3 @@
 
     <script src="/js/book/book.js"></script>
 </th:block>
-
-
