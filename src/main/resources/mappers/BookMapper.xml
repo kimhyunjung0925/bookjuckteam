@@ -12,10 +12,10 @@
     </insert>
 
     <select id="sel" resultType="BookDto">
-    select *
-    FROM t_book_api
-    where categoryName LIKE #{categoryBookjuck}
-    LIMIT 50
+        select *
+        FROM t_book_api
+        where categoryName LIKE #{categoryBookjuck}
+            LIMIT 50
     </select>
 
     <select id="configSel" resultType="ResultVo">

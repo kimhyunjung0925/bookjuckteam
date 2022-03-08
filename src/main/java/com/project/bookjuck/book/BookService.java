@@ -60,7 +60,7 @@ public class BookService {
         ResponseEntity<String> responseEntity = rest.exchange(builder.toString(), HttpMethod.GET, entity, String.class);
         return responseEntity.getBody();
     }
-//=====================================써치용========================================//
+    //=====================================써치용========================================//
     //검색도서 불러오기
     public List<BookDto> searchBookList(ApiSearchDto searchDto){
         searchDto.setMaxResult(30);
@@ -100,7 +100,7 @@ public class BookService {
     }
 
 
-//=====================================베스트, 신간========================================//
+    //=====================================베스트, 신간========================================//
     //베스트,신간목록용 API 메소드. 굳이 책 데이터베이스에 넣을 이유 없을 것 같아서 클래스 dto로 따로 뺌
     public List<BookDto> getData(ApiSearchDto searchDto, String url) {
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(url)
@@ -204,9 +204,9 @@ public class BookService {
 
 
     //bookApi를 DB에 넣는 메서드입니다.
-   public int insBookApi(BookDto dto){
+    public int insBookApi(BookDto dto){
         return mapper.insBookApi(dto);
-   }
+    }
 
     public List<BookDto> sel(BookDto dto){
         List<BookDto> bookDtoList = mapper.sel(dto);
