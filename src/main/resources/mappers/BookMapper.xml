@@ -14,9 +14,6 @@
     <select id="sel" resultType="BookDto">
         select *
         FROM t_book_api
-        <if test="selectVal.equals('new')">
-            pubDate desc;
-        </if>
         where categoryName LIKE #{categoryBookjuck}
             LIMIT 50
     </select>
@@ -29,10 +26,19 @@
 
     <select id="sel2" resultType="BookDto">
         SELECT * FROM t_book_api
+        where categoryName LIKE #{categoryBookjuck}
         ORDER BY
+
         <if test="selectVal.equals('new')">
-            pubDate desc;
+            pubDate desc
         </if>
+        <if test="selectVal.equals('popular')">
+            customerReviewRank desc
+        </if>
+        <if test="selectVal.equals('price')">
+            priceStandard desc
+        </if>
+        LIMIT 50
 
 
     </select>
