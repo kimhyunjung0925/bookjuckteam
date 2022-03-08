@@ -30,7 +30,6 @@ public class BookController {
     @GetMapping("/list")
     public String list(BookDto dto, Model model, ApiSearchDto apidto) {
         List<BookDto> list = service.sel(dto);
-
         model.addAttribute("list", list);
         model.addAttribute("category", apidto.getCategory());
         return "book/list";
@@ -68,10 +67,13 @@ public class BookController {
 
     @ResponseBody
     @GetMapping("/kor")
-    public List<BookDto> bestListApi(@RequestParam("selectVal") String selectVal, Model model) {
+    public List<BookDto> bestListApi(@RequestParam("selectVal") String selectVal, @RequestParam("categoryBookjuck") String categoryBookjuck) {
+        System.out.println("카테코리이이이이"+categoryBookjuck);
         BookDto dto = new BookDto();
         dto.setSelectVal(selectVal);
-        List<BookDto> list = service.sel(dto);
+        dto.setCategoryBookjuck(categoryBookjuck);
+        List<BookDto> list = service.sel2(dto);
+
 
         return list;
     }

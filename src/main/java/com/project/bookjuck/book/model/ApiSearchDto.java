@@ -14,6 +14,7 @@ public class ApiSearchDto {
     private String SearchTarget = "Book"; //도서인지 외국도서인지 구분하기 위한 변수 (베스트, 신간, 리스트에 사용)
     private String SearchTarget2 = "All"; //우선 전체 검색(써치때 사용)
     private String category; //html에 링크주기 위한 변수
+    private int categoryId; //html에 링크주기 위한 변수
     private String selectVal; //최신순,인기순,가격순 결정한 값
 
 }

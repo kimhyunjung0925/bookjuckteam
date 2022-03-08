@@ -13,6 +13,7 @@ function menuClick(event) {
             menuDivElem[i].classList.remove("clicked");
         }
         event.target.classList.add("clicked");
+
     }
 }
 
@@ -46,4 +47,3 @@ function slideShow() {
     setTimeout(slideShow, 4000);   //함수를 4초마다 호출
 
 }
-
