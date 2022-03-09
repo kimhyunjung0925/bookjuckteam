@@ -41,6 +41,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
     width: 1000px;
     height: 400px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .btn_wrap {
