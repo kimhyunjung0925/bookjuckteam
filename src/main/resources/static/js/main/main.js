@@ -47,3 +47,71 @@ function slideShow() {
     setTimeout(slideShow, 4000);   //함수를 4초마다 호출
 
 }
+//
+// $(document).ready(function(pointersecsion){
+//     var bg=['red','yellow','green','blue','aqua'];
+//     $('.img_box').css({
+//         backgroundColor:function(index){
+//             return bg[index];
+//         }
+//     })
+//
+//     /*1.but_1을 클릭하면 img_wrap가 left:0
+//     2.but_2을 클릭하면 img_wrap가 left:-700
+//     3.but_3을 클릭하면 img_wrap가 left:-1400
+//     4.but_4을 클릭하면 img_wrap가 left:-2100
+//     5.but_5을 클릭하면 img_wrap가 left:-2800*/
+//
+//     /*$('#but_1').click(function(){
+//         $('#img_wrap').animate({
+//             left:0
+//         });
+//     });
+//
+//     $('#but_2').click(function(){
+//         $('#img_wrap').animate({
+//             left:-700
+//         });
+//     });
+//
+//     $('#but_3').click(function(){
+//         $('#img_wrap').animate({
+//             left:-1400
+//         });
+//     });
+//
+//     $('#but_4').click(function(){
+//         $('#img_wrap').animate({
+//             left:-2100
+//         });
+//     });
+//
+//     $('#but_5').click(function(){
+//         $('#img_wrap').animate({
+//             left:-2800
+//         });
+//     });*/
+//
+//     $('.but').click(function(){
+//         //클릭한 but의 순서값(index)을 저장 활용하기
+//         var i=$(this).index();
+//
+//         /*alert(i);*/
+//         $('.but').css({
+//             backgroundColor:'black'
+//         });
+//         $(this).css({
+//             backgroundColor:'red'
+//         });
+//         /*this
+//         =>마우스 이벤트 적용되는 객체
+//         =>이미 선택되어진 객체를 다시 선택할때 자기자신을 의미*/
+//
+//         $('#img_wrap').animate({
+//             left:-700*i
+//         });
+//     });
+//
+//
+//
+// }); /*end*/
