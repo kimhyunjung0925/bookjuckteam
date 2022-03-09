@@ -13,17 +13,9 @@
 <th:block layout:fragment="content">
     <div class="m-b-20">
         <div class="flex h-100 center">
-            <div class="w-80">
-                <div class="m-t-20 new_menu">
-                    <div class="month clicked">이달의 신간</div>
-                    <div class="weak">금주의 신간</div>
-                </div>
-
-                <!--
-                todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!
-                이달의 신간 누르면 이달, 금주의 신간 누르면 금주가 뜨도록 하기!
-                -->
-                <div class="m-t-20"> <!-- 리스트 부분 -->
+            <div class="w-80 m-t-30">
+                <h3>신간도서</h3>
+                <div class="m-t-50"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}">
                         <div class="flex m-b-40 center book_box">
                             <div>
@@ -46,7 +38,7 @@
                             <div class="width200p flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>
-                                    <h5 th:text="${list.priceStandard}" class="color_red font_bold"></h5>
+                                    <h5 th:text="${list.priceStandard +'원'}" class="color_red font_bold"></h5>
                                 </div>
                                 <div class="flex-direc-column m-2">
                                     <input type="button" value="장바구니 담기" class="cart_btn">

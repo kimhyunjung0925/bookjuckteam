@@ -38,14 +38,14 @@
                 <form th:action="@{/book/search}" method="get" th:object="${searchDto}"
                       class=" flex justify_content_center align_items_center" enctype="multipart/form-data">
                     <div>
-                        <a href="/main"><img th:src="@{/upload/images/black.png}" class="main_logo m-r-5"></a>
+                        <a href="/main"><img th:src="@{/upload/images/black.png}" class="main_logo m-r-10"></a>
                     </div>
                     <div class="relative w-50">
-                        <input name="searchWord" type="text" class="form-control rounded-pill" placeholder="검색어를 입력하세요"
-                               aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input class="form-control me-2" name="searchWord" type="text" aria-label="Search" placeholder="검색어를 입력하세요" style="border-color: #a492dd;">
+
                     </div>
                     <div class="relativeL40">
-                        <!--          자바스크립트로 서브밋태그를 주던가 다시 찾던가 해서 이미지 눌렀을 때 서브밋 처리하기-->
+                        <!--         TODO 자바스크립트로 서브밋태그를 주던가 다시 찾던가 해서 이미지 눌렀을 때 서브밋 처리하기   -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
