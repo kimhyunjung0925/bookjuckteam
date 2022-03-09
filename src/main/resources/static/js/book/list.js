@@ -16,12 +16,13 @@ sort.addEventListener('click', (e) => {
         a.forEach(item => {
             let div = document.createElement('div');
             list.append(div);
+
             div.innerHTML = `
                  <div class="flex-direc-column center">
                        <a href="/book/detail?isbn=${item.isbn}"> <img src="${item.cover}"></a>
-                        <div>${item.title}</div>
+                        <div class="text_oneline">${item.title}</div>
                         <div class="flex color_grey" style="flex-wrap: wrap;">
-                            <div>${item.author}</div>
+                            <div class="text_oneline">${item.author}</div>
                             <div>&nbsp;|&nbsp;</div>
                             <div>${item.publisher}</div>
                         </div>
@@ -37,6 +38,4 @@ sort.addEventListener('click', (e) => {
         categoryBookjuck: encodeURIComponent(uriVal.get('categoryBookjuck'))
     })
 
-
 })
-

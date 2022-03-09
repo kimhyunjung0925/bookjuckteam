@@ -9,27 +9,28 @@
     <title>bookdlist</title>
     <link rel="stylesheet" th:href="@{/css/book/list.css}">
 </head>
-
 <th:block layout:fragment="content">
     <div class="m-b-20">
         <div class="flex h-100 center">
             <div class="w-80">
                 <div class="grid m-t-20">
                     <!--                    국내도서 클릭 했을 때 메뉴 -->
-                    <div th:if="${category.equals('Book')}">
+                    <div th:if="${category.equals('Book')}" id="menus">
                         <ul class="flex justify_space_around">
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}" class="list_menu_click">All</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>소설%',category='Book')}" class="list_menu_click">소설/시</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>에세이%',category='Book')}" class="list_menu_click">에세이</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%',category='Book')}" class="list_menu_click">자기 계발</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%',category='Book')}" class="list_menu_click">경제/경영</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>인문학%',category='Book')}" class="list_menu_click">인문</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>역사%',category='Book')}" class="list_menu_click">역사</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%',category='Book')}" class="list_menu_click">예술/문화</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>과학%',category='Book')}" class="list_menu_click">과학/기술공학</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}" class="list_menu_click">컴퓨터/IT</a></li>
+                            <li ><a id="genre1" th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}" class="list_menu_click" th:text="ALL" ></a></li>
+                            <li><a id="genre2" th:href="@{/book/list(categoryBookjuck='국내도서>소설%',category='Book')}" class="list_menu_click">소설/시</a></li>
+                            <li><a id="genre3" th:href="@{/book/list(categoryBookjuck='국내도서>에세이%',category='Book')}" class="list_menu_click">에세이</a></li>
+                            <li><a id="genre4" th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%',category='Book')}" class="list_menu_click">자기 계발</a></li>
+                            <li><a id="genre5" th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%',category='Book')}" class="list_menu_click">경제/경영</a></li>
+                            <li><a id="genre6" th:href="@{/book/list(categoryBookjuck='국내도서>인문학%',category='Book')}" class="list_menu_click">인문</a></li>
+                            <li><a id="genre7" th:href="@{/book/list(categoryBookjuck='국내도서>역사%',category='Book')}" class="list_menu_click">역사</a></li>
+                            <li><a id="genre8" th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%',category='Book')}" class="list_menu_click">예술/문화</a></li>
+                            <li><a id="genre9" th:href="@{/book/list(categoryBookjuck='국내도서>과학%',category='Book')}" class="list_menu_click">과학/기술공학</a></li>
+                            <li><a id="genre10" th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}" class="list_menu_click">컴퓨터/IT</a></li>
                         </ul>
                     </div>
+
+
                     <!--                    해외도서 클릭했을 때 메뉴 -->
                     <div th:if="${category.equals('Foreign')}">
                         <ul class="flex justify_space_around">
@@ -48,6 +49,7 @@
                     <div class="m-t-10">
                         <form action="">
                             <select name="정렬" id="sort">
+                                <option  value="not" id="sort0">정렬</option>
                                 <option value="new" id="sort1">최신순</option>
                                 <option value="popular" id="sort2">인기순</option>
                                 <option value="price" id="sort3">가격순</option>
@@ -60,9 +62,9 @@
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
                     <div th:each="list : ${list}" class="flex-direc-column center">
                         <a th:href="@{/book/detail(isbn=${list.isbn})}">  <img th:src="${list.cover}"></a>
-                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <div th:text="${list.title}" ></div></a>
+                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <div class="text_oneline" th:text="${list.title}" ></div></a>
                         <div class="flex color_grey" style="flex-wrap: wrap;">
-                            <div th:text="${list.author}"></div>
+                            <div th:text="${list.author}" class="text_oneline"></div>
                             <div>&nbsp;|&nbsp;</div>
                             <div th:text="${list.publisher}"></div>
                         </div>

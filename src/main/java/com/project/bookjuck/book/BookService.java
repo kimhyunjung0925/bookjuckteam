@@ -209,9 +209,10 @@ public class BookService {
     public List<BookDto> sel(BookDto dto){
         List<BookDto> bookDtoList = mapper.sel(dto);
         for (BookDto list:bookDtoList) {
-            String title = auth.textOverCut(list.getTitle(),15);
+            String title = auth.textOverCut(list.getTitle(),17);
 
-            String author = list.getAuthor().replaceAll("\\(.+", "");
+            String author = list.getAuthor();
+          //  String author = list.getAuthor().replaceAll("\\(.+", "");
             list.setTitle(title);
             list.setAuthor(author);
         }
