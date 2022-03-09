@@ -14,14 +14,14 @@
     <div class="m-b-20">
         <div class="flex h-100 center">
             <div class="w-80">
-                <div class="grid m-t-20 m-l-50">
+                <div class="grid m-t-20">
                     <h3>베스트 셀러</h3>
                     <div class="flex m-t-10">
                         <div class="pe-2">
-                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}">국내</a>
+                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}">국내도서</a>
                         </div>
                         <div>
-                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}">외국</a>
+                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}">외국도서</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                 <div th:text="${list.get(0).getBestRank()}" class="font_bold ranknumber"></div>
                                 <div><a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><img th:src="${list.get(0).getCover()}" class="book_img_1013"></a></div>
                             </div>
-                            <div class="best_box_info">
+                            <div class="best_box_info flex justify_content_center">
                                 <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="text_multiline"></strong></a>
                                 <p th:text="${list.get(0).getAuthor()}" class="text_oneline"></p>
                                 <p th:text="${list.get(0).getPriceStandard()+'원'}" class="font_color_red"></p>

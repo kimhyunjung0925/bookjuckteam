@@ -50,13 +50,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 40px;
-    background-color: #c1d0dc;
+    background-color: rgba(239, 239, 239, 0.51);
     margin-bottom: 40px;
+    border: 1px solid #e5e5e5;
 }
 
 .best_box_info{
     margin-top: 10px;
-    width: 190px;
+    width: 350px;
     padding-left: 30px;
     display: flex;
     flex-direction: column;

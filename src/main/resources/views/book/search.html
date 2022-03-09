@@ -14,29 +14,32 @@
     <div class="m-b-20">
         <div class="flex h-100 center">
             <div class="w-80">
-                <div class="grid m-t-20 m-l-50">
-                    <h1 th:text="${category+'의 검색결과'}"></h1>
-                    <div class="flex m-t-10">
-                        <div class="pe-2"><a
-                                th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='All',searchWord=${category})}">All</a>
+                <div class="grid m-t-20 ">
+                    <h1 th:text="${category} +'의 검색결과'"></h1>
+                    <div class="flex justify_space_between">
+                        <div class="flex m-t-10">
+                            <div class="pe-2"><a
+                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='All',searchWord=${category})}">All</a>
+                            </div>
+                            <div class="pe-2"><a
+                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Book',searchWord=${category})}">국내도서</a>
+                            </div>
+                            <div>
+                                <a th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Foreign',searchWord=${category})}">외국도서</a>
+                            </div>
                         </div>
-                        <div class="pe-2"><a
-                                th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Book',searchWord=${category})}">국내도서</a>
-                        </div>
-                        <div>
-                            <a th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Foreign',searchWord=${category})}">외국도서</a>
-                        </div>
-                    </div>
 
-                    <div class="m-t-10">
-                        <form action="">
-                            <select name="정렬" id="a1">
-                                <option value="new" id="a1_1">최신순</option>
-                                <option value="popular">인기순</option>
-                                <option value="price">가격순</option>
-                            </select>
-                        </form>
+                        <div class="m-t-10">
+                            <form action="">
+                                <select name="정렬" id="a1">
+                                    <option value="new" id="a1_1">최신순</option>
+                                    <option value="popular">인기순</option>
+                                    <option value="price">가격순</option>
+                                </select>
+                            </form>
+                        </div>
                     </div>
+                    <hr>
 
                 </div>
 
@@ -55,7 +58,7 @@
                                     <div th:text="${list.pubDate}"> </div>
                                 </div>
 
-                                <div th:text="${list.description}"></div>
+                                <div th:text="${list.description}" class="m-t-10"></div>
                             </div>
 
 

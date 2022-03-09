@@ -34,9 +34,9 @@
 
                         <hr>
 
-                        <div class="flex align_items_center w-20">
+                        <div class="flex align_items_center ">
                             <div>정가 : &nbsp;</div>
-                            <div><h2 class="color_red" th:text="${list.getPriceStandard()}"></h2></div>
+                            <div><h2 class="color_red" th:text="${list.getPriceStandard() +'원'}"></h2></div>
                         </div>
                         <div class="flex align_items_center">
                             <div>배송비 : &nbsp;</div>
@@ -110,7 +110,7 @@
 
                     <h1 class="m-t-10 color_blue">책소개</h1>
                     <div class="font_bold">이 책이 속한 분야 :  <span th:text="${list.getCategoryName}"></span></div>
-                    <div th:text="${list.getDescription()}"></div>
+                    <div th:text="${list.getDescription() }"></div>
                     <br>
                     <br>
 

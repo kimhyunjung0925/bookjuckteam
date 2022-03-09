@@ -8,17 +8,10 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 /* ================  메인배너부분 ================== */
 
 
-
-.banner_inner img {
-    width: 180px;
-    height: 250px;
-}
-
-
-.back_color_1 { background-color: rgb(248, 244, 216); width: 100%; height: 350px;}
-.back_color_2 { background-color: rgb(251, 234, 239); width: 100%; height: 350px;}
-.back_color_3 { background-color: rgb(218, 236, 240); width: 100%; height: 350px;}
-.back_color_4 { background-color: rgb(230, 233, 246); width: 100%; height: 350px;}
+.back_color_1 { background-color: rgb(248, 244, 216); width: 100%; height: 400px;}
+.back_color_2 { background-color: rgb(251, 234, 239); width: 100%; height: 400px;}
+.back_color_3 { background-color: rgb(218, 236, 240); width: 100%; height: 400px;}
+.back_color_4 { background-color: rgb(230, 233, 246); width: 100%; height: 400px;}
 
 
 
@@ -45,7 +38,3 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .clicked { background-color: #daefe0; font-size:large; border-bottom: none; border-left: none; border-right: none; overflow: visible;}
 .click_color { background-color: #daefe0;}
     /*#dae8e8*/
-
-.hidden{
-    display: none;
-}
