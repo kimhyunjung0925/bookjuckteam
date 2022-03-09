@@ -47,26 +47,68 @@ function slideShow() {
     setTimeout(slideShow, 4000);   //함수를 4초마다 호출
 
 }
-//
-// $(document).ready(function(pointersecsion){
-//     var bg=['red','yellow','green','blue','aqua'];
-//     $('.img_box').css({
-//         backgroundColor:function(index){
-//             return bg[index];
-//         }
-//     })
+
+
+const domesticBtnElem = document.querySelector('.domesticBtn');
+const foreignBtnElem = document.querySelector('.foreignBtn');
+const newBtnElem = document.querySelector('.newBtn');
+const stedyBtnElem = document.querySelector('.stedyBtn');
+
+// domesticBtnElem.addEventListener('click', (e)=>{
+//     bookElem.css('-webkit-animation-name','wrapmove');
+// });
+wrapmove(0);
+
+domesticBtnElem.addEventListener('click', ()=>{
+    var btn = 0;
+    wrapmove(btn);
+});
+
+foreignBtnElem.addEventListener('click', ()=>{
+    var btn = 1;
+    wrapmove(btn);
+});
+
+newBtnElem.addEventListener('click', ()=>{
+    var btn = 2;
+    wrapmove(btn);
+});
+
+stedyBtnElem.addEventListener('click', ()=>{
+    var btn = 3;
+    wrapmove(btn);
+});
+
+function wrapmove(btn) {
+    var i;
+    var x = document.getElementsByClassName("wrapsecsion");  //slide1에 대한 dom 참조
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[btn].style.display = "block";  //해당 인덱스는 block으로
+}
+
+
+// function (){
+//     $(domesticBtnElem).click(function(){
+//         console.log(domesticBtnElem);
+//         console.log(bookElem);
+//         $(bookElem).css('-webkit-animation-name','wrapmove');
+//     });
+// };
+
 //
 //     /*1.but_1을 클릭하면 img_wrap가 left:0
 //     2.but_2을 클릭하면 img_wrap가 left:-700
 //     3.but_3을 클릭하면 img_wrap가 left:-1400
 //     4.but_4을 클릭하면 img_wrap가 left:-2100
 //     5.but_5을 클릭하면 img_wrap가 left:-2800*/
-//
-//     /*$('#but_1').click(function(){
-//         $('#img_wrap').animate({
-//             left:0
-//         });
-//     });
+
+    /*$('#but_1').click(function(){
+        $('#img_wrap').animate({
+            left:0
+        });
+    });
 //
 //     $('#but_2').click(function(){
 //         $('#img_wrap').animate({
@@ -111,7 +153,5 @@ function slideShow() {
 //             left:-700*i
 //         });
 //     });
-//
-//
 //
 // }); /*end*/

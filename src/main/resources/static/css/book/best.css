@@ -57,7 +57,7 @@
 
 .best_box_info{
     margin-top: 10px;
-    width: 350px;
+    min-width: 190px;
     padding-left: 30px;
     display: flex;
     flex-direction: column;

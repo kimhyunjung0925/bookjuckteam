@@ -19,10 +19,8 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 /* ================  메인베스트부분 ================== */
 
 
-.best-list__body .best-list__item { margin: 30px auto 60px; padding: 0 20px; }
-.best-list__body .best-info { margin: 20px 0 10px; }
-.best-list__body .best-info__name { font-size: 18px; }
-.best-list__body .best-info__date { color: #333; margin-top: 6px; }
+.best-list__body >div .best-list__item { width: 230px; margin: 30px auto 60px; padding: 0 20px; }
+
 
 .font_bold { font-size: large; font-weight: bold; }
 
@@ -38,3 +36,55 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .clicked { background-color: #daefe0; font-size:large; border-bottom: none; border-left: none; border-right: none; overflow: visible;}
 .click_color { background-color: #daefe0;}
     /*#dae8e8*/
+
+.mask{
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.btn_wrap {
+    width: 1000px;
+    height: 50px;
+}
+
+.book_wrap {
+    width: 1000px;
+    height: 350px;
+}
+
+.book_each {
+    display: flex;
+    width: 1000px;
+    height: 350px;
+}
+
+.text_oneline{
+    width        : 200px;     /* 너비는 변경될수 있습니다. */
+    text-overflow: ellipsis;  /* 위에 설정보다 길면 말줄임표처럼 표시합니다. */
+    white-space  : nowrap;    /* 줄바꿈을 하지 않습니다. */
+    overflow     : hidden;    /* 내용이 길면 감춤니다 */
+    display      : block;     /* ie6이상 현재요소를 블럭처리합니다. */
+}
+
+.text_multiline{
+    text-overflow: ellipsis;
+    overflow     : hidden;
+    display      : -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+/*@keyframes bookmove {*/
+/*    to {*/
+/*        left: -1000px;*/
+/*    }*/
+/*}*/
+
+/*.wrapmove {*/
+/*    animation-name: bookmove;*/
+/*    animation-duration: 1s;*/
+/*    animation-timing-function: linear;*/
+/*    animation-fill-mode: forwards;*/
+/*}*/

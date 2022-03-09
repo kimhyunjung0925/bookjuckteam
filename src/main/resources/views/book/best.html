@@ -36,7 +36,7 @@
                                 <div th:text="${list.get(0).getBestRank()}" class="font_bold ranknumber"></div>
                                 <div><a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><img th:src="${list.get(0).getCover()}" class="book_img_1013"></a></div>
                             </div>
-                            <div class="best_box_info flex justify_content_center">
+                            <div class="best_box_info">
                                 <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="text_multiline"></strong></a>
                                 <p th:text="${list.get(0).getAuthor()}" class="text_oneline"></p>
                                 <p th:text="${list.get(0).getPriceStandard()+'원'}" class="font_color_red"></p>
