@@ -110,10 +110,28 @@
 <!-- ////////////푸터부분/////////// -->
 
 <th:block th:fragment="footer">
-    <footer class="text-muted bg-dark py-1">
+    <footer class="back_color_footer flex-direc-column p-ud-10">
         <div>
-            <p class="mb-1">모두 함께 모여 책을 봅시다 &copy; with 북적북적</p>
+            <a href='https://github.com/KownJY' target='_blank'>kwonGithub</a> | &nbsp;
+            <a href='https://github.com/khjung0925' target='_blank'>kimGithub</a> | &nbsp;
+            <a href='https://github.com/eunae' target='_blank'>beakGithub</a>
         </div>
+        <hr class="footer_hr">
+        <div class="flex h-100">
+            <div class="flex align_items_center m-r-20">
+                <img th:src="@{/upload/images/black.png}" class="main_logo m-r-10 ">
+            </div>
+            <p>
+                <span>저자 : 권주영, 김현정, 백은애 </span> <br/>
+                <span>이메일 : bookjuck96@gmail.com</span> <br/>
+                <span>Copyright &copy; 2022. bookjuckbookjuck. All Rights Reserved.</span>
+            </p>
+            <div class="m-l-20 flex align_items_center">
+                <a href="/cscenter/faq">
+                    <input type="button" value="고객센터 바로가기" class="btn_footer"></a>
+            </div>
+        </div>
+
     </footer>
 </th:block>
 
