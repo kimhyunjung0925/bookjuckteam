@@ -10,45 +10,45 @@
 </head>
 
 <th:block layout:fragment="content">
-    <div class="flex-direc-column center">
+    <div class="flex-direc-column flex center">
         <h1 class="py-4">1:1 문의</h1>
         <p>문의를 남겨주시면 고객님의 이메일로 답변을 보내드립니다.</p>
         <p>이메일을 정확하게 입력해주시기 바랍니다.</p>
     </div>
-    <div class="center">
+    <div class="flex center">
 <!--문의글 보내는 폼-->
-    <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50" enctype="multipart/form-data">
-        <div><input type="hidden" th:field="*{iuser}"></div>
-        <div class="justify_flex_start pt-2">
-            <h6>이메일</h6>
-            <div><input type="text" th:field="*{com_email}" maxlength="20" class="ps_box w-100"></div>
-        </div>
-        <!--고객센터 분류 디비 카테고리테이블 하나만들어야함-->
-        <div class="justify_flex_start pt-2">
-            <h6 class="m-t-10">분류</h6>
-            <select th:field="*{com_cate}" class="ps_box w-100">
-                <option th:value="1">배송문의</option>
-                <option th:value="2">상품문의</option>
-                <option th:value="3">교환/환불문의</option>
-                <option th:value="4">기타문의</option>
-            </select>
-        </div>
-        <div class="justify_flex_start pt-2">
-            <h6 class="m-t-10">문의내용</h6>
-            <div><textarea th:field="*{com_ctnt}" class="ps_box w-100 height200p"></textarea></div>
-        </div>
-        <div>
-            <h6 class="m-t-10">첨부파일</h6>
-            <div class="border_box3">
-                <div><input type="file" name="file"></div>
-                <div class="color_grey"> *5MB 미만의 파일만 첨부가능합니다.</div>
+        <form th:action="@{/cscenter/complaint}" method="post" th:object="${complaintentity}" class="complaint_form w-50" enctype="multipart/form-data">
+            <div><input type="hidden" th:field="*{iuser}"></div>
+            <div class="justify_flex_start pt-2">
+                <h6>이메일</h6>
+                <div><input type="text" th:field="*{com_email}" maxlength="20" class="ps_box w-100"></div>
             </div>
-        </div>
-        <div class="center flex-direc-column mt-2">
-            <div th:text="${msg}" class="color_red mb-2"></div>
-            <input type="submit" value="제출하기" class="submitbtn btn btn-outline-dark p-2 mb-2"></a>
-        </div>
-    </form>
+            <!--고객센터 분류 디비 카테고리테이블 하나만들어야함-->
+            <div class="justify_flex_start pt-2">
+                <h6 class="m-t-10">분류</h6>
+                <select th:field="*{com_cate}" class="ps_box w-100">
+                    <option th:value="1">배송문의</option>
+                    <option th:value="2">상품문의</option>
+                    <option th:value="3">교환/환불문의</option>
+                    <option th:value="4">기타문의</option>
+                </select>
+            </div>
+            <div class="justify_flex_start pt-2">
+                <h6 class="m-t-10">문의내용</h6>
+                <div><textarea th:field="*{com_ctnt}" class="ps_box w-100 height200p"></textarea></div>
+            </div>
+            <div>
+                <h6 class="m-t-10">첨부파일</h6>
+                <div class="border_box3">
+                    <div><input type="file" name="file"></div>
+                    <div class="color_grey"> *5MB 미만의 파일만 첨부가능합니다.</div>
+                </div>
+            </div>
+            <div class="flex center flex-direc-column mt-2">
+                <div th:text="${msg}" class="color_red mb-2"></div>
+                <input type="submit" value="제출하기" class="submitbtn btn btn-outline-dark p-2 mb-2"></a>
+            </div>
+        </form>
     </div>
     <script src="/js/cscenter/complaint.js"></script>
 </th:block>
