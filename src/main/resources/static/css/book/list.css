@@ -1,6 +1,11 @@
 
 /*list*/
-.list {height: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+.list {
+    height: 100%; display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    justify-items: stretch;
+}
 
 .text_oneline{
     width        : auto;     /* 너비는 변경될수 있습니다. */

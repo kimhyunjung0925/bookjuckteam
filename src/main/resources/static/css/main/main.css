@@ -40,7 +40,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 
 .mask{
     width: 1000px;
-    height: 400px;
+    height: 420px;
     margin: 0 auto 50px auto;
     overflow: hidden;
 }
@@ -77,15 +77,23 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
     word-wrap: break-word;
 }
 
-/*@keyframes bookmove {*/
-/*    to {*/
-/*        left: -1000px;*/
-/*    }*/
-/*}*/
+/*이달의 도서 부분*/
 
-/*.wrapmove {*/
-/*    animation-name: bookmove;*/
-/*    animation-duration: 1s;*/
-/*    animation-timing-function: linear;*/
-/*    animation-fill-mode: forwards;*/
-/*}*/
+.monthbook_box {
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: repeat(4, 250px);
+    column-gap: 10px;
+    row-gap: 30px;
+    padding: 10px 0 10px;
+}
+
+.monthbook_box_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.monthbook_box_title {
+    width: 200px;
+    text-align: center;
+}
