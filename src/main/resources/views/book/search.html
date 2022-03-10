@@ -19,22 +19,23 @@
                     <div class="flex justify_space_between">
                         <div class="flex m-t-10">
                             <div class="pe-2"><a
-                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='All',searchWord=${category})}">All</a>
+                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='All',searchWord=${category},sort=${searchDto.getSort()})}">All</a>
                             </div>
                             <div class="pe-2"><a
-                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Book',searchWord=${category})}">국내도서</a>
+                                    th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Book',searchWord=${category},sort=${searchDto.getSort()})}">국내도서</a>
                             </div>
                             <div>
-                                <a th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Foreign',searchWord=${category})}">외국도서</a>
+                                <a th:href="@{/book/{category}(category=${searchDto.getCategory},SearchTarget2='Foreign',searchWord=${category},sort=${searchDto.getSort()})}">외국도서</a>
                             </div>
                         </div>
 
                         <div class="m-t-10">
                             <form action="">
-                                <select name="정렬" id="a1">
-                                    <option value="new" id="a1_1">최신순</option>
-                                    <option value="popular">인기순</option>
-                                    <option value="price">가격순</option>
+                                <select name="정렬" id="sort">
+                                    <option value="Accuracy">관련순</option>
+                                    <option value="PublishTime">출간일순</option>
+                                    <option value="CustomerRating">평점순</option>
+                                    <option value="SalesPoint">인기순</option>
                                 </select>
                             </form>
                         </div>
@@ -82,7 +83,7 @@
                 <nav aria-label="Page navigation example flex ">
                     <ul class="pagination center">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" th:href="@{/book/search(startIdx=1,searchWord=${category})}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -90,7 +91,7 @@
                         <li class="page-item"><a class="page-link" th:href="@{/book/search(startIdx=2,searchWord=${category})}">2</a></li>
                         <li class="page-item"><a class="page-link" th:href="@{/book/search(startIdx=3,searchWord=${category})}">3</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" th:href="@{/book/search(startIdx=3,searchWord=${category})}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

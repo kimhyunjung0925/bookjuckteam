@@ -20,10 +20,12 @@ public class MainController {
         List<BookDto> foreignlist = service.foreignbook();
         List<BookDto> newlist = service.newbook();
         List<BookDto> stedylist = service.steadybook();
+        List<BookDto> monthBook = service.thismonthbook();
         model.addAttribute("domesticlist", domesticlist);
         model.addAttribute("foreignlist", foreignlist);
         model.addAttribute("newlist", newlist);
         model.addAttribute("stedylist", stedylist);
+        model.addAttribute("monthBook", monthBook);
 
         return "main";
     }

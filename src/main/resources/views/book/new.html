@@ -56,15 +56,17 @@
                 <nav aria-label="Page navigation example flex ">
                     <ul class="pagination center">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" th:href="@{/book/new(startIdx=1)}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/new(startIdx=1)}">1</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/new(startIdx=2)}">2</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/new(startIdx=3)}">3</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/new(startIdx=4)}">4</a></li>
+                        <li class="page-item"><a class="page-link" th:href="@{/book/new(startIdx=5)}">5</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" th:href="@{/book/new(startIdx=5)}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

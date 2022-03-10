@@ -43,4 +43,12 @@ public class MainService {
         searchDto.setMaxResult(4);
         return bookService.getData(searchDto,"https://www.aladin.co.kr/ttb/api/ItemList.aspx");
     }
+
+    public List<BookDto> thismonthbook () {
+        ApiSearchDto searchDto = new ApiSearchDto();
+        searchDto.setType("ItemNewSpecial");
+        searchDto.setStartIdx(3);
+        searchDto.setMaxResult(8);
+        return bookService.getData(searchDto,"https://www.aladin.co.kr/ttb/api/ItemList.aspx");
+    }
 }

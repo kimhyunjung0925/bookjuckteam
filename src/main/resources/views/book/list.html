@@ -60,14 +60,14 @@
 
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
                 <div class="list m-t-20"> <!-- 리스트 부분 -->
-                    <div th:each="list : ${list}" class="flex-direc-column center">
-                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <img th:src="${list.cover}"></a>
-                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <div class="text_oneline" th:text="${list.title}" ></div></a>
-                        <div class="flex color_grey" style="flex-wrap: wrap;">
-                            <div th:text="${list.author}" class="text_oneline"></div>
+                    <div th:each="list : ${list}" class="flex flex-direc-column align_items_center">
+                        <a th:href="@{/book/detail(isbn=${list.isbn})}">  <img th:src="${list.cover}" class="book_img_1013"></a>
+                        <a th:href="@{/book/detail(isbn=${list.isbn})}" class="width200p center flex"><div class="text_oneline" th:text="${list.title}" ></div></a>
+                        <div class="flex color_grey">
+                            <div th:text="${list.author}" class=""></div>
                             <div>&nbsp;|&nbsp;</div>
                             <div th:text="${list.publisher}"></div>
-                        </div>
+                        </div>s
                         <div th:text="${list.priceStandard}" class="color_red"></div>
                     </div>
                 </div>

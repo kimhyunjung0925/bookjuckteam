@@ -68,6 +68,7 @@ public class BookService {
                 .queryParam("ttbkey",serviceKey)
                 .queryParam("Query", searchDto.getSearchWord())
                 .queryParam("SearchTarget", searchDto.getSearchTarget2())
+                .queryParam("Sort", searchDto.getSort())
                 .queryParam("MaxResults", searchDto.getMaxResult())
                 .queryParam("start", searchDto.getStartIdx())
                 .queryParam("output", "js")
@@ -209,10 +210,9 @@ public class BookService {
     public List<BookDto> sel(BookDto dto){
         List<BookDto> bookDtoList = mapper.sel(dto);
         for (BookDto list:bookDtoList) {
-            String title = auth.textOverCut(list.getTitle(),17);
 
-            String author = list.getAuthor();
-          //  String author = list.getAuthor().replaceAll("\\(.+", "");
+            String title = auth.textOverCut(list.getTitle(),17);
+            String author = list.getAuthor().replaceAll("\\(.+", "");
             list.setTitle(title);
             list.setAuthor(author);
         }
@@ -221,6 +221,13 @@ public class BookService {
 
     public List<BookDto> sel2(BookDto dto){
         List<BookDto> bookDtoList = mapper.sel2(dto);
+        for (BookDto list:bookDtoList) {
+
+            String title = auth.textOverCut(list.getTitle(),17);
+            String author = list.getAuthor().replaceAll("\\(.+", "");
+            list.setTitle(title);
+            list.setAuthor(author);
+        }
         return  bookDtoList;
     }
 
