@@ -11,6 +11,7 @@
 
 <th:block layout:fragment="content">
     <!--    맨위 이벤트 베너부분  -->
+    <!--    맨위 이벤트 베너부분  -->
     <div class="banner_container m-b-30">
         <div class="banner_inner flex back_color_4 w-100">
             <div class="flex justify_content_center h-100 align_items_center">
@@ -198,10 +199,11 @@
                     <div class="flex book_each">
                     <div th:each="list : ${stedylist}" class="best-list__item">
                         <ul>
-                            <li class="w-100">
+                            <li class="flex">
                                 <div class="grid">
-                                    <div class="flex center mb-2">
+                                    <div>
                                         <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+
                                     </div>
                                     <div class="best-info">
                                         <strong th:text="${list.title}" class="text_multiline"></strong>
