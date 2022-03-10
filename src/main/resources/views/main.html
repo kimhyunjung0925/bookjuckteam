@@ -134,10 +134,10 @@
                     <div class="flex book_each">
                     <div th:each="list : ${domesticlist}" class="best-list__item">
                         <ul>
-                            <li class="flex w-100">
+                            <li class=" w-100">
                                 <div class="grid">
-                                    <div>
-                                        <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+                                    <div class="flex center mb-2">
+                                        <a class="" th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
                                     </div>
                                     <div class="best-info">
                                         <strong th:text="${list.title}" class="text_multiline"></strong>
@@ -156,10 +156,9 @@
                     <div class="flex book_each">
                     <div th:each="list : ${foreignlist}" class="best-list__item">
                         <ul>
-                            <li class="flex">
-                                <div class="font_bold p_10"> 2</div>
+                            <li class="w-100">
                                 <div class="grid">
-                                    <div>
+                                    <div class="flex center mb-2">
                                         <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
 
                                     </div>
@@ -179,12 +178,10 @@
                     <div class="flex book_each">
                     <div th:each="list : ${newlist}" class="best-list__item">
                         <ul>
-                            <li class="flex">
-                                <div class="font_bold p_10"> 3</div>
+                            <li class="w-100">
                                 <div class="grid">
-                                    <div>
+                                    <div class="flex center mb-2">
                                         <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
-
                                     </div>
                                     <div class="best-info">
                                         <strong th:text="${list.title}" class="text_multiline"></strong>
@@ -202,12 +199,10 @@
                     <div class="flex book_each">
                     <div th:each="list : ${stedylist}" class="best-list__item">
                         <ul>
-                            <li class="flex">
-                                <div class="font_bold p_10"> 4</div>
+                            <li class="w-100">
                                 <div class="grid">
-                                    <div>
+                                    <div class="flex center mb-2">
                                         <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
-
                                     </div>
                                     <div class="best-info">
                                         <strong th:text="${list.title}" class="text_multiline"></strong>
