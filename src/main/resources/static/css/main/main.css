@@ -41,7 +41,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .mask{
     width: 1000px;
     height: 400px;
-    margin: 0 auto 70px auto;
+    margin: 0 auto 50px auto;
     overflow: hidden;
 }
 
