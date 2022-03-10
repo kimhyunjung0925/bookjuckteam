@@ -16,7 +16,7 @@
         <div class="flex center back_color_purple h-100">
             <div class="width500p">
                 <form th:action="@{/user/mypage/changeInfo}" method="post" id="info-frm">
-                <div class="changeinfo_head m-b-10">회원 정보 수정</div>
+                <div class="changeinfo_head m-b-10 m-t-10">회원 정보 수정</div>
 
                 <div class="m-t-10"><b>아이디</b></div>
                 <div><input type="text" readonly th:value="${@utils.getLoginUser().getUid()}" class="text_box back_color_grey4"></div>

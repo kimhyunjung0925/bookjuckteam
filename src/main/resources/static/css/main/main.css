@@ -20,7 +20,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 
 
 .best-list__body >div .best-list__item { width: 230px; margin: 30px auto 60px; padding: 0 20px; }
-
+.best-list__body >div .best-list__item > ul {padding: 0;}
 
 .font_bold { font-size: large; font-weight: bold; }
 
@@ -36,6 +36,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .clicked { background-color: #daefe0; font-size:large; border-bottom: none; border-left: none; border-right: none; overflow: visible;}
 .click_color { background-color: #daefe0;}
     /*#dae8e8*/
+
 
 .mask{
     width: 1000px;
@@ -55,7 +56,6 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 }
 
 .book_each {
-    display: flex;
     width: 1000px;
     height: 350px;
 }
