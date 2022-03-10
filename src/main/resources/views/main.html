@@ -136,12 +136,14 @@
                             <li class=" w-100">
                                 <div class="grid">
                                     <div class="flex center mb-2">
-                                        <a class="" th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+                                        <a class="" th:href="@{/book/detail(isbn=${list.isbn})}">
+                                            <img th:src="${list.cover}"  class="book_img_1318">
+                                        </a>
                                     </div>
                                     <div class="best-info">
-                                        <strong th:text="${list.title}" class="text_multiline"></strong>
-                                        <p th:text="${list.author}" class="text_oneline"></p>
-                                        <p th:text="${list.priceStandard}" class="font_color_red"></p>
+                                        <div th:text="${list.title}" class="text_multiline font_bold"></div>
+                                        <div th:text="${list.author}" class="text_oneline"></div>
+                                        <strong th:text="${list.priceStandard} +'원'" ></strong>
                                     </div>
                                 </div>
                             </li>
@@ -158,13 +160,15 @@
                             <li class="w-100">
                                 <div class="grid">
                                     <div class="flex center mb-2">
-                                        <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+                                        <a th:href="@{/book/detail(isbn=${list.isbn})}">
+                                            <img th:src="${list.cover}" class="book_img_1318">
+                                        </a>
 
                                     </div>
                                     <div class="best-info">
-                                        <strong th:text="${list.title}" class="text_multiline"></strong>
-                                        <p th:text="${list.author}"  class="text_oneline"></p>
-                                        <p th:text="${list.priceStandard}" class="font_color_red"></p>
+                                        <div th:text="${list.title}" class="text_multiline font_bold"></div>
+                                        <div th:text="${list.author}"  class="text_oneline"></div>
+                                        <strong th:text="${list.priceStandard} +'원'"></strong>
                                     </div>
                                 </div>
                             </li>
@@ -180,12 +184,14 @@
                             <li class="w-100">
                                 <div class="grid">
                                     <div class="flex center mb-2">
-                                        <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+                                        <a th:href="@{/book/detail(isbn=${list.isbn})}">
+                                            <img th:src="${list.cover}" class="book_img_1318">
+                                        </a>
                                     </div>
                                     <div class="best-info">
-                                        <strong th:text="${list.title}" class="text_multiline"></strong>
-                                        <p th:text="${list.author}" class="text_oneline"></p>
-                                        <p th:text="${list.priceStandard}" class="font_color_red"></p>
+                                        <div th:text="${list.title}" class="text_multiline font_bold"></div>
+                                        <div th:text="${list.author}" class="text_oneline"></div>
+                                        <strong th:text="${list.priceStandard} +'원'"></strong>
                                     </div>
                                 </div>
                             </li>
@@ -201,12 +207,14 @@
                             <li class="w-100">
                                 <div class="grid">
                                     <div class="flex center mb-2">
-                                        <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1013"></a>
+                                        <a th:href="@{/book/detail(isbn=${list.isbn})}">
+                                            <img th:src="${list.cover}" class="book_img_1318">
+                                        </a>
                                     </div>
                                     <div class="best-info">
-                                        <strong th:text="${list.title}" class="text_multiline"></strong>
-                                        <p th:text="${list.author}" class="text_oneline"></p>
-                                        <p th:text="${list.priceStandard}" class="font_color_red"></p>
+                                        <div th:text="${list.title}" class="text_multiline font_bold"></div>
+                                        <div th:text="${list.author}" class="text_oneline"></div>
+                                        <strong th:text="${list.priceStandard} +'원'" ></strong>
                                     </div>
                                 </div>
                             </li>
