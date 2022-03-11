@@ -32,6 +32,7 @@ public class BookController {
         List<BookDto> list = service.sel(dto);
         model.addAttribute("list", list);
         model.addAttribute("category", apidto.getCategory());
+        model.addAttribute("bookCate",dto.getCategoryBookjuck());
         return "book/list";
     }
 
