@@ -11,8 +11,13 @@
 
 <th:block layout:fragment="content">
     <div class="cscenter">
-        <div class="notice container-lg px-4 py-4">
-            <h3 class="m-t-20 pb-2 border-bottom">고객센터 안내사항</h3>
+        <div class="notice container-lg px-4 py-4 m-t-20">
+            <div class="flex justify_flex_end">
+                <div class="flex justify_flex_end font_bold"><a href="/cscenter/faq">자주묻는 질문 바로가기  &nbsp; </a> </div>
+                <div class="flex justify_flex_end font_bold"><a href="/cscenter/complaint"> | &nbsp; 1:1 문의하러 가기 </a> </div>
+            </div>
+
+            <h3 class=" pb-2 border-bottom">북적북적 공지사항</h3>
             <div class="noticeboardtable flex-direc-column row g-2 py-3 row-cols-lg-3">
                 <table class="table table-hover">
                     <thead>
