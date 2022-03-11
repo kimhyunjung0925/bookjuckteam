@@ -32,7 +32,7 @@ a:hover { text-decoration:none !important }
 
 /*-------------search--------------*/
 .main_logo { width: 100px; height: 30px; }
-.main_logo_large { width: 150px; height: 60px;}
+.main_logo_large { width: 150px; height: 50px;}
 
 .search { float: left;width: 401px;height: 42px; background: no-repeat 0 0; }
 
@@ -60,7 +60,7 @@ ul li{ list-style: none; }
 
 /* header_menu 태그 자식의 ul의 자식 li를 왼쪽정렬과 넓이 설정 */
 .header_menu > ul > li { float: left; width:200px; position:relative; }
-.header_menu > ul > li > ul {  margin:0; padding: 0; width:200px; display:none; position: absolute; font-size:15px; background-color: #ebebeb;
+.header_menu > ul > li > ul {  margin:0; padding: 0; width:200px; display:none; position: absolute; font-size:15px; background-color: #f6f6f6;
 border-left: solid 1px;border-bottom: solid 1px; border-right: solid 1px; border-top: solid 1px; z-index: 1; }
 .header_menu > ul > li:hover > ul { display:block;
     animation-name: dropdown;

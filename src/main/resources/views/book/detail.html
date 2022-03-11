@@ -13,7 +13,7 @@
     <div class="grid place_center">
         <div class="w-80">
             <div class="grid m-t-10 border_box2">
-                <div class="flex padding_box justify_content_center back_color_green w-100">
+                <div class="flex padding_box justify_content_center w-100" style="background-color: rgb(230,233,246);">
                     <div class="h-20">
                         <img th:src="${list.getCover()}" class="book_img_1823">
                     </div>
@@ -48,6 +48,7 @@
                         <hr>
                     </div>
 
+                    <div class="flex align_items_center">
                     <div class="order_btn_box m-l-30">
                         <div class="order_btn2 center">
                             <div>주문수량</div>
@@ -55,11 +56,11 @@
                         </div>
                         <div class="order_btn center">
                             <div class="m-t-10"><input type="button" value="장바구니 담기"
-                                                       class="order_btn3 back_color_blue "></div>
-                            <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4 back_color_blue2 ">
+                                                       class="order_btn3" ></div>
+                            <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4">
                             </div>
                         </div>
-
+                    </div>
                     </div>
                 </div>
             </div>
@@ -74,6 +75,10 @@
 
             <div class="flex justify_content_center m-t-10 bookDetailInfoTable m-t-20">
                 <table>
+                    <colgroup>
+                        <col width="20%">
+                        <col width="80%">
+                    </colgroup>
                     <tr>
                         <th>ISBN</th>
                         <td th:text="${list.getIsbn()}"></td>
@@ -98,12 +103,12 @@
                 <div class="w-80 ">
                     <h2 class="m-t-30 border_b_bold" >저자 소개</h2>
 
-                    <div class="grid border_box m-t-20 p-10">
-                        <div class="flex back_color_grey4">
-                            <h5> 저자 :</h5>
-                            <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}"></h5>
+                    <div class="grid" >
+                        <div class="flex" >
+                            <h5 class="font_bold"> 저자 :</h5>
+                            <h5 class="font_bold"  th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}" ></h5>
                         </div>
-                        <div>
+                        <div style="font-style: italic">
                             <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorInfo()}"></h5>
                         </div>
                     </div>
@@ -111,8 +116,8 @@
 
                     <!--  //////////////////////////// 책소개 부분 ///////////////////////////-->
                     <h2 class="m-t-50 border_b_bold ">책소개</h2>
-                    <div class="font_bold">이 책이 속한 분야 :  <span th:text="${list.getCategoryName}"></span></div>
-                    <div th:text="${list.getDescription() }"></div>
+                    <h5 class="font_bold">이 책이 속한 분야 :  <span th:text="${list.getCategoryName}"></span></h5>
+                    <h5 th:text="${list.getDescription() }"></h5>
                     <br>
                     <br>
 
