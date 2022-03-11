@@ -19,7 +19,7 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 /* ================  메인베스트부분 ================== */
 
 
-.best-list__body >div .best-list__item { width: 230px; margin: 30px auto 60px; padding: 0 20px; }
+.best-list__body >div .best-list__item { width: 250px; margin: 30px 0 40px; padding: 0 20px; }
 .best-list__body >div .best-list__item > ul {padding: 0;}
 
 .font_bold { font-size: large; font-weight: bold; }
@@ -58,6 +58,8 @@ body { min-width: 580px; min-height: 100%; display: grid; grid-template-rows: au
 .book_each {
     width: 1000px;
     height: 350px;
+    overflow: hidden;
+    padding: 0 20px;
 }
 
 .text_oneline{
