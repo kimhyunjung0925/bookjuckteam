@@ -250,6 +250,11 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
     padding: 5px;
 }
 
+.border_box {
+    border: 1px solid #555555;
+    margin: 20px;
+}
+
 .book_box {
     align-items: stretch;
 }
