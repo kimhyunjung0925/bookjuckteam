@@ -20,7 +20,7 @@ sort.addEventListener('click', (e) => {
             div.innerHTML = `
                     <a href="/book/detail?isbn=${item.isbn}"><img src="${item.cover}" class="book_img_1013"></a>
                     <a href="/book/detail?isbn=${item.isbn}" class="width200p center flex"><div class="text_oneline">${item.title}</div></a>
-                    <div class="flex color_grey">
+                    <div class="flex color_grey" style="flex-wrap: wrap;">
                        <div class="">${item.author}</div>
                        <div>&nbsp;|&nbsp;</div>
                        <div>${item.publisher}</div>

@@ -22,69 +22,74 @@
 
         <div class="grid center">
             <div class="width500p">
-            <h4>이름</h4>
-            <div><input type="text" th:field="*{nm}" maxlength="10" placeholder="10자 이내로 입력해주세요." class="ps_box"></div>
+                <h4>이름</h4>
+                <div><input type="text" th:field="*{nm}" maxlength="10" placeholder="10자 이내로 입력해주세요." class="ps_box">
+                </div>
                 <span id="join_msg_nm" class="color_red"></span>
-            <h4>생년월일/성별</h4>
-            <div class="flex">
-                <input type="text" th:field="*{birth}" maxlength="8" placeholder="8자리 입력(예.19960101)" class="m-r-10 ps_box">
-                <span id="join_msg_birth" class="color_red"></span>
-                <select th:field="*{gender}" class="ps_box gender">
-                    <option th:value="3">성별 선택안함</option>
-                    <option th:value="1">여자</option>
-                    <option th:value="2">남자</option>
-                </select>
-            </div>
+                <h4>생년월일/성별</h4>
+                <div>
+                    <div class="flex">
+                        <input type="text" th:field="*{birth}" maxlength="8" placeholder="8자리 입력(예.19960101)"
+                               class="m-r-10 ps_box">
+                        <select th:field="*{gender}" class="ps_box gender">
+                            <option th:value="3">성별 선택안함</option>
+                            <option th:value="1">여자</option>
+                            <option th:value="2">남자</option>
+                        </select>
+                    </div>
+                    <span id="join_msg_birth" class="color_red"></span>
+                </div>
 
-            <h4>휴대폰 번호</h4>
-            <div><input type="text" th:field="*{ph}" maxlength="12" placeholder="-없이 입력해 주세요." class="ps_box"></div>
+                <h4>휴대폰 번호</h4>
+                <div><input type="text" th:field="*{ph}" maxlength="12" placeholder="-없이 입력해 주세요." class="ps_box"></div>
                 <span id="join_msg_ph" class="color_red"></span>
-            <h4>아이디</h4>
-            <div><input type="text"  th:field="*{uid}" maxlength="20" placeholder="영소문자/숫자 5~20자리" class="ps_box"></div>
-            <div><input type="button" value="아이디 중복 체크" id="id-btn-chk"><span id="id-chk-msg"></span></div>
+                <h4>아이디</h4>
+                <div><input type="text" th:field="*{uid}" maxlength="20" placeholder="영소문자/숫자 5~20자리" class="ps_box">
+                </div>
+                <div><input type="button" value="아이디 중복 체크" id="id-btn-chk"><span id="id-chk-msg"></span></div>
                 <span id="join_msg_uid" class="color_red"></span>
-            <h4>비밀번호</h4>
-            <div><input type="password" th:field="*{upw}" maxlength="15" placeholder="영문자/숫자/특수문자 조합 8~15자리(대소문자 구분)" class="ps_box"></div>
-            <div><input type="password" maxlength="15" placeholder="비밀번호 확인" id="upw-chk" class="ps_box"></div>
+                <h4>비밀번호</h4>
+                <div><input type="password" th:field="*{upw}" maxlength="15"
+                            placeholder="영문자/숫자/특수문자 조합 8~15자리(대소문자 구분)" class="ps_box"></div>
+                <div><input type="password" maxlength="15" placeholder="비밀번호 확인" id="upw-chk" class="ps_box"></div>
                 <span id="join_msg_upw" class="color_red"></span>
-            <h4>주소</h4>
-            <div><input type="text" th:field="*{addr1}" class="ps_box"></div>
-                <div><input type="text" th:field="*{addr2}" class="ps_box" placeholder="상세주소를 입력하여 주세여."></div>
+                <h4>주소</h4>
+                <div><input type="text" th:field="*{addr1}" class="ps_box"></div>
+                <div><input type="text" th:field="*{addr2}" class="ps_box" placeholder="상세주소를 입력하여 주세요."></div>
                 <span id="join_msg_addr" class="color_red"></span>
-            <h4>이메일</h4>
-            <div class="colorblue">※비밀번호 분실 시 임시 비밀번호가 이메일로 발송됩니다.</div>
-            <div class="flex">
-                <input type="text" th:field="*{email1}" class="ps_box m-r-5">
-                <div class="larger m-r-5">@</div>
+                <h4>이메일</h4>
+                <div class="colorblue">※비밀번호 분실 시 임시 비밀번호가 이메일로 발송됩니다.</div>
+                <div class="flex">
+                    <input type="text" th:field="*{email1}" class="ps_box m-r-5">
+                    <div class="larger m-r-5">@</div>
 
 
-                <input type="text" class="ps_box m-r-5" th:field="*{email2}">
+                    <input type="text" class="ps_box m-r-5" th:field="*{email2}">
 
 
-
-                <select name="이메일" class="ps_box" id="emailsecform">
-                    <option value="select">선택</option>
-                    <option value="naver.com">naver.com</option>
-                    <option value="daum.net">daum.net</option>
-                    <option value="google.com">google.com</option>
-                    <option value="nate.com">nate.com</option>
-                    <option value="hanmail.net">hanmail.net</option>
-                </select>
-            </div>
+                    <select name="이메일" class="ps_box" id="emailsecform">
+                        <option value="select">선택</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="google.com">google.com</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                    </select>
+                </div>
                 <span id="join_msg_email" class="color_red"></span>
 
 
-            <div>
-                E-mail 수신에 동의하시겠습니까?
-                <input type="radio">예
-                <input type="radio">아니오
-            </div>
+                <div>
+                    E-mail 수신에 동의하시겠습니까?
+                    <input type="radio">예
+                    <input type="radio">아니오
+                </div>
 
-            <div class="flex justify_flex_end align_items_center">
-                <input type="submit" value="회원가입 완료" class="p-10 join_btn_color"></a>
-            </div>
+                <div class="flex justify_flex_end align_items_center">
+                    <input type="submit" value="회원가입 완료" class="p-10 join_btn_color"></a>
+                </div>
 
-        </div>
+            </div>
         </div>
     </form>
 </th:block>

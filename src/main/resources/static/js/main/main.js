@@ -44,7 +44,7 @@ function slideShow() {
         index = 1;  //인덱스가 초과되면 1로 변경
     }
     x[index-1].style.display = "block";  //해당 인덱스는 block으로
-    setTimeout(slideShow, 4000);   //함수를 4초마다 호출
+    setTimeout(slideShow, 2000);   //함수를 4초마다 호출
 
 }
 
