@@ -17,16 +17,96 @@
                     <!--                    국내도서 클릭 했을 때 메뉴 -->
                     <div th:if="${category.equals('Book')}" id="menus">
                         <ul class="flex justify_space_around">
-                            <li ><a id="genre1" th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}" class="list_menu_click" th:text="ALL" ></a></li>
-                            <li><a id="genre2" th:href="@{/book/list(categoryBookjuck='국내도서>소설%',category='Book')}" class="list_menu_click">소설/시</a></li>
-                            <li><a id="genre3" th:href="@{/book/list(categoryBookjuck='국내도서>에세이%',category='Book')}" class="list_menu_click">에세이</a></li>
-                            <li><a id="genre4" th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%',category='Book')}" class="list_menu_click">자기 계발</a></li>
-                            <li><a id="genre5" th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%',category='Book')}" class="list_menu_click">경제/경영</a></li>
-                            <li><a id="genre6" th:href="@{/book/list(categoryBookjuck='국내도서>인문학%',category='Book')}" class="list_menu_click">인문</a></li>
-                            <li><a id="genre7" th:href="@{/book/list(categoryBookjuck='국내도서>역사%',category='Book')}" class="list_menu_click">역사</a></li>
-                            <li><a id="genre8" th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%',category='Book')}" class="list_menu_click">예술/문화</a></li>
-                            <li><a id="genre9" th:href="@{/book/list(categoryBookjuck='국내도서>과학%',category='Book')}" class="list_menu_click">과학/기술공학</a></li>
-                            <li><a id="genre10" th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}" class="list_menu_click">컴퓨터/IT</a></li>
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}">ALL</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서%',category='Book')}" class="border_b_bold">ALL</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>소설%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>소설%',category='Book')}">소설/시</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>소설%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>소설%',category='Book')}" class="border_b_bold">소설/시</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>에세이%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>에세이%',category='Book')}">에세이</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>에세이%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>에세이%',category='Book')}" class="border_b_bold">에세이</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>자기계발%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%',category='Book')}">자기 계발</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>자기계발%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>자기계발%',category='Book')}" class="border_b_bold">자기 계발</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>경제경영%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%',category='Book')}">경제/경영</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>경제경영%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>경제경영%',category='Book')}" class="border_b_bold">경제/경영</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>인문학%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>인문학%',category='Book')}">인문</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>인문학%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>인문학%',category='Book')}" class="border_b_bold">인문</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>역사%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>역사%',category='Book')}">역사</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>역사%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>역사%',category='Book')}" class="border_b_bold">역사</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>예술/대중문화%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%',category='Book')}">예술/문화</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>예술/대중문화%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>예술/대중문화%',category='Book')}" class="border_b_bold">예술/문화</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>과학%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>과학%',category='Book')}">과학/기술공학</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>과학%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>과학%',category='Book')}" class="border_b_bold">과학/기술공학</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('국내도서>컴퓨터/모바일%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}">컴퓨터/IT</a>
+                                </div>
+                                <div th:if="${bookCate.equals('국내도서>컴퓨터/모바일%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='국내도서>컴퓨터/모바일%',category='Book')}" class="border_b_bold">컴퓨터/IT</a>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
 
@@ -34,28 +114,86 @@
                     <!--                    해외도서 클릭했을 때 메뉴 -->
                     <div th:if="${category.equals('Foreign')}">
                         <ul class="flex justify_space_around">
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}">All</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%',category='Foreign')}">소설/시/희곡</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%',category='Foreign')}">예술/대중문화</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%',category='Foreign')}">인문/사회</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%',category='Foreign')}">컴퓨터</a></li>
-                            <li><a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%',category='Foreign')}">어린이</a></li>
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}">ALL</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서%',category='Foreign')}" class="border_b_bold">ALL</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서>소설/시/희곡%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%',category='Foreign')}">소설/시/희곡</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서>소설/시/희곡%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>소설/시/희곡%',category='Foreign')}" class="border_b_bold">소설/시/희곡</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서>예술/대중문화%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%',category='Foreign')}">예술/대중문화</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서>예술/대중문화%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>예술/대중문화%',category='Foreign')}" class="border_b_bold">예술/대중문화</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서>인문/사회%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%',category='Foreign')}">인문/사회</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서>인문/사회%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>인문/사회%',category='Foreign')}" class="border_b_bold">인문/사회</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서>컴퓨터%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%',category='Foreign')}">컴퓨터</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서>컴퓨터%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>컴퓨터%',category='Foreign')}" class="border_b_bold">컴퓨터</a>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div th:if="${!bookCate.equals('외국도서>어린이%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%',category='Foreign')}">어린이</a>
+                                </div>
+                                <div th:if="${bookCate.equals('외국도서>어린이%')}">
+                                    <a th:href="@{/book/list(categoryBookjuck='외국도서>어린이%',category='Foreign')}" class="border_b_bold">어린이</a>
+                                </div>
+                            </li>
 
                         </ul>
                     </div>
 
 
                     <hr class="m-t-10">
-                    <div class="m-t-10">
-                        <form action="">
+
+                    <div class="flex align_items_center">
+                        <div th:if="${category.equals('Book')}">
+                            <h4 class="font_bold">국내도서</h4>
+                        </div>
+
+                        <div th:if="${category.equals('Foreign')}">
+                            <h4 class="font_bold">해외도서</h4>
+                        </div>
+
+                        <div class="m-l-20">
                             <select name="정렬" id="sort">
                                 <option  value="not" id="sort0">정렬</option>
                                 <option value="new" id="sort1">최신순</option>
                                 <option value="popular" id="sort2">인기순</option>
                                 <option value="price" id="sort3">가격순</option>
                             </select>
-                        </form>
+                        </div>
                     </div>
+
+
                 </div>
 
                 <!--todo 한줄에 5개?정도만 들어가고 자동 줄바꿈 반응형으로 만들기!!-->
