@@ -62,8 +62,9 @@ function textLengthOverCut(ctnt, len, lastTxt) {
     return ctnt;
 }
 
+const searchFrmElem = document.querySelector('#search_frm');
+const searchDivElem = document.querySelector('#submit_div');
 
-//클릭 글자 클래스 주는 함수
-
-
-
+searchDivElem.addEventListener('click',()=>{
+    searchFrmElem.submit();
+})
