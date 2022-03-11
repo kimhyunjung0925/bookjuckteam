@@ -11,8 +11,16 @@
 
 <th:block layout:fragment="content">
     <!--아래에 faq는 js에서 쓰는 클래스 입니다. 절대 건들지 말기-->
-    <div class="flex-direc-column flex center">
-        <h4 class="m-t-20 m-b-20">자주 묻는 질문</h4>
+    <div class="flex-direc-column flex center m-t-20">
+        <div class="flex justify_content_center m-b-10 m-t-20">
+            <div><a href="/cscenter/notice"> 공지사항</a> </div>
+            <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+            <div><a href="/cscenter/faq" class="font_bold"> 자주묻는 질문 </a> </div>
+            <div>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+            <div><a href="/cscenter/complaint"> 1:1 문의 </a> </div>
+        </div>
+
+        <h2 class="m-b-20">자주 묻는 질문</h2>
 
         <div class="faq_menu container-lg" id="faq_menu">
             <div class="faqcategory_1 faq_click">배송문의</div>
