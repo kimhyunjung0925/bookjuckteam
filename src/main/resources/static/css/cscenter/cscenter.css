@@ -33,14 +33,7 @@
 }
 
 /* notice */
-.notice_table {
-    width: 100%;
 
-}
-
-.notice_table > table {
-    width: 900px;
-}
 
 .notice_table > table > tbody > tr {
     border-top: 1px solid #99bddd;

@@ -8,27 +8,30 @@
     <link rel="stylesheet" th:href="@{/css/cscenter/cscenter.css}">
 </head>
 <th:block layout:fragment="content">
-    <div class="center">
-        <div class="w-80 m-t-50">
-            <div class=" flex-direc-column center notice_table ">
-                <table>
+    <div class="w-100 flex center m-b-30">
+        <div class="w-70 m-t-50 ">
+            <div>
+                <a href="/cscenter/notice"><input type="button" value="목록으로 가기" class="m-b-10 btn_color"></a>
+            </div>
+            <div class=" flex-direc-column notice_table">
+                <table class="w-100">
                     <colgroup>
                         <col width="20%">
                         <col width="80%">
                     </colgroup>
                     <tbody>
                         <tr>
-                            <th class="p-10 text_center color_blue">제목</th>
+                            <th class="p-10 text_center" style="color: #5E6B92">제목</th>
                             <td class="p-lr-20"><strong th:text="${item.notice_title}"></strong></td>
                         </tr>
                         <tr>
-                            <th class="p-10 text_center color_blue">작성일</th>
+                            <th class="p-10 text_center" style="color: #5E6B92">작성일</th>
                             <td class="p-lr-20 color_grey"><span th:text="${item.notice_rdt}"></span></td>
                         </tr>
                     </tbody>
                 </table>
                 <hr>
-                <pre th:text="${item.notice_ctnt}" class="width900p"></pre>
+                <pre th:text="${item.notice_ctnt}" class="w-100 m-l-30"></pre>
             </div>
         </div>
     </div>

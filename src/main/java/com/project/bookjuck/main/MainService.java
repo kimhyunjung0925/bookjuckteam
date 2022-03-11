@@ -17,7 +17,7 @@ public class MainService {
         ApiSearchDto searchDto = new ApiSearchDto();
         searchDto.setType("Bestseller");
         searchDto.setSearchTarget("Book");
-        searchDto.setMaxResult(7);
+        searchDto.setMaxResult(5);
         return bookService.getData(searchDto,"https://www.aladin.co.kr/ttb/api/ItemList.aspx");
     }
 
