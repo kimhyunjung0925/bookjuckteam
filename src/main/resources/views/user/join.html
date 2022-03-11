@@ -13,9 +13,9 @@
 
 <th:block layout:fragment="userContent">
 
-    <form th:action="@{/user/join}" method="post" id="join-frm" th:object="${entity}" class="back_color_grey3">
+    <form th:action="@{/user/join}" method="post" id="join-frm" th:object="${entity}" class="back_color_grey3 ">
         <div class="flex center">
-            <div>
+            <div class="m-t-30">
                 <a href="/main"><img th:src="@{/upload/images/black.png}" class="main_logo"></a>
             </div>
         </div>
@@ -85,7 +85,7 @@
                     <input type="radio">아니오
                 </div>
 
-                <div class="flex justify_flex_end align_items_center">
+                <div class="flex justify_flex_end align_items_center m-b-30">
                     <input type="submit" value="회원가입 완료" class="p-10 join_btn_color"></a>
                 </div>
 

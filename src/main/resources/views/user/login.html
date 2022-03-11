@@ -14,12 +14,12 @@
     <div class="h-100 back_color_grey3">
     <form th:action="@{/user/login}" method="post"  th:object="${UserEntity}">
     <div class="grid h-100 align_content_center ">
-        <div class="flex center m-t-70 m-b-30">
+        <div class="flex center m-t-70 m-b-20">
             <a href="/main"><img th:src="@{/upload/images/black.png}" class="main_logo_large"></a>
         </div>
 
         <div class="flex center ">
-            <div class="border_box back_color_purple ">
+            <div class="border_box_login back_color_purple ">
                 <div class="p-ud-30 p-lr-100">
                     <div th:if="${param.error}" class="color_red" role="alert">
                         아이디나 패스워드가 일치하지 않습니다.
@@ -97,7 +97,7 @@
 
                                 <div class="btn_login_wrap m-t-20">
 
-                                    <button type="submit" class="btn_login" id="log.login">
+                                    <button type="submit" class="btn_login color_white font_bold" id="log.login">
                                         <span class="btn_text">로그인</span>
                                     </button>
 
