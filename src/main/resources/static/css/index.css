@@ -267,10 +267,27 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
     background-color: #576574   ;
 }
 
+.btn_color{
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border-radius: 0;
+    border: solid 1px #494949;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    background-color: #5E6B92;
+}
+
 .footer_hr{
     width: 90%;
     color: black;
+}
 
+.border_b_bold{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }
 
 

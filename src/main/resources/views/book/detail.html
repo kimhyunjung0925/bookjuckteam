@@ -72,7 +72,7 @@
 
             </div>
 
-            <div class="flex justify_content_center m-t-10 bookDetailInfoTable">
+            <div class="flex justify_content_center m-t-10 bookDetailInfoTable m-t-20">
                 <table>
                     <tr>
                         <th>ISBN</th>
@@ -93,12 +93,14 @@
                 </table>
             </div>
 
+<!--  //////////////////////////// 책소개 부분 ///////////////////////////-->
             <div class="w-100 flex justify_content_center">
                 <div class="w-80 ">
-                    <h1 class="m-t-10 color_blue">저자 소개</h1>
-                    <div class="grid border_box m-t-10 p-10">
+                    <h2 class="m-t-30 border_b_bold" >저자 소개</h2>
+
+                    <div class="grid border_box m-t-20 p-10">
                         <div class="flex back_color_grey4">
-                            <h5> 저 :</h5>
+                            <h5> 저자 :</h5>
                             <h5 th:text="${list.getSubInfo().getAuthors().get(0).getAuthorName()}"></h5>
                         </div>
                         <div>
@@ -106,44 +108,66 @@
                         </div>
                     </div>
 
-                    <hr>
 
-                    <h1 class="m-t-10 color_blue">책소개</h1>
+<!--  //////////////////////////// 책소개 부분 ///////////////////////////-->
+                    <h2 class="m-t-50 border_b_bold ">책소개</h2>
                     <div class="font_bold">이 책이 속한 분야 :  <span th:text="${list.getCategoryName}"></span></div>
                     <div th:text="${list.getDescription() }"></div>
                     <br>
                     <br>
 
-
+                    <!-- 줄거리 -->
                     <div th:if="${list.getFullDescription() != null and list.getFullDescription() != ''}">
                         <h3 >줄거리</h3>
                         <div th:utext="${list.getFullDescription()}"></div>
                         <br>
                         <br>
                     </div>
+                    <div th:if="${list.getFullDescription() == null or list.getFullDescription() == ''}">
+                        <h3 >줄거리</h3>
+                        <div>* 해당 상품 정보가 없습니다.</div>
+                        <br>
+                        <br>
+                    </div>
 
+                    <!-- 목차부분 -->
                     <div th:if="${list.getSubInfo().getToc() != null and list.getSubInfo().getToc() != ''}">
                         <h3>목차</h3>
                         <div th:utext="${list.getSubInfo().getToc()}"></div>
                         <br>
                         <br>
                     </div>
+                    <div th:if="${list.getSubInfo().getToc() == null or list.getSubInfo().getToc() == ''}">
+                        <h3>목차</h3>
+                        <div>* 해당 상품 정보가 없습니다.</div>
+                        <br>
+                        <br>
+                    </div>
 
+                    <!--  책속으로 -->
                     <div>
                         <h3>책속으로</h3>
-                        <div th:each="phrase : ${list.getSubInfo().getPhraseList()}">
+                        <div th:each="phrase : ${list.getSubInfo().getPhraseList()}" >
                             <div th:text="${phrase.getPageNo()}"></div>
                             <div th:utext="${phrase.getPhrase()}"></div>
                         </div>
                         <br>
-                        <hr>
                         <br>
                     </div>
 
+
+
+
+<!--  //////////////////////////// 출판사소개 부분 ///////////////////////////-->
                     <div th:if="${list.getFullDescription2() != null and list.getFullDescription2() != ''}">
-                    <h1 class="color_blue" >출판사 소개</h1>
+                    <h2 class="border_b_bold m-t-50" >출판사 소개</h2>
                     <div th:utext="${list.getFullDescription2()}"></div>
                     <br>
+                    </div>
+                    <div th:if="${list.getFullDescription2() == null or list.getFullDescription2() == ''}">
+                        <h2 class="border_b_bold m-t-50" >출판사 소개</h2>
+                        <div>* 해당 상품 정보가 없습니다.</div>
+                        <br>
                     </div>
                 </div>
             </div>
