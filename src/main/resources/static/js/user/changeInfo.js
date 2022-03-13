@@ -166,6 +166,8 @@
         if(confirm("주소를 변경 하시겠습니까?")){
             chagneAddr();
             addr_btn.type = 'hidden';
+            ps_box.classList.remove("back_color_grey4");
+            ps_box2.classList.remove("back_color_grey4");
 
             ps_box.addEventListener('click', ()=>{
 

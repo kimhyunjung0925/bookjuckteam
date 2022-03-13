@@ -42,5 +42,7 @@
         frmElem.confirmupw.addEventListener('keyup' , ()=>{
             msg3Elem.innerText = '';
         });
+
+        const idMsgElem = document.querySelector('#id_msg');
     }
 }

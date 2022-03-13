@@ -32,7 +32,7 @@ public class UserController {
 
     @PostMapping("/join")
     public String joinProc(UserVO vo){
-        System.out.println(vo);
+
         int result = service.join(vo);
         return "user/joinDone";
     }
@@ -70,7 +70,6 @@ public class UserController {
     public String changeInfoProc(UserEntity entity) {
         int result = service.changeUserInfo(entity);
         //주소만을 위해서 새로운 서비스가 필요할 것 같다.
-        System.out.println("==========이메일 가져오기 : "+ entity);
 
         return "user/mypage/changeInfo";
     }
@@ -80,7 +79,7 @@ public class UserController {
     @ResponseBody
     @GetMapping("/idChk/{uid}")
     public Map<String, Integer> idChk(@PathVariable String uid) {
-        System.out.println("uid :" + uid);
+
         Map<String, Integer> res = new HashMap<>();
         res.put("result", service.idChk(uid));
         return res;
