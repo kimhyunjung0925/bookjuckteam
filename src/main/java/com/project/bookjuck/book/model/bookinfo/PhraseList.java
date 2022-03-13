@@ -8,4 +8,5 @@ import lombok.Setter;
 public class PhraseList {
     private String pageNo;
     private String phrase;
+
 }
