@@ -69,7 +69,7 @@ public class BookController {
     @ResponseBody
     @GetMapping("/kor")
     public List<BookDto> bestListApi(@RequestParam("selectVal") String selectVal, @RequestParam("categoryBookjuck") String categoryBookjuck) {
-        System.out.println("카테코리이이이이"+categoryBookjuck);
+
         BookDto dto = new BookDto();
         dto.setSelectVal(selectVal);
         dto.setCategoryBookjuck(categoryBookjuck);
