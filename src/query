@@ -9,6 +9,7 @@ CREATE TABLE t_user (
    birth VARCHAR(20) NOT NULL,
    ph VARCHAR(12) NOT NULL,
    gender TINYINT NOT NULL CHECK(gender IN (1,2,3)),
+   auth VARCHAR(15) DEFAULT 'ROLE_USER',
    PRIMARY KEY (iuser)
 );
 
