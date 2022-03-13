@@ -149,6 +149,7 @@
                                 </div>
                             </li>
                         </ul>
+
                     </div>
                     </div>
                 </div>
@@ -226,10 +227,10 @@
         </div>
     </div>
 
-    <div class="justify_content_center flex ">
+    <div class="justify_content_center flex">
         <div class="flex-direc-column">
             <div class="font_size_larger font_bold m-b-10">이달의 도서</div>
-            <ul class="monthbook_box ">
+            <ul class="monthbook_box">
                 <li th:each="list : ${monthBook}" class="monthbook_box_info">
                     <div>
                         <a th:href="@{/book/detail(isbn=${list.isbn})}"><img th:src="${list.cover}" class="book_img_1318"></a>
