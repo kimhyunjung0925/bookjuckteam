@@ -1,9 +1,13 @@
 package com.project.bookjuck.user;
 
+import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.Const;
+import com.project.bookjuck.book.model.BookDto;
+import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.user.model.UserDto;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -21,6 +26,8 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @Autowired
+    AuthenticationFacade authenticationFacade;
 
     @GetMapping("/login")
     public void login(@ModelAttribute("UserEntity") UserEntity entity){
@@ -75,6 +82,20 @@ public class UserController {
     }
 
 
+    //내 문의
+    @GetMapping("/mypage/myComplain")
+    public String myComplain(ComplaintEntity entity, Model model) {
+        List<ComplaintEntity> list = service.selComplain(entity);
+        model.addAttribute(Const.Complain, list);
+        return "user/mypage/myComplain";
+    }
+
+
+    @PostMapping("/mypage/myComplain")
+    public String myComplainProc() {
+        return "user/mypage/myComplain";
+    }
+
 
     @ResponseBody
     @GetMapping("/idChk/{uid}")
@@ -93,7 +114,6 @@ public class UserController {
     public String changePwProc(UserDto dto, RedirectAttributes rtta) {
         int result = service.changePw(dto);
         if(result != 1) {
-            System.out.println(result);
             switch(result) {
                 case 0:
                     rtta.addFlashAttribute(Const.MSG, "비밀번호 변경에 실패하였습니다.");

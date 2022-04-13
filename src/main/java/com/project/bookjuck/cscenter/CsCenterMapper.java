@@ -13,4 +13,9 @@ public interface CsCenterMapper {
     int inscomplaint(ComplaintEntity entity);
     List<NoticeEntity> selNotice();
     NoticeEntity selItemNotice(NoticeEntity entity);
+
+
+
+
+
 }

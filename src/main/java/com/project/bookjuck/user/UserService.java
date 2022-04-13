@@ -1,6 +1,8 @@
 package com.project.bookjuck.user;
 
 import com.project.bookjuck.AuthenticationFacade;
+import com.project.bookjuck.cscenter.model.ComplaintEntity;
+import com.project.bookjuck.cscenter.model.FaqEntity;
 import com.project.bookjuck.user.model.UserDto;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,7 +35,7 @@ public class UserService {
         UserVO voresult = new UserVO();
         vo.setEmail(voresult.totalEmail(vo.getEmail1(), vo.getEmail2()));
         vo.setAddr(vo.totalAddr());
-        System.out.println(vo.getAddr());
+
         String hashedUpw = passwordEncoder.encode(vo.getUpw());
         vo.setUpw(hashedUpw);
         try {
@@ -52,7 +55,7 @@ public class UserService {
         Pattern pattern = Pattern.compile("^[a-z]+[a-z0-9]{4,9}$");
         Matcher matcher = pattern.matcher(uid);
 
-        if(!matcher.find()){
+        if (!matcher.find()) {
             return 3;
         }
 
@@ -64,7 +67,7 @@ public class UserService {
         dto.setIuser(authenticationFacade.getLoginUserPk());
         UserEntity dbUser = mapper.selPw(dto);
 
-        if(!passwordEncoder.matches(dto.getCurrentupw(), dbUser.getUpw())) {
+        if (!passwordEncoder.matches(dto.getCurrentupw(), dbUser.getUpw())) {
             return 2; //현재비밀번호 다름
         }
 
@@ -74,24 +77,23 @@ public class UserService {
     }
 
     //-------유저 정보 수정
-    public int changeUserInfo(UserEntity entity){
+    public int changeUserInfo(UserEntity entity) {
         entity.setIuser(authenticationFacade.getLoginUserPk());
-
-
-        try{
+        try {
             int result = mapper.updUser(entity);
-
-
             return result;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return 0;
     }
 
+    //----------내 문의 내역
 
-
-
+    public List<ComplaintEntity> selComplain(ComplaintEntity entity){
+        entity.setIuser(authenticationFacade.getLoginUserPk());
+        return mapper.selComplain(entity);
+    }
 
 }

@@ -46,11 +46,18 @@
         </if>
     </select>
 
+    <!-- 1대1문의글 불러오는 곳-->
+    <select id="selComplain" resultType="com.project.bookjuck.cscenter.model.ComplaintEntity">
+        SELECT *
+        FROM t_complaint A
+        LEFT JOIN t_user B
+        ON A.iuser = B.iuser
+        WHERE A.iuser = ${iuser}
+    </select>
+
     <update id="updUser">
         UPDATE t_user
-        SET email = #{email},
-            addr  = #{addr}
-
+        SET email = #{email}, addr  = #{addr}
         where iuser = ${iuser}
     </update>
 

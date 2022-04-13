@@ -1,0 +1,49 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="user/thymeleaf_userlayout">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/user/mypage.css}">
+    <script defer th:src="@{/js/user/myComplain.js}"></script>
+</head>
+
+<th:block layout:fragment="userContent">
+    <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
+    <div class="flex justify_content_center h-100 m-t-70">
+        <div class="width900p">
+            <div class="complain_head m-b-30">내 문의 내역</div>
+
+            <table class="w-100">
+                <colgroup>
+
+                    <col width="50%">
+                    <col width="50%">
+                </colgroup>
+
+                <tr class="back_color_grey2">
+                    <th> 내용 </th>
+                    <th> 진행상황 </th>
+                </tr>
+
+                <div th:each="list : ${complain}" >
+                    <tr class="back_color_white ">
+                        <td th:text="${list.com_ctnt}">
+
+                        </td>
+
+                        <td>
+                            <div class="flex center"> 미답변 </div>
+                        </td>
+                    </tr>
+
+                </div>
+
+
+            </table>
+        </div>
+    </div>
+</th:block>
+
+
