@@ -25,6 +25,22 @@ table td:nth-child(2) {text-align: left;  vertical-align: middle;}
 }
 
 
+/* 내 문의 내역 */
+.complain_head{
+    text-align: center;
+    background: #b1bac4;
+    border: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    height: 41px;
+    line-height: 40px;
+}
+
+
+
+
+
+
 /*회원 정보 변경*/
 
 .text_box{

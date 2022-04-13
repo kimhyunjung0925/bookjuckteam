@@ -1,8 +1,12 @@
 package com.project.bookjuck.user;
 
+import com.project.bookjuck.cscenter.model.ComplaintEntity;
 import com.project.bookjuck.user.model.UserEntity;
 import com.project.bookjuck.user.model.UserVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.tomcat.jni.User;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -17,5 +21,5 @@ public interface UserMapper {
     //유저정보 업데이트
     int updUser(UserEntity entity);
 
-
+    List<ComplaintEntity> selComplain(ComplaintEntity entity);
 }
