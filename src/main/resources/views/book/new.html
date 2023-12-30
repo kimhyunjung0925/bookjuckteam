@@ -38,7 +38,7 @@
                             <div class="width200p flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>
-                                    <h5 th:text="${list.priceStandard +'원'}" class="color_red font_bold"></h5>
+                                    <h5 th:text="${list.getFormattedPrice +'원'}" class="color_red font_bold"></h5>
                                 </div>
                                 <div class="flex-direc-column m-2">
                                     <input type="button" value="장바구니 담기" class="cart_btn">

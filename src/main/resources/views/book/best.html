@@ -18,10 +18,21 @@
                     <h3>베스트 셀러</h3>
                     <div class="flex m-t-10">
                         <div class="pe-2">
-                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}">국내도서</a>
+                            <div th:if="${!bestCate.equals('Book')}">
+                                <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}">국내도서</a>
+                            </div>
+                            <div th:if="${bestCate.equals('Book')}">
+                                <a th:href="@{/book/best(startIdx=1,SearchTarget='Book')}" class="border_b_bold">국내도서</a>
+                            </div>
                         </div>
-                        <div>
-                            <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}">외국도서</a>
+
+                        <div class="m-l-10">
+                            <div th:if="${!bestCate.equals('Foreign')}">
+                                <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}">외국도서</a>
+                            </div>
+                            <div th:if="${bestCate.equals('Foreign')}">
+                                <a th:href="@{/book/best(startIdx=1,SearchTarget='Foreign')}" class="border_b_bold">외국도서</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +50,7 @@
                             <div class="best_box_info flex-direc-column align_items_center">
                                 <a th:href="@{/book/detail(isbn=${list.get(0).getIsbn()})}"><strong th:text="${list.get(0).getTitle()}" class="text_multiline"></strong></a>
                                 <p th:text="${list.get(0).getAuthor()}" class="text_oneline"></p>
-                                <p th:text="${list.get(0).getPriceStandard()+'원'}" class="color_red"></p>
+                                <p th:text="${list.get(0).getFormattedPrice()+'원'}" class="color_red"></p>
                             </div>
                         </li>
                         <li class="flex-direc-column center">
@@ -48,9 +59,10 @@
                                 <div><a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><img th:src="${list.get(1).getCover()}" class="book_img_1318"></a></div>
                             </div>
                             <div class="best_box_info flex-direc-column align_items_center">
+
                                 <a th:href="@{/book/detail(isbn=${list.get(1).getIsbn()})}"><strong th:text="${list.get(1).getTitle()}" class="text_multiline"></strong></a>
                                 <p th:text="${list.get(1).getAuthor()}" class="text_oneline"></p>
-                                <p th:text="${list.get(1).getPriceStandard()+'원'}" class="color_red"></p>
+                                <p th:text="${list.get(1).getFormattedPrice()+'원'}" class="color_red"></p>
                             </div>
                         </li>
                         <li class="flex-direc-column center">
@@ -61,7 +73,7 @@
                             <div class="best_box_info flex-direc-column align_items_center">
                                 <a th:href="@{/book/detail(isbn=${list.get(2).getIsbn()})}"><strong th:text="${list.get(2).getTitle()}" class="text_multiline"></strong></a>
                                 <p th:text="${list.get(2).getAuthor()}" class="text_oneline"></p>
-                                <p th:text="${list.get(2).getPriceStandard()+'원'}" class="color_red"></p>
+                                <p th:text="${list.get(2).getFormattedPrice()+'원'}" class="color_red"></p>
                             </div>
                         </li>
                     </ul>
@@ -88,7 +100,7 @@
                             <div class="width200p flex-direc-column center">
                                 <div class="flex">
                                     <div >판매가:</div>
-                                    <h5 th:text="${list.priceStandard+'원'}" class="color_red font_bold"></h5>
+                                    <h5 th:text="${list.getFormattedPrice+'원'}" class="color_red font_bold"></h5>
                                 </div>
                                 <div class="flex-direc-column m-2">
                                     <input type="button" value="장바구니 담기" class="cart_btn">
@@ -104,5 +116,7 @@
         </div>
     </div>
 
-    <script src="/js/book/best.js"></script>
+    <script src="/js/book/best.js">
+
+    </script>
 </th:block>
