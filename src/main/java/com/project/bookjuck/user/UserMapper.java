@@ -14,6 +14,7 @@ public interface UserMapper {
     UserEntity selUser(UserEntity entity);
     UserEntity selPw(UserEntity entity);
     int updPw(UserEntity entity);
+    int delUser(UserEntity entity);
 
     //주소를 나눠받기위한 개지랄
     UserVO selUser2(UserEntity entity);

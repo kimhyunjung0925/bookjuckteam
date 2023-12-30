@@ -15,8 +15,14 @@ public class BookDto {
     private String isbn;
     private String isbn13;
     private int itemId;
+
     private int priceStandard;
+    public String getFormattedPrice() {
+        return String.format("%,d", priceStandard);
+    }
+
     private String cover;
+
     private int categoryId;
     private String publisher;
     private boolean adult;

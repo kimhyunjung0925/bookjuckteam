@@ -8,5 +8,6 @@ import lombok.Setter;
 public class UserDto extends UserEntity{
     private String currentupw;
     private String currentEmail;
+    private String currentuid;
 }
 ;

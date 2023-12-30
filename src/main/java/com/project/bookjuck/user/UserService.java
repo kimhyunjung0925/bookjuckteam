@@ -27,6 +27,8 @@ public class UserService {
     @Autowired
     AuthenticationFacade authenticationFacade;
 
+
+    //----------회원가입
     public int join(UserVO vo) {
         //유효성 검사
         //String hashedUpw = BCrypt.hashpw(entity.getUpw(), BCrypt.gensalt());
@@ -62,6 +64,18 @@ public class UserService {
         return result == null ? 1 : 0;
     }
 
+    //-------유저 정보 수정
+    public int changeUserInfo(UserEntity entity) {
+        entity.setIuser(authenticationFacade.getLoginUserPk());
+        try {
+            int result = mapper.updUser(entity);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     //-------비밀번호
     public int changePw(UserDto dto) {
         dto.setIuser(authenticationFacade.getLoginUserPk());
@@ -76,21 +90,20 @@ public class UserService {
         return mapper.updPw(dto);
     }
 
-    //-------유저 정보 수정
-    public int changeUserInfo(UserEntity entity) {
-        entity.setIuser(authenticationFacade.getLoginUserPk());
-        try {
-            int result = mapper.updUser(entity);
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    //--------회원탈퇴
+    public int leaveUser(UserDto dto) {
+        dto.setIuser(authenticationFacade.getLoginUserPk());
+        UserEntity dbUser = mapper.selUser(dto);
 
-        return 0;
+        if (!passwordEncoder.matches(dto.getCurrentupw(), dbUser.getUpw())) {
+            return 2; //현재비밀번호 다름
+        }
+        String hashedUpw = passwordEncoder.encode(dto.getUpw());
+        dto.setUpw(hashedUpw);
+        return mapper.delUser(dto);
     }
 
     //----------내 문의 내역
-
     public List<ComplaintEntity> selComplain(ComplaintEntity entity){
         entity.setIuser(authenticationFacade.getLoginUserPk());
         return mapper.selComplain(entity);

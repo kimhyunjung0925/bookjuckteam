@@ -61,4 +61,9 @@
         where iuser = ${iuser}
     </update>
 
+    <delete id="delUser">
+        delete FROM t_user
+        WHERE upw = ${upw} AND iuser = ${iuser}
+    </delete>
+
 </mapper>

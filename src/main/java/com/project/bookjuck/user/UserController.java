@@ -29,35 +29,56 @@ public class UserController {
     @Autowired
     AuthenticationFacade authenticationFacade;
 
+
+    //---------------로그인
     @GetMapping("/login")
     public void login(@ModelAttribute("UserEntity") UserEntity entity){
-
     }
 
+    //------------회원가입
     @GetMapping("/join")
     public void join(@ModelAttribute("entity") UserVO vo){}
 
     @PostMapping("/join")
     public String joinProc(UserVO vo){
-
         int result = service.join(vo);
         return "user/joinDone";
     }
 
+    //---------------로그아웃
     @GetMapping("/logout")
     public String logout(HttpSession hs){
         hs.invalidate();
         return "redirect:/main";
     }
 
+    //--------------회원 탈퇴
     @GetMapping("/leave")
-    public String leave() {
+    public String leave() { return "user/leave"; }
+
+    @PostMapping("/leave")
+    public String leaveProc(UserDto dto, RedirectAttributes rtta) {
+        int result = service.leaveUser(dto);
+        if(result != 1) {
+            switch(result) {
+                case 0:
+                    rtta.addFlashAttribute(Const.MSG, "비밀번호 변경에 실패하였습니다.");
+                    break;
+                case 2:
+                    rtta.addFlashAttribute(Const.MSG, "현재 비밀번호를 확인해 주세요.");
+                    break;
+            }
+            return "redirect:/user/leave";
+        }
+        //주소만을 위해서 새로운 서비스가 필요할 것 같다.
         return "user/leave";
     }
 
     @GetMapping("/leaveDone")
     public String leaveDone(){ return "user/leaveDone"; }
 
+
+    //-------------
     @GetMapping("mypage")
     public String mypage() {
         return "user/mypage";
@@ -68,6 +89,8 @@ public class UserController {
         return "user/pcHistory";
     }
 
+
+    //--------------내 정보 수정
     @GetMapping("/mypage/changeInfo")
     public String changeInfo() {
         return "user/mypage/changeInfo";
@@ -77,12 +100,11 @@ public class UserController {
     public String changeInfoProc(UserEntity entity) {
         int result = service.changeUserInfo(entity);
         //주소만을 위해서 새로운 서비스가 필요할 것 같다.
-
         return "user/mypage/changeInfo";
     }
 
 
-    //내 문의
+    //-------------내 문의
     @GetMapping("/mypage/myComplain")
     public String myComplain(ComplaintEntity entity, Model model) {
         List<ComplaintEntity> list = service.selComplain(entity);
@@ -90,13 +112,13 @@ public class UserController {
         return "user/mypage/myComplain";
     }
 
-
     @PostMapping("/mypage/myComplain")
     public String myComplainProc() {
         return "user/mypage/myComplain";
     }
 
 
+    //------------아이디 체크
     @ResponseBody
     @GetMapping("/idChk/{uid}")
     public Map<String, Integer> idChk(@PathVariable String uid) {
