@@ -43,6 +43,7 @@ public class BookController {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨
         List<BookDto> list = service.bestBookList(searchDto);
         model.addAttribute("list", list);
+        model.addAttribute("bestCate",searchDto.getSearchTarget());
         return "book/best";
     }
 

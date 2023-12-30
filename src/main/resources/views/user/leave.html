@@ -12,20 +12,33 @@
 <th:block layout:fragment="userContent">
 
         <!--서브메뉴 아이템 클릭시 마이페이지 디테일창-->
-        <!--회원정보 수정-->
+        <!--회원탈퇴-->
         <div class="flex center back_color_purple h-100">
             <div class="width500p">
-                <div class="leave_head m-b-30">회원탈퇴</div>
+                <form th:action="@{/user/leave}" method="post" id="info-frm">
+                    <div class="leave_head m-b-30">회원탈퇴</div>
 
-                <div><input type="text" placeholder="아이디를 입력해 주세요." class="text_box"></div>
-                <div><input type="password" placeholder="비밀번호를 입력해 주세요." class="text_box"></div>
+                    <div class="m-b-10">
+                        <input type="text" th:value="${@utils.getLoginUser().getUid()}" class="text_box m-r-10 back_color_grey4">
+                    </div>
 
-                <div class="flex justify_flex_end ">
-                    <a href="/user/leaveDone"><input type="submit" value="회원탈퇴" class="leave_btn"></a>
-                </div>
+                    <div class="m-b-10">
+                        <input type="text" readonly  th:value="${@utils.getLoginUser().getEmail()}" class="text_box m-r-10 back_color_grey4" id="email_text" name='email'>
+                    </div>
+
+                    <div class="m-b-10">
+                        <input type="password" placeholder="현재 비밀번호를 입력해 주세요." class="text_box" name="currentupw">
+                    </div>
+
+                    <div th:text="${msg}" class="color_red"></div>
+
+                    <div class="flex justify_flex_end ">
+                        <a href="/user/leaveDone"><input type="submit" value="회원탈퇴" class="leave_btn"></a>
+                    </div>
 <!--                회원 탈퇴 버튼 누르면 정말로 탈퇴 하겠습니까? 메세지 뜨게 하기!!!!  -->
+                </form>
             </div>
         </div>
-
+    <script th:src="@{/js/user/leave.js}"></script>
 
 </th:block>
