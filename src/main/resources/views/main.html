@@ -144,7 +144,7 @@
                                     <div class="best-info">
                                         <div th:text="${list.title}" class="text_multiline font_bold"></div>
                                         <div th:text="${list.author}" class="text_oneline"></div>
-                                        <strong th:text="${list.priceStandard} +'원'" ></strong>
+                                        <strong th:text="${list.getFormattedPrice} +'원'" ></strong>
                                     </div>
                                 </div>
                             </li>
@@ -169,7 +169,7 @@
                                     <div class="best-info">
                                         <div th:text="${list.title}" class="text_multiline font_bold"></div>
                                         <div th:text="${list.author}"  class="text_oneline"></div>
-                                        <strong th:text="${list.priceStandard} +'원'"></strong>
+                                        <strong th:text="${list.getFormattedPrice} +'원'"></strong>
                                     </div>
                                 </div>
                             </li>
@@ -192,7 +192,7 @@
                                     <div class="best-info">
                                         <div th:text="${list.title}" class="text_multiline font_bold"></div>
                                         <div th:text="${list.author}" class="text_oneline"></div>
-                                        <strong th:text="${list.priceStandard} +'원'"></strong>
+                                        <strong th:text="${list.getFormattedPrice} +'원'"></strong>
                                     </div>
                                 </div>
                             </li>
@@ -215,7 +215,7 @@
                                     <div class="best-info">
                                         <div th:text="${list.title}" class="text_multiline font_bold"></div>
                                         <div th:text="${list.author}" class="text_oneline"></div>
-                                        <strong th:text="${list.priceStandard} +'원'" ></strong>
+                                        <strong th:text="${list.getFormattedPrice} +'원'" ></strong>
                                     </div>
                                 </div>
                             </li>
