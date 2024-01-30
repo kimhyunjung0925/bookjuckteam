@@ -33,9 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
         http
-                //"/main"
                 .authorizeRequests()
-                .antMatchers( "/css/**", "/js/**", "/upload/images/**"
+                .antMatchers("/","/main", "/css/**", "/js/**", "/upload/images/**"
                         , "/cart","/cscenter/faq/**",  "/book/**"
                         , "/cscenter/notice/**","/ajax/cscenter/**", "/user/join","/user/idChk/**").permitAll()
                 .anyRequest().authenticated()
