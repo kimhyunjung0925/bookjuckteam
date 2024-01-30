@@ -42,8 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/user/login")
                 .loginProcessingUrl("/user/login")
-                .usernameParameter("uid")   // 아이디랑 우리테이블 아이디 이름 매치
-                .passwordParameter("upw") // 패스워드랑 우리테이블 패스워드 이름 매치
+                .usernameParameter("uid")   // 아이디랑 우리 테이블 아이디 이름 매치
+                .passwordParameter("upw") // 패스워드랑 우리 테이블 패스워드 이름 매치
                 .defaultSuccessUrl("/main",true) //로그인 성공하면 어디로 갈건지
                 .permitAll()
                 .and()
