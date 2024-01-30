@@ -24,14 +24,14 @@ public class BookjuckApplication {
         SpringApplication.run(BookjuckApplication.class, args);
     }
 
-    @Controller
-    public static class MainRedirectController {
-
-        @GetMapping("/")
-        public String redirectToMain() {
-            return "/main";
-        }
-    }
+//    @Controller
+//    public static class MainRedirectController {
+//
+//        @GetMapping("/")
+//        public String redirectToMain() {
+//            return "/main";
+//        }
+//    }
 
 //    @Configuration
 //    public static class ApplicationReadyListener {
