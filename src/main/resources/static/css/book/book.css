@@ -27,24 +27,36 @@
     width: 200px;
     height: 200px;
     overflow: hidden;
+}
 
+.order_PM_btn{
+    display: flex;
+    /*align-items: center;*/
+    /*align-content: center;*/
+    /*flex-direction: column;*/
+    font-size: 30px;
+    /*padding-top: 0px;*/
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    /*padding-bottom: 10px;*/
+    padding:13px;
+    /*margin: 10px;*/
 }
 
 .order_btn{
     display: flex;
     flex-direction: column;
-
 }
 
 .order_btn2{
     display: flex;
     margin-top: 20px;
-
 }
 
 .text_width{
-    margin-left: 10px;
-    width: 100px;
+    /*margin-left: 10px;*/
+    width: 80px;
+    text-align: center;
 }
 
 .order_btn3{
@@ -58,6 +70,7 @@
     color: black;
     text-align: center;
     background-color: rgb(165, 187, 234);
+    font-size: large;
 }
 
 .order_btn4{
@@ -68,9 +81,10 @@
     border-radius: 0;
     border: solid 0 #494949;
     box-sizing: border-box;
-    color: white;
+    /*color: white;*/
     text-align: center;
     background-color: #786fa6;
+    font-size: large;
 }
 
 
@@ -125,4 +139,54 @@ margin-top: 4px;
     font-weight: bold;
     color: red;
 }
+
+/*하단바*/
+
+.order_box{
+    /*margin:5px;*/
+
+    text-align: center;
+    font-size:30px;
+    line-height: 10px;
+    border:solid 1px black;
+    position:sticky;
+    top:90%;
+}
+
+.order_box_btn {
+    display: flex;
+    float: left;
+}
+
+.order_minus_btn{
+    height: 45px;
+    line-height: 10px;
+    border:solid 1px black;
+    border-right: 0px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: white;
+
+}
+
+.order_plus_btn{
+    height: 45px;
+    line-height: 10px;
+    border:solid 1px black;
+    border-left: 0px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: white;
+
+}
+
+.order_qty_input {
+    height: 45px;
+    line-height: 10px;
+    border: solid 1px black;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: white;
+}
+
+
+
 

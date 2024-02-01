@@ -48,20 +48,7 @@
                         <hr>
                     </div>
 
-                    <div class="flex align_items_center">
-                    <div class="order_btn_box m-l-30">
-                        <div class="order_btn2 center">
-                            <div>주문수량</div>
-                            <div><input type="text" class="text_width" th:value="1" style="text-align: center"></div>
-                        </div>
-                        <div class="order_btn center">
-                            <div class="m-t-10"><input type="button" value="장바구니 담기"
-                                                       class="order_btn3" ></div>
-                            <div class="m-t-10"><input type="button" value="바로구매" class="order_btn4">
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -160,9 +147,6 @@
                         <br>
                     </div>
 
-
-
-
                     <!--  //////////////////////////// 출판사소개 부분 ///////////////////////////-->
                     <div th:if="${list.getFullDescription2() != null and list.getFullDescription2() != ''}">
                         <h2 class="border_b_bold m-t-50" >출판사 소개</h2>
@@ -179,6 +163,56 @@
         </div>
     </div>
 
+    <nav class="order_box flex justify_content_center" style="position: fixed; width:100%; height:69px; background-color: white">
+        <div style="width: 80%; " class="flex align_items_center">
+
+<!--    ** 책가격 정보     -->
+            <div style="width: 60%;" class="flex justify_flex_center" >
+                <div class="flex align_items_center m-r-50">
+                    <div>정가 : &nbsp;</div>
+                    <div>
+                        <h2 name="orderPrice" type="hidden" th:value="${list.getFormattedPrice() +'원'}"></h2>
+                        <h2 id="my_sum" style="font-weight: bold;" class="color_red" th:text="${list.getFormattedPrice() +'원'}">
+
+                        </h2>
+
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="center">
+                        <input onclick="del()" id="orderMinus" style="font-weight: bold;" type="button" value="-" class="center order_PM_btn order_minus_btn" >
+                    </div>
+
+                    <input id ="orderQty" type="text" class="text_width order_qty_input" th:value="1" >
+
+                    <div class="center">
+                        <input onclick="add()"  id="orderPlus" style="font-weight: bold;" type="button" value="+" class="order_PM_btn order_plus_btn" >
+                    </div>
+                </div>
+            </div>
+
+            <div style="width: 40%" class="flex justify_flex_end" >
+                <div class="flex align_items_center">
+                    <div class="m-l-10">
+                        <input type="button" value="장바구니 담기" class="order_btn3" >
+                    </div>
+
+                    <div>
+                        <input type="button" value="바로구매" class="order_btn4">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </nav>
+
+
+
     <script src="/js/book/book.js"></script>
 
 </th:block>
+

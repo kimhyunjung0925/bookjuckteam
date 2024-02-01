@@ -122,9 +122,13 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 
 .align_flex_start {align-items: flex-start; }
 .align_flex_end {align-items: flex-end; }
+
 .align_items_start { align-items: flex-start; }
 .align_items_center { align-items: center; }
+
+.align_content_start { align-content: start;}
 .align_content_center { align-content: center;}
+.align_content_end { align-content: end;}
 
 .place_center {place-items: center;}
 
