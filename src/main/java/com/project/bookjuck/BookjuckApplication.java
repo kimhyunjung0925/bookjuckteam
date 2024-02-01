@@ -32,12 +32,4 @@ public class BookjuckApplication {
         }
     }
 
-//    @Configuration
-//    public static class ApplicationReadyListener {
-//
-//        @EventListener(ContextRefreshedEvent.class)
-//        public void onApplicationReady() {
-//            // 애플리케이션 실행 시 필요한 초기화 작업을 수행할 수 있음
-//        }
-//    }
 }
