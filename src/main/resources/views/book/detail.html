@@ -42,7 +42,7 @@
                             <div>배송비 : &nbsp;</div>
                             <div>
                                 <h4 th:if="${list.getPriceStandard()>30000}">무료배송</h4>
-                                <h4 th:if="${list.getPriceStandard()<30000}">4,000원</h4>
+                                <h4 th:if="${list.getPriceStandard()<30000}">4,000원 (30,000원 이상 구매 시 무료)</h4>
                             </div>
                         </div>
                         <hr>
@@ -167,50 +167,47 @@
         <div style="width: 80%; " class="flex align_items_center">
 
 <!--    ** 책가격 정보     -->
-            <div style="width: 60%;" class="flex justify_flex_center" >
+            <div style="width: 40%;" class="flex justify_flex_center" >
                 <div class="flex align_items_center m-r-50">
-                    <div>정가 : &nbsp;</div>
+                    <div style="font-size: large;">총 상품 금액 : &nbsp;</div>
                     <div>
-                        <h2 name="orderPrice" type="hidden" th:value="${list.getFormattedPrice() +'원'}"></h2>
-                        <h2 id="my_sum" style="font-weight: bold;" class="color_red" th:text="${list.getFormattedPrice() +'원'}">
-
-                        </h2>
-
+<!--                    thymeleaf에서 js 변수 사용시 input에 담아 히든처리.. 다른방법도 있음    -->
+                        <input type = "hidden" id="orderPrice" th:value="${list.priceStandard}">
+                        <span style="font-weight: bold;" class="color_red" id="totalPrice" th:text="${list.getFormattedPrice() +'원'}"></span>
+<!--                        <h2 id="my_sum" style="font-weight: bold;" class="color_red" th:text="${list.getFormattedPrice() +'원'}"></h2>-->
                     </div>
                 </div>
 
-                <div class="flex">
+
+            </div>
+
+            <div style="width: 60%" class="flex justify_flex_end" >
+                <div class="flex m-l-30">
                     <div class="center">
-                        <input onclick="del()" id="orderMinus" style="font-weight: bold;" type="button" value="-" class="center order_PM_btn order_minus_btn" >
+                        <input onclick="changeQuantity(-1)" id="orderMinus" style="font-weight: bold;" type="button" value="-" class="center order_PM_btn order_minus_btn" >
                     </div>
 
                     <input id ="orderQty" type="text" class="text_width order_qty_input" th:value="1" >
 
                     <div class="center">
-                        <input onclick="add()"  id="orderPlus" style="font-weight: bold;" type="button" value="+" class="order_PM_btn order_plus_btn" >
+                        <input onclick="changeQuantity(+1)"  id="orderPlus" style="font-weight: bold;" type="button" value="+" class="order_PM_btn order_plus_btn" >
                     </div>
                 </div>
-            </div>
 
-            <div style="width: 40%" class="flex justify_flex_end" >
                 <div class="flex align_items_center">
                     <div class="m-l-10">
-                        <input type="button" value="장바구니 담기" class="order_btn3" >
+                        <input type="button" value="장바구니 담기" class="order_btn3 m-l-30" >
                     </div>
 
                     <div>
-                        <input type="button" value="바로구매" class="order_btn4">
+                        <input type="button" value="바로구매" class="order_btn4 m-l-10">
                     </div>
 
                 </div>
             </div>
         </div>
 
-
-
     </nav>
-
-
 
     <script src="/js/book/book.js"></script>
 
