@@ -177,8 +177,6 @@
 <!--                        <h2 id="my_sum" style="font-weight: bold;" class="color_red" th:text="${list.getFormattedPrice() +'원'}"></h2>-->
                     </div>
                 </div>
-
-
             </div>
 
             <div style="width: 60%" class="flex justify_flex_end" >
@@ -187,7 +185,7 @@
                         <input onclick="changeQuantity(-1)" id="orderMinus" style="font-weight: bold;" type="button" value="-" class="center order_PM_btn order_minus_btn" >
                     </div>
 
-                    <input id ="orderQty" type="text" class="text_width order_qty_input" th:value="1" >
+                    <input id ="orderQty" type="text" class="text_width order_qty_input" value="1" >
 
                     <div class="center">
                         <input onclick="changeQuantity(+1)"  id="orderPlus" style="font-weight: bold;" type="button" value="+" class="order_PM_btn order_plus_btn" >
