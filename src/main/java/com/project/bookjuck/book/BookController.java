@@ -36,8 +36,6 @@ public class BookController {
         return "book/list";
     }
 
-
-
     @GetMapping("/best")
     public String bestList(ApiSearchDto searchDto,@ModelAttribute(value="selectVal") String selectVal, Model model) {
         searchDto.setCategory("best"); //list.html 링크 변수에 넣기 위해서 따로 넣어줌. category에 겟매핑 주소 쓰면 됨

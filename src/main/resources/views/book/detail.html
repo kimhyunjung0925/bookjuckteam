@@ -172,6 +172,7 @@
                     <div style="font-size: large;">총 상품 금액 : &nbsp;</div>
                     <div>
 <!--                    thymeleaf에서 js 변수 사용시 input에 담아 히든처리.. 다른방법도 있음    -->
+                        <input type = "hidden" id="itemId" th:value="${list.getItemId()}">
                         <input type = "hidden" id="orderPrice" th:value="${list.priceStandard}">
                         <span style="font-weight: bold;" class="color_red" id="totalPrice" th:text="${list.getFormattedPrice() +'원'}"></span>
 <!--                        <h2 id="my_sum" style="font-weight: bold;" class="color_red" th:text="${list.getFormattedPrice() +'원'}"></h2>-->
@@ -194,7 +195,7 @@
 
                 <div class="flex align_items_center">
                     <div class="m-l-10">
-                        <input type="button" value="장바구니 담기" class="order_btn3 m-l-30" >
+                        <input onclick="addCart()" type="button" value="장바구니 담기" class="order_btn3 m-l-30" >
                     </div>
 
                     <div>

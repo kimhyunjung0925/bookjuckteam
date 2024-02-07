@@ -13,6 +13,7 @@ const myFetch = {
         return this.send(fetch(url), cb);
     },
     post: function(url, cb, param) {
+        console.log(cb);
         return this.send(fetch(url, {
             'method': 'post',
             'headers': { 'Content-Type': 'application/json' },

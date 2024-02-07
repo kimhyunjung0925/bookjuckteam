@@ -24,10 +24,12 @@ public class CsCenterService {
     private AuthenticationFacade authenticationFacade;
 
     public List<FaqEntity> selFaqList(){
+
         return mapper.selFaqList();
     }
 
     public List<NoticeEntity> selNotice(){
+
         return mapper.selNotice();
     }
 

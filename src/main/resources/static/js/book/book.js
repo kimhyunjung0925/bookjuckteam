@@ -35,6 +35,48 @@ function changeQuantity(change) {
 // 초기 총 가격 설정
 updateTotalPrice(parseInt(orderQtyInput.value));
 
+
+function addCart() {
+
+    let orderQty = parseInt(orderQtyInput.value) || 0;
+    let orderItemId = document.querySelector('#itemId');
+
+    const param = {
+        itemId : orderItemId.value,
+        itemQty : orderQty.valueOf()
+    };
+
+
+    myFetch.post(`/addCart`, data => {
+        console.log(data);
+        // clickData(data.result);
+        resend();
+    },param)
+
+}
+
+
+// function clickData(data){
+//
+//     let suckey = document.querySelector('#sucKey'); //이메일 인증 실패,성공 알림 innertext
+//     btnElem = document.querySelector('.btnElem');
+//     btnElem.addEventListener('click', () => {
+//         keyElem = document.querySelector('#keyElem');
+//         if(Number(keyElem.value) === data){
+//             suckey.innerHTML="이메일 인증 성공하였어요.";
+//         } else {
+//             console.log(keyElem.value === data)
+//             suckey.innerHTML="이메일 인증 실패하였어요. 다시 입력해주세요.";
+//         }
+//     })
+// }
+
+
+
+
+
+
+
 // var orderQtyInput = document.querySelector('#orderQty');
 //
 // var orderPriceInput = document.querySelector('#orderPrice');
