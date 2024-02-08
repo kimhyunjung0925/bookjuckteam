@@ -1,7 +1,13 @@
 const myFetch = {
     send: function(fetchObj, cb) {
         return fetchObj
-            .then(res => res.json())
+            // .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`Server responded with status ${res.status}`);
+                }
+                return res.json();
+            })
             .then(cb)
             .catch(e => { console.log(e) });
     },

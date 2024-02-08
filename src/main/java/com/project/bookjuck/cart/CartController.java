@@ -1,25 +1,22 @@
 package com.project.bookjuck.cart;
 
 import com.project.bookjuck.Const;
-import com.project.bookjuck.book.model.BookDto;
 import com.project.bookjuck.cart.model.CartDto;
 import com.project.bookjuck.cart.model.CartInfo.CartEntity;
-import com.project.bookjuck.cscenter.model.NoticeEntity;
-import com.project.bookjuck.user.model.UserDto;
-import com.project.bookjuck.user.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import com.project.bookjuck.AuthenticationFacade;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
-import java.lang.reflect.Member;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/cart")
@@ -57,18 +54,116 @@ public class CartController {
         return "cart/cart";
     }
 
+//    public class ResponseDto {
+//        private boolean success;
+//        private String message;
+//
+//        public ResponseDto() {}
+//
+//        public ResponseDto(boolean success, String message) {
+//            this.success = success;
+//            this.message = message;
+//        }
+//
+//        public boolean isSuccess() {
+//            return success;
+//        }
+//
+//        public void setSuccess(boolean success) {
+//            this.success = success;
+//        }
+//
+//        public String getMessage() {
+//            return message;
+//        }
+//
+//        public void setMessage(String message) {
+//            this.message = message;
+//        }
+//    }
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
+
+//    @PostMapping("/addCart")
+//    @ResponseBody
+//    public String addCart(@RequestBody CartDto dto, RedirectAttributes rtta){
+////        logger.info("Request to add cart received: {}", dto);
+//
+//        int iuser = auth.getLoginUserPk();
+//
+//        if(iuser == 0) {
+//
+//            rtta.addFlashAttribute(Const.MSG, "로그인 필요.");
+//
+//            return "redirect:/user/login";
+//
+//        }
+//
+//        boolean result = service.addCart(dto.getItemId(), dto.getItemQty(), iuser);
+//
+//        if (result == true) {
+//            return "redirect:/cart";
+//        } else {
+//            return "redirect:/main";
+//        }
+//    }
+
     @PostMapping("/addCart")
-    public String addCart(Integer itemId, Integer itemQty, RedirectAttributes rtta) {
+    @ResponseBody
+    public ResponseEntity<?> addCart(@RequestBody CartEntity entity, Model model){
         int iuser = auth.getLoginUserPk();
-        if (iuser == 0) {
-            rtta.addFlashAttribute(Const.MSG, "로그인이 필요합니다.");
-            return "redirect:/user/login";
+
+        if(iuser == 0) {
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED) // 401 상태 코드 설정
+                    .body(Collections.singletonMap("redirectUrl", "/user/login"));
         }
 
-        Boolean result = service.addCart(itemId, itemQty, iuser);
+        boolean result = service.addCart(entity.getItemId(), entity.getItemQty(), iuser);
 
-        return "cart/cart";
+        if (result) {
+            return ResponseEntity
+                    .ok(Collections.singletonMap("redirectUrl", "/cart/cart"));
+        } else {
+            return ResponseEntity
+                    .ok(Collections.singletonMap("redirectUrl", "/main"));
+        }
     }
+
+//    @PostMapping("/cart/addCart")
+//    @ResponseBody
+//    public ResponseDto addCart(@RequestBody CartDto dto, Authentication auth) {
+//        int iuser = auth.getLoginUserPk(); // 예제 코드에서 사용자 인증 정보를 가져오는 방식은 애플리케이션에 따라 다를 수 있습니다.
+//        boolean temp = service.addCart(dto.getItemId(), dto.getItemQty(), iuser);
+//
+//        if (temp) {
+//            return new ResponseDto(true, "카트 담기 성공");
+//        } else {
+//            return new ResponseDto(false, "카트 담기 실패");
+//        }
+//    }
+//    @PostMapping("/cart/addCart")
+//    @ResponseBody
+//    public boolean addCart(@RequestBody CartDto dto){
+//        int iuser = auth.getLoginUserPk();
+//        Boolean temp = service.addCart(dto.getItemId(), dto.getItemQty(), iuser);
+//
+////        result.put("result",temp);
+//        return temp;
+//    }
+
+//  public String addCart(Integer itemId, Integer itemQty, RedirectAttributes rtta) {
+//        int iuser = auth.getLoginUserPk();
+//        if (iuser == 0) {
+//            rtta.addFlashAttribute(Const.MSG, "로그인이 필요합니다.");
+//            return "redirect:/user/login";
+//        }
+//
+//        Boolean result = service.addCart(itemId, itemQty, iuser);
+//
+//        return "cart/cart";
+//    }
+
+
 //    // 장바구니 담기 - 이미 담긴 상품일 경우 개수를 증가시킨다.
 //    @PostMapping("/cart/add")
 //    public String add(Integer pno, Integer count, Principal principal) {

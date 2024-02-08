@@ -4,6 +4,8 @@ import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.book.model.BookDto;
 import com.project.bookjuck.cart.model.CartDto;
 import com.project.bookjuck.cart.model.CartInfo.CartEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,18 +38,23 @@ public class CartService {
     }
 
     // 장바구니 상품 추가
-    public Boolean addCart(Integer itemId, Integer itemQty, int iuser) {
-//    public Boolean add(Integer pno, Integer count, String loginId) {
-//        CartItem cartItem = cartDao.findByUsernameAndPno(loginId, pno);
-//        if (cartItem != null) {
-//            Product product = productDao.findById(pno);
-//            if ((cartItem.getCount() + count) > product.getStock())
-//                return false;
-//            cartDao.increase(new CartItem(loginId, pno, count));
-//        } else {
-//            cartDao.save(new CartItem(loginId, pno, count));
+//    public Boolean addCart(Integer itemId, Integer itemQty, int iuser) {
+//
+//        if (itemId != null) {
+//            List<CartDto> CartDtoList = mapper.insItemCart(itemId,itemQty,iuser);
 //        }
-        return true;
+//        return true;
+//    }
+
+    public boolean addCart(Integer itemId, Integer itemQty, int iuser) {
+
+        try {
+            mapper.insItemCart(itemId, iuser, itemQty );
+            return true; // 성공적으로 처리되었을 경우
+        } catch (Exception e) {
+            System.out.println(e);
+            return false; // 처리 중 예외 발생 시
+        }
     }
 
     // 장바구니 읽기

@@ -9,13 +9,10 @@ import java.util.List;
 @Mapper
 public interface CartMapper {
 
-//    List<CartDto> sel(CartDto dto);
-
-    // 장바구니에 저장
-//    void save(CartDto itemId);
-
     // 해당 사용자의 장바구니 찾기
     List<CartEntity> selItemCart(int iuser);
+    //장바구니 추가
+    void insItemCart(int itemId, int iuser, int itemQty);
 
     // 장바구니 내의 상품 찾기
 //    CartDto findByUsernameAndPno(Integer iuser, Integer itemId);

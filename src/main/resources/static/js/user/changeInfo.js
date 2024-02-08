@@ -113,9 +113,6 @@
 
         }
 
-
-
-
         function resend(){
             console.log('aa')
             resendKey.addEventListener('click', () => {

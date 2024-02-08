@@ -22,4 +22,7 @@ public class Const {
     public static final String ERR_3 = "비밀번호를 확인해 주세요.";
     public static final String ERR_4 = "회원가입에 실패하였습니다.";
     public static final String ERR_5 = "문의를 보내는데 실패하였습니다. 다시 시도해주세요.";
+
+    public static final String ERR_6 = "로그인 후 장바구니 기능을 이용해 주세요.";
+
 }

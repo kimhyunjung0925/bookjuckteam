@@ -35,41 +35,61 @@ function changeQuantity(change) {
 // 초기 총 가격 설정
 updateTotalPrice(parseInt(orderQtyInput.value));
 
+document.querySelector("#addCartBtn").addEventListener("click", function() {
 
-function addCart() {
+    let orderQty = parseInt(document.querySelector("#orderQty").value) || 0;
+    let orderItemId = document.querySelector('#itemId').value;
 
-    let orderQty = parseInt(orderQtyInput.value) || 0;
-    let orderItemId = document.querySelector('#itemId');
-
-    const param = {
-        itemId : orderItemId.value,
-        itemQty : orderQty.valueOf()
+    const data = {
+        itemId: orderItemId,
+        itemQty: orderQty
     };
 
+    // fetch("/cart/addCart", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify(data)
+    // })
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+    //         return response.json();
+    //
+    //     })
+    //     .then(result => {
+    //         if(result.success) {
+    //             alert("카트 담기 성공");
+    //         } else {
+    //             alert("카트 담기 실패: " + result.message);
+    //         }
+    //
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //
+    //         alert("카트 담기 실패");
+    //     });
+    fetch("/cart/addCart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if(data.redirectUrl) {
+                window.location.href = data.redirectUrl; // 페이지 리디렉션
+            }
+        })
+        .catch(error => console.error('Error:', error));
 
-    myFetch.post(`/addCart`, data => {
-        console.log(data);
-        // clickData(data.result);
-        resend();
-    },param)
-
-}
-
-
-// function clickData(data){
-//
-//     let suckey = document.querySelector('#sucKey'); //이메일 인증 실패,성공 알림 innertext
-//     btnElem = document.querySelector('.btnElem');
-//     btnElem.addEventListener('click', () => {
-//         keyElem = document.querySelector('#keyElem');
-//         if(Number(keyElem.value) === data){
-//             suckey.innerHTML="이메일 인증 성공하였어요.";
-//         } else {
-//             console.log(keyElem.value === data)
-//             suckey.innerHTML="이메일 인증 실패하였어요. 다시 입력해주세요.";
-//         }
-//     })
-// }
+});
 
 
 
