@@ -4,7 +4,7 @@
 
 <!--    회원 별 장바구니 내역 가져오는 리스트 -->
     <select id="selItemCart" resultType="com.project.bookjuck.cart.model.CartInfo.CartEntity">
-        SELECT A.itemId, A.iuser, A.itemQty, B.title, B.priceStandard
+        SELECT A.itemId, A.iuser, A.itemQty, B.title, B.priceStandard, B.cover
         FROM t_cart AS A
              LEFT JOIN t_book_api AS B ON A.itemId = B.itemId
         WHERE iuser = ${iuser}

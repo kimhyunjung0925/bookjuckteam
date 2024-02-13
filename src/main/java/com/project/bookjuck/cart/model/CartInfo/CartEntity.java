@@ -15,6 +15,8 @@ public class CartEntity {
 
     private String title;
     private int priceStandard;
+    private String cover;
+
     public String getFormattedPrice() {
         return String.format("%,d", priceStandard);
     }

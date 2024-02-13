@@ -1,14 +1,32 @@
 package com.project.bookjuck.cart;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.project.bookjuck.AuthenticationFacade;
+import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.BookDto;
+import com.project.bookjuck.book.model.bookinfo.Authors;
+import com.project.bookjuck.book.model.bookinfo.BookEntity;
 import com.project.bookjuck.cart.model.CartDto;
 import com.project.bookjuck.cart.model.CartInfo.CartEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -22,18 +40,6 @@ public class CartService {
     public List<CartEntity> selItemCart(int iuser) {
         List<CartEntity> CartEntityList = mapper.selItemCart(iuser);
 
-//        for (CartEntity list:CartEntityList) {
-//
-//            String title = list.getTitle();
-//            Integer priceStandard = list.getPriceStandard();
-//            Integer itemQty = list.getItemQty();
-//
-//            list.setTitle(title);
-//            list.setPriceStandard(priceStandard);
-//            list.setItemQty(itemQty);
-//        }
-////        return mapper.selItemCart(iuser);
-//        return  CartEntityList;
         return mapper.selItemCart(iuser);
     }
 
