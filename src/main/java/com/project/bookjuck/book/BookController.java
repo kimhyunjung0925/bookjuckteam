@@ -1,5 +1,6 @@
 package com.project.bookjuck.book;
 
+import com.project.bookjuck.AuthenticationFacade;
 import com.project.bookjuck.Const;
 import com.project.bookjuck.book.model.ApiSearchDto;
 import com.project.bookjuck.book.model.BookDto;
@@ -16,14 +17,18 @@ import java.util.List;
 @Controller
 @RequestMapping("/book")
 public class BookController {
+    @Autowired
+    private AuthenticationFacade auth;
 
     @Autowired
     private BookService service;
 
     @GetMapping("/detail")
     public String detail(ApiSearchDto searchDto, Model model) {
+        int iuser = auth.getLoginUserPk();
         BookEntity book = service.bookDetail(searchDto);
         model.addAttribute("list",book);
+        model.addAttribute("iuser", iuser);
         return "book/detail";
     }
 

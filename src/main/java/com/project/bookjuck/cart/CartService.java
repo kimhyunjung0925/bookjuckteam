@@ -37,19 +37,27 @@ public class CartService {
         return mapper.selItemCart(iuser);
     }
 
-    // 장바구니 상품 추가
-//    public Boolean addCart(Integer itemId, Integer itemQty, int iuser) {
-//
-//        if (itemId != null) {
-//            List<CartDto> CartDtoList = mapper.insItemCart(itemId,itemQty,iuser);
-//        }
-//        return true;
-//    }
+    // 장바구니 추가시 해당아이템이 해당 유저에게 있는지 확인
+    public int findItemCart(Integer itemId, int iuser) {
+        int result = mapper.findItemCart(itemId, iuser);
+        return result;
+    }
 
+    // 장바구니 상품 새로 추가
     public boolean addCart(Integer itemId, Integer itemQty, int iuser) {
-
         try {
             mapper.insItemCart(itemId, iuser, itemQty );
+            return true; // 성공적으로 처리되었을 경우
+        } catch (Exception e) {
+            System.out.println(e);
+            return false; // 처리 중 예외 발생 시
+        }
+    }
+
+    // 장바구니 상품 수량 추가
+    public boolean updCart(Integer itemId, Integer itemQty, int iuser) {
+        try {
+            mapper.updItemCart(itemId, iuser, itemQty );
             return true; // 성공적으로 처리되었을 경우
         } catch (Exception e) {
             System.out.println(e);

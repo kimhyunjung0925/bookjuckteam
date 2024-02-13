@@ -9,13 +9,15 @@ import java.util.List;
 @Mapper
 public interface CartMapper {
 
-    // 해당 사용자의 장바구니 찾기
+    // 해당 사용자의 장바구니 내역
     List<CartEntity> selItemCart(int iuser);
-    //장바구니 추가
+    // 장바구니 추가시 장바구니 내의 해당유저의 해당 아이템 존재유무
+    int findItemCart(int itemId, int iuser);
+    //장바구니 새로 추가
     void insItemCart(int itemId, int iuser, int itemQty);
+    //장바구니 수량 추가
+    void updItemCart(int itemId, int iuser, int itemQty);
 
-    // 장바구니 내의 상품 찾기
-//    CartDto findByUsernameAndPno(Integer iuser, Integer itemId);
 //
 //    // 장바구니 상품 개수 증가
 //    void increase(CartDto itemId);

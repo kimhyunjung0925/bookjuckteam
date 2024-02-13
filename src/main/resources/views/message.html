@@ -7,12 +7,25 @@
   </head>
 
   <body>
-  <script th:inline="javascript">
-      var message = "${msg}";
-      var url = "${url}";
-      alert(message);
-      document.location.href = url;
-    </script>
+<!--  메시지 박스-->
+<!--    <div class="dialog_wrap ui-dialog-content ui-widget-content initialized" data-class="dialog_alert" id="ui-id-44" style="width: auto; min-height: 0px; max-height: none; height: auto;">-->
+
+        <window.prompt>
+            <div class="dialog_contents">
+                <p class="alert_text">상품이 장바구니에 담겼습니다.</p>
+                <p class="alert_text_sm">장바구니로 이동하시겠습니까?</p>
+            </div>
+            <!--      확인 취소 박스-->
+            <div class="dialog_footer" >
+                <button class="btn_md btn_light_gray">
+                    <span class="text">취소</span>
+                </button>
+                <button class="btn_md btn_primary" onclick="location.href=`/cart/cart`">
+                    <span class="text" >확인</span>
+                </button>
+            </div>
+        </window.prompt>
+<!--    </div>-->
   </body>
 
 </html>

@@ -1,5 +1,6 @@
 package com.project.bookjuck.cart.model.CartInfo;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,5 +22,7 @@ public class CartEntity {
     public String getFormattedTotalPrice() {
         return String.format("%,d", priceStandard * itemQty);
     }
+
+    public boolean booleanState;
 
 }
