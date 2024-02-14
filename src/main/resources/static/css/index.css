@@ -115,6 +115,8 @@ footer { background-color: lightslategray; display: flex; justify-content: cente
 
 .center { justify-content: center; align-items: center;}
 
+.justify_items_start { justify-items: start;}
+.justify_items_end { justify-items: end;}
 .justify_items_center { justify-items: center;}
 .justify_content_center { justify-content: center; }
 .justify_flex_start { justify-content: flex-start; }

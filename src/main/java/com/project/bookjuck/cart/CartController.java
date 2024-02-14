@@ -84,6 +84,21 @@ public class CartController {
     }
 
 
+    //장바구니 수량변경
+    @PostMapping("/updCart")
+    @ResponseBody
+    public  ResponseEntity<?> updCart(@RequestBody CartEntity entity, Model model) throws Exception {
+        //현재 로그인한 사람 정보 저장
+        int iuser = auth.getLoginUserPk();
+
+        boolean result = service.updCart(entity.getItemId(), entity.getItemQty(), iuser);
+        if (result) {
+            return ResponseEntity.ok(Collections.singletonMap("redirectUrl", "/cart/cart"));
+        }
+        // 실패 시 메시지 전달
+        return ResponseEntity.badRequest().body(Collections.singletonMap("message", "Failed to add to cart"));
+
+    }
 
 }
 

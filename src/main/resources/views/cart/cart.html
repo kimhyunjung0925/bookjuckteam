@@ -15,12 +15,11 @@
             <div class="flex">
                 <div class="w-80">
                     <div class="m-t-10 m-b-10 ">
-                        <div class="flex justify_content_center"> <h1>장바구니</h1> </div>
+                        <div class="flex m-b-10"> <h1>장바구니</h1> </div>
                         <div class="flex align_items_center">
-                            <input type="checkbox" style="width: 25px; height: 25px;" >
+                            <input type="checkbox" style="width: 25px; height: 25px;"  id="checkAll" checked>
                             <div style="height: 25px; margin-left: 10px;">전체선택</div>
                             <img th:src="@{/upload/images/delete.png}" style="width :25px; height:25px; margin-left: 10px;">
-        <!--                    <input type="button" value="삭제">-->
                         </div>
                     </div>
 
@@ -32,7 +31,6 @@
                                 <col width="15%">
                                 <col width="15%">
                                 <col width="15%">
-        <!--                        <col width="5%">-->
                             </colgroup>
 
                             <tr style="text-align: center">
@@ -41,11 +39,19 @@
                                 <th> 판매가 </th>
                                 <th> 수량 </th>
                                 <th>합계 </th>
-        <!--                        <th>삭제</th>-->
                             </tr>
 
                             <tr th:each="list : ${list}">
-                                <td><div class="flex center"><input type="checkbox" style="width: 20px; height: 20px;"></div></td>
+                                <td>
+                                    <div class="flex center">
+                                        <input type="checkbox" style="width: 20px; height: 20px;" class="itemCheck"
+                                               th:attr="data-qty=${list.getItemQty()}, data-price=${list.getPriceStandard()}">
+<!--                                        <input type="hidden" th:value="${list.getTotalPrice()}" id = "itemTotalPrice">-->
+<!--                                        <input type="hidden" th:value="${list.getFormattedPrice()}" id = "itemPrice">-->
+<!--                                        <input type="hidden" th:value="${list.getItemQty()}" id = "itemQty">-->
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="flex justify_flex_start align_items_center">
 
@@ -53,17 +59,33 @@
                                         <div th:text="${list.getTitle()}"></div>
                                     </div>
                                 </td>
+
                                 <td th:text="${list.getFormattedPrice()+'원'}"></td>
                                 <td>
                                     <div  class="flex center">
                                         <div class="center">
-                                            <input onclick="changeQuantity(-1)" id="cartMinus" style="font-weight: bold;" type="button" value="-" class="center cart_PM_btn cart_minus_btn" >
-                                        </div>
+<!--                                            <input onclick="changeQuantity(-1)" id="cartMinus" style="font-weight: bold;" type="button"-->
+<!--                                                   value="-" class="center cart_PM_btn cart_minus_btn" >-->
+                                            <input onclick="changeQuantity(this, -1)" class="cart_PM_btn cart_minus_btn" type="button" value="-"
+                                                   th:attr="data-item-id=${list.getItemId()}, data-qty=${list.getItemQty()}">
+                                            </div>
 
-                                        <input id ="orderQty" type="text" class="text_width cart_qty_input" th:value="${list.getItemQty()}" >
+
+                                        <input id ="orderQty" type="text" class="orderQty text_width cart_qty_input"
+                                               th:value="${list.getItemQty()}"
+                                               th:attr="data-item-id=${list.getItemId()}, data-ori-qty=${list.getItemQty()}" >
+                                        <input type = "hidden" id="itemId" th:value="${list.getItemId()}" >
+                                        <input type = "hidden" id="oriQty" th:value="${list.getItemQty()}" >
+<!--                                        <input type="text" class="orderQty" value="${list.getItemQty()}" data-item-id="${list.getItemId()}" data-ori-qty="${list.getItemQty()}">-->
+
+
+
 
                                         <div class="center">
-                                            <input onclick="changeQuantity(+1)"  id="cartPlus" style="font-weight: bold;" type="button" value="+" class="cart_PM_btn cart_plus_btn" >
+<!--                                            <input onclick="changeQuantity(+1)"  id="cartPlus" style="font-weight: bold;" type="button" value="+" class="cart_PM_btn cart_plus_btn" >-->
+                                            <input onclick="changeQuantity(this, 1)" class="cart_PM_btn cart_plus_btn" type="button" value="+"
+                                                   th:attr="data-item-id=${list.getItemId()}, data-qty=${list.getItemQty()}" >
+
                                         </div>
                                     </div>
                                 </td>
@@ -74,36 +96,32 @@
                     </div>
                 </div>
 
-        <!--   결제정보      -->
-                <div class="grid cart_order_box w-20">
-
-    <!--                <div class="flex align_items_center m-r-50">-->
-                        <div style="font-size: large; ">총 상품금액 : &nbsp;</div>
-                        <div>
-                            <span style="font-weight: bold;" class="color_red"  th:text="12520원"></span>
+        <!--   우측 결제정보      -->
+                <div class="cart_order_box w-20">
+                        <div class = "flex " style="align-items: center;">
+                            <div class = "w-30 " style="font-size: medium;">상품금액  &nbsp;</div>
+                            <div class = "w-70 " style="font-weight: bold; font-size: large; text-align: right;" id="totalPrice"></div>
                         </div>
-                        <div style="font-size: large;">배송비 : &nbsp;</div>
-                        <div>
-                            <span style="font-weight: bold;" class="color_red"  th:text="3000원"></span>
+                        <div class = "flex " style="align-items: center;" >
+                            <div class = "w-30 " style="font-size: medium;">배송비  &nbsp;</div>
+                            <div class = "w-70 " style="font-weight: bold; font-size: large; text-align: right;" id="deliveryFee"></div>
                         </div>
-    <!--                </div>-->
-
-    <!--                <div class="flex align_items_center m-l-30">-->
-                        <div style="font-size: large;">결제 예정 금액 : &nbsp;</div>
-                        <div>
-                            <span style="font-weight: bold;" class="color_red"  th:text="17500000020원"></span>
+                        <div class="grid h-100" style="align-items: center;">
+                            <div style="font-size: medium;">결제 예정 금액  &nbsp;</div>
+                            <div style="font-weight: bold; font-size: x-large; text-align: right;" class="color_red" id="payPrice"></div>
                         </div>
-                        <div>
-                            <input type="button" value="주문하기(5)" class="cart_order_btn">
+                        <div class="flex h-100">
+                            <input type="button" value="주문하기(5)" class="cart_order_btn" id="totalQty">
                         </div>
-    <!--                </div>-->
 
                 </div>
             </div>
         </div>
     </div>
+    <!-- jQuery 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- cart.js 스크립트 파일 -->
     <script src="/js/cart/cart.js"></script>
-
 </th:block>
 
 

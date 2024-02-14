@@ -22,9 +22,9 @@ function showConfirm() {
 function clickCartBtn() {
     let orderQty = parseInt(document.querySelector("#orderQty").value) || 0;
     let orderItemId = document.querySelector('#itemId').value;
-    let itemCover = document.querySelector('#itemCover').value;
+    // let itemCover = document.querySelector('#itemCover').value;
 
-    console.log(itemCover.value);
+    // console.log(itemCover.value);
 
     const data = {
         itemId: orderItemId,

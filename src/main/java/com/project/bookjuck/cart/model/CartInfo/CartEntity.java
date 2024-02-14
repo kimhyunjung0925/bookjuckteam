@@ -21,10 +21,13 @@ public class CartEntity {
         return String.format("%,d", priceStandard);
     }
 
+    public int getTotalPrice() {
+        return priceStandard * itemQty;
+    }
     public String getFormattedTotalPrice() {
         return String.format("%,d", priceStandard * itemQty);
     }
 
-    public boolean booleanState;
+//    public boolean booleanState;
 
 }
