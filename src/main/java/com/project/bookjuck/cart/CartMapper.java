@@ -3,6 +3,7 @@ package com.project.bookjuck.cart;
 import com.project.bookjuck.cart.model.CartDto;
 import com.project.bookjuck.cart.model.CartInfo.CartEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,6 +18,9 @@ public interface CartMapper {
     void insItemCart(int itemId, int iuser, int itemQty);
     //장바구니 수량 추가
     void updItemCart(int itemId, int iuser, int itemQty);
+
+    //장바구니 삭제
+    int delItemCart(@Param("itemIds") List<Integer> itemIds, @Param("iuser") int iuser);
 
 //
 //    // 장바구니 상품 개수 증가

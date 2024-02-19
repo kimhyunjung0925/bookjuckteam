@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -12,7 +14,7 @@ public class CartEntity {
     private int itemId;
     private int iuser;
     private int itemQty;
-
+    private String isbn;
     private String title;
     private int priceStandard;
     private String cover;
@@ -29,5 +31,6 @@ public class CartEntity {
     }
 
 //    public boolean booleanState;
+
 
 }

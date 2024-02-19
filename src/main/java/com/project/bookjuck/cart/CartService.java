@@ -26,6 +26,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -70,6 +71,37 @@ public class CartService {
             return false; // 처리 중 예외 발생 시
         }
     }
+
+    // 장바구니 상품 삭제
+//    public List<Integer> delCart(List<Integer> itemIds, int iuser) {
+//        List<Integer> deletedItemIds = new ArrayList<>();
+//
+//        for (Integer itemId : itemIds) {
+//            int deleteCount = mapper.delItemCart(itemId, iuser);
+//            if (deleteCount > 0) {
+//                deletedItemIds.add(itemId);
+//            }
+//        }
+//
+//        return deletedItemIds;
+//    }
+    public List<Integer> delCart(List<Integer> itemIds, int iuser) {
+        // MyBatis 매퍼 메소드 호출
+        int deleteCount = mapper.delItemCart(itemIds, iuser);
+
+        // 삭제된 아이템이 없다면, 빈 리스트 반환
+        if (deleteCount == 0) {
+            return new ArrayList<>();
+        }
+
+        return itemIds;
+    }
+//
+//        List<CartEntity> CartEntityList = mapper.delItemCart(itemId, iuser);
+//
+//        return mapper.delItemCart(itemId, iuser);
+
+
 
     // 장바구니 읽기
 //    public List<CartDto> read(String loginId) {

@@ -4,7 +4,7 @@
 
 <!--    회원 별 장바구니 내역 가져오는 리스트 -->
     <select id="selItemCart" resultType="com.project.bookjuck.cart.model.CartInfo.CartEntity">
-        SELECT A.itemId, A.iuser, A.itemQty, B.title, B.priceStandard, B.cover
+        SELECT A.itemId, A.iuser, A.itemQty, B.title, B.priceStandard, B.cover,B.isbn
         FROM t_cart AS A
              LEFT JOIN t_book_api AS B ON A.itemId = B.itemId
         WHERE iuser = ${iuser}
@@ -32,16 +32,22 @@
         WHERE itemId = #{itemId} AND iuser = ${iuser}
     </update>
 
-<!--     장바구니 내역에서 삭제 쿼리 -->
-    <delete id="delItemCart">
-        delete FROM t_cart
-        WHERE itemId = #{itemId} AND iuser = ${iuser}
-    </delete>
-
-<!--     장바구니 내역에서 수량변경 쿼리 -->
+    <!--     장바구니 내역에서 수량변경 쿼리 -->
     <update id="updCartQty" >
         UPDATE t_cart
         SET itemQty = #{itemQty}
         WHERE itemId = #{itemId} AND iuser = ${iuser}
     </update>
+
+
+    <delete id="delItemCart"  parameterType="map">
+        DELETE FROM t_cart
+        WHERE iuser = #{iuser}
+        AND itemId IN
+        <foreach item="itemId" collection="itemIds" open="(" separator="," close=")">
+            #{itemId}
+        </foreach>
+    </delete>
+
+
 </mapper>

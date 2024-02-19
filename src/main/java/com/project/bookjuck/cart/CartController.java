@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.project.bookjuck.AuthenticationFacade;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -93,6 +94,24 @@ public class CartController {
 
         boolean result = service.updCart(entity.getItemId(), entity.getItemQty(), iuser);
         if (result) {
+            return ResponseEntity.ok(Collections.singletonMap("redirectUrl", "/cart/cart"));
+        }
+        // 실패 시 메시지 전달
+        return ResponseEntity.badRequest().body(Collections.singletonMap("message", "Failed to add to cart"));
+
+    }
+
+    //장바구니 삭제
+    @PostMapping("/delCart")
+    @ResponseBody
+    public  ResponseEntity<?> delCart(@RequestBody CartDto dto, Model model) throws Exception {
+        //현재 로그인한 사람 정보 저장
+        int iuser = auth.getLoginUserPk();
+
+        // 서비스 메소드 호출
+        List<Integer> deletedItemIds = service.delCart(dto.getItemIds(), iuser);
+
+        if (!deletedItemIds.isEmpty()) {
             return ResponseEntity.ok(Collections.singletonMap("redirectUrl", "/cart/cart"));
         }
         // 실패 시 메시지 전달

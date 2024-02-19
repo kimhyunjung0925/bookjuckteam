@@ -4,8 +4,10 @@ var itemQty = document.querySelector('#itemQty');
 
 
 var totalPrice = document.querySelector('#totalPrice');
-var totalQty = document.querySelector('#totalQty');
+var deliveryFee = document.querySelector('#deliveryFee');
 var payPrice = document.querySelector('#payPrice');
+var payTotalQty = document.querySelector('#payTotalQty');
+
 
 var orderQtyInput = document.querySelector('#orderQty');
 var oriQty = document.querySelector('#oriQty');
@@ -63,9 +65,10 @@ function toggleCheckboxes(checked) {
 // 체크박스 상태에 따라 합계를 계산하고 결과를 표시하는 함수
 function calculateAndDisplayTotal() {
     let total = 0; // 총액을 저장할 변수
-
+    let chkCnt = 0
     // 체크된 각 'itemCheck' 체크박스에 대해 반복
     itemCheck.forEach(function(checkbox) {
+
 
         if (checkbox.checked) {
             // getAttribute 사용
@@ -73,10 +76,43 @@ function calculateAndDisplayTotal() {
             let price = parseInt(checkbox.getAttribute('data-price'), 10);
 
             total += price * qty;
+            chkCnt += 1;
         }
     });
+    //선택 상품 금액
+    const commaTotal = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    totalPrice.textContent = commaTotal + "원"// 소수점 두 자리까지
 
-    totalPrice.textContent = total // 소수점 두 자리까지
+    if(total === 0) {
+        //배송비
+        deliveryFee.innerHTML = "0원"
+        // 결제 예정 금액
+        payPrice.innerHTML ="0원"
+        // 주문하기 버튼
+    }else if(total > 30000) {
+        //배송비
+        deliveryFee.innerHTML = "무료배송"
+        // 결제 예정 금액
+        payPrice.innerHTML = commaTotal + "원"
+        // 주문하기 버튼
+
+    } else{
+        //배송비
+        deliveryFee.innerHTML = "+2,500원"
+        // 결제 예정 금액
+        const TotalPay = total + 2500
+        const commaPay = TotalPay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        payPrice.innerHTML = commaPay + "원"
+    }
+
+    //주문하기 옆 ()
+    if(chkCnt === 0) {
+        payTotalQty.value = "주문하기(0)"
+    } else {
+        payTotalQty.value = "주문하기" + "(" + chkCnt + ")"
+
+    }
+
 }
 
 //+,-버튼 눌렀을 때
@@ -158,6 +194,55 @@ function changeItem(itemId, oriQty, newQuantity) {
 }
 
 
+//삭제처리 함수
+document.getElementById('deleteIcon').addEventListener('click', function() {
+    // 선택된 모든 체크박스를 찾습니다.
+    const selectedCheckboxes = document.querySelectorAll('.itemCheck:checked');
+
+    // 선택된 항목의 itemId를 배열에 수집합니다.
+    const selectedItemIds = Array.from(selectedCheckboxes).map(checkbox => checkbox.dataset.itemId);
+
+    console.log(selectedItemIds.values());
+
+    if (selectedItemIds.length > 0) {
+        // 서버에 삭제 요청을 보냅니다.
+        console.log({ itemIds: selectedItemIds });
+        $.ajax({
+            url: '/cart/delCart', // 실제 요청을 처리할 서버의 URL로 변경해야 합니다.
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ itemIds: selectedItemIds }),
+            dataType: 'json',
+            success: function(data) {
+                console.log(data); // 성공 응답 처리
+                // 성공적으로 삭제된 후 페이지를 새로고침하거나, UI를 업데이트합니다.
+                location.reload(); // 예시로 페이지 새로고침
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+
+    } else {
+        alert('삭제할 항목을 선택해주세요.');
+    }
+});
+
+//삭제 함수 fetch
+// fetch('/cart/delCart', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ itemIds: selectedItemIds }),
+// })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data); // 성공 응답 처리
+//         // 성공적으로 삭제된 후 페이지를 새로고침하거나, UI를 업데이트합니다.
+//         location.reload(); // 예시로 페이지 새로고침
+//     })
+//     .catch(error => console.error('Error:', error));
 //수량변경시 함수 fetch
 // function changeItem() {
 //     let orderItemId = document.querySelector('#itemId').value;

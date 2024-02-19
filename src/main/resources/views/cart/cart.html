@@ -19,7 +19,7 @@
                         <div class="flex align_items_center">
                             <input type="checkbox" style="width: 25px; height: 25px;"  id="checkAll" checked>
                             <div style="height: 25px; margin-left: 10px;">전체선택</div>
-                            <img th:src="@{/upload/images/delete.png}" style="width :25px; height:25px; margin-left: 10px;">
+                            <img id = "deleteIcon" th:src="@{/upload/images/delete.png}" style="width :25px; height:25px; margin-left: 10px;">
                         </div>
                     </div>
 
@@ -45,18 +45,18 @@
                                 <td>
                                     <div class="flex center">
                                         <input type="checkbox" style="width: 20px; height: 20px;" class="itemCheck"
-                                               th:attr="data-qty=${list.getItemQty()}, data-price=${list.getPriceStandard()}">
-<!--                                        <input type="hidden" th:value="${list.getTotalPrice()}" id = "itemTotalPrice">-->
-<!--                                        <input type="hidden" th:value="${list.getFormattedPrice()}" id = "itemPrice">-->
-<!--                                        <input type="hidden" th:value="${list.getItemQty()}" id = "itemQty">-->
+                                               th:attr="data-item-id=${list.getItemId()}, data-qty=${list.getItemQty()}, data-price=${list.getPriceStandard()}">
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="flex justify_flex_start align_items_center">
 
-                                        <div><img th:src="${list.getCover()}"  class="book_img_0810" ></div>
-                                        <div th:text="${list.getTitle()}"></div>
+                                        <div>
+                                            <a th:href="@{/book/detail(isbn=${list.isbn})}">
+                                            <img th:src="${list.getCover()}"  class="book_img_0810" ></a>
+                                        </div>
+                                        <a th:href="@{/book/detail(isbn=${list.isbn})}"><div th:text="${list.getTitle()}"></div></a>
                                     </div>
                                 </td>
 
@@ -111,7 +111,7 @@
                             <div style="font-weight: bold; font-size: x-large; text-align: right;" class="color_red" id="payPrice"></div>
                         </div>
                         <div class="flex h-100">
-                            <input type="button" value="주문하기(5)" class="cart_order_btn" id="totalQty">
+                            <input type="button"  class="cart_order_btn" id="payTotalQty">
                         </div>
 
                 </div>
