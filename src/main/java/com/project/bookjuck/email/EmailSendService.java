@@ -16,7 +16,7 @@ public class EmailSendService {
     private JavaMailSender mailSender;
 
     @Autowired
-            private HttpSession hs;
+    private HttpSession hs;
 
 
     public int sendSimpleEmail(String currentEmail) {

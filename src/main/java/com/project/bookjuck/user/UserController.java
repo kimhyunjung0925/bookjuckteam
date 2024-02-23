@@ -33,11 +33,14 @@ public class UserController {
     //---------------로그인
     @GetMapping("/login")
     public void login(@ModelAttribute("UserEntity") UserEntity entity){
+
     }
 
     //------------회원가입
     @GetMapping("/join")
-    public void join(@ModelAttribute("entity") UserVO vo){}
+    public void join(@ModelAttribute("entity") UserVO vo){
+
+    }
 
     @PostMapping("/join")
     public String joinProc(UserVO vo){

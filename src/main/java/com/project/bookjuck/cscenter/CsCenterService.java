@@ -41,24 +41,51 @@ public class CsCenterService {
     public int inscomplaint(ComplaintEntity entity, MultipartFile file) throws Exception{
         //String projectPath= System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
 
-        String targetPath = uploadFilePath + "/cs";
-        UUID uuid = UUID.randomUUID();
+        // 파일이 존재하는 경우에만 파일 처리 로직 실행
+        if (file != null && !file.isEmpty()) {
+            String targetPath = uploadFilePath + "/cs";
+            UUID uuid = UUID.randomUUID();
 
-        String fileNm = file.getOriginalFilename();
-        String ext = fileNm.substring(fileNm.lastIndexOf("."));
-        String fileName = uuid + ext;
-        File targetFolder = new File(targetPath);
-        if(!targetFolder.exists()) {
-            targetFolder.mkdirs();
+            String fileNm = file.getOriginalFilename();
+            String ext = fileNm.substring(fileNm.lastIndexOf("."));
+            String fileName = uuid + ext;
+
+            File targetFolder = new File(targetPath);
+            if (!targetFolder.exists()) {
+                targetFolder.mkdirs();
+            }
+
+            File saveFile = new File(targetPath, fileName);
+
+            file.transferTo(saveFile);
+
+            entity.setFilename(fileName);
+            entity.setFilepath("/files/" + fileName);
+        } else {
+            // 파일이 없는 경우, 파일명과 파일 경로를 null 또는 빈 문자열로 설정
+            entity.setFilename("");
+            entity.setFilepath("");
+//        }
+//        String targetPath = uploadFilePath + "/cs";
+//        UUID uuid = UUID.randomUUID();
+//
+//        String fileNm = file.getOriginalFilename();
+//
+//        String ext = fileNm.substring(fileNm.lastIndexOf("."));
+//        String fileName = uuid + ext;
+//
+//        File targetFolder = new File(targetPath);
+//        if(!targetFolder.exists()) {
+//            targetFolder.mkdirs();
+//        }
+//
+//        File saveFile = new File(targetPath, fileName);
+//
+//        file.transferTo(saveFile);
+//
+//        entity.setFilename(fileName);
+//        entity.setFilepath("/files/" + fileName);
         }
-
-        File saveFile = new File(targetPath, fileName);
-
-        file.transferTo(saveFile);
-
-        entity.setFilename(fileName);
-        entity.setFilepath("/files/" + fileName);
-
         entity.setIuser(authenticationFacade.getLoginUserPk());
         return mapper.inscomplaint(entity);
     }
