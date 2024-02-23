@@ -41,8 +41,8 @@
 - 회원별 장바구니창 구현
 - 전체삭제, 체크박스 구현
 
-## 프로젝트시연영상
-(https://www.youtube.com/@hyuuunj6454)
+## [프로젝트시연영상] 
+- [보러가기](https://www.youtube.com/@hyuuunj6454)
 
 
 ## 기타
