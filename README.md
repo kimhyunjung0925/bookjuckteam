@@ -8,11 +8,11 @@
 추가개발 및 수정 2024~
 
 ## ⚙ 개발환경
-- IntelliJ 
-- JAVA 8 
-- SpringBoot 
-- bootstrap, thymeleaf, javascript, html5, css 
-- Mysql, Mybatis
+#### ● IntelliJ 
+#### ● JAVA 8 
+#### ● SpringBoot 
+#### ● bootstrap, thymeleaf, javascript, html5, css 
+#### ● Mysql, Mybatis
 
 ## 주요기능 소개
 
