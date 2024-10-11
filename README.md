@@ -21,6 +21,7 @@
 - HttpSession 사용
 - JavaMailSender 사용
 - Fetch API 사용
+- 화면보기클릭 ([https://github.com/kimhyunjung0925/bookjuckteam/wiki/LOGIN,-JOIN])
 
 #### 마이페이지, 회원탈퇴
 - 내문의내역 진행현황
